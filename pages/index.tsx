@@ -13,9 +13,9 @@ export default function Home() {
 
 
 					<form action="" className="site-block-top-search">
-						<FontAwesomeIcon className="icon-search2" icon={icons.faMagnifyingGlass} style={{ color: "#8c92a0", height: "15px", width: "15px" }} />
+						<FontAwesomeIcon className="icon-search2" icon={icons.faMagnifyingGlass} style={{ }} />
 
-						<input type="text" style={{ fontSize: '13px' }} className="form-control border-0" placeholder="Search" />
+						<input type="text" style={{ fontSize: '25px' }} className="form-control border-0" placeholder="Search" />
 
 					</form>
 
