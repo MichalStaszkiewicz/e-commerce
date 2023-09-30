@@ -7,15 +7,15 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 	return (
-		<main className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}>
-			<div style={{ width: "100%", height: '100px', transform: 'translateY(-90%)' }}>
+		<main className={`flex min-h-screen flex-col items-center  ${inter.className}`}>
+			<div style={{ width: "100%", height: '100px' }}>
 				<div className="row-space-between" style={{height: '100px'}}>
 
 
 					<form action="" className="site-block-top-search">
-						<FontAwesomeIcon className="icon-search2" icon={icons.faMagnifyingGlass} style={{ }} />
+						<FontAwesomeIcon className="icon-search2" icon={icons.faMagnifyingGlass}  />
 
-						<input type="text" style={{ fontSize: '25px' }} className="form-control border-0" placeholder="Search" />
+						<input type="text" style={{ fontSize: '20px' }} className="form-control border-0" placeholder="Search" />
 
 					</form>
 
@@ -32,7 +32,7 @@ export default function Home() {
 
 
 				</div>
-				<div className="row-space-between" style={{ height: '100px', borderTop: '1px solid grey' }}>
+				<div className="row-space-between" style={{ height: '100px', borderTop: '0.1px solid #8c92a0',width:"100%",marginTop:"30px" }}>
 				</div>
 
 			</div>
