@@ -8,7 +8,7 @@ import React from 'react';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-	
+
 
 	return (
 		<main className={`flex min-h-screen flex-col items-center  ${inter.className}`}>
@@ -40,7 +40,7 @@ export default function Home() {
 				<div className='nav-header'>
 					<HeaderNavButton label={'HOME'} icon={false} items={[]} />
 					<HeaderNavButton label={'ABOUT'} icon={false} items={[]} />
-					<HeaderNavButton label={'SHOP'} icon={true} items={[new HeaderNavLabel({label:"item 1"})]} />
+					<HeaderNavButton label={'SHOP'} icon={true} items={[new HeaderNavLabel({ label: "item 1", isMenu: true }), new HeaderNavLabel({ label: "item 2", isMenu: false })]} />
 					<HeaderNavButton label={'CATALOGUE'} icon={true} items={[]} />
 					<HeaderNavButton label={'NEW ARRIVALS'} icon={false} items={[]} />
 					<HeaderNavButton label={'CONTACT'} icon={false} items={[]} />

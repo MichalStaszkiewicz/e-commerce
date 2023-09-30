@@ -17,9 +17,9 @@ export function HeaderNavButton({ label, icon, items }: { label: string, icon: b
     return <li className={`header_nav_button ${isMenuOpen ? 'menu-open' : ''}`} onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
         <p>{label}</p>
         {icon && <FontAwesomeIcon icon={icons.faAngleDown} />} {isMenuOpen && (
-            <ul className="shadow header_button_menu animate-opacity" >
-                {items.map((car, index) => (
-                    <HeaderNavLabel label="item" />
+            <ul className="shadow header_button_menu animate-header-button" >
+                {items.map((item, index) => (
+                    <HeaderNavLabel label={item.props.label} isMenu ={item.props.isMenu} />
 
                 ))}
 
