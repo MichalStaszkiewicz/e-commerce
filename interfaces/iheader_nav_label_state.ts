@@ -1,0 +1,3 @@
+interface HeaderNavLabelState {
+    isOpen: boolean;
+}

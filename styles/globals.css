@@ -160,9 +160,42 @@ body {
 	width: 200px;
 	position: absolute;
 	transform: translateY(90%);
+
 	bottom: 0;
+
 	left: 0;
 
+
+}
+
+.header_button_menu_label {
+	background-color: white;
+	border-top: 2px solid blueviolet;
+	text-align: start;
+	align-items: start;
+	justify-content: start;
+	width: 200px;
+	height: auto;
+	position: absolute;
+	transform: translate(95.2%, 22%);
+	z-index: 20;
+
+	bottom: 0;
+
+	left: 0;
+
+
+}
+
+.header_button_menu_label>* {
+	margin-top: 10px;
+	color: black;
+
+}
+
+.header_button_menu_label>:last-child {
+
+	margin-bottom: 10px;
 
 }
 
@@ -181,9 +214,6 @@ body {
 .header_nav_button.menu-open .header_button_menu {
 	display: block;
 
-
-
-
 }
 
 
@@ -191,6 +221,13 @@ body {
 .header-menu-label {
 
 	margin-left: 10px;
+	margin-right: 10px;
+	position: relative;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: auto;
 }
 
 .header-menu-label:hover {
@@ -199,7 +236,7 @@ body {
 	margin-left: 10px;
 }
 
-@keyframes opacity {
+@keyframes header-button-animation {
 	0% {
 		opacity: 0;
 		transform: translateY(130%);
@@ -211,7 +248,25 @@ body {
 	}
 }
 
+@keyframes opacity-animation {
+	0% {
+		opacity: 0;
+
+	}
+
+	100% {
+		opacity: 1;
+
+	}
+}
+
+.animate-header-button {
+
+	animation: header-button-animation 0.2s ease-in-out;
+}
+
 .animate-opacity {
 
-	animation: opacity 0.2s ease-in-out;
+	
+	animation: opacity-animation 0.2s ease-in-out;
 }
