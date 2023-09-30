@@ -1,7 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState } from "react";
-export function HeaderNavButton({ label, icon }: { label: string, icon: boolean }) {
+import { ReactNode, useEffect, useState } from "react";
+import React from "react";
+import { HeaderNavLabel } from "./header_nav_label";
+
+export function HeaderNavButton({ label, icon, items }: { label: string, icon: boolean, items: HeaderNavLabel[] }) {
 
     const [isMenuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => {
@@ -15,9 +18,10 @@ export function HeaderNavButton({ label, icon }: { label: string, icon: boolean 
         <p>{label}</p>
         {icon && <FontAwesomeIcon icon={icons.faAngleDown} />} {isMenuOpen && (
             <ul className="shadow header_button_menu animate-opacity" >
-                <li className="header-menu-label">Element 1</li>
-                <li className="header-menu-label">Element 2</li>
-                <li className="header-menu-label">Element 3</li>
+                {items.map((car, index) => (
+                    <HeaderNavLabel label="item" />
+
+                ))}
 
             </ul>
         )}
@@ -26,3 +30,5 @@ export function HeaderNavButton({ label, icon }: { label: string, icon: boolean 
     </li>
 
 }
+export { HeaderNavLabel };
+

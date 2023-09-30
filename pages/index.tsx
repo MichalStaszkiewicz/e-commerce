@@ -2,11 +2,14 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as icons from '@fortawesome/free-solid-svg-icons';
-import { HeaderNavButton } from './components/header_nav_button';
+import { HeaderNavButton, HeaderNavLabel } from '../components/header_nav_button';
+import React from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+	
+
 	return (
 		<main className={`flex min-h-screen flex-col items-center  ${inter.className}`}>
 			<div style={{ width: "100%", height: '100px' }}>
@@ -35,12 +38,12 @@ export default function Home() {
 				</div>
 
 				<div className='nav-header'>
-					<HeaderNavButton label={'HOME'} icon={false} />
-					<HeaderNavButton label={'ABOUT'} icon={false} />
-					<HeaderNavButton label={'SHOP'} icon={true} />
-					<HeaderNavButton label={'CATALOGUE'} icon={true} />
-					<HeaderNavButton label={'NEW ARRIVALS'} icon={false} />
-					<HeaderNavButton label={'CONTACT'} icon={false} />
+					<HeaderNavButton label={'HOME'} icon={false} items={[]} />
+					<HeaderNavButton label={'ABOUT'} icon={false} items={[]} />
+					<HeaderNavButton label={'SHOP'} icon={true} items={[new HeaderNavLabel({label:"item 1"})]} />
+					<HeaderNavButton label={'CATALOGUE'} icon={true} items={[]} />
+					<HeaderNavButton label={'NEW ARRIVALS'} icon={false} items={[]} />
+					<HeaderNavButton label={'CONTACT'} icon={false} items={[]} />
 
 				</div>
 			</div>

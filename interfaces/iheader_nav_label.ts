@@ -1,0 +1,3 @@
+interface HeaderNavLabelProps {
+    label: string;
+}
