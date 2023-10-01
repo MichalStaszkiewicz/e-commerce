@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as icons from '@fortawesome/free-solid-svg-icons';
 import { HeaderNavButton, HeaderNavLabel } from '../components/header_nav_button';
 import React from 'react';
+import promotedProduct from "../images/shoes.png"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,7 +13,7 @@ export default function Home() {
 
 	return (
 		<main className={`flex min-h-screen flex-col items-center  ${inter.className}`}>
-			<div style={{ width: "100%", height: '100px' }}>
+			<div className='header'>
 				<div className="row-space-between" style={{ height: '200px', borderBottom: '0.1px solid #f7f7f7' }}>
 
 
@@ -47,6 +48,25 @@ export default function Home() {
 
 				</div>
 			</div>
+			<div className='content'>
+				<div className='home-promotion-container'>
+
+					<Image className='home-promotion-image' src={promotedProduct} alt="" />
+					<div className='home-promotion-desc-container'>
+						<div className='home-promotion-desc'>
+
+							<p className='home-promotion-desc-header'> Finding Your Perfect Shoes </p>
+							<p className='home-promotion-desc-about'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
+							<div className='sh'></div>
+						</div>
+
+
+					</div>
+
+				</div>
+
+			</div>
+
 
 		</main >
 	)

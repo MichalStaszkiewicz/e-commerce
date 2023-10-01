@@ -18,7 +18,7 @@ export class HeaderNavLabel extends React.Component<HeaderNavLabelProps, HeaderN
     };
     render() {
 
-        return <div onMouseEnter={this.toggleMenu} onMouseLeave={this.toggleMenu}>
+        return <div className="header_nav_container" onMouseEnter={this.toggleMenu} onMouseLeave={this.toggleMenu}>
 
             {
                 this.props.isMenu
