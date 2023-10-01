@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as icons from '@fortawesome/free-solid-svg-icons';
 import { HeaderNavButton, HeaderNavLabel } from '../components/header_nav_button';
 import React from 'react';
-import promotedProduct from "../images/shoes.png"
+import promotedProduct from "../public/images/shoes.png"
 import { PrimaryButton } from '@/components/primary_button';
 import { Benefit } from '@/components/benefit';
-
+import { Collection } from '@/components/collection';
+import asd from "../public/images/children.jpg"
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -70,6 +71,15 @@ export default function Home() {
 					<Benefit title={'FREE SHIPPING'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.'} />
 					<Benefit title={'FREE RETURNS'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.'} />
 					<Benefit title={'CUSTOMER SUPPORT'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.'} />
+
+				</div>
+				<div className='collections'>
+					<Collection label={'Woman'} image={'/images/women.jpg'} />
+					<Collection label={'Children'} image={'/images/children.jpg'} />
+					<Collection label={'Men'} image={'/images/men.jpg'} />
+
+
+
 
 				</div>
 			</div>
