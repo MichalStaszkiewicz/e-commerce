@@ -174,6 +174,33 @@ body {
 	width: 200px;
 	position: absolute;
 	transform: translateY(90%);
+
+	bottom: 0;
+
+	left: 0;
+
+
+}
+
+.header_nav_container:hover {
+	background-color: rgb(199, 168, 228);
+
+
+
+}
+
+.header_button_menu_label {
+	background-color: white;
+	border-top: 2px solid blueviolet;
+	text-align: start;
+	align-items: start;
+	justify-content: start;
+	width: 200px;
+	height: auto;
+	position: absolute;
+	transform: translate(95.2%, 15%);
+	z-index: 20;
+
 	bottom: 0;
 
 	left: 0;
@@ -263,5 +290,95 @@ body {
 
 .animate-opacity {
 
-	animation: opacity 0.2s ease-in-out;
+
+	animation: opacity-animation 0.2s ease-in-out;
+}
+
+.home-promotion-image {
+	width: auto;
+	margin-left: 150px;
+
+}
+
+.home-promotion-container {
+	background-image: 'images/shoes.png';
+	width: 100%;
+	height: 700px;
+	justify-content: space-evenly;
+	align-items: center;
+
+	display: flex;
+	background-color: aqua;
+
+
+
+
+}
+
+.home-promotion-desc {
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: start;
+
+	display: flex;
+	margin-left: 30px;
+	height: 50%;
+	width: 52%;
+
+}
+
+.home-promotion-desc-header {
+	font-size: 45px;
+	font-weight: bold;
+
+}
+
+.home-promotion-desc-about {
+	font-size: 18px;
+
+	line-height: 30px;
+}
+
+.home-promotion-desc-container {
+	justify-content: start;
+	align-items: center;
+	display: flex;
+
+
+	width: auto;
+	height: 100%;
+
+}
+
+.primary_button_label {
+
+	justify-content: center;
+	text-align: center;
+	letter-spacing: 0.2;
+	color: white;
+	font-size: 13px;
+
+
+
+}
+
+.primary_button {
+
+	background-color: blueviolet;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.primary_button:hover {
+	transition: .3s all ease-in-out;
+	transform: translateY(-5%);
+	background-color: rgb(95, 95, 223);
+	cursor: pointer;
+	box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
 }
