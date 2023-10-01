@@ -358,7 +358,27 @@ body {
 	color: white;
 	font-size: 13px;
 
+
+
+}
+
+.primary_button {
+
+	background-color: blueviolet;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
 	padding-left: 10px;
 	padding-right: 10px;
+}
 
+.primary_button:hover {
+	transition: .3s all ease-in-out;
+	transform: translateY(-5%);
+	background-color: rgb(95, 95, 223);
+	cursor: pointer;
+	box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
 }

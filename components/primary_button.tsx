@@ -1,16 +1,10 @@
+import { PrimaryButtonProps } from "@/interfaces/primary_button_props";
+import { PrimaryButtonState } from "@/interfaces/primary_button_state";
 import React from "react";
 
 
-interface PrimaryButtonState {
 
 
-}
-interface PrimaryButtonProps {
-    height: number;
-    width: number;
-    label: string;
-
-}
 export class PrimaryButton extends React.Component<PrimaryButtonProps, PrimaryButtonState>{
     constructor(props: PrimaryButtonProps) {
         super(props);
@@ -18,17 +12,15 @@ export class PrimaryButton extends React.Component<PrimaryButtonProps, PrimaryBu
 
     }
     render() {
+
+        const { height, width, label } = this.props;
+
+        const buttonStyle = {
+            height: height,
+            width: width
+        };
         return (
-            <div style={{
-                height: this.props.height,
-                width: this.props.width,
-                backgroundColor: "blueviolet",
-                borderRadius: "5px",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                textAlign: "center"
-            }}>
+            <div className="primary_button" style={buttonStyle}>
                 <p className="primary_button_label">{this.props.label}</p>
             </div>
         );
