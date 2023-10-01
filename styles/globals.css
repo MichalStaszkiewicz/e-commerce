@@ -306,6 +306,7 @@ body {
 	height: 700px;
 	justify-content: space-evenly;
 	align-items: center;
+
 	display: flex;
 	background-color: aqua;
 
@@ -315,10 +316,11 @@ body {
 }
 
 .home-promotion-desc {
-	justify-content: center;
-	align-items: center;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: start;
+
 	display: flex;
-	display: table;
 	margin-left: 30px;
 	height: 50%;
 	width: 52%;
@@ -354,6 +356,8 @@ body {
 	text-align: center;
 	letter-spacing: 0.2;
 	color: white;
+	font-size: 13px;
+
 	padding-left: 10px;
 	padding-right: 10px;
 

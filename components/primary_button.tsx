@@ -18,10 +18,21 @@ export class PrimaryButton extends React.Component<PrimaryButtonProps, PrimaryBu
 
     }
     render() {
+        return (
+            <div style={{
+                height: this.props.height,
+                width: this.props.width,
+                backgroundColor: "blueviolet",
+                borderRadius: "5px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center"
+            }}>
+                <p className="primary_button_label">{this.props.label}</p>
+            </div>
+        );
 
-        return <div style={{ height: this.props.height, width: this.props.width, backgroundColor: "blueviolet", borderRadius: "10px" }}>
-            <p className="primary_button_label">{this.props.label}</p>
-        </div>
 
     }
 
