@@ -6,6 +6,7 @@ import { HeaderNavButton, HeaderNavLabel } from '../components/header_nav_button
 import React from 'react';
 import promotedProduct from "../images/shoes.png"
 import { PrimaryButton } from '@/components/primary_button';
+import { Benefit } from '@/components/benefit';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -65,7 +66,12 @@ export default function Home() {
 					</div>
 
 				</div>
+				<div className='shopping_benefits'>
+					<Benefit title={'FREE SHIPPING'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.'} />
+					<Benefit title={'FREE RETURNS'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.'} />
+					<Benefit title={'CUSTOMER SUPPORT'} description={'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.'} />
 
+				</div>
 			</div>
 
 
