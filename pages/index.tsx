@@ -8,7 +8,8 @@ import promotedProduct from "../public/images/shoes.png"
 import { PrimaryButton } from '@/components/primary_button';
 import { Benefit } from '@/components/benefit';
 import { Collection } from '@/components/collection';
-import asd from "../public/images/children.jpg"
+
+import { FeaturedProduct } from '@/components/featured_product';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -80,6 +81,16 @@ export default function Home() {
 
 
 
+
+				</div>
+				<div className='featured_products'>
+					<p style={{ fontWeight: "bold", fontSize: "30px" }}> Featured Products</p>
+					<div className='featured_products_list'>
+						<FeaturedProduct image={'/images/cloth_1.jpg'} label={'Polo Shirt'} description={'Finding perfect products'} price={10} />
+						<FeaturedProduct image={'/images/cloth_2.jpg'} label={'T-shirt Mockup'} description={'Finding perfect products'} price={30} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />	<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+					</div>
 
 				</div>
 			</div>

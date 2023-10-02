@@ -30,7 +30,7 @@ export class Benefit extends React.Component<BenefitProps, BenefitState>{
             <div className="benefit_container_desc">
 
                 <p style={{ fontWeight: "bold", fontSize: "20px", }}> {title}</p>
-                <p style={{ fontSize: "10px", color: "grey", marginTop: "20px" }}>{description} </p>
+                <p style={{ fontSize: "10px", color: "grey", marginTop: "10px" }}>{description} </p>
 
             </div>
 
