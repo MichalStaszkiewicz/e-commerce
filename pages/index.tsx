@@ -89,7 +89,14 @@ export default function Home() {
 						<FeaturedProduct image={'/images/cloth_1.jpg'} label={'Polo Shirt'} description={'Finding perfect products'} price={10} />
 						<FeaturedProduct image={'/images/cloth_2.jpg'} label={'T-shirt Mockup'} description={'Finding perfect products'} price={30} />
 						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />	<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
+						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
 					</div>
 
 				</div>
