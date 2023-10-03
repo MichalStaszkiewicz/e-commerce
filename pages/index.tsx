@@ -10,6 +10,7 @@ import { Benefit } from '@/components/benefit';
 import { Collection } from '@/components/collection';
 
 import { FeaturedProduct } from '@/components/featured_product';
+import { FeaturedProducts } from '@/components/featured_products';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -82,24 +83,8 @@ export default function Home() {
 
 
 
-				</div>
-				<div className='featured_products'>
-					<p style={{ fontWeight: "bold", fontSize: "30px" }}> Featured Products</p>
-					<div className='featured_products_list'>
-						<FeaturedProduct image={'/images/cloth_1.jpg'} label={'Polo Shirt'} description={'Finding perfect products'} price={10} />
-						<FeaturedProduct image={'/images/cloth_2.jpg'} label={'T-shirt Mockup'} description={'Finding perfect products'} price={30} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-						<FeaturedProduct image={'/images/cloth_3.jpg'} label={'Corator'} description={'Finding perfect products'} price={70} />
-					</div>
-
-				</div>
+				</div>   
+				<FeaturedProducts products={[{ image: "/images/cloth_1.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }]} />
 			</div>
 
 
