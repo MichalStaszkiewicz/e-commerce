@@ -79,12 +79,8 @@ export default function Home() {
 					<Collection label={'Woman'} image={'/images/women.jpg'} />
 					<Collection label={'Children'} image={'/images/children.jpg'} />
 					<Collection label={'Men'} image={'/images/men.jpg'} />
-
-
-
-
-				</div>   
-				<FeaturedProducts products={[{ image: "/images/cloth_1.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }]} />
+				</div>
+				<FeaturedProducts products={[{ image: "/images/cloth_1.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/cloth_3.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/cloth_2.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/cloth_3.jpg", label: "Tank top", price: 50, description: "Finding perfect product" },{ image: "/images/shoes.png", label: "Tank top", price: 50, description: "Finding perfect product" }]} />
 			</div>
 
 

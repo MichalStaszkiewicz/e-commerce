@@ -464,24 +464,24 @@ body {
 	text-align: start;
 	cursor: pointer;
 
-	
+
 
 }
-	
+
 .collection_background::before {
 	z-index: 1;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: -moz-linear-gradient(top, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.8) 99%, rgba(0, 0, 0, 0.8) 100%);
-    background: -webkit-linear-gradient(top, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.8) 99%, rgba(0, 0, 0, 0.8) 100%);
-    background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(18%, transparent), color-stop(99%, rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.8)));
-    background: -o-linear-gradient(top, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.8) 99%, rgba(0, 0, 0, 0.8) 100%);
-    background: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.8) 99%, rgba(0, 0, 0, 0.8) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000',GradientType=0 ); 
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: -moz-linear-gradient(top, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.8) 99%, rgba(0, 0, 0, 0.8) 100%);
+	background: -webkit-linear-gradient(top, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.8) 99%, rgba(0, 0, 0, 0.8) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(18%, transparent), color-stop(99%, rgba(0, 0, 0, 0.8)), to(rgba(0, 0, 0, 0.8)));
+	background: -o-linear-gradient(top, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.8) 99%, rgba(0, 0, 0, 0.8) 100%);
+	background: linear-gradient(to bottom, transparent 0%, transparent 18%, rgba(0, 0, 0, 0.8) 99%, rgba(0, 0, 0, 0.8) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#cc000000', GradientType=0);
 }
 
 .collection_background {
@@ -508,7 +508,7 @@ body {
 
 
 .featured_products {
-
+	margin-top: 20px;
 	flex-direction: column;
 	display: flex;
 	justify-content: center;
@@ -527,11 +527,17 @@ body {
 	justify-content: flex-start;
 	align-items: center;
 	margin-top: 10px;
-
 	width: 1000px;
-	overflow-x: auto;
+	overflow-x: scroll;
 	flex-wrap: wrap;
 	direction: ltr;
+	scroll-behavior: smooth;
+	
+	scrollbar-width: none;
+}
+
+.featured_products_list::-webkit-scrollbar {
+	display: none;
 }
 
 .featured_products_decoration {
@@ -540,17 +546,19 @@ body {
 	width: 40px;
 	background-color: var(--primary-color);
 
-	transform: translateY(-550%);
+	transform: translateY(6250%);
 }
 
 .featured_products_list>* {
-	margin-right: 10px;
+	margin-right: 20px;
 }
 
 .featured_products_list>:last-child {
-	margin-right: 0px;
+	margin-right: 20px;
 }
-
+.featured_products_list>:first-child {
+	margin-left: 20px;
+}
 .featured_product_container {
 	display: inline;
 
@@ -610,4 +618,15 @@ body {
 	color: var(--primary-color);
 	font-size: 15px;
 	font-weight: bold;
+}
+
+.featured_products_arrows_container {
+	transform: translateY(-200%);
+	height: 30px;
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 }
