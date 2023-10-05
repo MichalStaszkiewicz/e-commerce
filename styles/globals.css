@@ -48,11 +48,18 @@ body {
 	width: 100%;
 
 	display: flex;
-
+	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 }
+.row-space-between >*{
+	margin-right: 20px;
 
+}
+.row-space-between :last-child{
+	margin-right: 0px;
+
+}
 .site-logo {
 	height: 50px;
 
@@ -637,8 +644,8 @@ body {
 
 	height: 800px;
 	width: 100%;
-	border-bottom: 1px solid black;
 
+	border-bottom: 0.1px solid #f7f7f7;
 	display: flex;
 	flex-direction: column;
 	justify-content: start;
@@ -690,10 +697,59 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	
+
 }
-.big_sale_desc>*{
 
-margin-bottom: 15px;
+.big_sale_desc>* {
 
+	margin-bottom: 15px;
+
+}
+
+.footer {
+	width: 100%;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+
+
+}
+
+.footer_container {
+	height: 80%;
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: start;
+
+}
+
+.footer_navigation_container {
+	flex-direction: row;
+
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	padding-right: 100px;
+
+	width: auto;
+
+}
+.footer_navigation_container>*{
+	margin-bottom: 20px;
+}
+.footer_navigation_list>* {
+	color: #8c92a0;
+	margin-bottom: 15px;
+
+}
+
+.footer_menu_label:hover {
+
+	color: var(--primary-color);
+	cursor: pointer;
 }

@@ -14,7 +14,7 @@ export function BigSale() {
 
                 <p style={{fontSize:32,color:"#7c74ea"}}>50% less in all items</p>
                 <p style={{color:"#c4c7ce"}}>By <span style={{color:"#7c74ea",fontWeight:"500"}}>Carl Smith</span> • September 3, 2018</p>
-                <p style={{textAlign:'center',width:470 ,color:"#c4c7ce"}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
+                <p style={{textAlign:'center',width:470 ,color:"#8c92a0"}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
                 <PrimaryButton height={40} width={130} label={"SHOP NOW"}></PrimaryButton>
             </div>
         </div>
