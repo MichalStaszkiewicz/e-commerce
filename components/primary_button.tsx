@@ -21,7 +21,7 @@ export class PrimaryButton extends React.Component<PrimaryButtonProps, PrimaryBu
         };
         return (
             <div className="primary_button" style={buttonStyle}>
-                <p className="primary_button_label">{this.props.label}</p>
+                <p style={{letterSpacing:2}} className="primary_button_label">{this.props.label}</p>
             </div>
         );
 

@@ -11,6 +11,7 @@ import { Collection } from '@/components/collection';
 
 import { FeaturedProduct } from '@/components/featured_product';
 import { FeaturedProducts } from '@/components/featured_products';
+import { BigSale } from '@/components/big_sale';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -80,7 +81,9 @@ export default function Home() {
 					<Collection label={'Children'} image={'/images/children.jpg'} />
 					<Collection label={'Men'} image={'/images/men.jpg'} />
 				</div>
-				<FeaturedProducts products={[{ image: "/images/cloth_1.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/cloth_3.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/cloth_2.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/cloth_3.jpg", label: "Tank top", price: 50, description: "Finding perfect product" },{ image: "/images/shoes.png", label: "Tank top", price: 50, description: "Finding perfect product" }]} />
+				<FeaturedProducts products={[{ image: "/images/cloth_1.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/cloth_3.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/cloth_2.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/cloth_3.jpg", label: "Tank top", price: 50, description: "Finding perfect product" }, { image: "/images/shoes.png", label: "Tank top", price: 50, description: "Finding perfect product" }]} />
+				<BigSale></BigSale>
+
 			</div>
 
 
