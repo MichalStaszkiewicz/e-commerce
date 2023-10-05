@@ -2,7 +2,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { RefObject } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import { FeaturedProduct } from "./featured_product";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { off } from "process";
 
 interface FeaturedProductModel {
     image: string;
@@ -17,7 +18,6 @@ interface FeaturedProductState {
     index: number;
 }
 
-
 interface FeaturedProductProps {
     products: FeaturedProductModel[];
 }
@@ -27,12 +27,13 @@ export class FeaturedProducts extends React.Component<
     FeaturedProductState
 > {
     listRef: React.RefObject<HTMLDivElement>;
+    timer: any;
 
     constructor(props: FeaturedProductProps) {
         super(props);
         this.state = {
-            leftArrowColor: "grey",
-            rightArrowColor: "black",
+            leftArrowColor: "#cdcfd0",
+            rightArrowColor: props.products.length > 3 ? "#5d636f" : "#cdcfd0",
             index: 0,
         };
 
@@ -40,7 +41,6 @@ export class FeaturedProducts extends React.Component<
     }
 
     componentDidMount() {
-       
         this.listRef.current?.addEventListener("scroll", this.handleScroll);
     }
 
@@ -50,17 +50,26 @@ export class FeaturedProducts extends React.Component<
 
     handleScroll = () => {
 
-        console.log(this.state.index);
 
         this.setState({
-            leftArrowColor: this.state.index > 0 ? "black" : "grey",
+            leftArrowColor: this.state.index > 0 ? "#5d636f" : "#cdcfd0",
             rightArrowColor:
-                (this.props.products.length > 3 && (this.state.index + 3) < this.props.products.length)
-                    ? "black"
-                    : "grey",
+                this.props.products.length > 3 && this.state.index + 3 < this.props.products.length
+                    ? "#5d636f"
+                    : "#cdcfd0",
         });
     };
 
+    handleArrowClick(offset: number) {
+        const scrollSpeed = 334;
+
+        this.listRef.current!.scrollBy({ left: scrollSpeed * offset });
+
+        console.log('after timer ' + this.listRef.current!.scrollLeft)
+        this.setState((prevState) => ({
+            index: prevState.index + offset,
+        }));
+    }
     render() {
         const { products } = this.props;
 
@@ -83,16 +92,24 @@ export class FeaturedProducts extends React.Component<
                 </div>
 
                 <div className="featured_products_arrows_container">
-                    <FontAwesomeIcon
+                    <FontAwesomeIcon onMouseEnter={() => {
+                        if (this.props.products.length > 3 && this.state.index > 0) {
+                            this.setState((prevState) => ({
+                                leftArrowColor: "black"
+                            }));
+                        }
+
+                    }} onMouseLeave={() => {
+                        if (this.props.products.length > 3 && this.state.index > 0) {
+                            this.setState((prevState) => ({
+                                leftArrowColor: "#5d636f"
+                            }));
+                        }
+
+                    }}
                         onClick={() => {
-
                             if (this.props.products.length > 3 && this.state.index > 0) {
-
-                                this.listRef.current!.scrollBy(-334, 0);
-                                this.setState((prevState) => ({
-                                    rightArrowColor: prevState.rightArrowColor,
-                                    index: prevState.index - 1,
-                                }))
+                                this.handleArrowClick(-1);
                             }
                         }}
                         style={{ height: "25px", color: this.state.leftArrowColor }}
@@ -100,15 +117,25 @@ export class FeaturedProducts extends React.Component<
                     ></FontAwesomeIcon>
 
                     <div style={{ width: "50px" }}></div>
-                    <FontAwesomeIcon
-                        onClick={() => {
+                    <FontAwesomeIcon onMouseEnter={() => {
+                        if (this.props.products.length > 3 && this.state.index + 3 < this.props.products.length) {
+                            this.setState((prevState) => ({
+                                rightArrowColor: "black"
+                            }));
+                        }
 
-                            if (this.props.products.length > 3 && (this.state.index + 3) < this.props.products.length) {
-                                this.listRef.current!.scrollBy(334, 0);
+                    }}
+                        onMouseLeave={() => {
+                            if (this.props.products.length > 3 && this.state.index + 3 < this.props.products.length) {
                                 this.setState((prevState) => ({
-                                    leftArrowColor: prevState.leftArrowColor,
-                                    index: prevState.index + 1,
-                                }))
+                                    rightArrowColor: "#5d636f"
+                                }));
+                            }
+
+                        }}
+                        onClick={() => {
+                            if (this.props.products.length > 3 && this.state.index + 3 < this.props.products.length) {
+                                this.handleArrowClick(1);
                             }
                         }}
                         style={{ height: "25px", color: this.state.rightArrowColor }}

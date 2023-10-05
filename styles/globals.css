@@ -532,7 +532,7 @@ body {
 	flex-wrap: wrap;
 	direction: ltr;
 	scroll-behavior: smooth;
-	
+
 	scrollbar-width: none;
 }
 
@@ -556,9 +556,11 @@ body {
 .featured_products_list>:last-child {
 	margin-right: 20px;
 }
+
 .featured_products_list>:first-child {
 	margin-left: 20px;
 }
+
 .featured_product_container {
 	display: inline;
 
