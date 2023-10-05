@@ -4,11 +4,11 @@ import product from "../public/images/children.jpg"
 import { PrimaryButton } from "./primary_button"
 export function BigSale() {
     return <div className="big_sale_container">
-        <div className="big_sale_container_decoration"></div>
-        <p style={{ fontWeight: "400", fontSize: "30px", }}>
+        <div className="big_sale_container_decoration" style={{transform:"TranslateY(3000%)"}}></div>
+        <p style={{ fontWeight: "400", fontSize: "30px",transform:"TranslateY(70%)"}}>
             Big Sale!
         </p>
-        <div className="big_sale_content" style={{ width: "100%", height: "100%", marginBottom: "30px", marginTop: "30px", }}>
+        <div className="big_sale_content" style={{ width: "100%", height: "100%"}}>
             <div className="big_sale_image" style={{ backgroundImage: 'url(../images/blog_1.jpg)' }}></div>
             <div className="big_sale_desc">
 

@@ -76,7 +76,7 @@ export class FeaturedProducts extends React.Component<
         return (
             <div className="featured_products">
                 <div className="featured_products_decoration"></div>
-                <p style={{ fontWeight: "400", fontSize: "30px",transform:"TranslateY(150%)" }}>
+                <p style={{ fontWeight: "400", fontSize: "30px",transform:"TranslateY(200%)" }}>
                     Featured Products
                 </p>
                 <div className="featured_products_list" ref={this.listRef}>
