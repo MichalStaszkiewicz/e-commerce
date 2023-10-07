@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
-export function Shop() {
+export default function Shop() {
     return (
         <main className={`flex min-h-screen flex-col items-center `}>
             <div className='header'>

@@ -10,6 +10,7 @@ import { Benefit } from '@/components/benefit';
 import { Collection } from '@/components/collection';
 import { FeaturedProducts } from '@/components/featured_products';
 import { BigSale } from '@/components/big_sale';
+import Link from 'next/link'
 export const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -17,11 +18,11 @@ export default function Home() {
 
     return (
         <main className={`flex min-h-screen flex-col items-center  ${inter.className}`}>
-            <div className='header'>
+            <div className='header' >
                 <div className="row-space-between" style={{ height: '200px', borderBottom: '0.1px solid #f7f7f7' }}>
 
 
-                    <form action="" className="site-block-top-search">
+                    <form action="" className="site-block-top-search" >
                         <FontAwesomeIcon className="icon-search2" icon={icons.faMagnifyingGlass} />
 
                         <input type="text" style={{ fontSize: '20px' }} className="form-control border-0" placeholder="Search" />
@@ -30,8 +31,8 @@ export default function Home() {
 
                     <div style={{ width: "50%", textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                     >
-                        <div className="site-logo">
-                            <a href="shop" style={{ letterSpacing: "6px" }} className="js-logo-clone">SHOPPERS</a>
+                        <div className="site-logo" >
+                            <Link href="/shop" style={{ letterSpacing: "6px" }} className="js-logo-clone">SHOPPERS</Link>
                         </div>
                     </div>
 
