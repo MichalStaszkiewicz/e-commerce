@@ -30,7 +30,7 @@ export default function Shop() {
 
 
                         }} className="site-logo">
-                            <a style={{ letterSpacing: "6px" }} className="js-logo-clone">SHOPPERS</a>
+                            <a style={{ letterSpacing: "7px" }} className="js-logo-clone">SHOPPERS</a>
                         </div>
                     </div>
 
