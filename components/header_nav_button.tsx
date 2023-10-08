@@ -3,6 +3,7 @@ import * as icons from '@fortawesome/free-solid-svg-icons';
 import { ReactNode, useEffect, useState } from "react";
 import React from "react";
 import { HeaderNavLabel } from "./header_nav_label";
+import Link from "next/link";
 
 export function HeaderNavButton({ label, icon, items }: { label: string, icon: boolean, items: HeaderNavLabel[] }) {
 
@@ -15,11 +16,11 @@ export function HeaderNavButton({ label, icon, items }: { label: string, icon: b
     };
 
     return <li className={`header_nav_button ${isMenuOpen ? 'menu-open' : ''}`} onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
-        <p>{label}</p>
+        <Link href={label=="SHOP"?"/shop":""}>{label}</Link>
         {icon && <FontAwesomeIcon icon={icons.faAngleDown} />} {isMenuOpen && (
             <ul className="shadow header_button_menu animate-header-button" >
                 {items.map((item, index) => (
-                    <HeaderNavLabel label={item.props.label} isMenu ={item.props.isMenu} />
+                    <HeaderNavLabel label={item.props.label} isMenu={item.props.isMenu} />
 
                 ))}
 
