@@ -64,6 +64,7 @@ export class FeaturedProducts extends React.Component<
         const scrollSpeed = 334;
 
         this.listRef.current!.scrollBy({ left: scrollSpeed * offset });
+        
 
         console.log('after timer ' + this.listRef.current!.scrollLeft)
         this.setState((prevState) => ({

@@ -22,11 +22,11 @@ export class Collection extends React.Component<CollectionProps, CollectionState
         const { label, image } = this.props
         return <div className="collection_item">
             <div className="collection_background" style={{ backgroundImage: `url(${image})` }}></div>
-          
+
             <p style={{ fontSize: "12px", marginLeft: "10px", color: "white", zIndex: 3 }}> COLLECTIONS </p>
             <p style={{ fontSize: "25px", marginLeft: "10px", marginBottom: "10px", color: "white", zIndex: 3 }}>{label}</p>
-          
-          
+
+
         </div>
     }
 } 
