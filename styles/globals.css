@@ -123,7 +123,7 @@ body {
 .nav-header {
 	text-align: center;
 	display: flex;
-	align-items: center;
+	align-items: start;
 	justify-content: center;
 	height: 100px;
 	width: 100%;

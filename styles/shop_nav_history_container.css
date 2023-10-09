@@ -1,0 +1,17 @@
+.shop-nav-container {
+
+
+    background-color: #f8f9fa;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: start;
+
+
+
+    justify-content: center;
+    flex-direction: column;
+
+
+}
