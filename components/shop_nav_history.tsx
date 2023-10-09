@@ -1,9 +1,54 @@
-import { useNavigate } from "react-router-dom"
+import { useRouter } from "next/router"
+import Link from 'next/link'
+import path from "path";
 
 export default function ShopNavHistory() {
+    var router = useRouter();
+    //   var path = document.createElement('div');
+
+    var paths: string[] = [];
+    var firstSub = 0;
+    paths.push('/')
+    for (var i = 0; i < router.asPath.length; i++) {
+        if (i > 0) {
+
+            if (router.asPath[i] == '/' && firstSub != i) {
+                paths.push(router.asPath.substring(firstSub, i - 1))
+                firstSub = i;
+
+            }
+
+            else if (i == router.asPath.length - 1) {
+                console.log('route pushed')
+                paths.push(router.asPath.substring(firstSub, i + 1));
+            }
+
+        }
+
+
+
+    }
+
 
     return (<div className="shop-nav-container">
-        <p style={{ transform: "TranslateX(200%)" }} >Home / Shop</p>
+        <div className="shop-nav-container" style={{ marginLeft: "150px" }}>
+
+            {paths.map((item, index) => {
+           
+                if (index > 0) {
+                    return <div className="shop-nav-container" >  <p style={{ color: "black", display: "flex", width: "auto", paddingLeft: "2px", paddingRight: "2px" }}>{' / '}</p> <a href={item} style={{ color: "black", display: "flex" }}>{item.substring(1, item.length)}</a></div>
+
+
+                }
+                return <a className="nav-link" href={item} style={{ color: item != router.basePath ? "#7c74ea" : "black", display: "flex" }} onMouseEnter={() => {
+
+
+                }} >{'Home'}</a>
+
+            })}
+        </div>
+
+
     </div>)
 
 
