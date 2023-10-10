@@ -7,13 +7,14 @@
     display: flex;
 
 }
-.categories_header{
+
+.categories_header {
     font-size: 25;
-    font-weight: bolder;
+    font-weight: 500;
     text-align: start;
 
-width: 80%;
-margin-top: 20px;
+    width: 80%;
+    margin-top: 20px;
 }
 
 
@@ -21,13 +22,13 @@ margin-top: 20px;
     margin-top: 80px;
     height: 100%;
     width: 70%;
-    background-color: aqua;
+
 
 }
 
 .shop_content .container .left_column {
     width: 20%;
-    background-color: red;
+
     height: 100%;
     display: block;
     flex-direction: column;
@@ -45,37 +46,42 @@ margin-top: 20px;
 
 
 }
-.shop_content .container .left_column .categories{
-height: 180px;
-width: 100%;
-border: 1px solid grey;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+
+.shop_content .container .left_column .categories {
+    height: 180px;
+    width: 100%;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 
 
-display: flex;
+    display: flex;
 
 }
-.shop_content .container .left_column .categories .list{
+
+.shop_content .container .left_column .categories .list {
     height: 100%;
     width: 80%;
-   
+
     flex-direction: column;
     display: flex;
     justify-content: center;
- 
+
     margin-top: 20px;
     margin-bottom: 20px;
-    
+
 }
-.shop_content .container .left_column .categories .list_element{
+
+.shop_content .container .left_column .categories .list_element {
     height: 30px;
     width: 100%;
- 
+    color: var(--primary-color);
+    font-weight: 300;
     flex-direction: row;
     display: flex;
     justify-content: space-between;
-    
+
 }
