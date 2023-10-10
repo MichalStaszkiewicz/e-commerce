@@ -31,7 +31,7 @@ export default function ShopNavHistory() {
 
 
     return (<div className="shop-nav-container">
-        <div className="shop-nav-container" style={{ marginLeft: "150px" }}>
+        <div className="shop-nav-container" style={{ marginLeft: "130px" }}>
 
             {paths.map((item, index) => {
            
