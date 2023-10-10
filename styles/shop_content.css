@@ -51,7 +51,7 @@
     height: 180px;
     width: 100%;
     border: 1px solid rgb(187, 187, 187);
-    border-radius: 5px;
+    border-radius: 3px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -83,5 +83,32 @@
     flex-direction: row;
     display: flex;
     justify-content: space-between;
+
+}
+
+.shop_content .container .left_column .filters {
+    margin-top: 25px;
+    height: 600px;
+    width: 100%;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 3px;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+
+
+    display: flex;
+
+}
+
+.shop_content .container .left_column .filters .container {
+    height: 90%;
+    width: 80%;
+    margin: 0;
+    background-color: red;
+
+
+
+    display: block;
 
 }
