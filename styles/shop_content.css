@@ -1,0 +1,81 @@
+.shop_content {
+
+    height: 1500px;
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+
+}
+.categories_header{
+    font-size: 25;
+    font-weight: bolder;
+    text-align: start;
+
+width: 80%;
+margin-top: 20px;
+}
+
+
+.shop_content .container {
+    margin-top: 80px;
+    height: 100%;
+    width: 70%;
+    background-color: aqua;
+
+}
+
+.shop_content .container .left_column {
+    width: 20%;
+    background-color: red;
+    height: 100%;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    float: left;
+
+}
+
+.shop_content .container .right_column {
+    height: 100%;
+    display: block;
+    float: left;
+    width: 80%;
+    background-color: green;
+
+
+}
+.shop_content .container .left_column .categories{
+height: 180px;
+width: 100%;
+border: 1px solid grey;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+
+display: flex;
+
+}
+.shop_content .container .left_column .categories .list{
+    height: 100%;
+    width: 80%;
+   
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+ 
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+.shop_content .container .left_column .categories .list_element{
+    height: 30px;
+    width: 100%;
+ 
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    
+}

@@ -31,10 +31,10 @@ export default function ShopNavHistory() {
 
 
     return (<div className="shop-nav-container">
-        <div className="shop-nav-container" style={{ marginLeft: "130px" }}>
+        <div className="shop-nav-container" style={{ marginLeft: "150px" }}>
 
             {paths.map((item, index) => {
-           
+
                 if (index > 0) {
                     return <div className="shop-nav-container" >  <p style={{ color: "black", display: "flex", width: "auto", paddingLeft: "2px", paddingRight: "2px" }}>{' / '}</p> <a href={item} style={{ color: "black", display: "flex" }}>{item.substring(1, item.length)}</a></div>
 
