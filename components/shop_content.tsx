@@ -30,26 +30,21 @@ export default function ShopContent() {
                             <p style={{ marginTop: '10px' }}>$76 - $262</p>
                             <p className="categories_header" style={{ marginTop: "20px" }}>SIZE</p>
                             <div style={{ marginTop: "10px" }}></div>
-                            <ul>
-                                <li><div>
-                                    <input type="checkbox" id="scales" name="scales" checked />
-                                    <label >  Small (2,319)</label>
-                                </div></li>
-                                <li><div>
-                                    <input type="checkbox" id="scales" name="scales" checked />
-                                    <label >  Medium (1,282)</label>
-                                </div></li>
-                                <li><div>
-                                    <input type="checkbox" id="scales" name="scales" checked />
-                                    <label >  Large (1,392)</label>
-                                </div></li>
+                            <ul className="size_list">
+                                <CategoriesSize label="Small (2,319)" />
+                                <CategoriesSize label="Medium (1,282)" />
+                                <CategoriesSize label="Large (1,392)" />
+
                             </ul>
                             <p className="categories_header" style={{ marginTop: "20px" }}>COLOR</p>
-                            <div style={{ marginTop: "10px" }}></div>
-                            <CategoriesColorIndicator color={'red'} label={'Red'} />
-                            <CategoriesColorIndicator color={'green'} label={'Green'} />
-                            <CategoriesColorIndicator color={'aqua'} label={'Blue'} />
-                            <CategoriesColorIndicator color={'purple'} label={'Purple'} />
+                            <div style={{ marginTop: "10px" }} ></div>
+                            <div className="color_list" >
+                                <CategoriesColorIndicator color={'red'} label={'Red'} />
+                                <CategoriesColorIndicator color={'green'} label={'Green'} />
+                                <CategoriesColorIndicator color={'aqua'} label={'Blue'} />
+                                <CategoriesColorIndicator color={'purple'} label={'Purple'} />
+                            </div>
+
                         </div>
 
                     </div>
@@ -66,10 +61,16 @@ export default function ShopContent() {
 
 function CategoriesColorIndicator({ color, label }: { color: string, label: string }): JSX.Element {
     return (<div className="color_container" >
-        <div className="color_indicator" style={{ backgroundColor: color }}></div>
+        <div className="color_indicator" style={{ backgroundColor: color, }}></div>
         <div style={{ marginLeft: "10px" }}></div>
-        <p >{label} (2,429)</p>
+        <p style={{ fontWeight: "350", fontSize: "15px" }}>{label} (2,429)</p>
 
 
     </div>);
+}
+function CategoriesSize({ label }: { label: string }) {
+    return (<li><div>
+        <input type="checkbox" id="scales" name="scales" checked />
+        <label  style={{fontWeight: "350", fontSize: "15px"}}> {label}</label>
+    </div></li>)
 }

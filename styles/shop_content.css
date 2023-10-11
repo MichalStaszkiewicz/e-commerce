@@ -90,7 +90,7 @@
 
 .shop_content .container .left_column .filters {
     margin-top: 25px;
-    height: 600px;
+    height: 470px;
     width: 100%;
     border: 1px solid rgb(187, 187, 187);
     border-radius: 3px;
@@ -132,13 +132,7 @@
     border-radius: 20px;
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
-
-
 }
-
-
-
-
 
 .shop_content .container .left_column .filters .container .color_container .color_indicator {
     height: 15px;
@@ -157,5 +151,13 @@
     text-align: center;
     align-items: center;
     flex-direction: row;
+
+}
+.shop_content .container .left_column .filters .container .size_list >* {
+    margin-top: 10px;
+  
+  }
+.shop_content .container .left_column .filters .container .color_list >* {
+  margin-top: 10px;
 
 }
