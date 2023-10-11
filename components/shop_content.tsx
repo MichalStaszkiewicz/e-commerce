@@ -27,7 +27,7 @@ export default function ShopContent() {
                             <div className="slider_container">
 
                             </div>
-                            <p style={{ marginTop: '10px' }}>$76 - $262</p>
+                            <p style={{ marginTop: '10px' ,fontSize:"14px"}}>$76 - $262</p>
                             <p className="categories_header" style={{ marginTop: "20px" }}>SIZE</p>
                             <div style={{ marginTop: "10px" }}></div>
                             <ul className="size_list">
