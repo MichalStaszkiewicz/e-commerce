@@ -8,13 +8,17 @@
 
 }
 
+.visibility_hidden {
+    visibility: hidden;
+}
+
 .categories_header {
     font-size: 25;
     font-weight: 500;
     text-align: start;
 
     width: 80%;
-    margin-top: 20px;
+
 }
 
 
@@ -22,6 +26,7 @@
     margin-top: 80px;
     height: 100%;
     width: 70%;
+
 
 
 }
@@ -55,9 +60,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-
-
     display: flex;
 
 }
@@ -94,8 +96,6 @@
     border-radius: 3px;
     align-items: center;
     justify-content: center;
-    background-color: blue;
-
 
     display: flex;
 
@@ -105,10 +105,57 @@
     height: 90%;
     width: 80%;
     margin: 0;
-    background-color: red;
+    padding: 0;
+    justify-content: start;
+    flex-direction: column;
+    align-items: start;
+  
+    display: flex;
+
+}
+
+.shop_content .container .left_column .filters .container .slider_container {
+    margin-top: 10px;
+    height: 10px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: white;
+    border: 1px solid var(--primary-color);
+
+
+}
+
+.shop_content .container .left_column .filters .container .slider_pointer {
+
+    height: 15px;
+    width: 15px;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+
+
+}
 
 
 
-    display: block;
+
+
+.shop_content .container .left_column .filters .container .color_container .color_indicator {
+    height: 15px;
+    width: 15px;
+    border-radius: 50px;
+
+
+}
+
+.shop_content .container .left_column .filters .container .color_container {
+    width: 100%;
+    height: 20px;
+
+    display: flex;
+    justify-content: start;
+    text-align: center;
+    align-items: center;
+    flex-direction: row;
 
 }
