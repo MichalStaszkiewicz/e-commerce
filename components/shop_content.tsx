@@ -1,7 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { DragEventHandler, useCallback, useRef, useState } from "react";
+import {
+  DragEventHandler,
+  LegacyRef,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
 
 import * as icons from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 
 export default function ShopContent() {
   return (
@@ -14,15 +21,12 @@ export default function ShopContent() {
             </p>
             <ul className="list">
               <li className="list_element">
-                {" "}
                 <div>Men</div> <p style={{ color: "black" }}>(2,220)</p>
               </li>
               <li className="list_element">
-                {" "}
                 <div>Woman</div> <p style={{ color: "black" }}>(2,550)</p>
               </li>
               <li className="list_element">
-                {" "}
                 <div>Children</div>
                 <p style={{ color: "black" }}>(2,124)</p>
               </li>
@@ -39,9 +43,9 @@ export default function ShopContent() {
               </p>
               <div style={{ marginTop: "10px" }}></div>
               <ul className="size_list">
-                <CategoriesSize label="Small (2,319)" />
-                <CategoriesSize label="Medium (1,282)" />
-                <CategoriesSize label="Large (1,392)" />
+                <CategoriesSize label=" Small (2,319)" />
+                <CategoriesSize label=" Medium (1,282)" />
+                <CategoriesSize label=" Large (1,392)" />
               </ul>
               <p className="categories_header" style={{ marginTop: "20px" }}>
                 COLOR
@@ -100,36 +104,134 @@ function CategoriesSize({ label }: { label: string }) {
     </li>
   );
 }
-function SortButton({
-  label,
-  width,
-  height,
-}: {
-  label: string;
+
+interface SortButtonProps {
   width: number;
   height: number;
-}) {
-  return (
-    <div
-      className="shop_sort_button"
-      style={{
-        width: width.toString() + "px",
-        height: height.toString() + "px",
-      }}
-    >
-      <p
+  label: string;
+}
+interface SortButtonState {
+  isOpen: boolean;
+}
+class SortButton extends React.Component<SortButtonProps, SortButtonState> {
+  buttonRef: React.RefObject<HTMLDivElement>;
+  sortMenu: React.RefObject<SortMenu>;
+  constructor(props: SortButtonProps) {
+    super(props);
+    this.state = {
+      isOpen: false,
+    };
+    this.buttonRef = React.createRef();
+    this.sortMenu = React.createRef();
+  }
+  componentDidMount() {
+    console.log("executed");
+
+    window.addEventListener("mousedown", (event: MouseEvent) => {
+      console.log("begining");
+      if (this.state.isOpen) {
+        const buttonRect = this.buttonRef!.current!.getBoundingClientRect();
+        const menuRect =
+          this.sortMenu!.current!.menuRef.current!.getBoundingClientRect();
+
+        const isInsideMenu =
+          event.clientX >= menuRect.left &&
+          event.clientX <= menuRect.right &&
+          event.clientY >= menuRect.top &&
+          event.clientY <= menuRect.bottom;
+        const isInsideButton =
+          event.clientX >= buttonRect.left &&
+          event.clientX <= buttonRect.right &&
+          event.clientY >= buttonRect.top &&
+          event.clientY <= buttonRect.bottom;
+
+        if (isInsideMenu || isInsideButton) {
+          console.log("is inside button? : " + isInsideButton);
+          console.log("is opened? : " + this.state.isOpen);
+          if (isInsideButton && this.state.isOpen) {
+       
+            this.setState((prevState) => ({
+              isOpen: false,
+            }));
+          } else {
+            this.setState((prevState) => ({
+              isOpen: true,
+            }));
+          }
+        } else {
+          this.setState((prevState) => ({
+            isOpen: false,
+          }));
+        }
+      } else {
+        const buttonRect = this.buttonRef!.current!.getBoundingClientRect();
+        const isInsideButton =
+          event.clientX >= buttonRect.left &&
+          event.clientX <= buttonRect.right &&
+          event.clientY >= buttonRect.top &&
+          event.clientY <= buttonRect.bottom;
+        console.log("IS CLOSED");
+        if (isInsideButton) {
+          this.setState((prevState) => ({
+            isOpen: true,
+          }));
+        }
+      }
+      console.log(this.state.isOpen + " " + this.props.label);
+    });
+  }
+  render() {
+    const handleMouseDown = (event: any) => {};
+    return (
+      <div
+        ref={this.buttonRef}
+        className="shop_sort_button"
         style={{
-          paddingLeft: "5px",
-          paddingRight: "5px",
-          fontSize: "13px",
-          textAlign: "center",
-          alignItems: "center",
-          justifyContent: "center",
+          width: this.props.width.toString() + "px",
+          height: this.props.height.toString() + "px",
         }}
+        onMouseDown={handleMouseDown}
       >
-        {label}
-      </p>
-      <FontAwesomeIcon icon={icons.faAngleDown} style={{ width: "10px" }} />
-    </div>
-  );
+        <p
+          style={{
+            paddingLeft: "5px",
+            paddingRight: "5px",
+            fontSize: "13px",
+            textAlign: "center",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {this.props.label}
+        </p>
+        <FontAwesomeIcon icon={icons.faAngleDown} style={{ width: "10px" }} />
+        {this.state.isOpen ? <SortMenu ref={this.sortMenu} /> : <div></div>}
+      </div>
+    );
+  }
+}
+interface SortMenuProps {}
+interface SortMenuState {}
+class SortMenu extends React.Component<SortMenuProps, SortMenuState> {
+  menuRef: React.RefObject<HTMLDivElement>;
+  constructor(props: SortMenuProps) {
+    super(props);
+    this.state = {};
+
+    this.menuRef = React.createRef();
+  }
+  render() {
+    return (
+      <div
+        ref={this.menuRef}
+        style={{
+          height: "150px",
+          width: "150px",
+          backgroundColor: "black",
+          position: "absolute",
+          top: "10px",
+        }}
+      ></div>
+    );
+  }
 }

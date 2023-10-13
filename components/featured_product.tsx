@@ -3,7 +3,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import * as icons from '@fortawesome/free-solid-svg-icons';
-interface FeaturedProductsProp {
+interface FeaturedProductsProps {
     image: string;
     label: string;
     description: string;
@@ -12,8 +12,8 @@ interface FeaturedProductsProp {
 interface FeaturedProductsState {
 
 }
-export class FeaturedProduct extends React.Component<FeaturedProductsProp, FeaturedProductsState>{
-    constructor(props: FeaturedProductsProp) {
+export class FeaturedProduct extends React.Component<FeaturedProductsProps, FeaturedProductsState>{
+    constructor(props: FeaturedProductsProps) {
         super(props)
 
 
