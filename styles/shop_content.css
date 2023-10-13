@@ -47,10 +47,39 @@
   height: 100%;
 
   display: flex;
+  flex-direction: column;
   float: left;
   width: 80%;
 }
+.shop_content .container .right_column .list {
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 0;
+}
 
+.shop_content .container .right_column .header {
+  height: 100px;
+  width: 100%;
+  flex-direction: row;
+
+  display: block;
+  float: left;
+}
+.shop_content .container .right_column .sort_container {
+  height: 100%;
+  width: 100%;
+
+  justify-content: end;
+  align-items: center;
+  display: flex;
+}
+.shop_content .container .right_column .sort_container > * {
+  margin-right: 5px;
+}
 .shop_content .container .left_column .categories {
   height: 180px;
   width: 100%;
@@ -156,23 +185,6 @@
   margin-top: 10px;
 }
 
-.shop_content .container .right_column .header {
-  height: 100px;
-  width: 100%;
-  flex-direction: row;
-  display: flex;
-}
-.shop_content .container .right_column .sort_container {
-  height: 100%;
-  width: 100%;
-
-  justify-content: end;
-  align-items: center;
-  display: flex;
-}
-.shop_content .container .right_column .sort_container > * {
-  margin-right: 5px;
-}
 .shop_sort_button {
   padding-left: 60px;
   padding-right: 60px;

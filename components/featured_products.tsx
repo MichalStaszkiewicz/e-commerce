@@ -91,8 +91,7 @@ export class FeaturedProducts extends React.Component<
               image={item.image}
               label={item.label}
               description={item.description}
-              price={item.price}
-            />
+              price={item.price} width={300} height={400}            />
           ))}
         </div>
 

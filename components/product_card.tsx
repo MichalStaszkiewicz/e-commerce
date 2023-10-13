@@ -6,6 +6,8 @@ interface ProductCardProps {
   label: string;
   description: string;
   price: number;
+  width: number;
+  height: number;
 }
 interface ProductCardState {}
 export class ProductCard extends React.Component<
@@ -18,9 +20,17 @@ export class ProductCard extends React.Component<
   render() {
     const { image, label, description, price } = this.props;
     return (
-      <div className="product_card_container">
+      <div
+        className="product_card_container"
+        style={{backgroundColor:"blue",
+          width: `${this.props.width}px`,
+          height: `${this.props.height}px`,
+        }}
+      >
         <div
-          style={{ backgroundImage: `url(${image})` }}
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
           className="product_card_image"
         ></div>
         <div className="product_card_desc">
