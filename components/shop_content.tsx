@@ -68,8 +68,24 @@ export default function ShopContent() {
               Shop All
             </p>
             <div className="sort_container">
-              <SortButton label={"LATEST"} width={100} height={40} />
-              <SortButton label={"REFERENCE"} width={100} height={40} />
+              <SortButton
+                label={"LATEST"}
+                width={100}
+                height={40}
+                menuData={["Man", "Woman", "Children"]}
+              />
+              <SortButton
+                label={"REFERENCE"}
+                width={100}
+                height={40}
+                menuData={[
+                  "Relevance",
+                  "Name, A To Z",
+                  "Name, Z to A",
+                  "Price, low to high",
+                  "Price, high to low",
+                ]}
+              />
             </div>
           </div>
           <div className="list"></div>
@@ -98,7 +114,7 @@ function CategoriesSize({ label }: { label: string }) {
   return (
     <li>
       <div style={{}}>
-        <input type="checkbox" id="scales" name="scales" checked />
+        <input type="checkbox" checked />
         <label style={{ fontWeight: "350", fontSize: "15px" }}>{label}</label>
       </div>
     </li>
@@ -109,6 +125,7 @@ interface SortButtonProps {
   width: number;
   height: number;
   label: string;
+  menuData: string[];
 }
 interface SortButtonState {
   isOpen: boolean;
@@ -125,8 +142,6 @@ class SortButton extends React.Component<SortButtonProps, SortButtonState> {
     this.sortMenu = React.createRef();
   }
   componentDidMount() {
-    console.log("executed");
-
     window.addEventListener("mousedown", (event: MouseEvent) => {
       console.log("begining");
       if (this.state.isOpen) {
@@ -146,10 +161,7 @@ class SortButton extends React.Component<SortButtonProps, SortButtonState> {
           event.clientY <= buttonRect.bottom;
 
         if (isInsideMenu || isInsideButton) {
-          console.log("is inside button? : " + isInsideButton);
-          console.log("is opened? : " + this.state.isOpen);
           if (isInsideButton && this.state.isOpen) {
-       
             this.setState((prevState) => ({
               isOpen: false,
             }));
@@ -170,7 +182,7 @@ class SortButton extends React.Component<SortButtonProps, SortButtonState> {
           event.clientX <= buttonRect.right &&
           event.clientY >= buttonRect.top &&
           event.clientY <= buttonRect.bottom;
-        console.log("IS CLOSED");
+
         if (isInsideButton) {
           this.setState((prevState) => ({
             isOpen: true,
@@ -183,35 +195,47 @@ class SortButton extends React.Component<SortButtonProps, SortButtonState> {
   render() {
     const handleMouseDown = (event: any) => {};
     return (
-      <div
-        ref={this.buttonRef}
-        className="shop_sort_button"
-        style={{
-          width: this.props.width.toString() + "px",
-          height: this.props.height.toString() + "px",
-        }}
-        onMouseDown={handleMouseDown}
-      >
-        <p
+      <div>
+        {" "}
+        <div
+          ref={this.buttonRef}
+          className="shop_sort_button"
           style={{
-            paddingLeft: "5px",
-            paddingRight: "5px",
-            fontSize: "13px",
-            textAlign: "center",
-            alignItems: "center",
-            justifyContent: "center",
+            width: this.props.width.toString() + "px",
+            height: this.props.height.toString() + "px",
+            color: this.state.isOpen ? "white" : "black",
+            backgroundColor: this.state.isOpen ? "#545b62" : "#e6e7e9",
           }}
+          onMouseDown={handleMouseDown}
         >
-          {this.props.label}
-        </p>
-        <FontAwesomeIcon icon={icons.faAngleDown} style={{ width: "10px" }} />
-        {this.state.isOpen ? <SortMenu ref={this.sortMenu} /> : <div></div>}
+          <p
+            style={{
+              paddingLeft: "5px",
+              paddingRight: "5px",
+              fontSize: "13px",
+              textAlign: "center",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {this.props.label}
+          </p>
+          <FontAwesomeIcon icon={icons.faAngleDown} style={{ width: "10px" }} />
+        </div>
+        {this.state.isOpen ? (
+          <SortMenu ref={this.sortMenu} labels={this.props.menuData} />
+        ) : (
+          <div></div>
+        )}
       </div>
     );
   }
 }
-interface SortMenuProps {}
+interface SortMenuProps {
+  labels: string[];
+}
 interface SortMenuState {}
+
 class SortMenu extends React.Component<SortMenuProps, SortMenuState> {
   menuRef: React.RefObject<HTMLDivElement>;
   constructor(props: SortMenuProps) {
@@ -222,16 +246,15 @@ class SortMenu extends React.Component<SortMenuProps, SortMenuState> {
   }
   render() {
     return (
-      <div
-        ref={this.menuRef}
-        style={{
-          height: "150px",
-          width: "150px",
-          backgroundColor: "black",
-          position: "absolute",
-          top: "10px",
-        }}
-      ></div>
+      <div ref={this.menuRef} className="sort_menu" style={{}}>
+        <ul>
+          {this.props.labels.map((item, index) => (
+            <li>
+              <p>{item}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 }
