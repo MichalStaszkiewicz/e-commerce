@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { RefObject } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
-import { FeaturedProduct } from "./featured_product";
+import { ProductCard } from "./product_card";
 import { useRef, useState } from "react";
 import { off } from "process";
 
@@ -24,7 +24,8 @@ interface FeaturedProductProps {
 
 export class FeaturedProducts extends React.Component<
   FeaturedProductProps,
-  FeaturedProductState> {
+  FeaturedProductState
+> {
   listRef: React.RefObject<HTMLDivElement>;
   timer: any;
 
@@ -85,7 +86,7 @@ export class FeaturedProducts extends React.Component<
         </p>
         <div className="featured_products_list" ref={this.listRef}>
           {products.map((item, index) => (
-            <FeaturedProduct
+            <ProductCard
               key={index}
               image={item.image}
               label={item.label}
@@ -158,3 +159,4 @@ export class FeaturedProducts extends React.Component<
     );
   }
 }
+export { ProductCard };

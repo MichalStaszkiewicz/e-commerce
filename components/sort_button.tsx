@@ -25,7 +25,7 @@ export class SortButton extends React.Component<SortButtonProps, SortButtonState
   }
   componentDidMount() {
     window.addEventListener("mousedown", (event: MouseEvent) => {
-      console.log("begining");
+
       if (this.state.isOpen) {
         const buttonRect = this.buttonRef!.current!.getBoundingClientRect();
         const menuRect =
