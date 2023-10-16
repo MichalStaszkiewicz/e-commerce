@@ -31,7 +31,7 @@ export function RightColumn() {
       </div>
       <div className="list">
         <ProductCard
-          width={300}
+          width={250}
           height={350}
           image={"/images/cloth_1.jpg"}
           label={"Tank top"}
@@ -39,7 +39,7 @@ export function RightColumn() {
           description={"Finding perfect product"}
         />{" "}
         <ProductCard
-          width={300}
+          width={250}
           height={350}
           image={"/images/cloth_1.jpg"}
           label={"Tank top"}
@@ -47,20 +47,37 @@ export function RightColumn() {
           description={"Finding perfect product"}
         />{" "}
         <ProductCard
-          width={300}
+          width={250}
           height={350}
           image={"/images/cloth_1.jpg"}
           label={"Tank top"}
           price={50}
           description={"Finding perfect product"}
-        /> <ProductCard
-        width={300}
-        height={350}
-        image={"/images/cloth_1.jpg"}
-        label={"Tank top"}
-        price={50}
-        description={"Finding perfect product"}
-      />
+        />{" "}
+        <ProductCard
+          width={250}
+          height={350}
+          image={"/images/cloth_1.jpg"}
+          label={"Tank top"}
+          price={50}
+          description={"Finding perfect product"}
+        />{" "}
+        <ProductCard
+          width={250}
+          height={350}
+          image={"/images/cloth_1.jpg"}
+          label={"Tank top"}
+          price={50}
+          description={"Finding perfect product"}
+        />{" "}
+        <ProductCard
+          width={250}
+          height={350}
+          image={"/images/cloth_1.jpg"}
+          label={"Tank top"}
+          price={50}
+          description={"Finding perfect product"}
+        />{" "}
       </div>
     </div>
   );

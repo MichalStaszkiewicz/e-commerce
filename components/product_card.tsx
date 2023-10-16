@@ -22,9 +22,10 @@ export class ProductCard extends React.Component<
     return (
       <div
         className="product_card_container"
-        style={{backgroundColor:"blue",
+        style={{
           width: `${this.props.width}px`,
           height: `${this.props.height}px`,
+
         }}
       >
         <div

@@ -21,13 +21,13 @@
 .shop_content .container {
   margin-top: 80px;
   height: 100%;
-  width: 78%;
+  width: 60%;
 
   flex-direction: row;
 }
 
 .shop_content .container .left_column {
-  width: 18%;
+  width: 23%;
 
   height: 100%;
   display: block;
@@ -36,7 +36,7 @@
   float: left;
 }
 .shop_content .container .spacer {
-  width: 2%;
+  width: 4%;
 
   height: 100%;
   display: block;
@@ -45,27 +45,25 @@
 }
 .shop_content .container .right_column {
   height: 100%;
-
   display: flex;
   flex-direction: column;
   float: left;
-  width: 80%;
+  width: 73%;
 }
 .shop_content .container .right_column .list {
-  margin-top: 20px;
+  margin-top: 60px;
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 0;
+  grid-template-columns: 280px 280px 280px;
+  grid-template-rows: 380px 280px 280px;
 }
 
 .shop_content .container .right_column .header {
   height: 100px;
   width: 100%;
-  flex-direction: row;
 
+  flex-direction: row;
   display: block;
   float: left;
 }
