@@ -2,6 +2,7 @@ import { ProductCard } from "../product_card";
 import { SortButton } from "../sort_button";
 
 export function RightColumn() {
+  let temp: number[] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
   return (
     <div className="right_column">
       <div className="header">
@@ -30,54 +31,16 @@ export function RightColumn() {
         </div>
       </div>
       <div className="list">
-        <ProductCard
-          width={250}
-          height={350}
-          image={"/images/cloth_1.jpg"}
-          label={"Tank top"}
-          price={50}
-          description={"Finding perfect product"}
-        />{" "}
-        <ProductCard
-          width={250}
-          height={350}
-          image={"/images/cloth_1.jpg"}
-          label={"Tank top"}
-          price={50}
-          description={"Finding perfect product"}
-        />{" "}
-        <ProductCard
-          width={250}
-          height={350}
-          image={"/images/cloth_1.jpg"}
-          label={"Tank top"}
-          price={50}
-          description={"Finding perfect product"}
-        />{" "}
-        <ProductCard
-          width={250}
-          height={350}
-          image={"/images/cloth_1.jpg"}
-          label={"Tank top"}
-          price={50}
-          description={"Finding perfect product"}
-        />{" "}
-        <ProductCard
-          width={250}
-          height={350}
-          image={"/images/cloth_1.jpg"}
-          label={"Tank top"}
-          price={50}
-          description={"Finding perfect product"}
-        />{" "}
-        <ProductCard
-          width={250}
-          height={350}
-          image={"/images/cloth_1.jpg"}
-          label={"Tank top"}
-          price={50}
-          description={"Finding perfect product"}
-        />{" "}
+        {temp.map((item, index) => (
+          <ProductCard
+            width={250}
+            height={350}
+            image={"/images/cloth_1.jpg"}
+            label={"Tank top"}
+            price={50}
+            description={"Finding perfect product"}
+          />
+        ))}
       </div>
     </div>
   );
