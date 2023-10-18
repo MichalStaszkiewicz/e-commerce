@@ -53,7 +53,7 @@
 .shop_content .container .right_column .list {
   margin-top: 60px;
   width: 100%;
-  height: 100%;
+
   display: grid;
   grid-template-columns: 280px 280px 280px;
   grid-template-rows: 380px 380px 380px;
@@ -100,7 +100,31 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.shop_content .container .right_column .next_page_row {
+  height: 40px;
+  width: 100%;
 
+  justify-content: center;
+
+  display: flex;
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.shop_content .container .right_column .button {
+  height: 40px;
+  width: 40px;
+
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 50px;
+  border: rgb(184, 184, 184) 1px solid;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+}
 .shop_content .container .left_column .categories .list_element {
   height: 30px;
   width: 100%;

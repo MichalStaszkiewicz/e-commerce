@@ -1,8 +1,13 @@
+
+import FadeOnVisible from "../fade_on_visible";
 import { ProductCard } from "../product_card";
 import { SortButton } from "../sort_button";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import * as icons from '@fortawesome/free-solid-svg-icons';
 export function RightColumn() {
-  let temp: number[] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  let temp: number[] = [1, 1, 1, 1, 1, 1, 1, 1, 1];
   return (
     <div className="right_column">
       <div className="header">
@@ -32,15 +37,27 @@ export function RightColumn() {
       </div>
       <div className="list">
         {temp.map((item, index) => (
-          <ProductCard
-            width={250}
-            height={350}
-            image={"/images/cloth_1.jpg"}
-            label={"Tank top"}
-            price={50}
-            description={"Finding perfect product"}
-          />
+          <FadeOnVisible
+            children={
+              <ProductCard
+                width={250}
+                height={350}
+                image={"/images/cloth_1.jpg"}
+                label={"Tank top"}
+                price={50}
+                description={"Finding perfect product"}
+              />
+            }
+          ></FadeOnVisible>
         ))}
+      </div>
+
+      <div className="next_page_row">
+        <div className="button">
+       <FontAwesomeIcon  icon={icons.faArrowLeft} style={{}}></FontAwesomeIcon>
+
+
+        </div>
       </div>
     </div>
   );
