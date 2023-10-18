@@ -111,6 +111,16 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.shop_content .container .right_column .next_page_row >*{
+  
+  margin-right: 5px;
+}
+.shop_content .container .right_column .next_page_row :last-child{
+  
+  margin-right:0px;
+}
+
+
 
 .shop_content .container .right_column .button {
   height: 40px;
@@ -124,6 +134,10 @@
   align-items: center;
 
   justify-content: center;
+}
+.shop_content .container .right_column .button:hover {
+
+cursor: pointer;
 }
 .shop_content .container .left_column .categories .list_element {
   height: 30px;

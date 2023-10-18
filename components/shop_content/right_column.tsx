@@ -1,11 +1,10 @@
-
 import FadeOnVisible from "../fade_on_visible";
 import { ProductCard } from "../product_card";
 import { SortButton } from "../sort_button";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import * as icons from '@fortawesome/free-solid-svg-icons';
+import * as icons from "@fortawesome/free-solid-svg-icons";
 export function RightColumn() {
   let temp: number[] = [1, 1, 1, 1, 1, 1, 1, 1, 1];
   return (
@@ -54,9 +53,18 @@ export function RightColumn() {
 
       <div className="next_page_row">
         <div className="button">
-       <FontAwesomeIcon  icon={icons.faArrowLeft} style={{}}></FontAwesomeIcon>
-
-
+          <FontAwesomeIcon
+            icon={icons.faArrowLeft}
+            style={{}}
+          ></FontAwesomeIcon>
+        </div>
+        <div className="button">1</div>
+        <div className="button">2</div>
+        <div className="button">
+          <FontAwesomeIcon
+            icon={icons.faArrowRight}
+            style={{}}
+          ></FontAwesomeIcon>
         </div>
       </div>
     </div>
