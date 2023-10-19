@@ -3,10 +3,60 @@ import { ProductCard } from "../product_card";
 import { SortButton } from "../sort_button";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 export function RightColumn() {
-  let temp: number[] = [1, 1, 1, 1, 1, 1, 1, 1, 1];
+  let temp: number[] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  let maxElements = 10;
+  const [currentPage, setCurrentPage] = useState(1);
+  const pagesNumber = function (): React.ReactElement<HTMLDivElement>[] {
+    let pages = 0;
+    for (let i = 0; i < temp.length; i++) {
+      if (i % 6 == 0) {
+        pages++;
+      }
+    }
+    if (temp.length % pages == 1) {
+      pages++;
+    }
+    let pageButtons: React.ReactElement<HTMLDivElement>[] = [];
+    for (let i = 0; i < pages; i++) {
+      pageButtons.push(
+        <div
+          onClick={() => {
+            setCurrentPage(i + 1);
+          }}
+          style={{
+            backgroundColor: currentPage == i + 1 ? "#7c74ea" : "white",
+            color: currentPage == i + 1 ? "white" : "#7c74ea",
+          }}
+          className="button"
+        >
+          {i + 1}
+        </div>
+      );
+    }
+
+    return pageButtons;
+  };
+  const [reachedEnd, setReachedEnd] = useState(false);
+
+  useEffect(() => {
+    const pagesNumber = () => {
+      let pages = 0;
+      for (let i = 0; i < temp.length; i++) {
+        if (i % 6 == 0) {
+          pages++;
+        }
+      }
+      if (temp.length % pages == 1) {
+        pages++;
+      }
+      return pages;
+    };
+
+    setReachedEnd(currentPage < pagesNumber());
+  }, [currentPage]);
   return (
     <div className="right_column">
       <div className="header">
@@ -35,37 +85,59 @@ export function RightColumn() {
         </div>
       </div>
       <div className="list">
-        {temp.map((item, index) => (
-          <FadeOnVisible
-            children={
-              <ProductCard
-                width={250}
-                height={350}
-                image={"/images/cloth_1.jpg"}
-                label={"Tank top"}
-                price={50}
-                description={"Finding perfect product"}
-              />
-            }
-          ></FadeOnVisible>
-        ))}
+        {temp
+          .slice(
+            (currentPage - 1) * maxElements == 0
+              ? (currentPage - 1) * maxElements
+              : (currentPage - 1) * maxElements - 1,
+            currentPage * maxElements - 1
+          )
+          .map((item, index) => (
+            <FadeOnVisible
+              children={
+                <ProductCard
+                  width={250}
+                  height={350}
+                  image={"/images/cloth_1.jpg"}
+                  label={"Tank top"}
+                  price={50}
+                  description={"Finding perfect product"}
+                />
+              }
+            ></FadeOnVisible>
+          ))}
       </div>
 
       <div className="next_page_row">
-        <div className="button">
-          <FontAwesomeIcon
-            icon={icons.faArrowLeft}
-            style={{}}
-          ></FontAwesomeIcon>
-        </div>
-        <div className="button">1</div>
-        <div className="button">2</div>
-        <div className="button">
-          <FontAwesomeIcon
-            icon={icons.faArrowRight}
-            style={{}}
-          ></FontAwesomeIcon>
-        </div>
+        {currentPage > 1 ? (
+          <div
+            className="button"
+            onClick={() => {
+              setCurrentPage(currentPage - 1);
+            }}
+          >
+            <FontAwesomeIcon
+              icon={icons.faArrowLeft}
+              style={{}}
+            ></FontAwesomeIcon>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {...pagesNumber()}
+        {reachedEnd && (
+          <div
+            className="button"
+            onClick={() => {
+              setCurrentPage(currentPage + 1);
+            }}
+          >
+            <FontAwesomeIcon
+              icon={icons.faArrowRight}
+              style={{}}
+            ></FontAwesomeIcon>
+          </div>
+        )}
       </div>
     </div>
   );
