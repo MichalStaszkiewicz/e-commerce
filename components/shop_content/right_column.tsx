@@ -12,7 +12,7 @@ export function RightColumn() {
   const pagesNumber = function (): React.ReactElement<HTMLDivElement>[] {
     let pages = 0;
     for (let i = 0; i < temp.length; i++) {
-      if (i % 6 == 0) {
+      if (i % 9 == 0) {
         pages++;
       }
     }
@@ -45,7 +45,7 @@ export function RightColumn() {
     const pagesNumber = () => {
       let pages = 0;
       for (let i = 0; i < temp.length; i++) {
-        if (i % 6 == 0) {
+        if (i % 9 == 0) {
           pages++;
         }
       }
@@ -122,10 +122,10 @@ export function RightColumn() {
             ></FontAwesomeIcon>
           </div>
         ) : (
-          <div></div>
+          <div style={{ height: "40px", width: "40px" }}></div>
         )}
         {...pagesNumber()}
-        {reachedEnd && (
+        {reachedEnd ? (
           <div
             className="button"
             onClick={() => {
@@ -137,6 +137,8 @@ export function RightColumn() {
               style={{}}
             ></FontAwesomeIcon>
           </div>
+        ) : (
+          <div style={{ height: "40px", width: "40px" }}></div>
         )}
       </div>
     </div>
