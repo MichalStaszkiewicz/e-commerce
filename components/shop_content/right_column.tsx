@@ -6,13 +6,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 export function RightColumn() {
-  let temp: number[] = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
-  let maxElements = 10;
+  let temp: number[] = [
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+  ];
+  let maxElements = 9;
   const [currentPage, setCurrentPage] = useState(1);
   const pagesNumber = function (): React.ReactElement<HTMLDivElement>[] {
     let pages = 0;
     for (let i = 0; i < temp.length; i++) {
-      if (i % 9 == 0) {
+      if (i % maxElements == 0) {
         pages++;
       }
     }
@@ -45,7 +52,7 @@ export function RightColumn() {
     const pagesNumber = () => {
       let pages = 0;
       for (let i = 0; i < temp.length; i++) {
-        if (i % 9 == 0) {
+        if (i % maxElements == 0) {
           pages++;
         }
       }
@@ -90,7 +97,9 @@ export function RightColumn() {
             (currentPage - 1) * maxElements == 0
               ? (currentPage - 1) * maxElements
               : (currentPage - 1) * maxElements - 1,
-            currentPage * maxElements - 1
+            currentPage > 1
+              ? currentPage * maxElements - 1
+              : currentPage * maxElements
           )
           .map((item, index) => (
             <FadeOnVisible
