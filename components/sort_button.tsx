@@ -1,7 +1,7 @@
-import * as icons from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as icons from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { SortMenu } from './sort_menu';
+import { SortMenu } from "./sort_menu";
 
 interface SortButtonProps {
   width: number;
@@ -12,7 +12,10 @@ interface SortButtonProps {
 interface SortButtonState {
   isOpen: boolean;
 }
-export class SortButton extends React.Component<SortButtonProps, SortButtonState> {
+export class SortButton extends React.Component<
+  SortButtonProps,
+  SortButtonState
+> {
   buttonRef: React.RefObject<HTMLDivElement>;
   sortMenu: React.RefObject<SortMenu>;
   constructor(props: SortButtonProps) {
@@ -25,7 +28,6 @@ export class SortButton extends React.Component<SortButtonProps, SortButtonState
   }
   componentDidMount() {
     window.addEventListener("mousedown", (event: MouseEvent) => {
-
       if (this.state.isOpen) {
         const buttonRect = this.buttonRef!.current!.getBoundingClientRect();
         const menuRect =
@@ -71,7 +73,6 @@ export class SortButton extends React.Component<SortButtonProps, SortButtonState
           }));
         }
       }
-      console.log(this.state.isOpen + " " + this.props.label);
     });
   }
   render() {
