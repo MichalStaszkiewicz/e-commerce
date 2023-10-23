@@ -1,4 +1,4 @@
-import { MouseEventHandler, useEffect, useState } from "react";
+import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import {
   CategoriesColorIndicator,
   CategoriesSize,
@@ -11,33 +11,55 @@ export function LeftColumn() {
     Min = "Min",
     Max = "Max",
   }
-  const [currentMinX, setCurrentMinX] = useState(0);
+  const [currentMinX, setCurrentMinX] = useState(1);
   const [currentMaxX, setCurrentMaxX] = useState(100);
+  const [init, setInit] = useState(false);
   const [isMouseMinDown, setisMouseMinDown] = useState(false);
   const [isMouseMaxDown, setisMouseMaxDown] = useState(false);
+  const [sliderWidth, setSliderWidth] = useState(1);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const maxPrice = 5000;
+
+  const getPrice = (currentOffset: any) => {
+    const percentage = (currentOffset / sliderWidth) * 100;
+
+    return (percentage / 100) * maxPrice;
+  };
+  useEffect(() => {
+    if (sliderRef.current && init == false) {
+      setSliderWidth(sliderRef.current.getBoundingClientRect().width);
+      let newSliderWidth = sliderRef.current.getBoundingClientRect().width;
+      console.log("SLIDER WIDTH " + newSliderWidth)
+      setCurrentMaxX(newSliderWidth);
+
+      setInit(true);
+    }
+  });
 
   const handlePointerPosition = (event: any) => {
-    let newMovement: number = event.clientX - (22 / 100) * window.innerWidth;
-    let sliderMin = 0;
-    let sliderMax = (10 / 100) * window.innerWidth;
-
-    console.log("current min x : " + currentMinX);
+    let newMovement: number = event.movementX ;
+   console.log(newMovement)
     if (isMouseMinDown) {
       if (
-        newMovement > sliderMin &&
-        newMovement < sliderMax &&
-        newMovement < currentMaxX
+        0 < newMovement + currentMinX&&
+        newMovement + currentMinX < sliderWidth &&
+        newMovement + currentMinX < currentMaxX
       ) {
-        setCurrentMinX(newMovement);
+        setCurrentMinX(newMovement + currentMinX);
+      }else{
+        setCurrentMinX(1);
       }
     } else if (isMouseMaxDown) {
-      if (newMovement > currentMinX && newMovement < sliderMax) {
-        setCurrentMaxX(newMovement);
+      if (newMovement + currentMaxX > currentMinX && newMovement + currentMaxX < sliderWidth) {
+        setCurrentMaxX(newMovement + currentMaxX);
+      }else{
+        setCurrentMaxX(sliderWidth);
       }
     }
 
     event.preventDefault();
   };
+
   const handleMouseDown = (event: any, slider: Slider) => {
     if (slider == Slider.Min) {
       setisMouseMinDown(true);
@@ -90,17 +112,18 @@ export function LeftColumn() {
         <div className="container">
           <p className="categories_header">FILTER BY PRICE</p>
           <div className="slider_container">
-            <div className="slider">
+            <div className="slider" ref={sliderRef}>
               <div
                 className="slider_fill"
                 style={{
-                  width: `${currentMaxX - currentMinX}px`,transform:`TranslateX(${currentMinX}px)`
+                  width: `${currentMaxX - currentMinX}px`,
+                  transform: `TranslateX(${currentMinX}px)`,
                 }}
               ></div>
             </div>
             <div
               style={{
-                transform: `Translate(${currentMinX}px,-12px)`,
+                transform: `Translate(${currentMinX}px,-3px)`,
               }}
               onMouseDown={(event) => handleMouseDown(event, Slider.Min)}
               onMouseUp={(event) => handleMouseUp(event)}
@@ -110,16 +133,19 @@ export function LeftColumn() {
             </div>
             <div
               style={{
-                transform: `Translate(${currentMaxX}px,-28px)`,
+                transform: `Translate(${currentMaxX}px,-3px)`,
               }}
               onMouseDown={(event) => handleMouseDown(event, Slider.Max)}
-              onMouseUp={(event) => handleMouseUp(event,)}
+              onMouseUp={(event) => handleMouseUp(event)}
               className="slider_pointer"
             >
               {" "}
             </div>
           </div>
-          <p style={{ marginTop: "10px", fontSize: "14px" }}>$76 - $262</p>
+          <p style={{ marginTop: "10px", fontSize: "14px" }}>
+            ${getPrice(currentMinX).toFixed(0)} - $
+            {getPrice(currentMaxX).toFixed(0)}
+          </p>
           <p className="categories_header" style={{ marginTop: "20px" }}>
             SIZE
           </p>
