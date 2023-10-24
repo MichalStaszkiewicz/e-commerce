@@ -10,12 +10,13 @@ export function HeaderNavButton({ label, icon, items }: { label: string, icon: b
     const [isMenuOpen, setMenuOpen] = useState(false);
     const toggleMenu = () => {
         if (icon) {
+            console.log('close')
             setMenuOpen(!isMenuOpen);
         }
 
     };
 
-    return <li className={`header_nav_button ${isMenuOpen ? 'menu-open' : ''}`} onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
+    return <li style={{fontSize:"13px" }} className={`header_nav_button ${isMenuOpen ? 'menu-open' : ''}`} onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
         <Link href={label=="SHOP"?"/shop":""}>{label}</Link>
         {icon && <FontAwesomeIcon icon={icons.faAngleDown} />} {isMenuOpen && (
             <ul className="shadow header_button_menu animate-header-button" >

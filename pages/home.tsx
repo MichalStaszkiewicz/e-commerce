@@ -40,6 +40,7 @@ export default function Home() {
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
                     }
                   />
+              
                   <Benefit
                     title={"FREE RETURNS"}
                     description={

@@ -27,9 +27,9 @@ export function LeftColumn() {
   };
   useEffect(() => {
     if (sliderRef.current && init == false) {
-      setSliderWidth(sliderRef.current.getBoundingClientRect().width);
-      let newSliderWidth = sliderRef.current.getBoundingClientRect().width;
-      console.log("SLIDER WIDTH " + newSliderWidth)
+      setSliderWidth(sliderRef.current.getBoundingClientRect().width -10);
+      let newSliderWidth = sliderRef.current.getBoundingClientRect().width-10;
+  
       setCurrentMaxX(newSliderWidth);
 
       setInit(true);
@@ -75,7 +75,6 @@ export function LeftColumn() {
 
     setisMouseMaxDown(false);
 
-    console.log("mouse UP!");
     document.removeEventListener("mouseup", handlePointerPosition);
   };
   const handleMouseOut = (event: any) => {

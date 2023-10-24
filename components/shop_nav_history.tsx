@@ -4,7 +4,6 @@ import path from "path";
 
 export default function ShopNavHistory() {
   var router = useRouter();
-  //   var path = document.createElement('div');
 
   var paths: string[] = [];
   var firstSub = 0;
@@ -23,7 +22,7 @@ export default function ShopNavHistory() {
 
   return (
     <div className="shop-nav-container">
-      <div className="shop-nav-container" style={{ marginLeft: "150px" }}>
+      <div className="shop-nav-container" style={{ marginLeft: "20%" }}>
         {paths.map((item, index) => {
           if (index > 0) {
             return (
@@ -38,10 +37,12 @@ export default function ShopNavHistory() {
                     paddingRight: "2px",
                   }}
                 >
+                  <div style={{ width: "5px" }}></div>
                   {" / "}
+                  <div style={{ width: "5px" }}></div>
                 </p>{" "}
                 <a href={item} style={{ color: "black", display: "flex" }}>
-                  {item.substring(1, item.length)}
+                  {item.substring(index, item.length)}
                 </a>
               </div>
             );

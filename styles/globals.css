@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-	--primary-color: #7c74ea;
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 214, 219, 220;
-	--background-end-rgb: 255, 255, 255;
+  --primary-color: #7c74ea;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 /*
 @media (prefers-color-scheme: dark) {
@@ -18,158 +18,143 @@
 }
 */
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .header {
-	width: 100%;
-	height: 300px;
-
-
+  width: 100%;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .content {
-	width: 100%;
-
-
-
+  width: 100%;
 }
 
 body {
-	color: rgb(var(--foreground-rgb));
-	background: linear-gradient(to bottom,
-			transparent,
-			rgb(var(--background-end-rgb))) rgb(var(--background-start-rg,
-				b));
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rg, b));
 }
 
 .row-space-between {
-	width: 100%;
+  width: 80%;
 
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-.row-space-between >*{
-	margin-right: 20px;
-
+.row-space-between > * {
+  margin-right: 20px;
 }
-.row-space-between :last-child{
-	margin-right: 0px;
-
+.row-space-between :last-child {
+  margin-right: 0px;
 }
 .site-logo {
-	height: 50px;
+  height: 40px;
 
-	padding-left: 20px;
-	padding-right: 20px;
-	border: 2px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid black;
 
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
 .site-block-top-search {
+  position: relative;
+  width: 25%;
 
-	position: relative;
-	width: 25%;
-
-	text-align: end;
-	display: flex;
-	align-items: end;
-	justify-content: end;
+  text-align: end;
+  display: flex;
+  align-items: end;
+  justify-content: end;
 }
 
 .site-block-top-search .icon-search2 {
-	position: absolute;
-	transform: translate(-700%, 45%);
-	color: #8c92a0;
-	bottom: 45%;
-	left: 52%;
+  position: absolute;
+  transform: translate(-200%, 45%);
+  color: #8c92a0;
+  bottom: 45%;
+  left: 52%;
 }
 
 .site-block-top-search input {
-	margin-right: 0;
+  margin-right: 0;
 
-	-webkit-transition: .3s all ease-in-out;
-	-o-transition: .3s all ease-in-out;
-	transition: .3s all ease-in-out;
+  -webkit-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
 }
 
 .site-block-top-search input:focus,
 .site-block-top-search input:active {
-	margin-right: 20px;
+  margin-right: 20px;
 
-
-	border-color: transparent;
-	outline: none;
+  border-color: transparent;
+  outline: none;
 }
 
 .side-nav {
-
-	width: 25%;
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  width: 25%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-header {
-	text-align: center;
-	display: flex;
-	align-items: start;
-	justify-content: center;
-	height: 100px;
-	width: 100%;
 
-
+  flex-direction: row;
+  text-align: start;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
 }
 
-
 .shadow {
-	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes header-button-animation {
-	0% {
-		opacity: 0;
-		transform: translateY(130%);
-	}
+  0% {
+    opacity: 0;
+    transform: translateY(130%);
+  }
 
-	100% {
-		opacity: 1;
-		transform: translateY(90%);
-	}
+  100% {
+    opacity: 1;
+    transform: translateY(105%);
+  }
 }
 
 @keyframes opacity-animation {
-	0% {
-		opacity: 0;
+  0% {
+    opacity: 0;
+  }
 
-	}
-
-	100% {
-		opacity: 1;
-
-	}
+  100% {
+    opacity: 1;
+  }
 }
 
 .animate-header-button {
-
-	animation: header-button-animation 0.2s ease-in-out;
+  animation: header-button-animation 0.2s ease-in-out;
 }
 
 .animate-opacity {
-
-
-	animation: opacity-animation 0.2s ease-in-out;
+  animation: opacity-animation 0.2s ease-in-out;
 }
-
-
-

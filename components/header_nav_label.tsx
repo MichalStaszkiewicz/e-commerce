@@ -29,7 +29,7 @@ export class HeaderNavLabel extends React.Component<
         {this.props.isMenu ? (
           <div className="header-menu-label">
             {" "}
-            <ul>{this.props.label}</ul>
+            <ul >{this.props.label}</ul>
             <FontAwesomeIcon icon={icons.faArrowRight} />
             {this.state.isOpen && (
               <ul className="shadow header_button_menu_label animate-opacity">
