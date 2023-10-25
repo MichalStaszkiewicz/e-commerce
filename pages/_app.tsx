@@ -4,7 +4,7 @@ import "@/styles/benefit.css";
 import "@/styles/big_sale.css";
 import "@/styles/collection.css";
 import "@/styles/product_card.css";
-import "@/styles/featured_products.css";
+import "@/styles/featured_products.scss";
 import "@/styles/globals.css";
 import "@/styles/footer.css";
 import "@/styles/primary_button.css";

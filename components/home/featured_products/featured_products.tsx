@@ -108,7 +108,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
 
   return (
     <div className="featured_products">
-      <div className="featured_products_decoration"></div>
+      <div className="decoration"></div>
       <p
         style={{
           fontWeight: "400",
@@ -117,7 +117,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
       >
         Featured Products
       </p>
-      <div className="featured_products_list" ref={listRef}>
+      <div className="product_list" ref={listRef}>
         {props.products.map((item, index) => (
           <ProductCard
             key={index}
@@ -131,7 +131,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
         ))}
       </div>
 
-     {props.products.length>3? <div className="featured_products_arrows_container">
+     {props.products.length>3? <div className="arrows_container">
         <FontAwesomeIcon
           onPointerOver={(event) =>
             handlePointerEvent(ArrowDirection.left, event)
@@ -156,7 +156,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
           style={{ height: "25px", color: state.rightArrow }}
           icon={icons.faArrowRight}
         ></FontAwesomeIcon>
-      </div>:<div className="featured_products_arrows_container"> </div>} 
+      </div>:<div className="arrows_container"> </div>} 
     </div>
   );
 }
