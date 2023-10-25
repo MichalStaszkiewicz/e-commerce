@@ -79,7 +79,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
             [arrowDirection]: ArrowColor.activeHover,
           },
         });
-      } else if (state.leftArrow == ArrowColor.inactive) {
+      } else if (state[arrowDirection] == ArrowColor.inactive) {
         setState({
           fields: {
             ...state,
@@ -88,18 +88,18 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
         });
       }
     } else {
-      if (state[arrowDirection] == ArrowColor.activeHover) {
+      if (state[arrowDirection] == ArrowColor.active) {
         setState({
           fields: {
             ...state,
-            [arrowDirection]: ArrowColor.active,
+            [arrowDirection]: ArrowColor.activeHover,
           },
         });
-      } else if (state[arrowDirection] == ArrowColor.inactiveHover) {
+      } else if (state[arrowDirection] == ArrowColor.inactive) {
         setState({
           fields: {
             ...state,
-            [arrowDirection]: ArrowColor.inactive,
+            [arrowDirection]: ArrowColor.inactiveHover,
           },
         });
       }
