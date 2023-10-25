@@ -130,7 +130,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
         ))}
       </div>
 
-      <div className="featured_products_arrows_container">
+     {props.products.length>3? <div className="featured_products_arrows_container">
         <FontAwesomeIcon
           onPointerOver={(event) =>
             handlePointerEvent(ArrowDirection.left, event)
@@ -155,7 +155,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
           style={{ height: "25px", color: state.rightArrow }}
           icon={icons.faArrowRight}
         ></FontAwesomeIcon>
-      </div>
+      </div>:<div className="featured_products_arrows_container"> </div>} 
     </div>
   );
 }
