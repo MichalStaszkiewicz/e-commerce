@@ -46,7 +46,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
   const handleArrowClick = (arrowDirection: ArrowDirection) => {
     const scrollSpeed = 334;
     if (arrowDirection == ArrowDirection.left) {
-      if (state.index>0) {
+      if (state.index > 0) {
         listRef.current!.scrollBy({ left: scrollSpeed * -1 });
         setState({
           fields: {
@@ -108,12 +108,10 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
 
   return (
     <div className="featured_products">
-      <div className="featured_products_decoration"></div>
       <p
         style={{
           fontWeight: "400",
           fontSize: "30px",
-          transform: "TranslateY(200%)",
         }}
       >
         Featured Products

@@ -82,34 +82,19 @@ export default function Home() {
                         description: "Finding perfect product",
                       },
                       {
-                        image: "/images/cloth_3.jpg",
+                        image: "/images/cloth_1.jpg",
                         label: "Tank top",
                         price: 50,
                         description: "Finding perfect product",
                       },
                       {
-                        image: "/images/cloth_2.jpg",
+                        image: "/images/cloth_1.jpg",
                         label: "Tank top",
                         price: 50,
                         description: "Finding perfect product",
                       },
-                      {
-                        image: "/images/cloth_3.jpg",
-                        label: "Tank top",
-                        price: 50,
-                        description: "Finding perfect product",
-                      },
-                      {
-                        image: "/images/shoes.png",
-                        label: "Tank top",
-                        price: 50,
-                        description: "Finding perfect product",
-                      }, {
-                        image: "/images/shoes.png",
-                        label: "Tank top",
-                        price: 50,
-                        description: "Finding perfect product",
-                      },
+                     
+                     
                     ],
                   }}
                 />
