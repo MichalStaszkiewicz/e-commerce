@@ -108,6 +108,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
 
   return (
     <div className="featured_products">
+      <div className="featured_products_decoration"></div>
       <p
         style={{
           fontWeight: "400",

@@ -35,11 +35,11 @@
 
 .featured_products_decoration {
 
-	height: 3.5px;
+	height: 2.4px;
 	width: 40px;
 	background-color: var(--primary-color);
 
-	transform: translateY(2800%);
+
 }
 
 .featured_products_list>* {
