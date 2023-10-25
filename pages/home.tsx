@@ -11,7 +11,7 @@ import React from "react";
 import { PrimaryButton } from "@/components/primary_button";
 import { Benefit } from "@/components/benefit";
 import { Collection } from "@/components/collection";
-import { FeaturedProducts } from "../components/featured_products";
+import { FeaturedProducts } from "../components/home/featured_products/featured_products";
 import { BigSale } from "@/components/big_sale";
 import Link from "next/link";
 import Layout from "@/components/layout";
@@ -40,7 +40,7 @@ export default function Home() {
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
                     }
                   />
-              
+
                   <Benefit
                     title={"FREE RETURNS"}
                     description={
@@ -73,38 +73,45 @@ export default function Home() {
             <FadeOnVisible
               children={
                 <FeaturedProducts
-                  products={[
-                    {
-                      image: "/images/cloth_1.jpg",
-                      label: "Tank top",
-                      price: 50,
-                      description: "Finding perfect product",
-                    },
-                    {
-                      image: "/images/cloth_3.jpg",
-                      label: "Tank top",
-                      price: 50,
-                      description: "Finding perfect product",
-                    },
-                    {
-                      image: "/images/cloth_2.jpg",
-                      label: "Tank top",
-                      price: 50,
-                      description: "Finding perfect product",
-                    },
-                    {
-                      image: "/images/cloth_3.jpg",
-                      label: "Tank top",
-                      price: 50,
-                      description: "Finding perfect product",
-                    },
-                    {
-                      image: "/images/shoes.png",
-                      label: "Tank top",
-                      price: 50,
-                      description: "Finding perfect product",
-                    },
-                  ]}
+                  props={{
+                    products: [
+                      {
+                        image: "/images/cloth_1.jpg",
+                        label: "Tank top",
+                        price: 50,
+                        description: "Finding perfect product",
+                      },
+                      {
+                        image: "/images/cloth_3.jpg",
+                        label: "Tank top",
+                        price: 50,
+                        description: "Finding perfect product",
+                      },
+                      {
+                        image: "/images/cloth_2.jpg",
+                        label: "Tank top",
+                        price: 50,
+                        description: "Finding perfect product",
+                      },
+                      {
+                        image: "/images/cloth_3.jpg",
+                        label: "Tank top",
+                        price: 50,
+                        description: "Finding perfect product",
+                      },
+                      {
+                        image: "/images/shoes.png",
+                        label: "Tank top",
+                        price: 50,
+                        description: "Finding perfect product",
+                      }, {
+                        image: "/images/shoes.png",
+                        label: "Tank top",
+                        price: 50,
+                        description: "Finding perfect product",
+                      },
+                    ],
+                  }}
                 />
               }
             />
