@@ -115,7 +115,6 @@ body {
 }
 
 .nav-header {
-
   flex-direction: row;
   text-align: start;
   display: flex;
@@ -137,24 +136,28 @@ body {
 
   100% {
     opacity: 1;
-    transform: translateY(105%);
+    transform: translateY(102%);
   }
 }
 
-@keyframes opacity-animation {
+@keyframes header-button-label-animation {
   0% {
     opacity: 0;
+    transform: translateY(130%);
   }
 
   100% {
     opacity: 1;
+    transform: translateY(0%);
   }
 }
 
 .animate-header-button {
-  animation: header-button-animation 0.2s ease-in-out;
+  animation: header-button-animation 0.3s ease-in-out;
 }
-
+.animate-label-button {
+  animation: header-button-label-animation 0.3s ease-in-out;
+}
 .animate-opacity {
   animation: opacity-animation 0.2s ease-in-out;
 }

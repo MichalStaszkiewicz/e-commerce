@@ -5,7 +5,7 @@ import {
 } from "../categories_color_indicator";
 import { env } from "process";
 import { win32 } from "path";
-
+//TODO: Replace useState with keeping data in url as query
 export function LeftColumn() {
   enum Slider {
     Min = "Min",

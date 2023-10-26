@@ -1,46 +1,48 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
+import { NavItem } from "./header_nav_button";
 
-export class HeaderNavLabel extends React.Component<
-  HeaderNavLabelProps,
-  HeaderNavLabelState
-> {
-  constructor(props: HeaderNavLabelProps) {
-    super(props);
-    this.state = {
-      isOpen: false,
-    };
-  }
-  toggleMenu = () => {
-    if (this.props.isMenu) {
-      this.setState((prevState) => ({
-        isOpen: !prevState.isOpen,
-      }));
+
+export function HeaderNavLabel({props}:{props:NavItem}
+ ) {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    if (props.menuItems.length>0?true:false) {
+      setIsOpen(!isOpen)
+
     }
   };
-  render() {
-    return (
-      <div
-        className="header_nav_container"
-        onMouseEnter={this.toggleMenu}
-        onMouseLeave={this.toggleMenu}
-      >
-        {this.props.isMenu ? (
-          <div className="header-menu-label">
-            {" "}
-            <ul >{this.props.label}</ul>
-            <FontAwesomeIcon icon={icons.faArrowRight} />
-            {this.state.isOpen && (
-              <ul className="shadow header_button_menu_label animate-opacity">
-                {<HeaderNavLabel label={"item.props.label"} isMenu={true} />}
-              </ul>
-            )}
-          </div>
-        ) : (
-          <ul className="header-menu-label">{this.props.label}</ul>
-        )}
-      </div>
-    );
+  const createMenu = ():NavItem[] =>{
+    const menuItems:NavItem[] = [];
+    props.menuItems.map((item,index)=>{
+     const newMenuItem:NavItem ={
+       label:item,
+       menuItems:props.menuItems
+     }
+      menuItems.push(newMenuItem)
+
+   })
+   return menuItems;
+
   }
+  const menuItems = createMenu()
+  return (
+    <div onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
+      {props.menuItems.length>0 ? (
+        <div className="header-menu-label">
+          {" "}
+          <ul>{props.label}</ul>
+          <FontAwesomeIcon icon={icons.faArrowRight} />
+          {isOpen && (
+            <ul className="header_button_menu_label  animate-label-button">
+              {<HeaderNavLabel props={createMenu()[0]} />}
+            </ul>
+          )}
+        </div>
+      ) : (
+        <ul className="header-menu-label">{props.label}</ul>
+      )}
+    </div>
+  );
 }

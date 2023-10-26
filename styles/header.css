@@ -34,53 +34,46 @@
 .header_button_menu {
   background-color: white;
   border-top: 2px solid var(--primary-color);
+  border-left: 0.1px solid rgb(235, 235, 235);
+  border-bottom: 0.1px solid rgb(235, 235, 235);
+  border-right: 0.1px solid rgb(235, 235, 235);
   text-align: start;
   align-items: start;
   justify-content: start;
   width: 200px;
   position: absolute;
-  transform: translateY(105%);
+  transform: translateY(102%);
   bottom: 0;
+
   left: 0;
 }
 
 .header_nav_container:hover {
-  background-color: rgb(199, 168, 228);
+  background-color: #f4f5f9;
 }
 
 .header_button_menu_label {
   background-color: white;
   border-top: 2px solid var(--primary-color);
+  border-left: 0.1px solid rgb(235, 235, 235);
+  border-bottom: 0.1px solid rgb(235, 235, 235);
+  border-right: 0.1px solid rgb(235, 235, 235);
   text-align: start;
   align-items: start;
   justify-content: start;
   width: 200px;
   height: auto;
   position: absolute;
-  transform: translate(95.2%, 15%);
-  z-index: 20;
 
-  bottom: 0;
-
-  left: 0;
+  transform: translateY(0%);
 }
 
 .header_button_menu_label > * {
-  margin-top: 10px;
   color: black;
-}
-
-.header_button_menu_label > :last-child {
-  margin-bottom: 10px;
 }
 
 .header_button_menu > * {
-  margin-top: 10px;
   color: black;
-}
-
-.header_button_menu > :last-child {
-  margin-bottom: 10px;
 }
 
 .header_nav_button.menu-open .header_button_menu {
@@ -89,10 +82,9 @@
 
 .header-menu-label {
   color: #8c92a0;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+ 
   position: relative;
   text-align: center;
   display: flex;
@@ -103,12 +95,6 @@
 
 .header-menu-label:hover {
   color: black;
-
-  margin-left: 10px;
-}
-
-.nav-header > * {
-  margin-right: 20px;
 }
 
 .nav-header > :last-child {

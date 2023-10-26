@@ -4,19 +4,12 @@ import Link from "next/link";
 import { HeaderNavButton, HeaderNavLabel } from "./header_nav_button";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 
-
 export default function Layout({ children }: { children: React.ReactNode }) {
-
-  
-
   return (
     <main>
       <div className="header">
         <div className="site-top-block">
-          <div
-            className="row-space-between"
-            style={{ height: "100px", borderBottom: "0.1px solid #f7f7f7" }}
-          >
+          <div className="row-space-between" style={{ height: "100px" }}>
             <form action="" className="site-block-top-search">
               <FontAwesomeIcon
                 className="icon-search2"
@@ -58,6 +51,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               />
             </div>
           </div>
+          <div
+            style={{
+              backgroundColor: "#f4f4f5",
+              width: "100%",
+              height: "0.1px",
+            }}
+          ></div>
         </div>
 
         <div className="nav-header">
@@ -67,11 +67,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             label={"SHOP"}
             icon={true}
             items={[
-              new HeaderNavLabel({ label: "item 1", isMenu: true }),
-              new HeaderNavLabel({ label: "item 2", isMenu: false }),
+              { menuItems: ["item 1", "item 2"], label: "item 1" },
+              { menuItems: ["item 1", "item 2"], label: "item 2" },
             ]}
           />
-          <HeaderNavButton label={"CATALOGUE"} icon={true} items={[]} />
+          <HeaderNavButton label={"CATALOGUE"} icon={false} items={[]} />
           <HeaderNavButton label={"NEW ARRIVALS"} icon={false} items={[]} />
           <HeaderNavButton label={"CONTACT"} icon={false} items={[]} />
         </div>
