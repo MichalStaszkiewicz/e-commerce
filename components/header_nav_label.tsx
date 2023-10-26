@@ -28,21 +28,23 @@ export function HeaderNavLabel({props}:{props:NavItem}
   }
   const menuItems = createMenu()
   return (
+    
     <div onMouseEnter={toggleMenu} onMouseLeave={toggleMenu}>
-      {props.menuItems.length>0 ? (
+     {props.menuItems.length>0 ? (
         <div className="header-menu-label">
           {" "}
-          <ul>{props.label}</ul>
+          <p>{props.label}</p>
           <FontAwesomeIcon icon={icons.faArrowRight} />
           {isOpen && (
-            <ul className="header_button_menu_label  animate-label-button">
-              {<HeaderNavLabel props={createMenu()[0]} />}
+            <ul className="header_button_menu_label animate-label-button">
+              {<HeaderNavLabel props={menuItems[0]} />}
             </ul>
           )}
         </div>
       ) : (
         <ul className="header-menu-label">{props.label}</ul>
-      )}
+      )} 
     </div>
+  
   );
 }

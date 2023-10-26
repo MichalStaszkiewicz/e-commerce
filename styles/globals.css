@@ -128,36 +128,3 @@ body {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes header-button-animation {
-  0% {
-    opacity: 0;
-    transform: translateY(130%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(102%);
-  }
-}
-
-@keyframes header-button-label-animation {
-  0% {
-    opacity: 0;
-    transform: translateY(130%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-
-.animate-header-button {
-  animation: header-button-animation 0.3s ease-in-out;
-}
-.animate-label-button {
-  animation: header-button-label-animation 0.3s ease-in-out;
-}
-.animate-opacity {
-  animation: opacity-animation 0.2s ease-in-out;
-}

@@ -42,10 +42,41 @@
   justify-content: start;
   width: 200px;
   position: absolute;
-  transform: translateY(102%);
-  bottom: 0;
+  transform: translateY(85%);
 
-  left: 0;
+}
+@keyframes header-button-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(130%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(85%);
+  }
+}
+
+@keyframes header-button-label-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(130%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.animate-header-button {
+  animation: header-button-animation 0.3s ease-in-out;
+}
+.animate-label-button {
+  animation: header-button-label-animation 0.3s ease-in-out;
+}
+.animate-opacity {
+  animation: opacity-animation 0.2s ease-in-out;
 }
 
 .header_nav_container:hover {
@@ -65,6 +96,7 @@
   height: auto;
   position: absolute;
 
+
   transform: translateY(0%);
 }
 
@@ -82,17 +114,20 @@
 
 .header-menu-label {
   color: #8c92a0;
+  margin-left: 10px;
+  margin-right: 10px;
   padding-top: 15px;
   padding-bottom: 15px;
- 
-  position: relative;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: auto;
+  transform: translate(100px,-0.9px); 
 }
-
+/*
+TODO: transform from header-menu-label to another class 
+*/
 .header-menu-label:hover {
   color: black;
 }
