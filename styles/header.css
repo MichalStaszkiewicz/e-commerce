@@ -60,12 +60,12 @@
 @keyframes header-button-label-animation {
   0% {
     opacity: 0;
-    transform: translateY(130%);
+    transform: translate(189px,130%); 
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0%);
+    transform: translate(189px,-0.9px); 
   }
 }
 
@@ -97,7 +97,8 @@
   position: absolute;
 
 
-  transform: translateY(0%);
+  transform: translate(189px,-0.9px); 
+
 }
 
 .header_button_menu_label > * {
@@ -123,11 +124,8 @@
   align-items: center;
   justify-content: space-between;
   width: auto;
-  transform: translate(100px,-0.9px); 
 }
-/*
-TODO: transform from header-menu-label to another class 
-*/
+
 .header-menu-label:hover {
   color: black;
 }
