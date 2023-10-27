@@ -28,14 +28,14 @@ export function HeaderNavButton({
   return (
     <li
       style={{ fontSize: "13px" }}
-      className={`header_nav_button ${isMenuOpen ? "menu-open" : ""}`}
+      className={`header-nav-button ${isMenuOpen ? "menu-open" : ""}`}
       onMouseEnter={toggleMenu}
       onMouseLeave={toggleMenu}
     >
       <Link href={label == "SHOP" ? "/shop" : ""}>{label}</Link>
       {icon && <FontAwesomeIcon icon={icons.faAngleDown} />}{" "}
       {isMenuOpen && (
-        <ul className="header_button_menu animate-header-button">
+        <ul className="menu-option animate-header-button">
           {items.map((item, index) => (
             <HeaderNavLabel props={item} />
           ))}
