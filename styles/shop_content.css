@@ -125,15 +125,22 @@
   background-color: white;
   color: var(--primary-color);
   border-radius: 50px;
-  border: rgb(184, 184, 184) 1px solid;
+  border: rgb(226, 226, 226) 1px solid;
   display: flex;
   align-items: center;
 
   justify-content: center;
+  
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 .shop_content .container .right_column .button:hover {
+  
+  background-color: #7c74ea;
+  color: white;
   cursor: pointer;
 }
+
+
 .shop_content .container .left_column .categories .list_element {
   height: 30px;
   width: 100%;
@@ -298,3 +305,4 @@
   cursor: pointer;
   background-color: rgba(223, 223, 223, 0.514);
 }
+

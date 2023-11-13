@@ -6,38 +6,45 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 export function RightColumn() {
-  let temp: number[] = [
+  let productList: number[] = [
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
   ];
-  let maxElements = 9;
-  const [currentPage, setCurrentPage] = useState(1);
-  const pagesNumber = function (): React.ReactElement<HTMLDivElement>[] {
-    let pages = 0;
-    for (let i = 0; i < temp.length; i++) {
-      if (i % maxElements == 0) {
-        pages++;
-      }
-    }
-    if (temp.length % pages == 1) {
-      pages++;
-    }
+
+  const [currentPage, setCurrentPage] = useState(0);
+  let productsPerPage = 9;
+  let paginationPagesCountAtOnce = 3;
+
+  function handlePageChange(index: number): void {
+    setCurrentPage(index);
+  }
+
+  const generatePagination = function (): React.ReactElement<HTMLDivElement>[] {
+    const pageCount = Math.ceil(productList.length / productsPerPage);
+
     let pageButtons: React.ReactElement<HTMLDivElement>[] = [];
-    for (let i = 0; i < pages; i++) {
+    if (paginationPagesCountAtOnce > pageCount) {
+      paginationPagesCountAtOnce = pageCount;
+    }
+
+    for (
+      let i =
+        currentPage + paginationPagesCountAtOnce > pageCount
+          ? pageCount - paginationPagesCountAtOnce
+          : currentPage;
+      i < Math.min(currentPage + paginationPagesCountAtOnce, pageCount);
+      i++
+    ) {
+      const active = currentPage === i;
+      const buttonStyle = active
+        ? { backgroundColor: "#7c74ea", color: "white" }
+        : {};
+
       pageButtons.push(
         <div
-          onClick={() => {
-            setCurrentPage(i + 1);
-          }}
-          style={{
-            backgroundColor: currentPage == i + 1 ? "#7c74ea" : "white",
-            color: currentPage == i + 1 ? "white" : "#7c74ea",
-          }}
           className="button"
+          onClick={() => handlePageChange(i)}
+          style={buttonStyle}
         >
           {i + 1}
         </div>
@@ -50,20 +57,20 @@ export function RightColumn() {
 
   useEffect(() => {
     const pagesNumber = () => {
-      let pages = 0;
-      for (let i = 0; i < temp.length; i++) {
-        if (i % maxElements == 0) {
-          pages++;
-        }
-      }
-      if (temp.length % pages == 1) {
-        pages++;
-      }
-      return pages;
+      return Math.ceil(productList.length / productsPerPage);
     };
 
-    setReachedEnd(currentPage < pagesNumber());
+    setReachedEnd(currentPage < pagesNumber() - 1);
   }, [currentPage]);
+  const calculateStartIndex = function () {
+    return currentPage * productsPerPage;
+  };
+  const calculateEndIndex = () => {
+    const startIndex = calculateStartIndex();
+    const endIndex = Math.min(startIndex + productsPerPage, productList.length);
+    return endIndex;
+  };
+
   return (
     <div className="right_column">
       <div className="header">
@@ -92,15 +99,8 @@ export function RightColumn() {
         </div>
       </div>
       <div className="list">
-        {temp
-          .slice(
-            (currentPage - 1) * maxElements == 0
-              ? (currentPage - 1) * maxElements
-              : (currentPage - 1) * maxElements - 1,
-            currentPage > 1
-              ? currentPage * maxElements - 1
-              : currentPage * maxElements
-          )
+        {productList
+          .slice(calculateStartIndex() as number, calculateEndIndex())
           .map((item, index) => (
             <FadeOnVisible
               children={
@@ -118,7 +118,7 @@ export function RightColumn() {
       </div>
 
       <div className="next_page_row">
-        {currentPage > 1 ? (
+        {currentPage > 0 ? (
           <div
             className="button"
             onClick={() => {
@@ -133,7 +133,7 @@ export function RightColumn() {
         ) : (
           <div style={{ height: "40px", width: "40px" }}></div>
         )}
-        {...pagesNumber()}
+        {...generatePagination()}
         {reachedEnd ? (
           <div
             className="button"

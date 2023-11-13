@@ -37,9 +37,7 @@ export default function ShopNavHistory() {
                     paddingRight: "2px",
                   }}
                 >
-                  <div style={{ width: "5px" }}></div>
-                  {" / "}
-                  <div style={{ width: "5px" }}></div>
+                  {"   /   "}
                 </p>{" "}
                 <a href={item} style={{ color: "black", display: "flex" }}>
                   {item.substring(index, item.length)}

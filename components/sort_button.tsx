@@ -60,17 +60,19 @@ export class SortButton extends React.Component<
           }));
         }
       } else {
-        const buttonRect = this.buttonRef!.current!.getBoundingClientRect();
-        const isInsideButton =
-          event.clientX >= buttonRect.left &&
-          event.clientX <= buttonRect.right &&
-          event.clientY >= buttonRect.top &&
-          event.clientY <= buttonRect.bottom;
+        if (this.buttonRef!.current!.getBoundingClientRect() != null) {
+          const buttonRect = this.buttonRef!.current!.getBoundingClientRect();
+          const isInsideButton =
+            event.clientX >= buttonRect.left &&
+            event.clientX <= buttonRect.right &&
+            event.clientY >= buttonRect.top &&
+            event.clientY <= buttonRect.bottom;
 
-        if (isInsideButton) {
-          this.setState((prevState) => ({
-            isOpen: true,
-          }));
+          if (isInsideButton) {
+            this.setState((prevState) => ({
+              isOpen: true,
+            }));
+          }
         }
       }
     });
