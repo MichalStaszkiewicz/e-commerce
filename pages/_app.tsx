@@ -12,6 +12,7 @@ import "@/styles/shopping_benefits.css";
 import "@/styles/home_promotion.css";
 import "@/styles/shop_nav_history_container.css";
 import "@/styles/shop_content.css";
+import "../components/range_slider/range_slider.css";
 import type { AppProps } from "next/app";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";

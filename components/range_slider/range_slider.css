@@ -1,0 +1,6 @@
+.range_slider_container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+}
