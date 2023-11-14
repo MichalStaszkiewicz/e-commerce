@@ -1,26 +1,17 @@
 "use client";
-import Image from "next/image";
+
 import { Inter } from "next/font/google";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as icons from "@fortawesome/free-solid-svg-icons";
-import {
-  HeaderNavButton,
-  HeaderNavLabel,
-} from "../components/header-navigation/header-nav-button";
+
 import React from "react";
 
-import { PrimaryButton } from "@/components/primary-button/primary-button";
 import { Benefit } from "@/components/benefit/benefit";
 
 import { FeaturedProducts } from "../components/home/featured_products/featured-products";
 import { BigSale } from "@/components/big-sale/big-sale";
-import Link from "next/link";
 
-import Head from "next/head";
-import HomePromotion from "@/components/home-promotion";
-import FadeOnVisible from "@/components/fade-on-visible";
-import Layout from "@/app/layout";
 import { Collection } from "@/components/collection/collection";
+import HomePromotion from "@/components/home-promotion/home-promotion";
+import FadeOnVisible from "@/components/fade-on-visible";
 
 export const inter = Inter({ subsets: ["latin"] });
 

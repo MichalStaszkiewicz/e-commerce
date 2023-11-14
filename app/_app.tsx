@@ -3,8 +3,8 @@ import "../styles/global.css";
 
 import "../styles/featured_products.scss";
 
-import "../styles/primary_button.css";
-import "../styles/shopping_benefits.css";
+
+
 import "../styles/home_promotion.css";
 import "../styles/shop_nav_history_container.css";
 import "../styles/shop_content.css";
