@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import { NavItem } from "./header_nav_button";
-
+import "@/components/header_navigation/style.scss";
 export function HeaderNavLabel({ props }: { props: NavItem }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {

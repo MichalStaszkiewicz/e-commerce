@@ -5,6 +5,7 @@ import { ReactNode, useEffect, useState } from "react";
 import React from "react";
 import { HeaderNavLabel } from "./header_nav_label";
 import Link from "next/link";
+import "@/components/header_navigation/style.scss";
 
 export type NavItem = {
   label: string;
