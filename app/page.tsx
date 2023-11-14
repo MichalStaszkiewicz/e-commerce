@@ -9,7 +9,7 @@ import {
 } from "../components/header-navigation/header-nav-button";
 import React from "react";
 
-import { PrimaryButton } from "@/components/primary-button";
+import { PrimaryButton } from "@/components/primary-button/primary-button";
 import { Benefit } from "@/components/benefit/benefit";
 
 import { FeaturedProducts } from "../components/home/featured_products/featured-products";

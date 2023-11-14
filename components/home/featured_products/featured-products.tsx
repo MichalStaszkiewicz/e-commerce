@@ -2,9 +2,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
-import { ProductCard } from "../../product-card";
+
 import { off } from "process";
 import { ArrowColor, ArrowDirection } from "./enum";
+import { ProductCard } from "@/components/product-card/product-card";
 
 export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
   const listRef = useRef<HTMLDivElement>(null);

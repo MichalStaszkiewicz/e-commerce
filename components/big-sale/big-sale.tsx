@@ -1,7 +1,7 @@
 
 
 import product from "../public/images/children.jpg"
-import { PrimaryButton } from "../primary-button"
+import { PrimaryButton } from "../primary-button/primary-button"
 export function BigSale() {
     return <div className="big_sale_container">
         <div className="big_sale_container_decoration" style={{transform:"TranslateY(3000%)"}}></div>

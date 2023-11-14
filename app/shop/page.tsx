@@ -5,7 +5,7 @@ import { FeaturedProducts } from "@/components/home/featured_products/featured-p
 import { HeaderNavButton } from "@/components/header-navigation/header-nav-button";
 import { HeaderNavLabel } from "@/components/header-navigation/header-nav-label";
 
-import { PrimaryButton } from "@/components/primary-button";
+import { PrimaryButton } from "@/components/primary-button/primary-button";
 import ShopContent from "@/components/shop_content/shop-content";
 import ShopNavHistory from "@/components/shop-nav-history";
 import * as icons from "@fortawesome/free-solid-svg-icons";
