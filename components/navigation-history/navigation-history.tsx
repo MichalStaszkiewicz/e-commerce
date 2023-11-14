@@ -1,5 +1,5 @@
 "use client";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import "@/components/navigation-history/style.scss";
 import "@/styles/globals.scss"
 export default function NavigationHistory() {
@@ -7,7 +7,7 @@ export default function NavigationHistory() {
 
   var paths: string[] = [];
   var firstSub = 0;
-  paths.push("/");
+  paths.push("/");/*
   for (var i = 0; i < router.asPath.length; i++) {
     if (i > 0) {
       if (router.asPath[i] == "/" && firstSub != i) {
@@ -19,7 +19,7 @@ export default function NavigationHistory() {
       }
     }
   }
-
+*/
   return (
     <div className="shop-nav-container">
       <div className="shop-nav-container" style={{ marginLeft: "20%" }}>
@@ -50,7 +50,7 @@ export default function NavigationHistory() {
               className="nav-link"
               href={item}
               style={{
-                color: item != router.basePath ? "#7c74ea" : "black",
+                color: item != '' ? "#7c74ea" : "black",
                 display: "flex",
               }}
               onMouseEnter={() => {}}
