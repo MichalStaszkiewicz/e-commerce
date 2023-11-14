@@ -1,11 +1,6 @@
 import "../styles/global.css";
 
 
-import "../styles/featured_products.scss";
-
-
-
-import "../styles/home_promotion.css";
 import "../styles/shop_nav_history_container.css";
 import "../styles/shop_content.css";
 import "../components/range-slider/range_slider.css";

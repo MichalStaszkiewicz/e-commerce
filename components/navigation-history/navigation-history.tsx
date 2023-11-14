@@ -1,9 +1,8 @@
 "use client";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import path from "path";
+import "@/components/navigation-history/style.scss";
 
-export default function ShopNavHistory() {
+export default function NavigationHistory() {
   var router = useRouter();
 
   var paths: string[] = [];
