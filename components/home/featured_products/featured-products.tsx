@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
-import { ProductCard } from "../../product_card";
+import { ProductCard } from "../../product-card";
 import { off } from "process";
 import { ArrowColor, ArrowDirection } from "./enum";
 

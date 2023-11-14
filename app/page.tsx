@@ -6,19 +6,19 @@ import * as icons from "@fortawesome/free-solid-svg-icons";
 import {
   HeaderNavButton,
   HeaderNavLabel,
-} from "../components/header_navigation/header_nav_button";
+} from "../components/header-navigation/header-nav-button";
 import React from "react";
 
-import { PrimaryButton } from "@/components/primary_button";
+import { PrimaryButton } from "@/components/primary-button";
 import { Benefit } from "@/components/benefit/benefit";
 import { Collection } from "@/components/collection";
-import { FeaturedProducts } from "../components/home/featured_products/featured_products";
-import { BigSale } from "@/components/big_sale";
+import { FeaturedProducts } from "../components/home/featured_products/featured-products";
+import { BigSale } from "@/components/big-sale";
 import Link from "next/link";
 
 import Head from "next/head";
-import HomePromotion from "@/components/home_promotion";
-import FadeOnVisible from "@/components/fade_on_visible";
+import HomePromotion from "@/components/home-promotion";
+import FadeOnVisible from "@/components/fade-on-visible";
 import Layout from "@/app/layout";
 
 export const inter = Inter({ subsets: ["latin"] });

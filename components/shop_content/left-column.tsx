@@ -3,10 +3,10 @@ import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import {
   CategoriesColorIndicator,
   CategoriesSize,
-} from "../categories_color_indicator";
+} from "../categories-color-indicator";
 import { env } from "process";
 import { win32 } from "path";
-import { RangeSlider } from "../range_slider/range_slider";
+import { RangeSlider } from "../range-slider/range-slider";
 import { Slider } from "antd";
 import { trace } from "console";
 //TODO: Replace useState with keeping data in url as query

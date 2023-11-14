@@ -9,13 +9,13 @@ import {
 
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { SortButton } from "../sort_button";
+import { SortButton } from "../sort-button";
 import {
   CategoriesSize,
   CategoriesColorIndicator,
-} from "../categories_color_indicator";
-import { LeftColumn } from "./left_column";
-import { RightColumn } from "./right_column";
+} from "../categories-color-indicator";
+import { LeftColumn } from "./left-column";
+import { RightColumn } from "./right-column";
 
 export default function ShopContent() {
   return (

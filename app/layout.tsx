@@ -1,4 +1,4 @@
-import { HeaderNavButton } from "@/components/header_navigation/header_nav_button";
+import { HeaderNavButton } from "@/components/header-navigation/header-nav-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Link from "next/link";

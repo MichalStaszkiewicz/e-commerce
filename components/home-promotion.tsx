@@ -1,6 +1,6 @@
 import Image from "next/image";
 import promotedProduct from "../public/images/shoes.png";
-import { PrimaryButton } from "./primary_button";
+import { PrimaryButton } from "./primary-button";
 import React, { useRef } from "react";
 import "../styles/home_promotion.css";
 export default function HomePromotion() {

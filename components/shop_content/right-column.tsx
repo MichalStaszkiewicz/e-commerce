@@ -1,7 +1,7 @@
 "use client";
-import FadeOnVisible from "../fade_on_visible";
-import { ProductCard } from "../product_card";
-import { SortButton } from "../sort_button";
+import FadeOnVisible from "../fade-on-visible";
+import { ProductCard } from "../product-card";
+import { SortButton } from "../sort-button";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";

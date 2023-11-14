@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import { ReactNode, useEffect, useState } from "react";
 import React from "react";
-import { HeaderNavLabel } from "./header_nav_label";
+import { HeaderNavLabel } from "./header-nav-label";
 import Link from "next/link";
-import "@/components/header_navigation/style.scss";
+import "@/components/header-navigation/style.scss";
 
 export type NavItem = {
   label: string;
