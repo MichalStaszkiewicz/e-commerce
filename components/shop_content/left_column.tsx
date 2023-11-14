@@ -5,25 +5,26 @@ import {
 } from "../categories_color_indicator";
 import { env } from "process";
 import { win32 } from "path";
+import { RangeSlider } from "../range_slider/range_slider";
+import { Slider } from "antd";
+import { trace } from "console";
 //TODO: Replace useState with keeping data in url as query
+type Price = {
+  min: number;
+  max: number;
+};
+
 export function LeftColumn() {
-  enum Slider {
-    Min = "Min",
-    Max = "Max",
-  }
-  const [currentMinX, setCurrentMinX] = useState(1);
-  const [currentMaxX, setCurrentMaxX] = useState(100);
-  const [init, setInit] = useState(false);
-  const [isMouseMinDown, setisMouseMinDown] = useState(false);
-  const [isMouseMaxDown, setisMouseMaxDown] = useState(false);
-  const [sliderWidth, setSliderWidth] = useState(1);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const maxPrice = 5000;
+  const minPrice = 100;
+  const maxPrice = 1000;
+  const [price, setPrice] = useState<Price>({ min: minPrice, max: maxPrice });
 
-  const getPrice = (currentOffset: any) => {
-    const percentage = (currentOffset / sliderWidth) * 100;
-
-    return (percentage / 100) * maxPrice;
+  const onChange = (value: number[]) => {
+    if (value[0] != price.min) {
+      setPrice({ min: value[0], max: price.max });
+    } else {
+      setPrice({ min: price.min, max: value[1] });
+    }
   };
 
   return (
@@ -49,9 +50,23 @@ export function LeftColumn() {
       <div className="filters">
         <div className="container">
           <p className="categories_header">FILTER BY PRICE</p>
-          <div>
-            <RangeSlider />
+          <div style={{ width: "100%" }}>
+            <Slider
+              tooltip={{ open: false }}
+              
+              
+              range
+              step={1}
+              min={minPrice}
+              max={maxPrice}
+              defaultValue={[price.min, price.max]}
+              onChange={onChange}
+            />
           </div>
+
+          <p>
+            ${`${price.min}`} - ${`${price.max}`}{" "}
+          </p>
 
           <p className="categories_header" style={{ marginTop: "20px" }}>
             SIZE
@@ -74,65 +89,6 @@ export function LeftColumn() {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-export function RangeSlider() {
-  enum Slider {
-    min,
-    max,
-  }
-  const [inputMin, setMinValue] = useState(10);
-  const [inputMax, setMaxVal] = useState(2000);
-  const minVal = 1;
-  const maxVal = 5000;
-  const gap = 1000;
-  const handleOnChange = (event: any, sliderType: Slider) => {
-    if (sliderType === Slider.min) {
-      const newMin = Math.min(event.target.value, inputMax - gap);
-
-      setMinValue(newMin);
-    } else {
-      const newMax = Math.max(event.target.value, inputMin + gap);
-
-      setMaxVal(newMax);
-    }
-  };
-
-  return (
-    <div className="range_slider_container">
-      <div className="slider">
-        <div
-          style={{
-            left: `${(inputMin / maxVal) * 100}%`,
-            right: `${100 - (inputMax / maxVal) * 100}%`,
-          }}
-          className="progress"
-        ></div>
-      </div>
-      <div className="input_box">
-        <input
-          type="range"
-          min={minVal}
-          max={maxVal}
-          value={inputMin}
-          onChange={(event) => {
-            handleOnChange(event, Slider.min);
-          }}
-        />
-        <input
-          type="range"
-          min={minVal}
-          max={maxVal}
-          value={inputMax}
-          onChange={(event) => {
-            handleOnChange(event, Slider.max);
-          }}
-        />
-      </div>
-      <p style={{ marginTop: "10px", fontSize: "14px" }}>
-        ${inputMin} - ${inputMax}
-      </p>
     </div>
   );
 }
