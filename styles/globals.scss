@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #7c74ea;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+/*
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+}
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  width: 100%;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rg, b));
+}
+
+.row-space-between {
+  width: 80%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+.row-space-between > * {
+  margin-right: 20px;
+}
+.row-space-between :last-child {
+  margin-right: 0px;
+}
+.site-logo {
+  height: 40px;
+
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid black;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-block-top-search {
+  position: relative;
+  width: 25%;
+
+  text-align: end;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+
+.site-block-top-search .icon-search2 {
+  position: absolute;
+  transform: translate(-200%, 45%);
+  color: #8c92a0;
+  bottom: 45%;
+  left: 52%;
+}
+
+.site-block-top-search input {
+  margin-right: 0;
+
+  -webkit-transition: 0.3s all ease-in-out;
+  -o-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+}
+
+.site-block-top-search input:focus,
+.site-block-top-search input:active {
+  margin-right: 20px;
+
+  border-color: transparent;
+  outline: none;
+}
+
+.side-nav {
+  width: 25%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shadow {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.shopping_benefits {
+  height: 200px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.1px solid #f7f7f7;
+  margin: 0 auto;
+}

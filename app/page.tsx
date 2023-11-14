@@ -1,26 +1,18 @@
 "use client";
-import Image from "next/image";
+
 import { Inter } from "next/font/google";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import * as icons from "@fortawesome/free-solid-svg-icons";
-import {
-  HeaderNavButton,
-  HeaderNavLabel,
-} from "../components/header_navigation/header_nav_button";
+
 import React from "react";
 
-import { PrimaryButton } from "@/components/primary_button";
-import { Benefit } from "@/components/benefit";
-import { Collection } from "@/components/collection";
-import { FeaturedProducts } from "../components/home/featured_products/featured_products";
-import { BigSale } from "@/components/big_sale";
-import Link from "next/link";
+import { Benefit } from "@/components/benefit/benefit";
 
-import Head from "next/head";
-import HomePromotion from "@/components/home_promotion";
-import FadeOnVisible from "@/components/fade_on_visible";
-import Layout from "@/app/layout";
+import { BigSale } from "@/components/big-sale/big-sale";
 
+import { Collection } from "@/components/collection/collection";
+import HomePromotion from "@/components/home-promotion/home-promotion";
+import FadeOnVisible from "@/components/effects/fade-on-visible";
+import "@/styles/globals.scss"
+import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
 export const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
