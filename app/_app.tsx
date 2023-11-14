@@ -1,7 +1,6 @@
 import "../styles/global.css";
 
-import "../styles/big_sale.css";
-import "../styles/collection.css";
+
 import "../styles/product_card.css";
 import "../styles/featured_products.scss";
 
