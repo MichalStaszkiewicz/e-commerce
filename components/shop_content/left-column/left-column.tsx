@@ -3,12 +3,10 @@ import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import {
   CategoriesColorIndicator,
   CategoriesSize,
-} from "../categories-color-indicator";
-import { env } from "process";
-import { win32 } from "path";
-import { RangeSlider } from "../range-slider/range-slider";
+} from "./categories-color-indicator";
+
 import { Slider } from "antd";
-import { trace } from "console";
+import "@/components/shop_content/style.scss";
 //TODO: Replace useState with keeping data in url as query
 type Price = {
   min: number;

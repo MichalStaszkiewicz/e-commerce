@@ -2,7 +2,7 @@ import * as icons from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { SortMenu } from "./sort-menu";
-
+import "@/components/shop_content/style.scss";
 interface SortButtonProps {
   width: number;
   height: number;

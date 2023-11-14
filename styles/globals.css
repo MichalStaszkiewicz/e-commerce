@@ -109,3 +109,13 @@ body {
 .shadow {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+.shopping_benefits {
+  height: 200px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.1px solid #f7f7f7;
+  margin: 0 auto;
+}

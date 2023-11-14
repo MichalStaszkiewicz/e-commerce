@@ -1,12 +1,13 @@
 "use client";
-import FadeOnVisible from "../fade-on-visible";
+import FadeOnVisible from "../../effects/fade-on-visible";
 
-import { SortButton } from "../sort-button";
+import { SortButton } from "./sort-button";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
-import { ProductCard } from "../product-card/product-card";
+import { ProductCard } from "../../product-card/product-card";
+import "@/components/shop_content/style.scss";
 export function RightColumn() {
   let productList: number[] = [
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,

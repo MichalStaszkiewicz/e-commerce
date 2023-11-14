@@ -1,7 +1,7 @@
 import React from "react";
 
-import { LeftColumn } from "./left-column";
-import { RightColumn } from "./right-column";
+import { LeftColumn } from "./left-column/left-column";
+import { RightColumn } from "./right-column/right-column";
 
 export default function ShopContent() {
   return (

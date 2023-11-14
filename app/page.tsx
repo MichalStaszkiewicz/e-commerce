@@ -11,7 +11,7 @@ import { BigSale } from "@/components/big-sale/big-sale";
 
 import { Collection } from "@/components/collection/collection";
 import HomePromotion from "@/components/home-promotion/home-promotion";
-import FadeOnVisible from "@/components/fade-on-visible";
+import FadeOnVisible from "@/components/effects/fade-on-visible";
 
 export const inter = Inter({ subsets: ["latin"] });
 
