@@ -11,7 +11,7 @@ import React from "react";
 
 import { PrimaryButton } from "@/components/primary-button";
 import { Benefit } from "@/components/benefit/benefit";
-import { Collection } from "@/components/collection";
+
 import { FeaturedProducts } from "../components/home/featured_products/featured-products";
 import { BigSale } from "@/components/big-sale/big-sale";
 import Link from "next/link";
@@ -20,6 +20,7 @@ import Head from "next/head";
 import HomePromotion from "@/components/home-promotion";
 import FadeOnVisible from "@/components/fade-on-visible";
 import Layout from "@/app/layout";
+import { Collection } from "@/components/collection/collection";
 
 export const inter = Inter({ subsets: ["latin"] });
 

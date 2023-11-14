@@ -1,6 +1,6 @@
 import { Benefit } from "@/components/benefit/benefit";
 import { BigSale } from "@/components/big-sale/big-sale";
-import { Collection } from "@/components/collection";
+
 import { FeaturedProducts } from "@/components/home/featured_products/featured-products";
 import { HeaderNavButton } from "@/components/header-navigation/header-nav-button";
 import { HeaderNavLabel } from "@/components/header-navigation/header-nav-label";
