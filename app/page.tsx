@@ -13,7 +13,7 @@ import { PrimaryButton } from "@/components/primary-button";
 import { Benefit } from "@/components/benefit/benefit";
 import { Collection } from "@/components/collection";
 import { FeaturedProducts } from "../components/home/featured_products/featured-products";
-import { BigSale } from "@/components/big-sale";
+import { BigSale } from "@/components/big-sale/big-sale";
 import Link from "next/link";
 
 import Head from "next/head";
