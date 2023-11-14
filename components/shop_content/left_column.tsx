@@ -53,7 +53,6 @@ export function LeftColumn() {
             <RangeSlider />
           </div>
 
-       
           <p className="categories_header" style={{ marginTop: "20px" }}>
             SIZE
           </p>
@@ -87,51 +86,53 @@ export function RangeSlider() {
   const [inputMax, setMaxVal] = useState(2000);
   const minVal = 1;
   const maxVal = 5000;
-
+  const gap = 1000;
   const handleOnChange = (event: any, sliderType: Slider) => {
     if (sliderType === Slider.min) {
-      const newMin = Math.min(event.target.value, inputMax);
-      setMinValue(event.target.value);
-      console.log("MIN " + newMin + " " + "MAX " + inputMax);
+      const newMin = Math.min(event.target.value, inputMax - gap);
+
+      setMinValue(newMin);
     } else {
-      const newMax = Math.max(event.target.value, inputMin);
-      console.log("MIN " + inputMin + " " + "MAX " + newMax);
-      setMaxVal(event.target.value);
+      const newMax = Math.max(event.target.value, inputMin + gap);
+
+      setMaxVal(newMax);
     }
   };
-  let width = 130;
+
   return (
     <div className="range_slider_container">
-      <input
-        style={{
-          height: "0",
-          transform:"TranslateY(8.2px)",
-          width:`${30}px`,
-          position:"absolute",       zIndex: 1,
-         
-        }}
-        type="range"
-        min={minVal}
-        max={maxVal}
-        value={inputMin}
-        onChange={(event) => {
-          handleOnChange(event, Slider.min);
-        }}
-      />
-      <input
-        type="range"
-        style={{    width:`${width}px`, }}
-        min={minVal}
-        max={maxVal}
-        value={inputMax}
-        onChange={(event) => {
-          handleOnChange(event, Slider.max);
-        }}
-      />
-         <p style={{ marginTop: "10px", fontSize: "14px" }}>
-            ${inputMin} - $
-            {inputMax}
-          </p>
+      <div className="slider">
+        <div
+          style={{
+            left: `${(inputMin / maxVal) * 100}%`,
+            right: `${100 - (inputMax / maxVal) * 100}%`,
+          }}
+          className="progress"
+        ></div>
+      </div>
+      <div className="input_box">
+        <input
+          type="range"
+          min={minVal}
+          max={maxVal}
+          value={inputMin}
+          onChange={(event) => {
+            handleOnChange(event, Slider.min);
+          }}
+        />
+        <input
+          type="range"
+          min={minVal}
+          max={maxVal}
+          value={inputMax}
+          onChange={(event) => {
+            handleOnChange(event, Slider.max);
+          }}
+        />
+      </div>
+      <p style={{ marginTop: "10px", fontSize: "14px" }}>
+        ${inputMin} - ${inputMax}
+      </p>
     </div>
   );
 }
