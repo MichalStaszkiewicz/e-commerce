@@ -1,10 +1,11 @@
 import Image from "next/image";
-import promotedProduct from "../public/images/shoes.png";
+import promotedProduct from "../../public/images/shoes.png";
 
 import React, { useRef } from "react";
-import "../styles/home_promotion.css";
+
 import { PrimaryButton } from "../primary-button/primary-button";
 import "@/components/home-promotion/style.scss";
+import "@/styles/globals.scss"
 export default function HomePromotion() {
   return (
     <div className="home-promotion-container">

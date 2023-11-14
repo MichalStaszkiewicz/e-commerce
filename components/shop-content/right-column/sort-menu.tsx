@@ -1,5 +1,5 @@
 import React from "react";
-import "@/components/shop_content/style.scss";
+import "@/components/shop-content/style.scss";
 interface SortMenuProps {
   labels: string[];
 }

@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/router";
 import "@/components/navigation-history/style.scss";
-
+import "@/styles/globals.scss"
 export default function NavigationHistory() {
   var router = useRouter();
 

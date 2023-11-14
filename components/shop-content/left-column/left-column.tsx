@@ -6,7 +6,7 @@ import {
 } from "./categories-color-indicator";
 
 import { Slider } from "antd";
-import "@/components/shop_content/style.scss";
+import "@/components/shop-content/style.scss";
 //TODO: Replace useState with keeping data in url as query
 type Price = {
   min: number;

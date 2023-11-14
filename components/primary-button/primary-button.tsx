@@ -3,6 +3,7 @@ import { PrimaryButtonProps } from "@/interfaces/primary_button_props";
 import { PrimaryButtonState } from "@/interfaces/primary_button_state";
 import React from "react";
 import "@/components/primary-button/style.scss";
+import "@/styles/globals.scss"
 export class PrimaryButton extends React.Component<
   PrimaryButtonProps,
   PrimaryButtonState

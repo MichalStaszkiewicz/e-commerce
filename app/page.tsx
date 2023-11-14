@@ -6,13 +6,13 @@ import React from "react";
 
 import { Benefit } from "@/components/benefit/benefit";
 
-import { FeaturedProducts } from "../components/home/featured_products/featured-products";
 import { BigSale } from "@/components/big-sale/big-sale";
 
 import { Collection } from "@/components/collection/collection";
 import HomePromotion from "@/components/home-promotion/home-promotion";
 import FadeOnVisible from "@/components/effects/fade-on-visible";
-
+import "@/styles/globals.scss"
+import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
 export const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {

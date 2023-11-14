@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
+import "@/components/product-card/style.scss";
 interface ProductCardProps {
   image: string;
   label: string;
@@ -25,7 +26,6 @@ export class ProductCard extends React.Component<
         style={{
           width: `${this.props.width}px`,
           height: `${this.props.height}px`,
-
         }}
       >
         <div

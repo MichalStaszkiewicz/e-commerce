@@ -1,4 +1,4 @@
-import "@/components/shop_content/style.scss";
+import "@/components/shop-content/style.scss";
 export function CategoriesColorIndicator({
   color,
   label,

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "@/components/shop-content/style.scss";
 import { LeftColumn } from "./left-column/left-column";
 import { RightColumn } from "./right-column/right-column";
 

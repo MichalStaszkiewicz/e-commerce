@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "@/components/range-slider/style.scss";
 export function RangeSlider({
   minVal,
   maxVal,
