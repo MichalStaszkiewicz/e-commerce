@@ -1,4 +1,4 @@
-import { Benefit } from "@/components/benefit";
+import { Benefit } from "@/components/benefit/benefit";
 import { BigSale } from "@/components/big_sale";
 import { Collection } from "@/components/collection";
 import { FeaturedProducts } from "@/components/home/featured_products/featured_products";

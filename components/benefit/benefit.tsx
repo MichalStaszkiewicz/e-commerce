@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
-
+import "@/components/benefit/style.scss";
 export function Benefit({
   title,
   description,

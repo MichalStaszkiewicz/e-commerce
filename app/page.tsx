@@ -10,7 +10,7 @@ import {
 import React from "react";
 
 import { PrimaryButton } from "@/components/primary_button";
-import { Benefit } from "@/components/benefit";
+import { Benefit } from "@/components/benefit/benefit";
 import { Collection } from "@/components/collection";
 import { FeaturedProducts } from "../components/home/featured_products/featured_products";
 import { BigSale } from "@/components/big_sale";
