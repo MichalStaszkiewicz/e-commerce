@@ -1,3 +1,4 @@
+"use client";
 import FadeOnVisible from "../fade_on_visible";
 import { ProductCard } from "../product_card";
 import { SortButton } from "../sort_button";

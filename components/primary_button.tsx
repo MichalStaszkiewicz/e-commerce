@@ -1,3 +1,4 @@
+"use client";
 import { PrimaryButtonProps } from "@/interfaces/primary_button_props";
 import { PrimaryButtonState } from "@/interfaces/primary_button_state";
 import React from "react";

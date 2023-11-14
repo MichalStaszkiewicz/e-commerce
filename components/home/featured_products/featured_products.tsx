@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
@@ -131,32 +132,36 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
         ))}
       </div>
 
-     {props.products.length>3? <div className="arrows_container">
-        <FontAwesomeIcon
-          onPointerOver={(event) =>
-            handlePointerEvent(ArrowDirection.left, event)
-          }
-          onPointerLeave={(event) =>
-            handlePointerEvent(ArrowDirection.left, event)
-          }
-          onClick={() => handleArrowClick(ArrowDirection.left)}
-          style={{ height: "25px", color: state.leftArrow }}
-          icon={icons.faArrowLeft}
-        ></FontAwesomeIcon>
+      {props.products.length > 3 ? (
+        <div className="arrows_container">
+          <FontAwesomeIcon
+            onPointerOver={(event) =>
+              handlePointerEvent(ArrowDirection.left, event)
+            }
+            onPointerLeave={(event) =>
+              handlePointerEvent(ArrowDirection.left, event)
+            }
+            onClick={() => handleArrowClick(ArrowDirection.left)}
+            style={{ height: "25px", color: state.leftArrow }}
+            icon={icons.faArrowLeft}
+          ></FontAwesomeIcon>
 
-        <div style={{ width: "50px" }}></div>
-        <FontAwesomeIcon
-          onPointerOver={(event) =>
-            handlePointerEvent(ArrowDirection.right, event)
-          }
-          onPointerLeave={(event) =>
-            handlePointerEvent(ArrowDirection.right, event)
-          }
-          onClick={() => handleArrowClick(ArrowDirection.right)}
-          style={{ height: "25px", color: state.rightArrow }}
-          icon={icons.faArrowRight}
-        ></FontAwesomeIcon>
-      </div>:<div className="arrows_container"> </div>} 
+          <div style={{ width: "50px" }}></div>
+          <FontAwesomeIcon
+            onPointerOver={(event) =>
+              handlePointerEvent(ArrowDirection.right, event)
+            }
+            onPointerLeave={(event) =>
+              handlePointerEvent(ArrowDirection.right, event)
+            }
+            onClick={() => handleArrowClick(ArrowDirection.right)}
+            style={{ height: "25px", color: state.rightArrow }}
+            icon={icons.faArrowRight}
+          ></FontAwesomeIcon>
+        </div>
+      ) : (
+        <div className="arrows_container"> </div>
+      )}
     </div>
   );
 }

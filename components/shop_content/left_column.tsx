@@ -1,3 +1,4 @@
+"use client";
 import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import {
   CategoriesColorIndicator,
@@ -53,8 +54,6 @@ export function LeftColumn() {
           <div style={{ width: "100%" }}>
             <Slider
               tooltip={{ open: false }}
-              
-              
               range
               step={1}
               min={minPrice}

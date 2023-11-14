@@ -1,5 +1,5 @@
-@import "@/styles/mixins.scss";
-  
+@import "/styles/mixins.scss";
+
 .featured_products {
   @include flexbox(column);
   margin-top: 20px;
@@ -47,4 +47,3 @@
   justify-content: center;
   align-items: center;
 }
-
