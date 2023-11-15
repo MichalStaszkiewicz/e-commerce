@@ -24,20 +24,27 @@
         @include flexbox(row);
 
         .icon-search {
-          background-color: blueviolet;
+          background-color: transparent;
           border-radius: 20px;
-          color: white;
+          color: rgb(80, 79, 79);
           display: flex;
           justify-content: center;
           align-content: center;
           align-items: center;
+          pointer-events: painted;
           width: 30px;
         }
-        input {
+
+        input[type="text"] {
           height: 30px;
           width: 300px;
-          border: ;
-          border: 2px solid rgb(161, 161, 161);
+          padding: 15px;
+          border-radius: 5px;
+          border: 1px solid rgb(221, 221, 221);
+
+          &:focus {
+            outline: none;
+          }
         }
       }
     }
@@ -48,13 +55,6 @@
   transition: 0.1s all ease-in-out;
   color: var(--primary-color);
   cursor: pointer;
-}
-.site-block-top-search {
-  @include flexbox(row);
-  align-content: center;
-  justify-content: center;
-
-  height: 100%;
 }
 
 .site-logo {

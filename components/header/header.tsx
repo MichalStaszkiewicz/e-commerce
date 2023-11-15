@@ -15,9 +15,9 @@ export function Header() {
               style={{ fontSize: "15px" }}
               placeholder="Search"
             />
-            <div className="icon-search">
+            <button className="icon-search">
               <FontAwesomeIcon icon={icons.faMagnifyingGlass} />
-            </div>
+            </button>
           </div>
         </div>
 
