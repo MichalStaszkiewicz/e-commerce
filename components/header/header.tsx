@@ -8,41 +8,32 @@ export function Header() {
   return (
     <div className="header">
       <div className="site-top-block">
-        <div className="row-space-between" style={{ height: "100px" }}>
-          <form action="" className="site-block-top-search">
-            <FontAwesomeIcon
-              className="icon-search2"
-              icon={icons.faMagnifyingGlass}
-            />
-
+        <div className="block-1">
+          <div className="search-box">
             <input
               type="text"
               style={{ fontSize: "15px" }}
-              className="form-control border-0"
               placeholder="Search"
             />
-          </form>
-
-          <div
-            style={{
-              width: "50%",
-              textAlign: "center",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div className="site-logo">
-              <Link
-                href="/"
-                style={{ letterSpacing: "5px", fontSize: "15.5px" }}
-                className="js-logo-clone"
-              >
-                SHOPPERS
-              </Link>
+            <div className="icon-search">
+              <FontAwesomeIcon icon={icons.faMagnifyingGlass} />
             </div>
           </div>
+        </div>
 
+        <div style={{ flex: "1" }}>
+          <div className="site-logo">
+            <Link
+              href="/"
+              style={{ letterSpacing: "5px", fontSize: "15.5px" }}
+              className="js-logo-clone"
+            >
+              SHOPPERS
+            </Link>
+          </div>
+        </div>
+        <div style={{ flex: "1" }}>
+          {" "}
           <div className="side-nav">
             <FontAwesomeIcon
               icon={icons.faShoppingCart}
@@ -50,13 +41,6 @@ export function Header() {
             />
           </div>
         </div>
-        <div
-          style={{
-            backgroundColor: "#f4f4f5",
-            width: "100%",
-            height: "0.1px",
-          }}
-        ></div>
       </div>
 
       <div className="nav-header">
