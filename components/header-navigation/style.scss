@@ -8,39 +8,7 @@
   width: 100%;
 }
 
-.header {
-  height: 175px;
-  width: 100%;
 
-  position: relative;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  display: flex;
-}
-.header .site-top-block {
-  justify-content: center;
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  align-content: center;
-
-  width: 100%;
-}
-.header .nav-header {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-
-  align-items: center;
-}
-
-.header-button:hover {
-  transition: 0.1s all ease-in-out;
-  color: var(--primary-color);
-  cursor: pointer;
-}
 
 .menu-option {
   background-color: white;

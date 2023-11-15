@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div>
       <main
-        className={`flex min-h-screen flex-col items-center  ${inter.className}`}
+      
       >
         <div className="content">
           <HomePromotion />
