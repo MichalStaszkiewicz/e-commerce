@@ -1,4 +1,4 @@
-@mixin flexbox($direction: column) {
+@mixin flexbox($direction) {
 	display: flex;
 	flex-direction: $direction;
   }
