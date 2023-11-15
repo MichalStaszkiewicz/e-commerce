@@ -48,6 +48,25 @@
         }
       }
     }
+    .block-2 {
+      @include flexbox(row);
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+
+      .site-logo {
+        height: 40px;
+        width: 150px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border: 2px solid black;
+
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 }
 
@@ -55,17 +74,4 @@
   transition: 0.1s all ease-in-out;
   color: var(--primary-color);
   cursor: pointer;
-}
-
-.site-logo {
-  height: 40px;
-
-  padding-left: 10px;
-  padding-right: 10px;
-  border: 2px solid black;
-
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
