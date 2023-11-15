@@ -67,6 +67,14 @@
         justify-content: center;
       }
     }
+    .block-3 {
+      @include flexbox(row);
+
+      flex: 1;
+      .side-nav {
+        width: 100%;
+      }
+    }
   }
 }
 
