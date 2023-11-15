@@ -21,7 +21,7 @@ export function Header() {
           </div>
         </div>
 
-        <div style={{ flex: "1" }}>
+        <div className="block-2">
           <div className="site-logo">
             <Link
               href="/"
@@ -32,7 +32,7 @@ export function Header() {
             </Link>
           </div>
         </div>
-        <div style={{ flex: "1" }}>
+        <div className="block-3">
           {" "}
           <div className="side-nav">
             <FontAwesomeIcon
