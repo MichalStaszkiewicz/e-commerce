@@ -5,7 +5,7 @@ import * as icons from "@fortawesome/free-solid-svg-icons";
 export function Footer() {
   return (
     <div className="footer">
-      <div className="footer_container">
+      <div className="wrapper">
         <div className="footer_navigation_container">
           <p
             style={{
@@ -17,32 +17,14 @@ export function Footer() {
             Navigations
           </p>
 
-          <ul className="footer_navigation_list">
-            <li className="footer_menu_label">Sell online</li>
-            <li className="footer_menu_label">Features</li>
-            <li className="footer_menu_label">Shopping cart</li>
-            <li className="footer_menu_label">Store builder</li>
+          <ul className="navigation_list">
+            <li className="menu_label">Sell online</li>
+            <li className="menu_label">Features</li>
+            <li className="menu_label">Shopping cart</li>
+            <li className="menu_label">Store builder</li>
           </ul>
         </div>
-        <div className="footer_navigation_container">
-          <p
-            style={{
-              fontSize: "20px",
-              fontWeight: "500",
-              marginBottom: "25px",
-              color: "transparent",
-            }}
-          >
-            Navigations
-          </p>
-
-          <ul className="footer_navigation_list">
-            <li className="footer_menu_label">Mobile commerce</li>
-            <li className="footer_menu_label">Dropshipping</li>
-            <li className="footer_menu_label">Website development</li>
-          </ul>
-        </div>
-        <div className="footer_navigation_container">
+        <div className="navigation_container">
           <p
             style={{
               fontSize: "20px",
@@ -54,13 +36,31 @@ export function Footer() {
             Navigations
           </p>
 
-          <ul className="footer_navigation_list">
-            <li className="footer_menu_label">Point of sale</li>
-            <li className="footer_menu_label">Hardware</li>
-            <li className="footer_menu_label">Software</li>
+          <ul className="navigation_list">
+            <li className="menu_label">Mobile commerce</li>
+            <li className="menu_label">Dropshipping</li>
+            <li className="menu_label">Website development</li>
           </ul>
         </div>
-        <div className="footer_navigation_container">
+        <div className="navigation_container">
+          <p
+            style={{
+              fontSize: "20px",
+              fontWeight: "500",
+              marginBottom: "25px",
+              color: "transparent",
+            }}
+          >
+            Navigations
+          </p>
+
+          <ul className="snavigation_list">
+            <li className="smenu_label">Point of sale</li>
+            <li className="smenu_label">Hardware</li>
+            <li className="smenu_label">Software</li>
+          </ul>
+        </div>
+        <div className="navigation_container">
           <p
             style={{
               fontSize: "20px",
@@ -96,7 +96,7 @@ export function Footer() {
             Promo from january 15 — 25, 2019
           </p>
         </div>
-        <div className="footer_navigation_container">
+        <div className="navigation_container">
           <p
             style={{
               fontSize: "20px",
@@ -107,7 +107,7 @@ export function Footer() {
           >
             Contact Info
           </p>
-          <div className="row-space-between">
+          <div>
             <FontAwesomeIcon
               style={{ color: "#7c74ea" }}
               icon={icons.faLocationPin}
@@ -116,14 +116,14 @@ export function Footer() {
               203 Fake St. Mountain View, San Francisco, California, USA
             </p>
           </div>
-          <div className="row-space-between">
+          <div>
             <FontAwesomeIcon
               style={{ color: "#7c74ea" }}
               icon={icons.faPhone}
             />
             <p style={{ width: "100%" }}>+2 392 3929 210</p>
           </div>
-          <div className="row-space-between">
+          <div>
             <FontAwesomeIcon
               style={{ color: "#7c74ea" }}
               icon={icons.faEnvelope}
