@@ -6,17 +6,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  & > * {
+    margin-left: 40px;
+  }
+  & > :first-child {
+    margin-left: 50px;
+  }
 }
 
-.collections > * {
-  margin-left: 40px;
-}
-
-.collections > :first-child {
-  margin-left: 50px;
-}
-
-.collection_item {
+.collections .collection_item {
   height: 450px;
   width: 300px;
   position: relative;
