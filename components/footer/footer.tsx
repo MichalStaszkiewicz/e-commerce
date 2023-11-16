@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <div className="footer">
       <div className="wrapper">
-        <div className="navigation_container">
+        <div className="navigation-container">
           <p
             style={{
               fontSize: "20px",
@@ -17,32 +17,14 @@ export function Footer() {
             Navigations
           </p>
 
-          <ul className="navigation_list">
-            <li className="menu_label">Sell online</li>
-            <li className="menu_label">Features</li>
-            <li className="menu_label">Shopping cart</li>
-            <li className="menu_label">Store builder</li>
+          <ul className="navigation-list">
+            <li className="menu-label">Sell online</li>
+            <li className="menu-label">Features</li>
+            <li className="menu-label">Shopping cart</li>
+            <li className="menu-label">Store builder</li>
           </ul>
         </div>
-        <div className="navigation_container">
-          <p
-            style={{
-              fontSize: "20px",
-              fontWeight: "500",
-              marginBottom: "25px",
-              color: "transparent",
-            }}
-          >
-            Navigations
-          </p>
-
-          <ul className="navigation_list">
-            <li className="menu_label">Mobile commerce</li>
-            <li className="menu_label">Dropshipping</li>
-            <li className="menu_label">Website development</li>
-          </ul>
-        </div>
-        <div className="navigation_container">
+        <div className="navigation-container">
           <p
             style={{
               fontSize: "20px",
@@ -54,13 +36,31 @@ export function Footer() {
             Navigations
           </p>
 
-          <ul className="navigation_list">
-            <li className="menu_label">Point of sale</li>
-            <li className="menu_label">Hardware</li>
-            <li className="menu_label">Software</li>
+          <ul className="navigation-list">
+            <li className="menu-label">Mobile commerce</li>
+            <li className="menu-label">Dropshipping</li>
+            <li className="menu-label">Website development</li>
           </ul>
         </div>
-        <div className="navigation_container">
+        <div className="navigation-container">
+          <p
+            style={{
+              fontSize: "20px",
+              fontWeight: "500",
+              marginBottom: "25px",
+              color: "transparent",
+            }}
+          >
+            Navigations
+          </p>
+
+          <ul className="navigation-list">
+            <li className="menu-label">Point of sale</li>
+            <li className="menu-label">Hardware</li>
+            <li className="menu-label">Software</li>
+          </ul>
+        </div>
+        <div className="navigation-container">
           <p
             style={{
               fontSize: "20px",
@@ -96,7 +96,7 @@ export function Footer() {
             Promo from january 15 — 25, 2019
           </p>
         </div>
-        <div className="navigation_container">
+        <div className="navigation-container">
           <p
             style={{
               fontSize: "20px",
@@ -107,7 +107,7 @@ export function Footer() {
           >
             Contact Info
           </p>
-          <div>
+          <div className="contact-info-label">
             <FontAwesomeIcon
               style={{ color: "#7c74ea" }}
               icon={icons.faLocationPin}
@@ -116,14 +116,14 @@ export function Footer() {
               203 Fake St. Mountain View, San Francisco, California, USA
             </p>
           </div>
-          <div>
+          <div className="contact-info-label">
             <FontAwesomeIcon
               style={{ color: "#7c74ea" }}
               icon={icons.faPhone}
             />
             <p style={{ width: "100%" }}>+2 392 3929 210</p>
           </div>
-          <div>
+          <div className="contact-info-label">
             <FontAwesomeIcon
               style={{ color: "#7c74ea" }}
               icon={icons.faEnvelope}

@@ -1,3 +1,4 @@
+@import ".././../styles/mixins.scss";
 .footer {
   width: 100%;
   height: 400px;
@@ -7,17 +8,16 @@
   align-items: center;
   background-color: white;
   .wrapper {
+    @include flexbox(row);
     height: 80%;
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: start;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
   }
 }
 
-.navigation_container {
-  
+.navigation-container {
   flex-direction: row;
 
   justify-content: center;
@@ -29,14 +29,21 @@
   & > * {
     margin-bottom: 20px;
   }
+  .contact-info-label {
+    @include flexbox(row);
+    justify-content: center;
+    & > :first-child {
+      margin-right: 10px;
+    }
+  }
 }
 
-.navigation_list > * {
+.navigation-list > * {
   color: #8c92a0;
   margin-bottom: 15px;
 }
 
-.menu_label:hover {
+.menu-label:hover {
   color: var(--primary-color);
   cursor: pointer;
 }
