@@ -12,6 +12,7 @@ import { Collection } from "@/components/collection/collection";
 import HomePromotion from "@/components/home-promotion/home-promotion";
 import FadeOnVisible from "@/components/effects/fade-on-visible";
 import "@/styles/globals.scss"
+import "@/components/collection/style.scss"
 import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
 export const inter = Inter({ subsets: ["latin"] });
 
