@@ -5,7 +5,7 @@ export function BigSale() {
   return (
     <div className="container">
       <div
-        className="big_sale_container_decoration"
+        className="decoration"
         style={{ transform: "TranslateY(3000%)" }}
       ></div>
       <p
@@ -17,15 +17,12 @@ export function BigSale() {
       >
         Big Sale!
       </p>
-      <div
-        className="big_sale_content"
-        style={{ width: "100%", height: "100%" }}
-      >
+      <div className="content" style={{ width: "100%", height: "100%" }}>
         <div
-          className="big_sale_image"
+          className="image"
           style={{ backgroundImage: "url(../images/blog_1.jpg)" }}
         ></div>
-        <div className="big_sale_desc">
+        <div className="description">
           <p style={{ fontSize: 32, color: "#7c74ea" }}>
             50% less in all items
           </p>
