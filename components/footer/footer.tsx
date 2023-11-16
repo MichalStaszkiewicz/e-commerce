@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <div className="footer">
       <div className="wrapper">
-        <div className="footer_navigation_container">
+        <div className="navigation_container">
           <p
             style={{
               fontSize: "20px",
@@ -54,10 +54,10 @@ export function Footer() {
             Navigations
           </p>
 
-          <ul className="snavigation_list">
-            <li className="smenu_label">Point of sale</li>
-            <li className="smenu_label">Hardware</li>
-            <li className="smenu_label">Software</li>
+          <ul className="navigation_list">
+            <li className="menu_label">Point of sale</li>
+            <li className="menu_label">Hardware</li>
+            <li className="menu_label">Software</li>
           </ul>
         </div>
         <div className="navigation_container">
