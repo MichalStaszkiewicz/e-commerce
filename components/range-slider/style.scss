@@ -2,44 +2,43 @@
   position: relative;
 
   width: 150px;
-}
-.range_slider_container .slider {
-  width: 100%;
-  height: 10px;
-  background-color: rgb(185, 205, 209);
-  border-radius: 10px;
-  position: relative;
+  .slider {
+    width: 100%;
+    height: 10px;
+    background-color: rgb(185, 205, 209);
+    border-radius: 10px;
+    position: relative;
 
-  justify-content: center;
-}
-.range_slider_container .slider .progress {
-  border-radius: 10px;
+    justify-content: center;
+    .progress {
+      border-radius: 10px;
 
-  height: 10px;
-  background-color: rgb(59, 118, 226);
-  position: absolute;
-}
+      height: 10px;
+      background-color: rgb(59, 118, 226);
+      position: absolute;
+    }
+  }
+  .input_box {
+    position: relative;
 
-.range_slider_container .input_box {
-  position: relative;
-
-  height: 10px;
-  width: 100%;
-}
-.range_slider_container .input_box input {
-  position: absolute;
-  top: -10px;
-  height: 10px;
-  width: 100%;
-  -webkit-appearance: none;
-  pointer-events: none;
-  background: none;
-}
-input[type="range"]::-webkit-slider-thumb {
-  height: 14px;
-  width: 14px;
-  background: rgb(59, 118, 226);
-  -webkit-appearance: none;
-  border-radius: 50%;
-  pointer-events: auto;
+    height: 10px;
+    width: 100%;
+    input {
+      position: absolute;
+      top: -10px;
+      height: 10px;
+      width: 100%;
+      -webkit-appearance: none;
+      pointer-events: none;
+      background: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      height: 14px;
+      width: 14px;
+      background: rgb(59, 118, 226);
+      -webkit-appearance: none;
+      border-radius: 50%;
+      pointer-events: auto;
+    }
+  }
 }
