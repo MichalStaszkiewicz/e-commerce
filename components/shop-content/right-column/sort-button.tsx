@@ -60,7 +60,6 @@ export class SortButton extends React.Component<
           }));
         }
       } else {
-       
         if (this.buttonRef!.current?.getBoundingClientRect() != null) {
           const buttonRect = this.buttonRef!.current!.getBoundingClientRect();
           const isInsideButton =
@@ -86,6 +85,9 @@ export class SortButton extends React.Component<
         <div
           ref={this.buttonRef}
           className="shop_sort_button"
+          onMouseOver={() => {
+            console.log("HOVER");
+          }}
           style={{
             width: this.props.width.toString() + "px",
             height: this.props.height.toString() + "px",
