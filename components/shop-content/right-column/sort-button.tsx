@@ -28,7 +28,7 @@ export class SortButton extends React.Component<
   }
   componentDidMount() {
     window.addEventListener("mousedown", (event: MouseEvent) => {
-      if (this.state.isOpen && this.buttonRef!.current! !=null) {
+      if (this.state.isOpen && this.buttonRef!.current! != null) {
         const buttonRect = this.buttonRef!.current!.getBoundingClientRect();
         const menuRect =
           this.sortMenu!.current!.menuRef.current!.getBoundingClientRect();
@@ -60,7 +60,7 @@ export class SortButton extends React.Component<
           }));
         }
       } else {
-        if (this.buttonRef!.current!.getBoundingClientRect() != null) {
+        if (this.buttonRef!.current?.getBoundingClientRect() != null) {
           const buttonRect = this.buttonRef!.current!.getBoundingClientRect();
           const isInsideButton =
             event.clientX >= buttonRect.left &&
@@ -85,6 +85,9 @@ export class SortButton extends React.Component<
         <div
           ref={this.buttonRef}
           className="shop_sort_button"
+          onMouseOver={() => {
+            console.log("HOVER");
+          }}
           style={{
             width: this.props.width.toString() + "px",
             height: this.props.height.toString() + "px",
