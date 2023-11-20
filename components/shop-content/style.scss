@@ -158,7 +158,7 @@
           justify-content: center;
 
           transition: background-color 0.2s ease, color 0.2s ease;
-          & :hover {
+          &:hover {
             background-color: #7c74ea;
             color: white;
             cursor: pointer;
@@ -230,8 +230,8 @@
   justify-content: center;
   display: flex;
   border-radius: 2px;
-  background-color: #e6e7e9;
-  & :hover {
+
+  &:hover {
     cursor: pointer;
     -webkit-transition: 0.3s all ease-in-out;
     -o-transition: 0.3s all ease-in-out;
