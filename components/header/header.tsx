@@ -16,7 +16,10 @@ export function Header() {
               placeholder="Search"
             />
             <button className="icon-search">
-              <FontAwesomeIcon icon={icons.faMagnifyingGlass} />
+              <FontAwesomeIcon
+                icon={icons.faMagnifyingGlass}
+                style={{ width: "45%", height: "45%" }}
+              />
             </button>
           </div>
         </div>
@@ -37,7 +40,7 @@ export function Header() {
           <div className="side-nav">
             <FontAwesomeIcon
               icon={icons.faShoppingCart}
-              style={{ color: "#8c92a0" }}
+              style={{ color: "#8c92a0", width: "15%", height: "15%" }}
             />
           </div>
         </div>
