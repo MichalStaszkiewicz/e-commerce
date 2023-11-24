@@ -34,7 +34,7 @@
         }
         .list_element {
           @include flexbox(row);
-          height: 30px;
+          height: 30%;
           width: 100%;
           color: var(--primary-color);
           font-weight: 300;
@@ -51,9 +51,10 @@
 
       float: left;
       .filters {
-        padding-top: 25px;
-        margin-top: 25px;
-        height: 600px;
+        padding-top: 10%;
+
+        margin-top: 10%;
+        height: 40%;
         width: 100%;
         border: 1px solid rgb(187, 187, 187);
         border-radius: 3px;
@@ -64,18 +65,18 @@
         .container {
           .size_list {
             & > * {
-              margin-top: 10px;
+              margin-top: 10%;
             }
           }
           .color_list {
             & > * {
-              margin-top: 10px;
+              margin-top: 10%;
             }
           }
           .color_container {
             @include flexbox(row);
             width: 100%;
-            height: 20px;
+            height: 15%;
 
             justify-content: start;
             text-align: center;
@@ -87,8 +88,8 @@
             }
           }
           .slider_pointer {
-            height: 16px;
-            width: 16px;
+            height: 2%;
+            width: 2%;
             border-radius: 20px;
             background-color: var(--primary-color);
             border: 1px solid var(--primary-color);
@@ -96,7 +97,7 @@
             -webkit-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            z-index: 10;
+
             position: absolute;
           }
           @include flexbox(column);
@@ -109,20 +110,20 @@
           align-items: start;
           .slider_container {
             .slider_fill {
-              height: 9px;
+              height: 9%;
 
               background-color: var(--primary-color);
             }
-            margin-top: 10px;
-            height: 30px;
+
+            height: 20%;
             width: 100%;
             display: flex;
             .slider {
               @include flexbox(column);
-              height: 9px;
+              height: 2%;
               width: 90%;
               border-radius: 20px;
-              background-color: white;
+
               border: 1px solid var(--primary-color);
             }
           }
@@ -225,8 +226,6 @@
 }
 
 .shop_sort_button {
-  padding-left: 60px;
-  padding-right: 60px;
   text-align: center;
   align-items: center;
   justify-content: center;

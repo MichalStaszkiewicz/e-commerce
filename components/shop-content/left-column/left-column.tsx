@@ -8,7 +8,7 @@ import {
 import { Slider } from "antd";
 import "@/components/shop-content/style.scss";
 //TODO: Replace useState with keeping data in url as query
-type Price = {
+type SliderRangeValue = {
   min: number;
   max: number;
 };
@@ -16,7 +16,7 @@ type Price = {
 export function LeftColumn() {
   const minPrice = 100;
   const maxPrice = 1000;
-  const [price, setPrice] = useState<Price>({ min: minPrice, max: maxPrice });
+  const [price, setPrice] = useState<SliderRangeValue>({ min: minPrice, max: maxPrice });
 
   const onChange = (value: number[]) => {
     if (value[0] != price.min) {
@@ -58,6 +58,7 @@ export function LeftColumn() {
               max={maxPrice}
               defaultValue={[price.min, price.max]}
               onChange={onChange}
+              style={{ width: "100%", height: "100%" }}
             />
           </div>
 

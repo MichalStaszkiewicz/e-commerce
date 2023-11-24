@@ -35,7 +35,12 @@ export function HeaderNavButton({
       onMouseLeave={toggleMenu}
     >
       <Link href={label == "SHOP" ? "/shop" : ""}>{label}</Link>
-      {icon && <FontAwesomeIcon icon={icons.faAngleDown} />}{" "}
+      {icon && (
+        <FontAwesomeIcon
+          icon={icons.faAngleDown}
+          style={{ width: "20%", height: "25%" }}
+        />
+      )}{" "}
       {isMenuOpen && (
         <ul className="menu-option animate-header-button">
           {items.map((item, index) => (

@@ -85,9 +85,6 @@ export class SortButton extends React.Component<
         <div
           ref={this.buttonRef}
           className="shop_sort_button"
-          onMouseOver={() => {
-            console.log("HOVER");
-          }}
           style={{
             width: this.props.width.toString() + "px",
             height: this.props.height.toString() + "px",
@@ -108,7 +105,10 @@ export class SortButton extends React.Component<
           >
             {this.props.label}
           </p>
-          <FontAwesomeIcon icon={icons.faAngleDown} style={{ width: "10px" }} />
+          <FontAwesomeIcon
+            icon={icons.faAngleDown}
+            style={{ width: "15%", height: "35%" }}
+          />
         </div>
         {this.state.isOpen ? (
           <SortMenu ref={this.sortMenu} labels={this.props.menuData} />
