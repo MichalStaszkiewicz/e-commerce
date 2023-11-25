@@ -109,7 +109,7 @@ export function Footer() {
           </p>
           <div className="contact-info-label">
             <FontAwesomeIcon
-              style={{ color: "#7c74ea" }}
+              style={{ color: "#7c74ea", height: "55%", marginRight: "2%" }}
               icon={icons.faLocationPin}
             />
             <p style={{ width: "100%" }}>
@@ -118,14 +118,14 @@ export function Footer() {
           </div>
           <div className="contact-info-label">
             <FontAwesomeIcon
-              style={{ color: "#7c74ea" }}
+              style={{ color: "#7c74ea", height: "55%", marginRight: "2%" }}
               icon={icons.faPhone}
             />
             <p style={{ width: "100%" }}>+2 392 3929 210</p>
           </div>
           <div className="contact-info-label">
             <FontAwesomeIcon
-              style={{ color: "#7c74ea" }}
+              style={{ color: "#7c74ea", height: "55%", marginRight: "2%" }}
               icon={icons.faEnvelope}
             />
             <p style={{ width: "100%" }}>emailaddress@domain.com</p>

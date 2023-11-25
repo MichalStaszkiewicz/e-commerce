@@ -1,11 +1,11 @@
 @import ".././../styles/mixins.scss";
 .footer {
+  @include flexbox(column);
   width: 100%;
   height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
   align-items: center;
+
   background-color: white;
   .wrapper {
     @include flexbox(row);
@@ -14,28 +14,33 @@
 
     justify-content: center;
     align-items: center;
+    & > * {
+      margin-right: 3%;
+    }
+    & > :last-child {
+      margin-right: 0;
+    }
   }
 }
 
 .navigation-container {
-  flex-direction: row;
+  @include flexbox(column);
 
+  width: auto;
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding-right: 100px;
-  
-  width: auto;
+
   & > * {
     margin-bottom: 20px;
   }
   .contact-info-label {
+    width: 100%;
+    height: 13%;
+
     @include flexbox(row);
     align-items: center;
     justify-content: center;
-    & > :first-child {
-      margin-right: 10px;
-    }
   }
 }
 
