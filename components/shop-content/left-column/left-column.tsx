@@ -1,5 +1,11 @@
 "use client";
-import { MouseEventHandler, useEffect, useRef, useState } from "react";
+import {
+  ForwardRefExoticComponent,
+  MouseEventHandler,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import {
   CategoriesColorIndicator,
   CategoriesSize,
@@ -7,6 +13,7 @@ import {
 
 import { Slider } from "antd";
 import "@/components/shop-content/style.scss";
+import React from "react";
 //TODO: Replace useState with keeping data in url as query
 type SliderRangeValue = {
   min: number;
@@ -20,7 +27,7 @@ export function LeftColumn() {
     min: minPrice,
     max: maxPrice,
   });
-
+  const sliderRef = React.createRef<any>();
   const onChange = (value: number[]) => {
     if (value[0] != price.min) {
       setPrice({ min: value[0], max: price.max });
@@ -53,6 +60,7 @@ export function LeftColumn() {
         <p className="categories_header">FILTER BY PRICE</p>
 
         <Slider
+          ref={sliderRef}
           tooltip={{ open: false }}
           range
           step={1}
