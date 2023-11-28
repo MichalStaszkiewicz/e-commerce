@@ -1,6 +1,6 @@
 import "@/components/product_details/style.scss";
 import { Button, ConfigProvider, Radio } from "antd";
-import SelectProductCount from "../select_product_count/select_product_count";
+import SelectProductCount from "../select_product_quantity/select_product_quantity";
 import theme from "@/theme/theme_config";
 export default function ProductDetails() {
   return (
