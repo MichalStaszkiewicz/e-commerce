@@ -1,0 +1,68 @@
+@import "../../styles/mixins.scss";
+
+.wrapper {
+  @include flexbox(row);
+  height: 600px;
+  .block-1 {
+    flex: 1;
+
+    align-items: center;
+    justify-content: end;
+
+    align-content: end;
+    display: flex;
+    position: relative;
+    div {
+      position: relative;
+      bottom: 10%;
+      left: -5%;
+      height: 350px;
+      width: 500px;
+
+      img {
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%;
+      }
+    }
+  }
+  .block-2 {
+    @include flexbox(column);
+    align-items: start;
+    align-content: start;
+    justify-content: center;
+    flex: 1;
+    .description-wrapper {
+      width: 50%;
+
+      .description {
+        text-align: start;
+        color: grey;
+        width: 100%;
+      }
+      & > :first-child {
+        margin-bottom: 10px;
+      }
+    }
+    .name {
+      font-weight: 600;
+      width: 100%;
+      text-align: start;
+      font-size: x-large;
+    }
+    .price {
+      color: var(--primary-color);
+      font-size: x-large;
+    }
+    & > * {
+      margin-bottom: 20px;
+    }
+    .pick-size {
+      @include flexbox(row);
+
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+    }
+  }
+}
