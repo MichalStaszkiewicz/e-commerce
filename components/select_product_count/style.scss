@@ -1,0 +1,41 @@
+@import "../../styles/mixins.scss";
+
+.select-product-wrapper {
+  @include flexbox(row);
+  width: 100px;
+  height: 45px;
+
+  border-radius: 5px;
+  .decrease {
+    border: 1px solid var(--primary-color);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-color: var(--primary-color);
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex: 3;
+    cursor: pointer;
+  }
+  .current {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgb(213, 213, 213);
+    border-bottom: 1px solid rgb(213, 213, 213);
+    flex: 5;
+  }
+  .increase {
+    border: 1px solid var(--primary-color);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-color: var(--primary-color);
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex: 3;
+    cursor: pointer;
+  }
+}

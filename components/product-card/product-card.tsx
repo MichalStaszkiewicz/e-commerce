@@ -1,7 +1,10 @@
+"use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import "@/components/product-card/style.scss";
+
+import { useRouter } from "next/navigation";
 
 export default function ProductCard({
   image,
@@ -18,8 +21,13 @@ export default function ProductCard({
   width: number;
   height: number;
 }) {
+  const router = useRouter();
+
   return (
     <div
+      onClick={() => {
+        router.push("/shop/product_details");
+      }}
       className="product_card_container"
       style={{
         width: `${width}px`,
