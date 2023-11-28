@@ -83,14 +83,10 @@ export function RightColumn() {
         <div className="sort_container">
           <SortButton
             label={"LATEST"}
-            width={100}
-            height={40}
             menuData={["Man", "Woman", "Children"]}
           />
           <SortButton
             label={"REFERENCE"}
-            width={100}
-            height={40}
             menuData={[
               "Relevance",
               "Name, A To Z",

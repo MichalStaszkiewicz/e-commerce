@@ -4,8 +4,6 @@ import React from "react";
 import { SortMenu } from "./sort-menu";
 import "@/components/shop-content/style.scss";
 interface SortButtonProps {
-  width: number;
-  height: number;
   label: string;
   menuData: string[];
 }
@@ -80,34 +78,21 @@ export class SortButton extends React.Component<
   render() {
     const handleMouseDown = (event: any) => {};
     return (
-      <div>
+      <div className="sort_button_wrapper">
         {" "}
         <div
           ref={this.buttonRef}
-          className="shop_sort_button"
+          className="sort_button"
           style={{
-            width: this.props.width.toString() + "px",
-            height: this.props.height.toString() + "px",
             color: this.state.isOpen ? "white" : "black",
             backgroundColor: this.state.isOpen ? "#545b62" : "#e6e7e9",
           }}
           onMouseDown={handleMouseDown}
         >
-          <p
-            style={{
-              paddingLeft: "5px",
-              paddingRight: "5px",
-              fontSize: "13px",
-              textAlign: "center",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {this.props.label}
-          </p>
+          <p>{this.props.label}</p>
           <FontAwesomeIcon
             icon={icons.faAngleDown}
-            style={{ width: "15%", height: "35%" }}
+            style={{ width: "15px", height: "15px" }}
           />
         </div>
         {this.state.isOpen ? (
