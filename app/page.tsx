@@ -1,7 +1,5 @@
 "use client";
 
-
-
 import React, { useEffect, useState } from "react";
 
 import { Benefit } from "@/components/benefit/benefit";
@@ -15,7 +13,6 @@ import "@/styles/globals.scss";
 import "@/components/collection/style.scss";
 import HomePromotion from "@/components/home-promotion/home-promotion";
 import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
-
 
 export default function Home() {
   const [ready, setReady] = useState(false);

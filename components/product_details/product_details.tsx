@@ -1,8 +1,11 @@
+"use client";
 import "@/components/product_details/style.scss";
 import { Button, ConfigProvider, Radio } from "antd";
 import SelectProductCount from "../select_product_quantity/select_product_quantity";
 import theme from "@/theme/theme_config";
+import { useRouter } from "next/navigation";
 export default function ProductDetails() {
+  const router = useRouter();
   return (
     <div className="wrapper">
       <ConfigProvider theme={theme}>
@@ -37,7 +40,13 @@ export default function ProductDetails() {
             <Radio>Extra Large</Radio>
           </div>
           <SelectProductCount />
-          <Button type="primary" size="large">
+          <Button
+            type="primary"
+            size="large"
+            onClick={() => {
+              router.push("/cart");
+            }}
+          >
             Add to Cart
           </Button>
         </div>
