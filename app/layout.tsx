@@ -7,12 +7,13 @@ import * as icons from "@fortawesome/free-solid-svg-icons";
 import { Footer } from "@/components/footer/footer";
 import { Header } from "@/components/header/header";
 import StyledComponentsRegistry from "../lib/AntdRegistry";
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
+
+import { useState } from "react";
+
 
 const RootLayout = ({ children }: React.PropsWithChildren) => (
   <html lang="en">
-    <body className={inter.className}>
+    <body >
       <Header />
       <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       <Footer />

@@ -182,6 +182,7 @@
         display: grid;
         grid-template-columns: 280px 280px 280px;
         grid-template-rows: 380px 380px 380px;
+        grid-gap: 12px;
       }
       .header {
         height: 100px;

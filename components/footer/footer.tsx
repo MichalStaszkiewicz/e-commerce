@@ -1,9 +1,16 @@
+"use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@/components/footer/style.scss";
 import * as icons from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
 
 export function Footer() {
-  return (
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
+  return ready ? (
     <div className="footer">
       <div className="wrapper">
         <div className="navigation-container">
@@ -133,5 +140,7 @@ export function Footer() {
         </div>
       </div>
     </div>
+  ) : (
+    <></>
   );
 }
