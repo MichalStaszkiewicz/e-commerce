@@ -50,11 +50,13 @@
     }
     .block-2 {
       @include flexbox(row);
+
       flex: 1;
       justify-content: center;
       align-items: center;
 
       .site-logo {
+        position: relative;
         height: 40px;
         width: 150px;
         padding-left: 10px;

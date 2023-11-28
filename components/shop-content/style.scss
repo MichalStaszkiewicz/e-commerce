@@ -53,7 +53,7 @@
       .filters {
         @include flexbox(column);
 
-      padding: 10%;
+        padding: 10%;
         margin-top: 10%;
         height: 40%;
         width: 100%;
@@ -182,6 +182,7 @@
         display: grid;
         grid-template-columns: 280px 280px 280px;
         grid-template-rows: 380px 380px 380px;
+        grid-gap: 12px;
       }
       .header {
         height: 100px;
@@ -192,6 +193,7 @@
         float: left;
       }
       .sort_container {
+        @include flexbox(row);
         height: 100%;
         width: 100%;
 
@@ -217,23 +219,41 @@
 .visibility_hidden {
   visibility: hidden;
 }
+.sort_button_wrapper {
+  .sort_button {
+    @include flexbox(row);
+    justify-content: space-between;
+    max-width: min-content;
+    min-width: min-content;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 2px;
 
-.shop_sort_button {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  border-radius: 2px;
+    &:hover {
+      cursor: pointer;
+      -webkit-transition: 0.3s all ease-in-out;
+      -o-transition: 0.3s all ease-in-out;
+      transition: 0.3s all ease-in-out;
+      -webkit-box-shadow: 1px 0px 11px 1px rgba(136, 136, 138, 1);
+      -moz-box-shadow: 1px 0px 11px 1px rgba(136, 136, 138, 1);
+      box-shadow: 1px 0px 11px 1px rgba(136, 136, 138, 1);
+      transform: translateY(-3px);
+    }
+    p {
+      padding-left: 5px;
+      padding-left: 5px;
 
-  &:hover {
-    cursor: pointer;
-    -webkit-transition: 0.3s all ease-in-out;
-    -o-transition: 0.3s all ease-in-out;
-    transition: 0.3s all ease-in-out;
-    -webkit-box-shadow: 1px 0px 11px 1px rgba(136, 136, 138, 1);
-    -moz-box-shadow: 1px 0px 11px 1px rgba(136, 136, 138, 1);
-    box-shadow: 1px 0px 11px 1px rgba(136, 136, 138, 1);
-    transform: translateY(-3px);
+      font-size: small;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+    & > :first-child {
+      margin-right: 10px;
+    }
   }
 }
 

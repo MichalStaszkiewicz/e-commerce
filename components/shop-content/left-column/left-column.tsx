@@ -41,7 +41,7 @@ export function LeftColumn() {
     <div className="left_column">
       <ConfigProvider theme={theme}>
         <div className="categories">
-          <p className="categories_header" style={{ marginTop: "20px" }}>
+        <p className="categories_header" style={{ marginTop: "20px" }}>
             CATEGORIES
           </p>
           <ul className="list">
