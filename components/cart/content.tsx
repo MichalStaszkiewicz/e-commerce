@@ -8,19 +8,13 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export default function CartContent() {
   const [ready, setReady] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     setReady(true);
-    if (ref.current != null) {
-      console.log(
-        "Wrapper height: " + ref.current.getBoundingClientRect().height
-      );
-    }
   });
   return ready ? (
     <ConfigProvider theme={theme}>
-      <div ref={ref} className="cart-content-wrapper">
+      <div className="cart-content-wrapper">
         <div className="table-wrapper">
           <table>
             <TableHeader></TableHeader>

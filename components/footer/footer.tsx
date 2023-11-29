@@ -40,7 +40,7 @@ export function Footer() {
               color: "transparent",
             }}
           >
-            Navigations
+           
           </p>
 
           <ul className="navigation-list">
@@ -58,7 +58,7 @@ export function Footer() {
               color: "transparent",
             }}
           >
-            Navigations
+         
           </p>
 
           <ul className="navigation-list">
