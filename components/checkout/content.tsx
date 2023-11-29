@@ -2,6 +2,7 @@
 import { Button, ConfigProvider } from "antd";
 import "../checkout/style.scss";
 import theme from "@/theme/theme_config";
+import PaymentOption from "./payment-option/payment-option";
 export default function CheckoutContent() {
   return (
     <div className="checkout-content-wrapper">
@@ -209,15 +210,9 @@ export default function CheckoutContent() {
                 </table>
               </div>
               <div className="payment-option-list">
-                <div className="payment-option-box">
-                  <p>Direct Bank Transfer</p>
-                </div>
-                <div className="payment-option-box">
-                  <p>Cheque Payment</p>
-                </div>
-                <div className="payment-option-box">
-                  <p>Paypal</p>
-                </div>
+                <PaymentOption label={"Direct Bank Transfer"} />
+                <PaymentOption label={"Cheque Payment"} />
+                <PaymentOption label={"Paypal"} />
               </div>
               <Button type="primary" className="place-order-button">
                 PLACE ORDER
