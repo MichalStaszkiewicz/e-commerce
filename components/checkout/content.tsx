@@ -18,7 +18,7 @@ export default function CheckoutContent() {
           <p className="label">Billing Details</p>
           <div className="billing-form-box">
             <div className="form-group">
-              <label>Country*</label>
+              <label>Country <span style={{color:"red"}}>*</span></label>
               <select className="select-country">
                 <option value="1">Select Country</option>
                 <option value="2">Bangladesh</option>
@@ -30,21 +30,21 @@ export default function CheckoutContent() {
             </div>
             <div className="form-group-row">
               <div className="form-group">
-                <label>First Name*</label>
+                <label>First Name <span style={{color:"red"}}>*</span></label>
                 <input type="text" className="first-name-input"></input>
               </div>
 
               <div className="form-group">
-                <label>Last Name*</label>
+                <label>Last Name <span style={{color:"red"}}>*</span></label>
                 <input type="text" className="last-name-input"></input>
               </div>
             </div>
             <div className="form-group">
-              <label>Company Name</label>
+              <label>Company Name <span style={{color:"red"}}>*</span></label>
               <input type="text" className="company-name-input"></input>
             </div>
             <div className="form-group">
-              <label>Address*</label>
+              <label>Address <span style={{color:"red"}}>*</span></label>
               <input
                 type="text"
                 placeholder="Street address"
@@ -59,23 +59,23 @@ export default function CheckoutContent() {
             </div>
             <div className="form-group-row">
               <div className="form-group">
-                <label>State / Country*</label>
+                <label>State / Country <span style={{color:"red"}}>*</span></label>
                 <input type="text" className="state-country-input"></input>
               </div>
 
               <div className="form-group">
-                <label>Posta / Zip*</label>
+                <label>Posta / Zip <span style={{color:"red"}}>*</span></label>
                 <input type="text" className="posta-zip-input"></input>
               </div>
             </div>
             <div className="form-group-row">
               <div className="form-group">
-                <label>Email Address*</label>
+                <label>Email Address <span style={{color:"red"}}>*</span></label>
                 <input type="text" className="email-address-input"></input>
               </div>
 
               <div className="form-group">
-                <label>Phone*</label>
+                <label>Phone <span style={{color:"red"}}>*</span></label>
                 <input
                   type="text"
                   placeholder="Phone Number"
