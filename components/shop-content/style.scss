@@ -191,6 +191,11 @@
         flex-direction: row;
         display: block;
         float: left;
+        .shop-all {
+          width: auto;
+          font-weight: 550;
+          font-size: larger;
+        }
       }
       .sort_container {
         @include flexbox(row);

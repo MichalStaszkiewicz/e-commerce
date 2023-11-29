@@ -1,0 +1,108 @@
+"use client";
+import "../checkout/style.scss";
+export default function CheckoutContent() {
+  return (
+    <div className="checkout-content-wrapper">
+      <div className="customer-return-wrapper">
+        <div className="customer-return-login-box">
+          <p className="label">
+            Returning customer?
+            <span className="login-link"> Click here </span>
+            to login
+          </p>
+        </div>
+      </div>
+
+      <div className="billing-details-wrapper">
+        <div className="billing-details-box">
+          <p className="label">Billing Details</p>
+          <div className="billing-form-box">
+            <div className="form-group">
+              <label>Country*</label>
+              <select className="select-country">
+                <option value="1">Select Country</option>
+                <option value="2">Bangladesh</option>
+                <option value="3">Algeria</option>
+                <option value="4">Afghanistan</option>
+                <option value="5">Ghana</option>
+                <option value="6">Albania</option>
+              </select>
+            </div>
+            <div className="form-group-row">
+              <div className="form-group">
+                <label>First Name*</label>
+                <input type="text" className="first-name-input"></input>
+              </div>
+
+              <div className="form-group">
+                <label>Last Name*</label>
+                <input type="text" className="last-name-input"></input>
+              </div>
+            </div>
+            <div className="form-group">
+              <label>Company Name</label>
+              <input type="text" className="company-name-input"></input>
+            </div>
+            <div className="form-group">
+              <label>Address*</label>
+              <input
+                type="text"
+                placeholder="Street address"
+                className="address-street-input"
+              ></input>
+              <div style={{ height: "20px" }}></div>
+              <input
+                type="text"
+                placeholder="Apartament,suite,unit etc. (optional)"
+                className="address-apartament-input"
+              ></input>
+            </div>
+            <div className="form-group-row">
+              <div className="form-group">
+                <label>State / Country*</label>
+                <input type="text" className="state-country-input"></input>
+              </div>
+
+              <div className="form-group">
+                <label>Posta / Zip*</label>
+                <input type="text" className="posta-zip-input"></input>
+              </div>
+            </div>
+            <div className="form-group-row">
+              <div className="form-group">
+                <label>Email Address*</label>
+                <input type="text" className="email-address-input"></input>
+              </div>
+
+              <div className="form-group">
+                <label>Phone*</label>
+                <input
+                  type="text"
+                  placeholder="Phone Number"
+                  className="phone-number-input"
+                ></input>
+              </div>
+            </div>
+            <div className="form-group">
+              <label>Order Notes</label>
+              <textarea
+           
+                placeholder="Write your notes here..."
+                className="order-notes-input"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div className="order-details-box">
+          <p className="label">Coupon Code</p>
+          <div className="coupon-code-box">
+            <div className="coupon-input-box"></div>
+          </div>
+          <p className="label">Your Order</p>
+          <div className="your-order-box"></div>
+        </div>
+      </div>
+    </div>
+  );
+}

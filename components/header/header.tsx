@@ -6,6 +6,7 @@ import Link from "next/link";
 import { HeaderNavButton } from "../header-navigation/header-nav-button";
 import "@/components/header/style.scss";
 import { createRef, useEffect, useMemo, useState } from "react";
+import { Divider } from "antd";
 
 export function Header() {
   const [ready, setReady] = useState(false);
@@ -49,7 +50,7 @@ export function Header() {
           </div>
         </div>
       </div>
-
+      <Divider style={{ padding: "0px", margin: "0px" }}></Divider>
       <div className="nav-header">
         <HeaderNavButton label={"HOME"} icon={false} items={[]} />
         <HeaderNavButton label={"ABOUT"} icon={false} items={[]} />

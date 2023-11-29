@@ -13,6 +13,7 @@ import "@/styles/globals.scss";
 import "@/components/collection/style.scss";
 import HomePromotion from "@/components/home-promotion/home-promotion";
 import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
+import { Divider } from "antd";
 
 export default function Home() {
   const [ready, setReady] = useState(false);
@@ -50,7 +51,7 @@ export default function Home() {
               </div>
             }
           />
-
+          <Divider></Divider>
           <FadeOnVisible
             children={
               <div className="collections">

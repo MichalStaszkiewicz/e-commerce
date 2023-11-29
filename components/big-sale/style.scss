@@ -1,50 +1,105 @@
-.container {
-  height: 800px;
+@import "../../styles/mixins.scss";
+.big-sale-wrapper {
+  @include flexbox(column);
+  height: 750px;
   width: 100%;
 
-  border-bottom: 0.1px solid #f7f7f7;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
-  .decoration {
-    height: 1.5px;
-    width: 40px;
-    background-color: var(--primary-color);
+
+  .header-wrapper {
+    margin-top: 20px;
+
+    height: 15%;
+    width: 100%;
+    @include flexbox(column);
+    justify-content: space-evenly;
+    align-items: center;
+    transform: translateY(10%);
+    .decoration {
+      height: 1.5px;
+      width: 40px;
+      background-color: var(--primary-color);
+    }
+    .header {
+      height: auto;
+      font-size: xx-large;
+    }
   }
+
   .content {
-    display: flex;
-    flex-direction: row;
+    @include flexbox(row);
+
+    position: relative;
+    height: 90%;
+    width: 100%;
+
     justify-content: center;
     align-items: center;
-    .image {
-      height: 80%;
-      width: 600px;
+
+    .image-wrapper {
+      height: 100%;
       position: relative;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background-color: blue;
-      z-index: 1;
-      border-radius: 5px;
-      margin-bottom: 0;
-      background-size: cover;
-      background-position: center;
-    }
-    .description {
-      width: 600px;
-      height: 400px;
+      width: 50%;
+
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: end;
       align-items: center;
-      & > * {
-        margin-bottom: 15px;
+
+      .image {
+        height: 70%;
+        width: 65%;
+        position: relative;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        z-index: 1;
+        border-radius: 5px;
+        margin-bottom: 0;
+        background-size: cover;
+        background-position: center;
+        transform: translateY(-10%);
       }
     }
-  }
-  & > * {
-    margin-top: 30px;
+    .description-wrapper {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      .description {
+        @include flexbox(column);
+        transform: translateY(-10%);
+
+        width: 45%;
+        height: 60%;
+
+        justify-content: center;
+        align-items: center;
+        & > * {
+          margin-bottom: 15px;
+        }
+        .offer-title {
+          font-size: x-large;
+          color: var(--primary-color);
+        }
+        .by {
+          color: #c4c7ce;
+          .author-name {
+            color: var(--primary-color);
+            font-weight: 500;
+          }
+        }
+        .description-content {
+          text-align: center;
+          color: #8c92a0;
+        }
+      }
+    }
+    & > :first-child {
+      margin-right: 50px;
+    }
   }
 }
