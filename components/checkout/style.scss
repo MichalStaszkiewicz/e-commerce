@@ -4,10 +4,9 @@
   @include flexbox(column);
   width: 100%;
   height: auto;
- 
 
   align-items: center;
-  &>*{
+  & > * {
     margin-top: 50px;
   }
 }
@@ -76,6 +75,32 @@
     }
     .coupon-code-box {
       @include form-box(90%, 150px);
+      .coupon-input-box {
+        @include flexbox(column);
+
+        padding: 30px;
+        justify-content: center;
+        height: 100%;
+        & > :first-child {
+          margin-bottom: 10px;
+        }
+        .entry-coupon-code-label {
+          font-weight: 300;
+        }
+        .coupon-input-row {
+          display: flex;
+          justify-content: start;
+          align-items: center;
+
+          input[type="text"] {
+            @include form-box(50%, 50px);
+            @include form-box-effects();
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+          
+          }
+        }
+      }
     }
     .your-order-box {
       @include form-box(90%, 350px);
@@ -92,8 +117,7 @@
   @include flexbox(column);
   justify-content: center;
   align-items: start;
-  &>:first-child{
-
+  & > :first-child {
     margin-bottom: 10px;
   }
   .first-name-input {
