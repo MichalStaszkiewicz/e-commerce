@@ -5,10 +5,12 @@ import TableEntry from "./table_entry/table_entry";
 import TableHeader from "./table_header/table_header";
 import theme from "@/theme/theme_config";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 export default function CartContent() {
   const [ready, setReady] = useState(false);
-
+  const router = useRouter();
   useLayoutEffect(() => {
     setReady(true);
   });
@@ -109,7 +111,14 @@ export default function CartContent() {
                 </div>
               </div>
 
-              <Button style={{ height: "60px", width: "100%" }} type="primary">
+              <Button
+                onClick={() => {
+
+                  router.push("/cart/checkout");
+                }}
+                style={{ height: "60px", width: "100%" }}
+                type="primary"
+              >
                 PROCEED TO CHECKUT
               </Button>
             </div>
