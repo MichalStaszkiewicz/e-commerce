@@ -6,8 +6,9 @@
 
   align-items: center;
 
-  background-color: white;
+
   .wrapper {
+   
     @include flexbox(row);
     height: 80%;
     width: 100%;
@@ -27,9 +28,10 @@
   @include flexbox(column);
 
   width: auto;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   height: 100%;
+
 
   & > * {
     margin-bottom: 20px;

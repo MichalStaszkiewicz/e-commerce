@@ -1,0 +1,38 @@
+@mixin td-entry() {
+  height: 70px;
+  border: 1px solid #dee2e6;
+}
+
+.tr-entry {
+  border: 1px solid #dee2e6;
+  height: 70px;
+
+  .entry-image {
+    padding: 20px;
+    @include td-entry;
+  }
+  .entry-product {
+    position: relative;
+    font-weight: 700;
+    justify-content: center;
+
+    align-items: center;
+    align-content: center;
+  }
+  .entry-price {
+    justify-content: center;
+    @include td-entry;
+  }
+  .entry-quantity {
+    justify-content: center;
+    @include td-entry;
+  }
+  .entry-total {
+    justify-content: center;
+    @include td-entry;
+  }
+  .entry-remove {
+    justify-content: center;
+    @include td-entry;
+  }
+}

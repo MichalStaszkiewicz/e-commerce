@@ -6,8 +6,9 @@ import { SortButton } from "./sort-button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
-import { ProductCard } from "../../product-card/product-card";
+
 import "@/components/shop-content/style.scss";
+import ProductCard from "@/components/product-card/product-card";
 export function RightColumn() {
   let productList: number[] = [
     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -77,20 +78,14 @@ export function RightColumn() {
   return (
     <div className="right_column">
       <div className="header">
-        <p style={{ width: "100px", fontWeight: "450", fontSize: "18px" }}>
-          Shop All
-        </p>
+        <p className="shop-all">Shop All</p>
         <div className="sort_container">
           <SortButton
             label={"LATEST"}
-            width={100}
-            height={40}
             menuData={["Man", "Woman", "Children"]}
           />
           <SortButton
             label={"REFERENCE"}
-            width={100}
-            height={40}
             menuData={[
               "Relevance",
               "Name, A To Z",
@@ -128,10 +123,7 @@ export function RightColumn() {
               setCurrentPage(currentPage - 1);
             }}
           >
-            <FontAwesomeIcon
-              icon={icons.faArrowLeft}
-              style={{}}
-            ></FontAwesomeIcon>
+            <FontAwesomeIcon icon={icons.faArrowLeft}></FontAwesomeIcon>
           </div>
         ) : (
           <div style={{ height: "40px", width: "40px" }}></div>
@@ -144,10 +136,7 @@ export function RightColumn() {
               setCurrentPage(currentPage + 1);
             }}
           >
-            <FontAwesomeIcon
-              icon={icons.faArrowRight}
-              style={{}}
-            ></FontAwesomeIcon>
+            <FontAwesomeIcon icon={icons.faArrowRight}></FontAwesomeIcon>
           </div>
         ) : (
           <div style={{ height: "40px", width: "40px" }}></div>

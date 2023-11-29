@@ -1,11 +1,11 @@
+import CartContent from "@/components/cart/content";
 import NavigationHistory from "@/components/navigation-history/navigation-history";
-import ShopContent from "@/components/shop-content/shop-content";
 
-export default function Shop() {
+export default function Cart() {
   return (
     <div>
       <NavigationHistory />
-      <ShopContent />
+      <CartContent />
     </div>
   );
 }

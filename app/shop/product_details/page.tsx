@@ -1,11 +1,11 @@
 import NavigationHistory from "@/components/navigation-history/navigation-history";
-import ShopContent from "@/components/shop-content/shop-content";
+import ProductDetails from "@/components/product_details/product_details";
 
-export default function Shop() {
+export default function () {
   return (
-    <div>
+    <div >
       <NavigationHistory />
-      <ShopContent />
+      <ProductDetails />
     </div>
   );
 }

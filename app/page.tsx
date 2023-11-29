@@ -1,8 +1,6 @@
 "use client";
 
-import { Inter } from "next/font/google";
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Benefit } from "@/components/benefit/benefit";
 
@@ -15,11 +13,14 @@ import "@/styles/globals.scss";
 import "@/components/collection/style.scss";
 import HomePromotion from "@/components/home-promotion/home-promotion";
 import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
-
-export const inter = Inter({ subsets: ["latin"] });
+import { Divider } from "antd";
 
 export default function Home() {
-  return (
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    setReady(true);
+  });
+  return ready ? (
     <div>
       <main>
         <div className="content">
@@ -50,7 +51,7 @@ export default function Home() {
               </div>
             }
           />
-
+          <Divider></Divider>
           <FadeOnVisible
             children={
               <div className="collections">
@@ -107,5 +108,7 @@ export default function Home() {
         </div>
       </main>
     </div>
+  ) : (
+    <></>
   );
 }

@@ -1,11 +1,11 @@
+import CheckoutContent from "@/components/checkout/content";
 import NavigationHistory from "@/components/navigation-history/navigation-history";
-import ShopContent from "@/components/shop-content/shop-content";
 
-export default function Shop() {
+export default function Checkout() {
   return (
     <div>
       <NavigationHistory />
-      <ShopContent />
+      <CheckoutContent />
     </div>
   );
 }

@@ -1,10 +1,19 @@
+"use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "@/components/footer/style.scss";
 import * as icons from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
+import { Divider } from "antd";
 
 export function Footer() {
-  return (
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
+  return ready ? (
     <div className="footer">
+      <Divider></Divider>
       <div className="wrapper">
         <div className="navigation-container">
           <p
@@ -12,6 +21,7 @@ export function Footer() {
               fontSize: "20px",
               fontWeight: "500",
               marginBottom: "25px",
+              color: "#25262a",
             }}
           >
             Navigations
@@ -25,16 +35,7 @@ export function Footer() {
           </ul>
         </div>
         <div className="navigation-container">
-          <p
-            style={{
-              fontSize: "20px",
-              fontWeight: "500",
-              marginBottom: "25px",
-              color: "transparent",
-            }}
-          >
-            Navigations
-          </p>
+          <div style={{ height: "35px" }}></div>
 
           <ul className="navigation-list">
             <li className="menu-label">Mobile commerce</li>
@@ -43,17 +44,7 @@ export function Footer() {
           </ul>
         </div>
         <div className="navigation-container">
-          <p
-            style={{
-              fontSize: "20px",
-              fontWeight: "500",
-              marginBottom: "25px",
-              color: "transparent",
-            }}
-          >
-            Navigations
-          </p>
-
+          <div style={{ height: "35px" }}></div>
           <ul className="navigation-list">
             <li className="menu-label">Point of sale</li>
             <li className="menu-label">Hardware</li>
@@ -66,7 +57,7 @@ export function Footer() {
               fontSize: "20px",
               fontWeight: "500",
               marginBottom: "25px",
-              color: "black",
+              color: "#25262a",
             }}
           >
             Promo
@@ -76,25 +67,26 @@ export function Footer() {
             alt=""
             style={{ height: "120px", width: "250px" }}
           />
-          <p
-            style={{
-              fontSize: "20px",
-              fontWeight: "300",
-              color: "#7c74ea",
-            }}
-          >
-            Finding Your Perfect Shoes
-          </p>
-          <p
-            style={{
-              fontSize: "15px",
-              fontWeight: "300",
-              color: "#8c92a0",
-              transform: "TranslateY(-40%)",
-            }}
-          >
-            Promo from january 15 — 25, 2019
-          </p>
+          <div>
+            <p
+              style={{
+                fontSize: "20px",
+                fontWeight: "400",
+                color: "#7c74ea",
+              }}
+            >
+              Finding Your Perfect Shoes
+            </p>
+            <p
+              style={{
+                fontSize: "15px",
+                fontWeight: "300",
+                color: "#8c92a0",
+              }}
+            >
+              Promo from january 15 — 25, 2019
+            </p>
+          </div>
         </div>
         <div className="navigation-container">
           <p
@@ -102,7 +94,7 @@ export function Footer() {
               fontSize: "20px",
               fontWeight: "500",
               marginBottom: "25px",
-              color: "black",
+              color: "#25262a",
             }}
           >
             Contact Info
@@ -133,5 +125,7 @@ export function Footer() {
         </div>
       </div>
     </div>
+  ) : (
+    <></>
   );
 }
