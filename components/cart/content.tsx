@@ -1,13 +1,26 @@
+"use client";
 import { Button, ConfigProvider, Divider } from "antd";
 import "../cart/style.scss";
 import TableEntry from "./table_entry/table_entry";
 import TableHeader from "./table_header/table_header";
 import theme from "@/theme/theme_config";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export default function CartContent() {
-  return (
+  const [ready, setReady] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    setReady(true);
+    if (ref.current != null) {
+      console.log(
+        "Wrapper height: " + ref.current.getBoundingClientRect().height
+      );
+    }
+  });
+  return ready ? (
     <ConfigProvider theme={theme}>
-      <div className="wrapper">
+      <div ref={ref} className="cart-content-wrapper">
         <div className="table-wrapper">
           <table>
             <TableHeader></TableHeader>
@@ -16,6 +29,7 @@ export default function CartContent() {
             </tbody>
           </table>
         </div>
+
         <div className="cart-options-wrapper">
           <div className="block-1">
             <div className="buttons-segment">
@@ -40,18 +54,20 @@ export default function CartContent() {
               </Button>
             </div>
             <div className="coupon-segment">
-              <p className="header">Coupon</p>
-              <p className="description">
-                Enter your coupon code if you have one.
-              </p>
-              <div className="apply-coupon-wrapper">
-                <input placeholder="Coupon Code" type="text" />
-                <Button
-                  style={{ width: "150px", height: "45px" }}
-                  type="primary"
-                >
-                  APPLY COUPON
-                </Button>
+              <div className="coupon-content-wrapper">
+                <p className="header">Coupon</p>
+                <p className="description">
+                  Enter your coupon code if you have one.
+                </p>
+                <div className="apply-coupon-wrapper">
+                  <input placeholder="Coupon Code" type="text" />
+                  <Button
+                    style={{ width: "150px", height: "45px" }}
+                    type="primary"
+                  >
+                    APPLY COUPON
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -66,18 +82,35 @@ export default function CartContent() {
                 <div className="cart-total-entry">
                   <p className="label">Subtotal</p>
                   <p className="price">$230.00</p>
-                  
                 </div>
                 <div className="cart-total-entry">
-                  <p className="label">Total</p>
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>
+
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
                   <p className="price">$230.00</p>
                 </div>
                 <div className="cart-total-entry">
-                  <p className="label">Total</p>
+                  <p className="label">Subtotal</p>
                   <p className="price">$230.00</p>
                 </div>
                 <div className="cart-total-entry">
-                  <p className="label">Total</p>
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>
+
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
                   <p className="price">$230.00</p>
                 </div>
               </div>
@@ -90,5 +123,7 @@ export default function CartContent() {
         </div>
       </div>
     </ConfigProvider>
+  ) : (
+    <div></div>
   );
 }
