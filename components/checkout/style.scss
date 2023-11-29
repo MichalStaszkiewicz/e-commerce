@@ -97,13 +97,53 @@
             @include form-box-effects();
             border-top-right-radius: 0px;
             border-bottom-right-radius: 0px;
-          
           }
         }
       }
     }
     .your-order-box {
-      @include form-box(90%, 350px);
+      @include form-box(90%, auto);
+      @include flexbox(column);
+      justify-content: space-evenly;
+      
+      &>*{
+        margin-bottom: 60px;
+      }
+      &:last-child {
+        margin-bottom: 0px;
+      }
+      .product-list-box {
+        height: 250px;
+        width: 100%;
+      }
+
+      .payment-option-list {
+        height: auto;
+        .payment-option-box {
+          @include form-box(100%, 55px);
+          padding: 15px;
+          display: flex;
+          justify-content: center;
+          p {
+            align-items: center;
+            justify-content: center;
+            text-align: start;
+            color: var(--primary-color);
+            width: 100%;
+          }
+        }
+        & > * {
+          margin-bottom: 10px;
+        }
+        & > :last-child {
+          margin-bottom: 0px;
+        }
+      }
+      .place-order-button {
+        width: 100%;
+        height: 60px;
+      }
+      padding: 40px;
     }
     & > * {
       margin-bottom: 20px;
