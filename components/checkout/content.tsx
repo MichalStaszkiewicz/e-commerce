@@ -5,7 +5,7 @@ import theme from "@/theme/theme_config";
 import PaymentOption from "./payment-option/component";
 import SelectCountry from "./select-country/component";
 import FormGroup from "../form-group/form-group";
-import CheckoutProductListTable from "./product-list/component";
+
 import CheckoutCouponCode from "./coupon-code/component";
 import CheckoutYourOrder from "./your-order/component";
 import ReturningCustomer from "./returning-customer/component";

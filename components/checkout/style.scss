@@ -98,6 +98,12 @@
             border-top-right-radius: 0px;
             border-bottom-right-radius: 0px;
           }
+          .coupon-code-apply-button {
+            width: 100px;
+            height: 50px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+          }
         }
       }
     }
@@ -115,6 +121,34 @@
       .product-list-box {
         height: 250px;
         width: 100%;
+        table {
+          height: auto;
+          width: 100%;
+          thead {
+            tr {
+              height: 50px;
+              width: 100%;
+              border-bottom: 1px solid #eff1f3;
+              font-weight: bold;
+              & > * {
+                text-align: start;
+              }
+              & > :first-child {
+                padding: 5px;
+              }
+            }
+          }
+          tbody {
+            tr {
+              height: 50px;
+              width: 100%;
+              border-bottom: 1px solid #eff1f3;
+              & > :first-child {
+                padding: 5px;
+              }
+            }
+          }
+        }
       }
 
       .payment-option-list {
@@ -143,8 +177,9 @@
             cursor: pointer;
           }
           .description {
-            height: 0;
-            transition: height 550ms;
+            overflow: hidden;
+
+            transition: height 350ms ease-in-out;
           }
         }
 

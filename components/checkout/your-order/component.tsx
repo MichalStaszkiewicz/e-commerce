@@ -8,7 +8,7 @@ export default function CheckoutYourOrder() {
       <p className="label">Your Order</p>
       <div className="your-order-box">
         <div className="product-list-box">
-          <CheckoutProductListTable></CheckoutProductListTable>
+          <CheckoutProductListTable />
         </div>
         <div className="payment-option-list">
           <PaymentOption label={"Direct Bank Transfer"} />
