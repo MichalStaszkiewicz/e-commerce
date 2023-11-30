@@ -1,3 +1,4 @@
+
 import CheckoutContent from "@/components/checkout/content";
 import NavigationHistory from "@/components/navigation-history/navigation-history";
 
