@@ -6,15 +6,18 @@ import {
   useRef,
   useState,
 } from "react";
-import {
-  CategoriesColorIndicator,
-  CategoriesSize,
-} from "./categories-color-indicator";
 
 import { ConfigProvider, Slider } from "antd";
 import "@/components/shop-content/style.scss";
 import React from "react";
 import theme from "@/theme/theme_config";
+import {
+  CategoriesSize,
+  CategoriesColorIndicator,
+} from "./categories-color-indicator/component";
+import CategoriesList from "./categories/list/component";
+import ColorList from "./color-list/component";
+import SizeList from "./size-list/component";
 //TODO: Replace useState with keeping data in url as query
 type SliderRangeValue = {
   min: number;
@@ -41,21 +44,8 @@ export function LeftColumn() {
     <div className="left_column">
       <ConfigProvider theme={theme}>
         <div className="categories">
-        <p className="categories_header" style={{ marginTop: "20px" }}>
-            CATEGORIES
-          </p>
-          <ul className="list">
-            <li className="list_element">
-              <div>Men</div> <p style={{ color: "black" }}>(2,220)</p>
-            </li>
-            <li className="list_element">
-              <div>Woman</div> <p style={{ color: "black" }}>(2,550)</p>
-            </li>
-            <li className="list_element">
-              <div>Children</div>
-              <p style={{ color: "black" }}>(2,124)</p>
-            </li>
-          </ul>
+          <p className="categories_header">CATEGORIES</p>
+          <CategoriesList />
         </div>
 
         <div className="filters">
@@ -81,21 +71,12 @@ export function LeftColumn() {
             SIZE
           </p>
 
-          <ul className="size_list">
-            <CategoriesSize label=" Small (2,319)" />
-            <CategoriesSize label=" Medium (1,282)" />
-            <CategoriesSize label=" Large (1,392)" />
-          </ul>
+          <SizeList />
           <p className="categories_header" style={{ marginTop: "20px" }}>
             COLOR
           </p>
 
-          <div className="color_list" style={{}}>
-            <CategoriesColorIndicator color={"red"} label={"Red"} />
-            <CategoriesColorIndicator color={"green"} label={"Green"} />
-            <CategoriesColorIndicator color={"aqua"} label={"Blue"} />
-            <CategoriesColorIndicator color={"purple"} label={"Purple"} />
-          </div>
+          <ColorList />
         </div>
       </ConfigProvider>
     </div>
