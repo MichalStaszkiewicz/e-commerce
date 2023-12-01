@@ -1,65 +1,88 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import "@/components/navigation-history/style.scss";
 import "@/styles/globals.scss";
+import { Breadcrumb } from "antd";
+import BreadcrumbItem from "antd/es/breadcrumb/BreadcrumbItem";
+import {
+  HomeOutlined,
+  ShoppingCartOutlined,
+  ShoppingOutlined,
+  BankOutlined,
+} from "@ant-design/icons";
+import { useEffect, useState } from "react";
 export default function NavigationHistory() {
-  var router = useRouter();
-
-  var paths: string[] = [];
-  var firstSub = 0;
-  paths.push("/"); /*
-  for (var i = 0; i < router.asPath.length; i++) {
-    if (i > 0) {
-      if (router.asPath[i] == "/" && firstSub != i) {
-        paths.push(router.asPath.substring(firstSub, i - 1));
-        firstSub = i;
-      } else if (i == router.asPath.length - 1) {
-        console.log("route pushed");
-        paths.push(router.asPath.substring(firstSub, i + 1));
+  const pathName = usePathname();
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    console.log(pathName);
+    let path = "";
+    let tempItems: any = [];
+    for (let i = 1; i < pathName.length; i++) {
+      if (pathName[i] === "/") {
+        if (path.length > 1) {
+          let icon = iconFromString(path);
+          tempItems.push({
+            href: getHrefFromPath(pathName, path),
+            title: (
+              <>
+                {icon != null ? icon : <div></div>}{" "}
+                <span>{capitalize(path)}</span>
+              </>
+            ),
+          });
+          path = "";
+        }
+      } else {
+        path += pathName[i];
       }
     }
-  }
-*/
+    let icon = iconFromString(path);
+    tempItems.push({
+     
+      title: (
+        <>
+          {icon != null ? icon : <div></div>} <span>{capitalize(path)}</span>
+        </>
+      ),
+    });
+    setItems(tempItems);
+  }, []);
   return (
     <div className="shop-nav-container">
-      <div className="shop-nav-container" style={{ marginLeft: "20%" }}>
-        {paths.map((item, index) => {
-          if (index > 0) {
-            return (
-              <div className="shop-nav-container">
-                {" "}
-                <p
-                  style={{
-                    color: "black",
-                    display: "flex",
-                    width: "auto",
-                    paddingLeft: "2px",
-                    paddingRight: "2px",
-                  }}
-                >
-                  {"   /   "}
-                </p>{" "}
-                <a href={item} style={{ color: "black", display: "flex" }}>
-                  {item.substring(index, item.length)}
-                </a>
-              </div>
-            );
-          }
-          return (
-            <a
-              className="nav-link"
-              href={item}
-              style={{
-                color: item != "" ? "#7c74ea" : "black",
-                display: "flex",
-              }}
-              onMouseEnter={() => {}}
-            >
-              {"Home"}
-            </a>
-          );
-        })}
-      </div>
+      <Breadcrumb
+        items={[
+          {
+            href: "/shop/product_details",
+            title: (
+              <>
+                <HomeOutlined /> <span>Home</span>
+              </>
+            ),
+          },
+          ...items,
+        ]}
+      />
     </div>
   );
+}
+
+function capitalize(text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+function getHrefFromPath(path: string, subpath: string) {
+  let endIndex = path.indexOf(subpath);
+
+  return path.substring(0, endIndex) + subpath;
+}
+function iconFromString(text: string) {
+  if (text.toLowerCase() == "cart") {
+    return <ShoppingOutlined />;
+  } else if (text.toLowerCase() == "shop") {
+    return <ShoppingCartOutlined />;
+  } else if (text.toLowerCase() == "checkout") {
+    return <BankOutlined />;
+  } else {
+    return null;
+  }
 }
