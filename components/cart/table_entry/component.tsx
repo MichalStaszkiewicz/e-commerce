@@ -1,4 +1,4 @@
-import SelectProductCount from "@/components/select_product_quantity/select_product_quantity";
+import SelectProductCount from "@/components/select_product_quantity/component";
 import "../table_entry/style.scss";
 import { Button, ConfigProvider } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

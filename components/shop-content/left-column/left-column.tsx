@@ -1,11 +1,5 @@
 "use client";
-import {
-  ForwardRefExoticComponent,
-  MouseEventHandler,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useState } from "react";
 
 import { ConfigProvider, Slider } from "antd";
 import "@/components/shop-content/style.scss";
@@ -18,7 +12,7 @@ import {
 import CategoriesList from "./categories/list/component";
 import ColorList from "./color-list/component";
 import SizeList from "./size-list/component";
-//TODO: Replace useState with keeping data in url as query
+
 type SliderRangeValue = {
   min: number;
   max: number;

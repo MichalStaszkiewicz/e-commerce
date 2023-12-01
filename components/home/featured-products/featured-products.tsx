@@ -7,7 +7,7 @@ import { off } from "process";
 import { ArrowColor, ArrowDirection } from "./enum";
 
 import "@/components/home/featured-products/style.scss";
-import ProductCard from "@/components/product-card/product-card";
+import ProductCard from "@/components/product-card/component";
 
 export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
   const listRef = useRef<HTMLDivElement>(null);

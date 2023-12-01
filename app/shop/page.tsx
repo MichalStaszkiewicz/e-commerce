@@ -1,4 +1,5 @@
-import NavigationHistory from "@/components/navigation-history/navigation-history";
+
+import NavigationHistory from "@/components/navigation-history/component";
 import ShopContent from "@/components/shop-content/shop-content";
 
 export default function Shop() {

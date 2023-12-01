@@ -1,5 +1,6 @@
-import NavigationHistory from "@/components/navigation-history/navigation-history";
-import ProductDetails from "@/components/product_details/product_details";
+
+import NavigationHistory from "@/components/navigation-history/component";
+import ProductDetails from "@/components/product_details/component";
 
 export default function () {
   return (

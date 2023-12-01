@@ -4,12 +4,13 @@ import "../checkout/style.scss";
 import theme from "@/theme/theme_config";
 import PaymentOption from "./payment-option/component";
 import SelectCountry from "./select-country/component";
-import FormGroup from "../form-group/form-group";
+
 
 import CheckoutCouponCode from "./coupon-code/component";
 import CheckoutYourOrder from "./your-order/component";
 import ReturningCustomer from "./returning-customer/component";
 import OrderNotes from "./order-notes/component";
+import FormGroup from "../form-group/component";
 export default function CheckoutContent() {
   return (
     <div className="checkout-content-wrapper">

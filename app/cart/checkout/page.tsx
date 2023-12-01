@@ -1,6 +1,7 @@
 
 import CheckoutContent from "@/components/checkout/content";
-import NavigationHistory from "@/components/navigation-history/navigation-history";
+import NavigationHistory from "@/components/navigation-history/component";
+
 
 export default function Checkout() {
   return (

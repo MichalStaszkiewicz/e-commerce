@@ -2,18 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 
-import { Benefit } from "@/components/benefit/benefit";
+import { BigSale } from "@/components/big-sale/comopnent";
 
-import { BigSale } from "@/components/big-sale/big-sale";
+import { Collection } from "@/components/collection/component";
 
-import { Collection } from "@/components/collection/collection";
-
-import FadeOnVisible from "@/components/effects/fade-on-visible";
+import FadeOnVisible from "@/components/effects/fade-on-visible/component";
 import "@/styles/globals.scss";
 import "@/components/collection/style.scss";
-import HomePromotion from "@/components/home-promotion/home-promotion";
+import HomePromotion from "@/components/home-promotion/component";
 import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
 import { Divider } from "antd";
+import { Benefit } from "@/components/benefit/component";
 
 export default function Home() {
   const [ready, setReady] = useState(false);
