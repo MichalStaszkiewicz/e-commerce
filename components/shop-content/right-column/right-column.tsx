@@ -103,8 +103,8 @@ export function RightColumn() {
             <FadeOnVisible
               children={
                 <ProductCard
-                  width={250}
-                  height={350}
+                  width={"250px"}
+                  height={"350px"}
                   image={"/images/cloth_1.jpg"}
                   label={"Tank top"}
                   price={50}

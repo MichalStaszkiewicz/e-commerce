@@ -16,7 +16,9 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
     leftArrow: "",
     rightArrow: "",
     index: 0,
+    isScrolling:false,
   });
+
   const setState = ({ fields }: { fields: FeaturedProductsState }) => {
     setArrows({ ...state, ...fields });
   };
@@ -38,39 +40,66 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
     if (productsCount > 3 && state.index < productsCount - 3) {
       rightArrow = ArrowColor.active;
     }
+    listRef!.current?.addEventListener("scroll", () => {
+    
+      setState({
+        fields: {
+          ...state,
+          leftArrow: leftArrow,
+          rightArrow: rightArrow,
+          isScrolling: true,
+        },
+      });
+    });
+    listRef!.current?.addEventListener("scrollend", () => {
+      setState({
+        fields: {
+          ...state,
+          leftArrow: leftArrow,
+          rightArrow: rightArrow,
+          isScrolling: false,
+        },
+      });
+    });
 
     setState({
       fields: {
         ...state,
         leftArrow: leftArrow,
         rightArrow: rightArrow,
+        isScrolling: false,
       },
     });
   }, [state.index]);
   const handleArrowClick = (arrowDirection: ArrowDirection) => {
-    const scrollSpeed = 334;
+    const scrollBy = 370;
     if (arrowDirection == ArrowDirection.left) {
       if (state.index > 0) {
-        listRef.current!.scrollBy({ left: scrollSpeed * -1 });
-        setState({
-          fields: {
-            ...state,
-            index: state.index - 1,
-          },
-        });
+        if (!state.isScrolling) {
+          listRef.current!.scrollBy({ left: scrollBy * -1 });
+          
+          setState({
+            fields: {
+              ...state,
+              index: state.index - 1,
+            },
+          });
+        }
       }
     } else {
       if (
         props.products.length > 3 &&
         state.index + 3 < props.products.length
       ) {
-        listRef.current!.scrollBy({ left: scrollSpeed * 1 });
-        setState({
-          fields: {
-            ...state,
-            index: state.index + 1,
-          },
-        });
+        if (!state.isScrolling) {
+          listRef.current!.scrollBy({ left: scrollBy * 1 });
+          setState({
+            fields: {
+              ...state,
+              index: state.index + 1,
+            },
+          });
+        }
       }
     }
   };
@@ -129,8 +158,8 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
             label={item.label}
             description={item.description}
             price={item.price}
-            width={300}
-            height={400}
+            width={"350px"}
+            height={"400px"}
           />
         ))}
       </div>

@@ -12,11 +12,11 @@
 
 .featured_products .product_list {
   @include flexbox(column);
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   margin-top: 10px;
-  width: 1000px;
-  height: 400px;
+  width: 1090px;
+  height: 500px;
   overflow-x: scroll;
   flex-wrap: wrap;
   direction: ltr;
