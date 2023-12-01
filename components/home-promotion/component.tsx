@@ -3,7 +3,7 @@ import promotedProduct from "../../public/images/shoes.png";
 
 import React, { useRef } from "react";
 
-import { PrimaryButton } from "../primary-button/primary-button";
+import { PrimaryButton } from "../primary-button/component";
 import "@/components/home-promotion/style.scss";
 import "@/styles/globals.scss";
 import { Button, ConfigProvider } from "antd";

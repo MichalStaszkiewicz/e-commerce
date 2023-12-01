@@ -92,4 +92,21 @@
     transform: scale(1.2);
     opacity: 1;
   }
+  .collection-title {
+    z-index: 3;
+    font-size: small;
+    font-weight: 600;
+    letter-spacing:0.3px;
+    width: 100%;
+    margin-left: 10px;
+    color: white;
+  }
+  .collection-label {
+    font-weight: 700;
+    font-size: xx-large;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: white;
+    z-index: 3;
+  }
 }

@@ -18,8 +18,8 @@ export default function ProductCard({
   label: String;
   description: string;
   price: number;
-  width: number;
-  height: number;
+  width: string;
+  height: string;
 }) {
   const router = useRouter();
 
@@ -30,8 +30,8 @@ export default function ProductCard({
       }}
       className="product_card_container"
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: width,
+        height: height,
       }}
     >
       <div

@@ -34,12 +34,16 @@
         }
         .list_element {
           @include flexbox(row);
+          color: black;
           height: 30%;
           width: 100%;
           color: var(--primary-color);
           font-weight: 300;
 
           justify-content: space-between;
+        }
+        & > :first-child {
+          margin-top: 20px;
         }
       }
       width: 23%;

@@ -1,13 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
 import "@/components/navigation-history/style.scss";
-import "@/styles/globals.scss"
+import "@/styles/globals.scss";
 export default function NavigationHistory() {
   var router = useRouter();
 
   var paths: string[] = [];
   var firstSub = 0;
-  paths.push("/");/*
+  paths.push("/"); /*
   for (var i = 0; i < router.asPath.length; i++) {
     if (i > 0) {
       if (router.asPath[i] == "/" && firstSub != i) {
@@ -50,7 +50,7 @@ export default function NavigationHistory() {
               className="nav-link"
               href={item}
               style={{
-                color: item != '' ? "#7c74ea" : "black",
+                color: item != "" ? "#7c74ea" : "black",
                 display: "flex",
               }}
               onMouseEnter={() => {}}
