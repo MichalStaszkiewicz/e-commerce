@@ -16,7 +16,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
     leftArrow: "",
     rightArrow: "",
     index: 0,
-    isScrolling:false,
+    isScrolling: false,
   });
 
   const setState = ({ fields }: { fields: FeaturedProductsState }) => {
@@ -41,7 +41,6 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
       rightArrow = ArrowColor.active;
     }
     listRef!.current?.addEventListener("scroll", () => {
-    
       setState({
         fields: {
           ...state,
@@ -77,7 +76,7 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
       if (state.index > 0) {
         if (!state.isScrolling) {
           listRef.current!.scrollBy({ left: scrollBy * -1 });
-          
+
           setState({
             fields: {
               ...state,
@@ -141,7 +140,6 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
 
   return (
     <div className="featured_products">
-      <div className="decoration"></div>
       <p
         style={{
           fontWeight: "400",
