@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 .babelrc
+tasks.yaml
 
 # testing
 /coverage
