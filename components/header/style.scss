@@ -67,6 +67,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        .js-logo-clone {
+          letter-spacing: 5px;
+          font-size: 15.5px;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
       }
     }
     .block-3 {
@@ -79,6 +85,11 @@
 
         align-items: center;
         justify-content: center;
+        .cart-icon {
+          color: var(--icon-color);
+          width: 15%;
+          height: 15%;
+        }
       }
     }
   }

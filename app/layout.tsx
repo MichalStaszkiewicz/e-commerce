@@ -9,7 +9,7 @@ import { Header } from "@/components/header/component";
 import StyledComponentsRegistry from "../lib/AntdRegistry";
 
 import { useState } from "react";
-import { Footer } from "antd/es/layout/layout";
+import { Footer } from "@/components/footer/component";
 
 
 const RootLayout = ({ children }: React.PropsWithChildren) => (

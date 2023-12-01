@@ -1,14 +1,11 @@
 .product_card_container {
-
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   border: 1px solid #d8d8d8;
 
   cursor: pointer;
-  -webkit-box-shadow: 0px 19px 48px -27px rgba(66, 68, 90, 1);
-  -moz-box-shadow: 0px 19px 48px -27px rgba(66, 68, 90, 1);
-  box-shadow: 0px 19px 48px -27px rgba(66, 68, 90, 1);
+
 }
 
 .product_card_image {
