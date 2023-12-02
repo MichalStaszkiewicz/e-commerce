@@ -10,12 +10,13 @@ import StyledComponentsRegistry from "../lib/AntdRegistry";
 
 import { useState } from "react";
 import { Footer } from "@/components/footer/component";
-
+import NavigationHistory from "@/components/navigation-history/component";
 
 const RootLayout = ({ children }: React.PropsWithChildren) => (
   <html lang="en">
-    <body >
+    <body>
       <Header />
+
       <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
       <Footer />
     </body>

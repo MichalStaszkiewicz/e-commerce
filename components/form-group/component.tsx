@@ -1,3 +1,4 @@
+import "../form-group/style.scss";
 export default function FormGroup({
   label,
   notNull,
@@ -21,7 +22,7 @@ export default function FormGroup({
       )}
       <input
         type="text"
-        placeholder={placeholder!=null?placeholder:""}
+        placeholder={placeholder != null ? placeholder : ""}
         className={className}
       ></input>
     </div>

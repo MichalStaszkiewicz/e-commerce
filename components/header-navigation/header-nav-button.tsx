@@ -15,9 +15,11 @@ export function HeaderNavButton({
   label,
   icon,
   items,
+  href,
 }: {
   label: string;
   icon: boolean;
+  href: string;
   items: NavItem[];
 }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -33,11 +35,11 @@ export function HeaderNavButton({
       onMouseEnter={toggleMenu}
       onMouseLeave={toggleMenu}
     >
-      <Link href={label == "SHOP" ? "/shop" : ""}>{label}</Link>
+      <Link href={href}>{label}</Link>
       {icon && (
         <FontAwesomeIcon
           icon={icons.faAngleDown}
-          style={{ width: "20%", height: "1%" }}
+          style={{ width: "20%", height: "15%" }}
         />
       )}{" "}
       {isMenuOpen && (

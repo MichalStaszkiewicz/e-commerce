@@ -151,45 +151,6 @@
         }
       }
 
-      .payment-option-list {
-        height: auto;
-        .payment-option-box {
-          @include flexbox(column);
-          @include form-box(100%, auto);
-          padding: 15px;
-
-          justify-content: center;
-          & > * {
-            align-items: center;
-            justify-content: center;
-            text-align: start;
-            color: grey;
-            width: 100%;
-          }
-          & > :first-child {
-            align-items: center;
-            justify-content: center;
-            text-align: start;
-            color: var(--primary-color);
-            width: 100%;
-          }
-          .payment-option-label {
-            cursor: pointer;
-          }
-          .description {
-            overflow: hidden;
-
-            transition: height 350ms ease-in-out;
-          }
-        }
-
-        & > * {
-          margin-bottom: 10px;
-        }
-        & > :last-child {
-          margin-bottom: 0px;
-        }
-      }
       .place-order-button {
         width: 100%;
         height: 60px;
@@ -203,62 +164,4 @@
   & > :first-child {
     margin-right: 40px;
   }
-}
-.form-group {
-  @include flexbox(column);
-  justify-content: center;
-  align-items: start;
-  & > :first-child {
-    margin-bottom: 10px;
-  }
-  .first-name-input {
-    @include form-box(200px, 45px);
-    @include form-box-effects();
-  }
-  .last-name-input {
-    @include form-box-effects();
-    @include form-box(200px, 45px);
-  }
-  .company-name-input {
-    @include form-box-effects();
-    @include form-box(100%, 45px);
-  }
-  .address-street-input {
-    @include form-box-effects();
-    @include form-box(100%, 45px);
-  }
-  .address-apartament-input {
-    @include form-box-effects();
-    @include form-box(100%, 45px);
-  }
-  .state-country-input {
-    @include form-box-effects();
-    @include form-box(200px, 45px);
-  }
-  .posta-zip-input {
-    @include form-box-effects();
-    @include form-box(200px, 45px);
-  }
-  .email-address-input {
-    @include form-box-effects();
-    @include form-box(200px, 45px);
-  }
-  .phone-number-input {
-    @include form-box-effects();
-    @include form-box(200px, 45px);
-  }
-  .order-notes-input {
-    @include form-box-effects();
-    &::placeholder {
-      align-content: start;
-      align-items: start;
-      justify-content: start;
-    }
-    @include form-box(100%, 200px);
-  }
-}
-.form-group-row {
-  @include flexbox(row);
-  justify-content: space-between;
-  align-items: start;
 }

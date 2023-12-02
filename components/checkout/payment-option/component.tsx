@@ -1,9 +1,18 @@
 import { useLayoutEffect, useRef, useState } from "react";
+import "../../checkout/payment-option/style.scss";
 type PaymentState = {
   expanded: boolean;
 };
 
-export default function PaymentOption({ label }: { label: string }) {
+export default function PaymentOption({
+  label,
+  description,
+  expandable,
+}: {
+  description: string;
+  label: string;
+  expandable: boolean;
+}) {
   const [state, setState] = useState<PaymentState>({
     expanded: false,
   });
@@ -12,29 +21,32 @@ export default function PaymentOption({ label }: { label: string }) {
 
   useLayoutEffect(() => {
     if (descriptionRef.current) {
-      descriptionRef.current.style.height = state.expanded
-        ? `${descriptionRef.current.scrollHeight}px`
-        : "0px";
+      if (expandable) {
+        descriptionRef.current.style.height = state.expanded
+          ? `${descriptionRef.current.scrollHeight}px`
+          : "0px";
+      } else {
+        descriptionRef.current.style.height = "auto";
+      }
     }
   }, [state.expanded]);
 
+  function onClick(event: any) {
+    if (expandable) {
+      setState({
+        expanded: !state.expanded,
+      });
+    }
+  }
+
   return (
     <div className="payment-option-box">
-      <p
-        className="payment-option-label"
-        onClick={() => {
-          setState({
-            expanded: !state.expanded,
-          });
-        }}
-      >
+      <p className="payment-option-label" onClick={onClick}>
         {label}
       </p>
       <div>
         <p ref={descriptionRef} className="description">
-          Make your payment directly into our bank account. Please use your
-          Order ID as the payment reference. Your order won’t be shipped until
-          the funds have cleared in our account.
+          {description}
         </p>
       </div>
     </div>
