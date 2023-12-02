@@ -1,8 +1,9 @@
 "use client";
 import { Button, ConfigProvider } from "antd";
 import "../checkout/style.scss";
+
 import theme from "@/theme/theme_config";
-import PaymentOption from "./payment-option/component";
+import ExpandableCard from "./expandable-card/component";
 import SelectCountry from "./select-country/component";
 
 import CheckoutCouponCode from "./coupon-code/component";

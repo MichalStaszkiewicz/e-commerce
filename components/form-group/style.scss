@@ -2,7 +2,7 @@
 .form-group {
   @include flexbox(column);
   justify-content: center;
-  align-items: start;
+
   & > :first-child {
     margin-bottom: 10px;
   }
@@ -48,7 +48,8 @@
   justify-content: space-between;
   align-items: start;
 }
-.order-notes-input {
+.message-input {
+  @include form-box(100%, 200px);
   @include form-box-effects();
   margin-top: 10px;
   &::placeholder {
@@ -56,5 +57,4 @@
     align-items: start;
     justify-content: start;
   }
-  @include form-box(100%, 200px);
 }

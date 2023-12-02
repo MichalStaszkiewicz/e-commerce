@@ -1,10 +1,10 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import "../../checkout/payment-option/style.scss";
+import "./style.scss";
 type PaymentState = {
   expanded: boolean;
 };
 
-export default function PaymentOption({
+export default function ExpandableCard({
   label,
   description,
   expandable,
@@ -40,8 +40,12 @@ export default function PaymentOption({
   }
 
   return (
-    <div className="payment-option-box">
-      <p className="payment-option-label" onClick={onClick}>
+    <div className="expandable-card-box">
+      <p
+        style={{ marginBottom: expandable ? "0px" : "5px" }}
+        className="expandable-card-label"
+        onClick={onClick}
+      >
         {label}
       </p>
       <div>
