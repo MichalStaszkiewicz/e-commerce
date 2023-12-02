@@ -30,11 +30,10 @@ export function HeaderNavLabel({ props }: { props: NavItem }) {
     >
       {props.menuItems.length > 0 ? (
         <div className="header-menu-label">
-          {" "}
           <p>{props.label}</p>
           <FontAwesomeIcon icon={icons.faArrowRight} />
           {isOpen && (
-            <ul className="menu-option-label  animate-label-button">
+            <ul className="menu-option-label">
               {<HeaderNavLabel props={menuItems[0]} />}
             </ul>
           )}

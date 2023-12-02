@@ -5,11 +5,10 @@ import theme from "@/theme/theme_config";
 import PaymentOption from "./payment-option/component";
 import SelectCountry from "./select-country/component";
 
-
 import CheckoutCouponCode from "./coupon-code/component";
 import CheckoutYourOrder from "./your-order/component";
 import ReturningCustomer from "./returning-customer/component";
-import OrderNotes from "./order-notes/component";
+import MessageArea from "../form-group/message-area/component";
 import FormGroup from "../form-group/component";
 export default function CheckoutContent() {
   return (
@@ -88,7 +87,10 @@ export default function CheckoutContent() {
               </div>
 
               <div className="form-group">
-                <OrderNotes />
+                <MessageArea
+                  label={"Order Notes"}
+                  placeholder={"Write your notes here..."}
+                />
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ConfigProvider, Slider } from "antd";
 import "@/components/shop-content/style.scss";
@@ -12,6 +12,7 @@ import {
 import CategoriesList from "./categories/list/component";
 import ColorList from "./color-list/component";
 import SizeList from "./size-list/component";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type SliderRangeValue = {
   min: number;
@@ -19,18 +20,28 @@ type SliderRangeValue = {
 };
 
 export function LeftColumn() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const sliderRef = React.createRef<any>();
+  let min: number = !Number.isNaN(parseInt(searchParams.get("min")!))
+    ? parseInt(searchParams.get("min")!)
+    : 100;
+  let max: number = !Number.isNaN(parseInt(searchParams.get("max")!))
+    ? parseInt(searchParams.get("max")!)
+    : 1000;
+
   const minPrice = 100;
   const maxPrice = 1000;
   const [price, setPrice] = useState<SliderRangeValue>({
-    min: minPrice,
-    max: maxPrice,
+    min: min,
+    max: max,
   });
-  const sliderRef = React.createRef<any>();
   const onChange = (value: number[]) => {
-    if (value[0] != price.min) {
-      setPrice({ min: value[0], max: price.max });
+    if (value[0] != min) {
+      setPrice({ min: value[0], max: max });
     } else {
-      setPrice({ min: price.min, max: value[1] });
+      console.log("asd");
+      setPrice({ min: min, max: value[1] });
     }
   };
 
@@ -54,6 +65,17 @@ export function LeftColumn() {
             max={maxPrice}
             defaultValue={[price.min, price.max]}
             onChange={onChange}
+            onAfterChange={(value) => {
+              if (value[0] != min) {
+                router.push(`?min=${value[0]}&max=${value[1]}`, {
+                  scroll: false,
+                });
+              } else {
+                router.push(`?min=${value[0]}&max=${value[1]}`, {
+                  scroll: false,
+                });
+              }
+            }}
             style={{ width: "90%" }}
           />
 

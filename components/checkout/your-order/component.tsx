@@ -11,9 +11,27 @@ export default function CheckoutYourOrder() {
           <CheckoutProductListTable />
         </div>
         <div className="payment-option-list">
-          <PaymentOption label={"Direct Bank Transfer"} />
-          <PaymentOption label={"Cheque Payment"} />
-          <PaymentOption label={"Paypal"} />
+          <PaymentOption
+            label={"Direct Bank Transfer"}
+            expandable={true}
+            description={
+              "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account."
+            }
+          />
+          <PaymentOption
+            label={"Cheque Payment"}
+            expandable={true}
+            description={
+              "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account."
+            }
+          />
+          <PaymentOption
+            label={"Paypal"}
+            expandable={true}
+            description={
+              "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account."
+            }
+          />
         </div>
         <Button type="primary" className="place-order-button">
           PLACE ORDER

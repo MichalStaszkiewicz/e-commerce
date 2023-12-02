@@ -1,0 +1,60 @@
+@import "../../styles/mixins.scss";
+.form-group {
+  @include flexbox(column);
+  justify-content: center;
+  align-items: start;
+  & > :first-child {
+    margin-bottom: 10px;
+  }
+  .first-name-input {
+    @include form-box(100%, 45px);
+    @include form-box-effects();
+  }
+  .last-name-input {
+    @include form-box-effects();
+    @include form-box(100%, 45px);
+  }
+  .company-name-input {
+    @include form-box-effects();
+    @include form-box(100%, 45px);
+  }
+  .address-street-input {
+    @include form-box-effects();
+    @include form-box(100%, 45px);
+  }
+  .address-apartament-input {
+    @include form-box-effects();
+    @include form-box(100%, 45px);
+  }
+  .state-country-input {
+    @include form-box-effects();
+    @include form-box(100%, 45px);
+  }
+  .posta-zip-input {
+    @include form-box-effects();
+    @include form-box(100%, 45px);
+  }
+  .email-address-input {
+    @include form-box-effects();
+    @include form-box(100%, 45px);
+  }
+  .phone-number-input {
+    @include form-box-effects();
+    @include form-box(100%, 45px);
+  }
+}
+.form-group-row {
+  @include flexbox(row);
+  justify-content: space-between;
+  align-items: start;
+}
+.order-notes-input {
+  @include form-box-effects();
+  margin-top: 10px;
+  &::placeholder {
+    align-content: start;
+    align-items: start;
+    justify-content: start;
+  }
+  @include form-box(100%, 200px);
+}

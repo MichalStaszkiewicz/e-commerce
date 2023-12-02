@@ -3,8 +3,8 @@ import { HeaderNavButton } from "@/components/header-navigation/header-nav-butto
 export default function HeaderNavigationBar() {
   return (
     <div className="nav-header">
-      <HeaderNavButton label={"HOME"} icon={false} items={[]} />
-      <HeaderNavButton label={"ABOUT"} icon={false} items={[]} />
+      <HeaderNavButton label={"HOME"} icon={false} items={[]} href={""} />
+      <HeaderNavButton label={"ABOUT"} icon={false} items={[]} href={""} />
       <HeaderNavButton
         label={"SHOP"}
         icon={true}
@@ -12,10 +12,21 @@ export default function HeaderNavigationBar() {
           { menuItems: ["item 1", "item 2"], label: "item 1" },
           { menuItems: ["item 1", "item 2"], label: "item 2" },
         ]}
+        href={"/shop"}
       />
-      <HeaderNavButton label={"CATALOGUE"} icon={false} items={[]} />
-      <HeaderNavButton label={"NEW ARRIVALS"} icon={false} items={[]} />
-      <HeaderNavButton label={"CONTACT"} icon={false} items={[]} />
+      <HeaderNavButton label={"CATALOGUE"} icon={false} items={[]} href={""} />
+      <HeaderNavButton
+        label={"NEW ARRIVALS"}
+        icon={false}
+        items={[]}
+        href={""}
+      />
+      <HeaderNavButton
+        label={"CONTACT"}
+        icon={false}
+        items={[]}
+        href={"/contact"}
+      />
     </div>
   );
 }
