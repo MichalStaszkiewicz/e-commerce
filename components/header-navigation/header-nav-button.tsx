@@ -1,7 +1,7 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import React from "react";
 import { HeaderNavLabel } from "./header-nav-label";
 import Link from "next/link";
@@ -29,7 +29,6 @@ export function HeaderNavButton({
 
   return (
     <li
-      style={{ fontSize: "13px" }}
       className={`header-nav-button ${isMenuOpen ? "menu-open" : ""}`}
       onMouseEnter={toggleMenu}
       onMouseLeave={toggleMenu}
@@ -38,11 +37,11 @@ export function HeaderNavButton({
       {icon && (
         <FontAwesomeIcon
           icon={icons.faAngleDown}
-          style={{ width: "20%", height: "25%" }}
+          style={{ width: "20%", height: "1%" }}
         />
       )}{" "}
       {isMenuOpen && (
-        <ul className="menu-option animate-header-button">
+        <ul className="menu-option">
           {items.map((item, index) => (
             <HeaderNavLabel props={item} />
           ))}
