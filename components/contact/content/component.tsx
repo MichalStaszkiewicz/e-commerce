@@ -1,6 +1,6 @@
 "use client";
 
-import PaymentOption from "@/components/checkout/payment-option/component";
+import ExpandableCard from "@/components/checkout/expandable-card/component";
 import "@/components/contact/content/style.scss";
 import FormGroup from "@/components/form-group/component";
 import MessageArea from "@/components/form-group/message-area/component";
@@ -55,21 +55,21 @@ export default function ContactContent() {
             </div>
           </div>
           <div className="city-list">
-            <PaymentOption
+            <ExpandableCard
               label={"NEW YORK"}
               expandable={false}
               description={
                 "203 Fake St. Mountain View, San Francisco, California, USA"
               }
             />
-            <PaymentOption
+            <ExpandableCard
               label={"LONDON"}
               expandable={false}
               description={
                 "203 Fake St. Mountain View, San Francisco, California, USA"
               }
             />
-            <PaymentOption
+            <ExpandableCard
               label={"CANADA"}
               expandable={false}
               description={

@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import PaymentOption from "../payment-option/component";
+import ExpandableCard from "../expandable-card/component";
 import CheckoutProductListTable from "../product-list/component";
 
 export default function CheckoutYourOrder() {
@@ -11,21 +11,21 @@ export default function CheckoutYourOrder() {
           <CheckoutProductListTable />
         </div>
         <div className="payment-option-list">
-          <PaymentOption
+          <ExpandableCard
             label={"Direct Bank Transfer"}
             expandable={true}
             description={
               "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account."
             }
           />
-          <PaymentOption
+          <ExpandableCard
             label={"Cheque Payment"}
             expandable={true}
             description={
               "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account."
             }
           />
-          <PaymentOption
+          <ExpandableCard
             label={"Paypal"}
             expandable={true}
             description={

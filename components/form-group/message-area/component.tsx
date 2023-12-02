@@ -9,10 +9,7 @@ export default function MessageArea({
   return (
     <div>
       <label>{label}</label>
-      <textarea
-        placeholder={placeholder}
-        className="order-notes-input"
-      ></textarea>
+      <textarea placeholder={placeholder} className="message-input"></textarea>
     </div>
   );
 }
