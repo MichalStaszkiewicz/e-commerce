@@ -24,7 +24,12 @@ export default function HomePromotion() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
               at iaculis quam. Integer accumsan tincidunt fringilla.
             </p>
-            <Button type="primary" htmlType="submit" size="large">
+            <Button
+              style={{ height: "45px", width: "130px",}}
+              type="primary"
+              htmlType="submit"
+              size="large"
+            >
               SHOP NOW
             </Button>
           </div>

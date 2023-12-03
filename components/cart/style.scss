@@ -19,7 +19,7 @@
     height: auto;
     width: 63.1%;
     @include flexbox(row);
-    .block-1 {
+    
       @include flexbox(column);
       justify-content: space-evenly;
       flex: 1;
@@ -80,8 +80,8 @@
           }
         }
       }
-    }
-    .block-2 {
+    
+    
       display: flex;
       flex: 1;
       height: auto;
@@ -142,7 +142,7 @@
 
         width: 50%;
       }
-    }
+    
   }
   & > :first-child {
     margin-bottom: 50px;

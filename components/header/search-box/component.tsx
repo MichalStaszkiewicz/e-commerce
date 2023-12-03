@@ -4,13 +4,14 @@ export default function HeaderSearchBox() {
   return (
     <div className="block-1">
       <div className="search-box">
-        <button className="icon-search">
+      <button className="icon-search">
           <FontAwesomeIcon
             icon={icons.faMagnifyingGlass}
             style={{ width: "45%", height: "45%" }}
           />
         </button>
         <input type="text" placeholder="Search" />
+       
       </div>
     </div>
   );

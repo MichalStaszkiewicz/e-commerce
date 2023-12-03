@@ -4,7 +4,8 @@ const theme: ThemeConfig = {
   components: {
     Button: {
       colorPrimary: "#7c74ea",
-      algorithm: true,  
+      borderRadius: 4,
+      algorithm: true,
     },
     Slider: {
       colorPrimary: "#5D53E3",

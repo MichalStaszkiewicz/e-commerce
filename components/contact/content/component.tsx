@@ -61,6 +61,7 @@ export default function ContactContent() {
               description={
                 "203 Fake St. Mountain View, San Francisco, California, USA"
               }
+              padding={""}
             />
             <ExpandableCard
               label={"LONDON"}
@@ -68,6 +69,7 @@ export default function ContactContent() {
               description={
                 "203 Fake St. Mountain View, San Francisco, California, USA"
               }
+              padding={""}
             />
             <ExpandableCard
               label={"CANADA"}
@@ -75,6 +77,7 @@ export default function ContactContent() {
               description={
                 "203 Fake St. Mountain View, San Francisco, California, USA"
               }
+              padding={""}
             />
           </div>
         </div>

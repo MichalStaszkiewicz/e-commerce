@@ -20,6 +20,7 @@
       align-items: center;
 
       flex: 1;
+
       .search-box {
         @include flexbox(row);
 
@@ -79,6 +80,8 @@
     }
     .block-3 {
       @include flexbox(row);
+
+      justify-content: center;
 
       flex: 1;
       .side-nav {

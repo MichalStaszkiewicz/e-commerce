@@ -17,6 +17,7 @@ export default function CheckoutYourOrder() {
             description={
               "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account."
             }
+            padding={"15px"}
           />
           <ExpandableCard
             label={"Cheque Payment"}
@@ -24,6 +25,7 @@ export default function CheckoutYourOrder() {
             description={
               "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account."
             }
+            padding={"15px"}
           />
           <ExpandableCard
             label={"Paypal"}
@@ -31,6 +33,7 @@ export default function CheckoutYourOrder() {
             description={
               "Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account."
             }
+            padding={"15px"}
           />
         </div>
         <Button type="primary" className="place-order-button">
