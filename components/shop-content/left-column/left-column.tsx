@@ -1,39 +1,47 @@
 "use client";
-import {
-  ForwardRefExoticComponent,
-  MouseEventHandler,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
-import {
-  CategoriesColorIndicator,
-  CategoriesSize,
-} from "./categories-color-indicator";
+import { useEffect, useState } from "react";
 
 import { ConfigProvider, Slider } from "antd";
 import "@/components/shop-content/style.scss";
 import React from "react";
 import theme from "@/theme/theme_config";
-//TODO: Replace useState with keeping data in url as query
+import {
+  CategoriesSize,
+  CategoriesColorIndicator,
+} from "./categories-color-indicator/component";
+import CategoriesList from "./categories/list/component";
+import ColorList from "./color-list/component";
+import SizeList from "./size-list/component";
+import { useRouter, useSearchParams } from "next/navigation";
+
 type SliderRangeValue = {
   min: number;
   max: number;
 };
 
 export function LeftColumn() {
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const sliderRef = React.createRef<any>();
+  let min: number = !Number.isNaN(parseInt(searchParams.get("min")!))
+    ? parseInt(searchParams.get("min")!)
+    : 100;
+  let max: number = !Number.isNaN(parseInt(searchParams.get("max")!))
+    ? parseInt(searchParams.get("max")!)
+    : 1000;
+
   const minPrice = 100;
   const maxPrice = 1000;
   const [price, setPrice] = useState<SliderRangeValue>({
-    min: minPrice,
-    max: maxPrice,
+    min: min,
+    max: max,
   });
-  const sliderRef = React.createRef<any>();
   const onChange = (value: number[]) => {
-    if (value[0] != price.min) {
-      setPrice({ min: value[0], max: price.max });
+    if (value[0] != min) {
+      setPrice({ min: value[0], max: max });
     } else {
-      setPrice({ min: price.min, max: value[1] });
+      console.log("asd");
+      setPrice({ min: min, max: value[1] });
     }
   };
 
@@ -41,21 +49,8 @@ export function LeftColumn() {
     <div className="left_column">
       <ConfigProvider theme={theme}>
         <div className="categories">
-        <p className="categories_header" style={{ marginTop: "20px" }}>
-            CATEGORIES
-          </p>
-          <ul className="list">
-            <li className="list_element">
-              <div>Men</div> <p style={{ color: "black" }}>(2,220)</p>
-            </li>
-            <li className="list_element">
-              <div>Woman</div> <p style={{ color: "black" }}>(2,550)</p>
-            </li>
-            <li className="list_element">
-              <div>Children</div>
-              <p style={{ color: "black" }}>(2,124)</p>
-            </li>
-          </ul>
+          <p className="categories_header">CATEGORIES</p>
+          <CategoriesList />
         </div>
 
         <div className="filters">
@@ -70,6 +65,17 @@ export function LeftColumn() {
             max={maxPrice}
             defaultValue={[price.min, price.max]}
             onChange={onChange}
+            onAfterChange={(value) => {
+              if (value[0] != min) {
+                router.push(`?min=${value[0]}&max=${value[1]}`, {
+                  scroll: false,
+                });
+              } else {
+                router.push(`?min=${value[0]}&max=${value[1]}`, {
+                  scroll: false,
+                });
+              }
+            }}
             style={{ width: "90%" }}
           />
 
@@ -81,21 +87,12 @@ export function LeftColumn() {
             SIZE
           </p>
 
-          <ul className="size_list">
-            <CategoriesSize label=" Small (2,319)" />
-            <CategoriesSize label=" Medium (1,282)" />
-            <CategoriesSize label=" Large (1,392)" />
-          </ul>
+          <SizeList />
           <p className="categories_header" style={{ marginTop: "20px" }}>
             COLOR
           </p>
 
-          <div className="color_list" style={{}}>
-            <CategoriesColorIndicator color={"red"} label={"Red"} />
-            <CategoriesColorIndicator color={"green"} label={"Green"} />
-            <CategoriesColorIndicator color={"aqua"} label={"Blue"} />
-            <CategoriesColorIndicator color={"purple"} label={"Purple"} />
-          </div>
+          <ColorList />
         </div>
       </ConfigProvider>
     </div>

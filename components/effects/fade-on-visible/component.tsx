@@ -12,7 +12,7 @@ export default function FadeOnVisible({ children }: { children: ReactNode }) {
                 setIsVisible(true);
             }
         }, {
-            threshold: 0.6,
+            threshold: 0.4,
         });
 
         observer.observe(childRef.current!);

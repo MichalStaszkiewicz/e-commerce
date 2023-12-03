@@ -7,6 +7,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --icon-color: #8c92a0;
+  --text-primary-color: #212529;
 }
 /*
 @media (prefers-color-scheme: dark) {
@@ -35,10 +37,6 @@ body {
     )
     rgb(var(--background-start-rg, b));
 }
-
-
-
-
 
 .shadow {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);

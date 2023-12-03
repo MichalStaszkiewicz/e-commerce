@@ -1,12 +1,12 @@
 "use client";
 import { Button, ConfigProvider, Divider } from "antd";
 import "../cart/style.scss";
-import TableEntry from "./table_entry/table_entry";
-import TableHeader from "./table_header/table_header";
+
 import theme from "@/theme/theme_config";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-
+import TableEntry from "./table_entry/component";
+import TableHeader from "./table_header/component";
 
 export default function CartContent() {
   const [ready, setReady] = useState(false);
@@ -113,7 +113,6 @@ export default function CartContent() {
 
               <Button
                 onClick={() => {
-
                   router.push("/cart/checkout");
                 }}
                 style={{ height: "60px", width: "100%" }}

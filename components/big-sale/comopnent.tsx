@@ -1,5 +1,5 @@
 import product from "../public/images/children.jpg";
-import { PrimaryButton } from "../primary-button/primary-button";
+import { PrimaryButton } from "../primary-button/component";
 import "@/components/big-sale/style.scss";
 import { Button, ConfigProvider } from "antd";
 import theme from "@/theme/theme_config";

@@ -15,11 +15,12 @@
     .block-1 {
       @include flexbox(row);
 
-      justify-content: center;
-      align-content: center;
+      justify-content: end;
+      align-content: end;
       align-items: center;
 
       flex: 1;
+
       .search-box {
         @include flexbox(row);
 
@@ -40,9 +41,11 @@
           width: 300px;
           padding: 15px;
           border-radius: 5px;
-          border: 1px solid rgb(221, 221, 221);
 
+          transform: translateX(5px);
+          transition: 250ms;
           &:focus {
+            transform: translateX(-2px);
             outline: none;
           }
         }
@@ -67,10 +70,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        .js-logo-clone {
+          letter-spacing: 5px;
+          font-size: 15.5px;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
       }
     }
     .block-3 {
       @include flexbox(row);
+
+      justify-content: center;
 
       flex: 1;
       .side-nav {
@@ -79,6 +90,12 @@
 
         align-items: center;
         justify-content: center;
+        .cart-icon {
+          cursor: pointer;
+          color: var(--icon-color);
+          width: 15%;
+          height: 15%;
+        }
       }
     }
   }

@@ -1,0 +1,43 @@
+@import "../../../styles/mixins.scss";
+.payment-option-list {
+  height: auto;
+
+  & > * {
+    margin-bottom: 10px;
+  }
+  & > :last-child {
+    margin-bottom: 0px;
+  }
+}
+.expandable-card-box {
+  @include flexbox(column);
+  @include form-box(100%, auto);
+  
+  padding: 25px;
+
+  
+  & > * {
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    color: grey;
+    width: 100%;
+  }
+  & > :first-child {
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    color: var(--primary-color);
+    width: 100%;
+    
+    font-weight: 500;
+  }
+  .payment-option-label {
+    cursor: pointer;
+  }
+  .description {
+    overflow: hidden;
+
+    transition: height 350ms ease-in-out;
+  }
+}

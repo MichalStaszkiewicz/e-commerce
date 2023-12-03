@@ -5,6 +5,15 @@
 @mixin form-box($width, $height) {
   height: $height;
   width: $width;
-  border: 1.5px solid #eff1f3;
+  border: 1px solid #d4d4d4;
   border-radius: 3px;
+}
+@mixin form-box-effects() {
+  padding: 10px;
+  transition: 150ms;
+  &:focus {
+    transition: 150ms;
+    outline: none;
+    border: 1.5px solid var(--primary-color);
+  }
 }
