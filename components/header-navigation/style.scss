@@ -20,6 +20,7 @@
     width: auto;
     color: var(--text-primary-color);
     transition: color 150ms;
+    font-size: small;
     cursor: pointer;
     & > * {
       margin-right: 5px;
