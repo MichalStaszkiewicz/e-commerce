@@ -92,7 +92,7 @@ export class SortButton extends React.Component<
           <p>{this.props.label}</p>
           <FontAwesomeIcon
             icon={icons.faAngleDown}
-            style={{ width: "15px", height: "15px" }}
+            style={{ width: "12px", height: "12px" }}
           />
         </div>
         {this.state.isOpen ? (
