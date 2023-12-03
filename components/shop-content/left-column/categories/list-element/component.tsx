@@ -7,7 +7,8 @@ export default function CategoriesListElement({
 }) {
   return (
     <li className="list_element">
-      <div>{label}</div> <p>{quantity}</p>
+      <p className="categories-option-label">{label}</p>
+      <p className="categories-option-quantity">({quantity})</p>
     </li>
   );
 }

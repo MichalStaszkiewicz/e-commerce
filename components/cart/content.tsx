@@ -14,8 +14,9 @@ export default function CartContent() {
   useLayoutEffect(() => {
     setReady(true);
   });
+
   return ready ? (
-    <ConfigProvider theme={theme}>
+    <ConfigProvider theme={theme} direction="ltr">
       <div className="cart-content-wrapper">
         <div className="table-wrapper">
           <table>
@@ -27,29 +28,26 @@ export default function CartContent() {
         </div>
 
         <div className="cart-options-wrapper">
-          <div className="block-1">
-            <div className="buttons-segment">
-              <Button
-                type="primary"
-                style={{
-                  height: "45px",
-                  width: "250px",
-                }}
-              >
-                <center>UPDATE CART</center>
-              </Button>
-              <Button
-                ghost={true}
-                type="primary"
-                style={{
-                  height: "45px",
-                  width: "250px",
-                }}
-              >
-                <center>CONTINUE SHOPPING</center>
-              </Button>
-            </div>
+          <div className="coupon-segment-cart-total-wrapper">
             <div className="coupon-segment">
+              <div className="buttons-segment">
+                <Button
+                  style={{
+                    backgroundColor: theme.components?.Button?.colorPrimaryBg,
+                  }}
+                  className="cart-update-button"
+                  type="primary"
+                >
+                  <center>UPDATE CART</center>
+                </Button>
+                <Button
+                  className="cart-update-button"
+                  ghost={true}
+                  type="primary"
+                >
+                  CONTINUE SHOPPING
+                </Button>
+              </div>
               <div className="coupon-content-wrapper">
                 <p className="header">Coupon</p>
                 <p className="description">
@@ -66,8 +64,7 @@ export default function CartContent() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="block-2">
+
             <div className="cart-total-wrapper">
               <div className="header-wrapper">
                 <p className="header">CART TOTALS</p>
@@ -83,7 +80,58 @@ export default function CartContent() {
                   <p className="label">Subtotal</p>
                   <p className="price">$230.00</p>
                 </div>
-
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>{" "}
                 <div className="cart-total-entry">
                   <p className="label">Subtotal</p>
                   <p className="price">$230.00</p>
@@ -100,7 +148,10 @@ export default function CartContent() {
                   <p className="label">Subtotal</p>
                   <p className="price">$230.00</p>
                 </div>
-
+                <div className="cart-total-entry">
+                  <p className="label">Subtotal</p>
+                  <p className="price">$230.00</p>
+                </div>
                 <div className="cart-total-entry">
                   <p className="label">Subtotal</p>
                   <p className="price">$230.00</p>

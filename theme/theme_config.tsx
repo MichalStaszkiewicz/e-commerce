@@ -1,10 +1,11 @@
 import type { ThemeConfig } from "antd";
-
+import "antd";
 const theme: ThemeConfig = {
   components: {
     Button: {
-      colorPrimary: "#7c74ea",
       borderRadius: 4,
+
+      colorPrimary: "#5D53E3",
       algorithm: true,
     },
     Slider: {
@@ -13,7 +14,7 @@ const theme: ThemeConfig = {
     },
   },
   token: {
-    colorPrimary: "#7c74ea",
+    colorPrimary: "#5D53E3",
   },
 };
 
