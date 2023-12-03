@@ -8,10 +8,12 @@ export default function ExpandableCard({
   label,
   description,
   expandable,
+  padding,
 }: {
   description: string;
   label: string;
   expandable: boolean;
+  padding: string;
 }) {
   const [state, setState] = useState<PaymentState>({
     expanded: false,
@@ -40,7 +42,7 @@ export default function ExpandableCard({
   }
 
   return (
-    <div className="expandable-card-box">
+    <div className="expandable-card-box" style={{ padding: padding }}>
       <p
         style={{ marginBottom: expandable ? "0px" : "5px" }}
         className="expandable-card-label"
