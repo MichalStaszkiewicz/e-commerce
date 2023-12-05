@@ -45,11 +45,26 @@ export function CategoriesSize({
       } else {
         selectedSizes.push(label.toLowerCase());
       }
-      setState({
-        ...shopState,
-        selectedSizes: selectedSizes,
-      });
-      console.log(shopState.selectedSizes);
+
+      let products = shopState.originalProducts;
+
+      if (selectedSizes.length > 0) {
+        const filteredProducts = products.filter((product) =>
+          product.availableSize.some((size) => selectedSizes.includes(size))
+        );
+        setState({
+          ...shopState,
+          products: filteredProducts,
+          selectedSizes: selectedSizes,
+        });
+      } else {
+        setState({
+          ...shopState,
+          products: shopState.originalProducts,
+          selectedSizes: selectedSizes,
+        });
+      }
+
       setChecked(!checked);
     }
   }
