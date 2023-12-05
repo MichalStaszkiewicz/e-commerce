@@ -1,29 +1,25 @@
-import React from "react";
+import React, { createRef, useEffect } from "react";
 import "@/components/shop-content/style.scss";
 interface SortMenuProps {
   labels: string[];
+  onRefReady: (ref: React.RefObject<HTMLDivElement>) => void;
 }
-interface SortMenuState {}
 
-export class SortMenu extends React.Component<SortMenuProps, SortMenuState> {
-  menuRef: React.RefObject<HTMLDivElement>;
-  constructor(props: SortMenuProps) {
-    super(props);
-    this.state = {};
-
-    this.menuRef = React.createRef();
-  }
-  render() {
-    return (
-      <div ref={this.menuRef} className="sort_menu" style={{}}>
-        <ul>
-          {this.props.labels.map((item, index) => (
-            <li>
-              <p>{item}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+export function SortMenu(props: SortMenuProps) {
+  const ref = createRef<HTMLDivElement>();
+  useEffect(() => {
+    console.log("REFERENCE " + ref);
+    props.onRefReady(ref);
+  }, []);
+  return (
+    <div ref={ref} className="sort_menu" style={{}}>
+      <ul>
+        {props.labels.map((item, index) => (
+          <li>
+            <p>{item}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

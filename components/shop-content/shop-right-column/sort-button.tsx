@@ -14,50 +14,8 @@ interface SortButtonState {
 export default function SortButton(props: SortButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = React.createRef<HTMLDivElement>();
-  const sortMenu = React.createRef<SortMenu>();
-  useEffect(() => {
-    window.addEventListener("mousedown", (event: MouseEvent) => {
-      if (isOpen && buttonRef!.current! != null) {
-        const buttonRect = buttonRef!.current!.getBoundingClientRect();
-        const menuRect =
-          sortMenu!.current!.menuRef.current!.getBoundingClientRect();
 
-        const isInsideMenu =
-          event.clientX >= menuRect.left &&
-          event.clientX <= menuRect.right &&
-          event.clientY >= menuRect.top &&
-          event.clientY <= menuRect.bottom;
-        const isInsideButton =
-          event.clientX >= buttonRect.left &&
-          event.clientX <= buttonRect.right &&
-          event.clientY >= buttonRect.top &&
-          event.clientY <= buttonRect.bottom;
-
-        if (isInsideMenu || isInsideButton) {
-          if (isInsideButton && isOpen) {
-            setIsOpen(false);
-          } else {
-            setIsOpen(true);
-          }
-        } else {
-          setIsOpen(false);
-        }
-      } else {
-        if (buttonRef!.current?.getBoundingClientRect() != null) {
-          const buttonRect = buttonRef!.current!.getBoundingClientRect();
-          const isInsideButton =
-            event.clientX >= buttonRect.left &&
-            event.clientX <= buttonRect.right &&
-            event.clientY >= buttonRect.top &&
-            event.clientY <= buttonRect.bottom;
-
-          if (isInsideButton) {
-            setIsOpen(true);
-          }
-        }
-      }
-    });
-  });
+  useEffect(() => {}, []);
   return (
     <div className="sort_button_wrapper">
       {" "}
@@ -68,7 +26,9 @@ export default function SortButton(props: SortButtonProps) {
           color: isOpen ? "white" : "black",
           backgroundColor: isOpen ? "#545b62" : "#e6e7e9",
         }}
-        onMouseDown={()=>{}}
+        onPointerUp={() => {
+          setIsOpen(true);
+        }}
       >
         <p>{props.label}</p>
         <FontAwesomeIcon
@@ -77,7 +37,54 @@ export default function SortButton(props: SortButtonProps) {
         />
       </div>
       {isOpen ? (
-        <SortMenu ref={sortMenu} labels={props.menuData} />
+        <SortMenu
+          labels={props.menuData}
+          onRefReady={function (
+            sortMenu: React.RefObject<HTMLDivElement>
+          ): void {
+            window.addEventListener("mousedown", (event: MouseEvent) => {
+              if (isOpen && buttonRef!.current! != null) {
+                const buttonRect = buttonRef!.current!.getBoundingClientRect();
+                const menuRect = sortMenu!.current!.getBoundingClientRect();
+
+                const isInsideMenu =
+                  event.clientX >= menuRect.left &&
+                  event.clientX <= menuRect.right &&
+                  event.clientY >= menuRect.top &&
+                  event.clientY <= menuRect.bottom;
+                const isInsideButton =
+                  event.clientX >= buttonRect.left &&
+                  event.clientX <= buttonRect.right &&
+                  event.clientY >= buttonRect.top &&
+                  event.clientY <= buttonRect.bottom;
+
+                if (isInsideMenu || isInsideButton) {
+                  if (isInsideButton && isOpen) {
+                    setIsOpen(false);
+                  } else {
+                    setIsOpen(true);
+                  }
+                } else {
+                  setIsOpen(false);
+                }
+              } else {
+                if (buttonRef!.current?.getBoundingClientRect() != null) {
+                  const buttonRect =
+                    buttonRef!.current!.getBoundingClientRect();
+                  const isInsideButton =
+                    event.clientX >= buttonRect.left &&
+                    event.clientX <= buttonRect.right &&
+                    event.clientY >= buttonRect.top &&
+                    event.clientY <= buttonRect.bottom;
+
+                  if (isInsideButton) {
+                    setIsOpen(true);
+                  }
+                }
+              }
+            });
+          }}
+        />
       ) : (
         <div></div>
       )}
