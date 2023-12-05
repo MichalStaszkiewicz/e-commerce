@@ -11,6 +11,7 @@ export function ShopProvider({ children }: any) {
     loading: false,
     error: false,
     products: [],
+    originalProducts: [],
     paginationPage: 0,
     productsPerPage: 9,
   });
@@ -21,4 +22,3 @@ export function ShopProvider({ children }: any) {
     </ShopContext.Provider>
   );
 }
-

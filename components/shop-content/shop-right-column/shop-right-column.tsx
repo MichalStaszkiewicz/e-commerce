@@ -29,27 +29,55 @@ export function ShopRightColumn() {
           name: "Tank Top",
           description: "basfbasdfds",
           image: "/images/cloth_1.jpg",
-          price: 20,
+          price: 920,
         },
 
         {
           name: "Tank Top",
           description: "basfbasdfds",
           image: "/images/cloth_1.jpg",
-          price: 20,
+          price: 620,
         },
 
         {
           name: "Tank Top",
           description: "basfbasdfds",
           image: "/images/cloth_1.jpg",
-          price: 20,
+          price: 220,
         },
         {
           name: "Tank Top",
           description: "basfbasdfds",
           image: "/images/cloth_1.jpg",
-          price: 20,
+          price: 120,
+        },
+      ],
+      originalProducts: [
+        {
+          name: "Tank Top",
+          description: "basfbasdfds",
+          image: "/images/cloth_1.jpg",
+          price: 920,
+        },
+
+        {
+          name: "Tank Top",
+          description: "basfbasdfds",
+          image: "/images/cloth_1.jpg",
+          price: 620,
+        },
+
+        {
+          name: "Tank Top",
+          description: "basfbasdfds",
+          image: "/images/cloth_1.jpg",
+          price: 220,
+        },
+        {
+          name: "Tank Top",
+          description: "basfbasdfds",
+          image: "/images/cloth_1.jpg",
+          price: 120,
         },
       ],
     });

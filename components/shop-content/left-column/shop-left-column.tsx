@@ -13,6 +13,8 @@ import CategoriesList from "./categories/list/component";
 import ColorList from "./color-list/component";
 import SizeList from "./size-list/component";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useShop } from "@/hooks/use-shop";
+import { Product } from "@/model/product";
 
 type SliderRangeValue = {
   min: number;
@@ -36,13 +38,22 @@ export function ShopLeftColumn() {
     min: min,
     max: max,
   });
+
+  const { shopState, setState } = useShop();
+
   const onChange = (value: number[]) => {
     if (value[0] != min) {
       setPrice({ min: value[0], max: max });
     } else {
-      console.log("asd");
       setPrice({ min: min, max: value[1] });
     }
+    const filteredProducts = shopState.originalProducts.filter(
+      (item) => item.price >= min && item.price <= max
+    );
+    setState({
+      ...shopState,
+      products: filteredProducts,
+    });
   };
 
   return (
@@ -75,6 +86,13 @@ export function ShopLeftColumn() {
                   scroll: false,
                 });
               }
+              const filteredProducts = shopState.originalProducts.filter(
+                (item) => item.price >= min && item.price <= max
+              );
+              setState({
+                ...shopState,
+                products: filteredProducts,
+              });
             }}
             style={{ width: "90%" }}
           />
