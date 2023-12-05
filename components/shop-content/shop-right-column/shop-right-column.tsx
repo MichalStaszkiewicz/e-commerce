@@ -22,64 +22,46 @@ export function ShopRightColumn() {
     };
 
     console.log("products " + shopState.products);
+    let products = [
+      {
+        name: "Tank Top",
+        description: "basfbasasdfdfds",
+        image: "/images/cloth_1.jpg",
+        price: 920,
+        categories: ["men"],
+        availableSize: ["medium", "large"],
+      },
+
+      {
+        name: "Tank Top",
+        description: "basfbmfgnfasdfds",
+        image: "/images/cloth_3.jpg",
+        price: 620,
+        categories: ["men"],
+        availableSize: ["medium", "large"],
+      },
+
+      {
+        name: "Tank Top",
+        description: "basfbassdfgdfds",
+        image: "/images/cloth_1.jpg",
+        price: 220,
+        categories: ["woman"],
+        availableSize: ["medium", "large"],
+      },
+      {
+        name: "Tank Top",
+        description: "bdfbsdfbs",
+        image: "/images/cloth_2.jpg",
+        price: 120,
+        categories: ["chilren"],
+        availableSize: ["small"],
+      },
+    ];
     setState({
       ...shopState,
-      products: [
-        {
-          name: "Tank Top",
-          description: "basfbasdfds",
-          image: "/images/cloth_1.jpg",
-          price: 920,
-        },
-
-        {
-          name: "Tank Top",
-          description: "basfbasdfds",
-          image: "/images/cloth_1.jpg",
-          price: 620,
-        },
-
-        {
-          name: "Tank Top",
-          description: "basfbasdfds",
-          image: "/images/cloth_1.jpg",
-          price: 220,
-        },
-        {
-          name: "Tank Top",
-          description: "basfbasdfds",
-          image: "/images/cloth_1.jpg",
-          price: 120,
-        },
-      ],
-      originalProducts: [
-        {
-          name: "Tank Top",
-          description: "basfbasdfds",
-          image: "/images/cloth_1.jpg",
-          price: 920,
-        },
-
-        {
-          name: "Tank Top",
-          description: "basfbasdfds",
-          image: "/images/cloth_1.jpg",
-          price: 620,
-        },
-
-        {
-          name: "Tank Top",
-          description: "basfbasdfds",
-          image: "/images/cloth_1.jpg",
-          price: 220,
-        },
-        {
-          name: "Tank Top",
-          description: "basfbasdfds",
-          image: "/images/cloth_1.jpg",
-          price: 120,
-        },
-      ],
+      products: products,
+      originalProducts: products,
     });
   }, [shopState.paginationPage]);
   const calculateStartIndex = function () {
