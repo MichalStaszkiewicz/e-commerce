@@ -19,7 +19,7 @@ type SliderRangeValue = {
   max: number;
 };
 
-export function LeftColumn() {
+export function ShopLeftColumn() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const sliderRef = React.createRef<any>();

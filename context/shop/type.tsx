@@ -3,7 +3,7 @@ import { Product } from "@/model/product";
 export type ShopState = {
   loading: boolean;
   error: boolean;
-  products: any[];
+  products: Product[];
   paginationPage: number;
   productsPerPage: number;
 };

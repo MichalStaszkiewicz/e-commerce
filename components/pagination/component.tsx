@@ -14,29 +14,31 @@ type PaginationProps = {
 export default function Pagination(props: PaginationProps) {
   const [reachedEnd, setReachedEnd] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  const { itemPerPage, itemQuantity, maxPaginationButtons, setPage } = props;
+  let maxButtons = maxPaginationButtons;
 
   useEffect(() => {
     const pagesNumber = () => {
-      return Math.ceil(props.itemQuantity / props.itemPerPage);
+      return Math.ceil(itemQuantity / itemPerPage);
     };
 
     setReachedEnd(currentPage < pagesNumber() - 1);
   }, [currentPage]);
 
   const generatePagination = function (): React.ReactElement<HTMLDivElement>[] {
-    const pageCount = Math.ceil(props.itemQuantity / props.itemPerPage);
+    const pageCount = Math.ceil(itemQuantity / itemPerPage);
 
     let pageButtons: React.ReactElement<HTMLDivElement>[] = [];
-    // if (props.maxPaginationButtons > pageCount) {
-    //   props.maxPaginationButtons = pageCount;
-    // }
+    if (maxButtons > pageCount) {
+      maxButtons = pageCount;
+    }
 
     for (
       let i =
-        currentPage + props.maxPaginationButtons > pageCount
-          ? pageCount - props.maxPaginationButtons
+        currentPage + maxButtons > pageCount
+          ? pageCount - maxButtons
           : currentPage;
-      i < Math.min(currentPage + props.maxPaginationButtons, pageCount);
+      i < Math.min(currentPage + maxButtons, pageCount);
       i++
     ) {
       const active = currentPage === i;
@@ -49,7 +51,7 @@ export default function Pagination(props: PaginationProps) {
           className="button"
           onClick={() => {
             setCurrentPage(i);
-            props.setPage(i);
+            setPage(i);
           }}
           style={buttonStyle}
         >
@@ -66,7 +68,7 @@ export default function Pagination(props: PaginationProps) {
         <div
           className="button"
           onClick={() => {
-            props.setPage(currentPage - 1);
+            setPage(currentPage - 1);
             setCurrentPage(currentPage - 1);
           }}
         >
@@ -80,7 +82,7 @@ export default function Pagination(props: PaginationProps) {
         <div
           className="button"
           onClick={() => {
-            props.setPage(currentPage + 1);
+            setPage(currentPage + 1);
             setCurrentPage(currentPage + 1);
           }}
         >

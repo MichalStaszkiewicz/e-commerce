@@ -1,24 +1,19 @@
 "use client";
 import FadeOnVisible from "../../effects/fade-on-visible/component";
 
-import { SortButton } from "./sort-button";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useEffect, useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 
 import "@/components/shop-content/style.scss";
 import ProductCard from "@/components/product-card/component";
-
 import { ShopState } from "@/context/shop/type";
-import Pagination from "@/components/pagination/component";
 import { useShop } from "@/hooks/use-shop";
-interface RightColumnState {
-  shopState: ShopState;
-  reachedEnd: boolean;
-}
-export function RightColumn() {
-  const [reachedEnd, setReachedEnd] = useState(false);
+
+import { SortButton } from "./sort-button";
+import Pagination from "@/components/pagination/component";
+
+export function ShopRightColumn() {
   const { shopState, setState } = useShop();
 
   useEffect(() => {
@@ -26,13 +21,36 @@ export function RightColumn() {
       return Math.ceil(shopState.products.length / shopState.productsPerPage);
     };
 
-    setReachedEnd(shopState.paginationPage < pagesNumber() - 1);
     console.log("products " + shopState.products);
     setState({
       ...shopState,
       products: [
-        1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4,
-        1, 2, 3, 4,
+        {
+          name: "Tank Top",
+          description: "basfbasdfds",
+          image: "/images/cloth_1.jpg",
+          price: 20,
+        },
+
+        {
+          name: "Tank Top",
+          description: "basfbasdfds",
+          image: "/images/cloth_1.jpg",
+          price: 20,
+        },
+
+        {
+          name: "Tank Top",
+          description: "basfbasdfds",
+          image: "/images/cloth_1.jpg",
+          price: 20,
+        },
+        {
+          name: "Tank Top",
+          description: "basfbasdfds",
+          image: "/images/cloth_1.jpg",
+          price: 20,
+        },
       ],
     });
   }, [shopState.paginationPage]);
@@ -78,10 +96,10 @@ export function RightColumn() {
                 <ProductCard
                   width={"250px"}
                   height={"350px"}
-                  image={"/images/cloth_1.jpg"}
-                  label={"Tank top"}
-                  price={50}
-                  description={"Finding perfect product"}
+                  image={shopState.products[index].image}
+                  label={shopState.products[index].name}
+                  price={shopState.products[index].price}
+                  description={shopState.products[index].description}
                 />
               }
             ></FadeOnVisible>
