@@ -10,8 +10,8 @@ import ProductCard from "@/components/product-card/component";
 import { ShopState } from "@/context/shop/type";
 import { useShop } from "@/hooks/use-shop";
 
-import { SortButton } from "./sort-button";
 import Pagination from "@/components/pagination/component";
+import SortButton from "./sort-button";
 
 export function ShopRightColumn() {
   const { shopState, setState } = useShop();
