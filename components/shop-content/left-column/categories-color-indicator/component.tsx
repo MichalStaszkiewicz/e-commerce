@@ -1,6 +1,7 @@
 import "@/components/shop-content/style.scss";
 import { useShop } from "@/hooks/use-shop";
-import { formatNumberWithCommas } from "@/utils/utility-function";
+import { Product } from "@/model/product";
+import { filterBySize, formatNumberWithCommas } from "@/utils/utility-function";
 import { Checkbox } from "antd";
 import { useEffect, useState } from "react";
 export function CategoriesColorIndicator({
@@ -48,10 +49,8 @@ export function CategoriesSize({
 
       let products = shopState.originalProducts;
 
+      let filteredProducts = filterBySize(products, selectedSizes);
       if (selectedSizes.length > 0) {
-        const filteredProducts = products.filter((product) =>
-          product.availableSize.some((size) => selectedSizes.includes(size))
-        );
         setState({
           ...shopState,
           products: filteredProducts,
@@ -60,7 +59,7 @@ export function CategoriesSize({
       } else {
         setState({
           ...shopState,
-          products: shopState.originalProducts,
+          products: products,
           selectedSizes: selectedSizes,
         });
       }

@@ -1,3 +1,4 @@
+import { Product } from "@/model/product";
 import {
   HomeOutlined,
   ShoppingCartOutlined,
@@ -28,4 +29,10 @@ export function formatNumberWithCommas(number: number): string {
   const wholePart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   const decimalPart = parts[1] ? `.${parts[1]}` : "";
   return `${wholePart}${decimalPart}`;
+}
+export function filterBySize(products: Product[], selectedSizes: string[]) {
+  const filteredProducts = products.filter((product) =>
+    product.availableSize.some((size) => selectedSizes.includes(size))
+  );
+  return filteredProducts;
 }
