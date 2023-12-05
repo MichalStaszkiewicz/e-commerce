@@ -13,7 +13,6 @@ export function CategoriesColorIndicator({
   label: string;
   quantity: number;
 }): JSX.Element {
-  const { shopState, setState } = useShop();
   return (
     <div className="color_container">
       <div className="color_indicator" style={{ backgroundColor: color }}></div>
@@ -24,56 +23,45 @@ export function CategoriesColorIndicator({
     </div>
   );
 }
-export function CategoriesSize({
-  label,
-  quantity,
-}: {
+interface CategorySizeProps {
   label: string;
   quantity: number;
-}) {
+}
+
+export function CategoriesSize({ label, quantity }: CategorySizeProps) {
   const [checked, setChecked] = useState(false);
-
   const { shopState, setState } = useShop();
-  function onClick() {
-    {
-      let selectedSizes = shopState.selectedSizes;
-      if (checked) {
-        let index = selectedSizes.findIndex(
-          (item) => item.toLowerCase() == label.toLowerCase()
-        );
 
-        selectedSizes.splice(index, 1);
-      } else {
-        selectedSizes.push(label.toLowerCase());
-      }
-
-      let products = shopState.originalProducts;
-
-      let filteredProducts = filterBySize(products, selectedSizes);
-      if (selectedSizes.length > 0) {
-        setState({
-          ...shopState,
-          products: filteredProducts,
-          selectedSizes: selectedSizes,
-        });
-      } else {
-        setState({
-          ...shopState,
-          products: products,
-          selectedSizes: selectedSizes,
-        });
-      }
-
-      setChecked(!checked);
+  const handleToggle = () => {
+    const selectedSizes = [...shopState.selectedSizes];
+    if (checked) {
+      selectedSizes.splice(selectedSizes.indexOf(label.toLowerCase()), 1);
+    } else {
+      selectedSizes.push(label.toLowerCase());
     }
-  }
+
+    const filteredProducts = filterBySize(
+      shopState.originalProducts,
+      selectedSizes
+    );
+    const updatedState = {
+      ...shopState,
+      products:
+        selectedSizes.length > 0
+          ? filteredProducts
+          : shopState.originalProducts,
+      selectedSizes,
+    };
+
+    setState(updatedState);
+    setChecked(!checked);
+  };
+
   return (
     <li>
-      <div>
-        <Checkbox checked={checked} onClick={onClick}>
-          {label} {formatNumberWithCommas(quantity)}
-        </Checkbox>
-      </div>
+      <Checkbox checked={checked} onChange={handleToggle}>
+        {label} {formatNumberWithCommas(quantity)}
+      </Checkbox>
     </li>
   );
 }
