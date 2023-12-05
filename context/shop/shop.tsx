@@ -14,6 +14,8 @@ export function ShopProvider({ children }: any) {
     originalProducts: [],
     paginationPage: 0,
     productsPerPage: 9,
+    selectedCategories: [],
+    selectedSizes: [],
   });
 
   return (

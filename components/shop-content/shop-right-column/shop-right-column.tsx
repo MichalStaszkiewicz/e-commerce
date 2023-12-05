@@ -63,7 +63,20 @@ export function ShopRightColumn() {
       products: products,
       originalProducts: products,
     });
-  }, [shopState.paginationPage]);
+  }, []);
+  useEffect(() => {
+    let products = shopState.originalProducts;
+
+    if (shopState.selectedSizes.length > 0) {
+      const filteredProducts = products.filter((product) =>
+        product.availableSize.some((size) =>
+          shopState.selectedSizes.includes(size)
+        )
+      );
+      setState({ ...shopState, products: filteredProducts });
+    } 
+    //TODO: export every sort / filter function to separated functions
+  }, [shopState]);
   const calculateStartIndex = function () {
     return shopState.paginationPage * shopState.productsPerPage;
   };

@@ -23,3 +23,9 @@ export function iconFromString(text: string) {
     return null;
   }
 }
+export function formatNumberWithCommas(number: number): string {
+  const parts = number.toString().split(".");
+  const wholePart = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const decimalPart = parts[1] ? `.${parts[1]}` : "";
+  return `${wholePart}${decimalPart}`;
+}
