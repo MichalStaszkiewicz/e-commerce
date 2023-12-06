@@ -5,11 +5,11 @@ import "@/styles/globals.scss";
 import { Breadcrumb } from "antd";
 import BreadcrumbItem from "antd/es/breadcrumb/BreadcrumbItem";
 import {
-  HomeOutlined,
-  ShoppingCartOutlined,
-  ShoppingOutlined,
-  BankOutlined,
-} from "@ant-design/icons";
+  iconFromString,
+  getHrefFromPath,
+  capitalize,
+} from "@/utils/utility-function";
+import { HomeOutlined } from "@ant-design/icons";
 import { useEffect, useState } from "react";
 export default function NavigationHistory() {
   const pathName = usePathname();
@@ -39,7 +39,6 @@ export default function NavigationHistory() {
     }
     let icon = iconFromString(path);
     tempItems.push({
-     
       title: (
         <>
           {icon != null ? icon : <div></div>} <span>{capitalize(path)}</span>
@@ -65,24 +64,4 @@ export default function NavigationHistory() {
       />
     </div>
   );
-}
-
-function capitalize(text: string) {
-  return text.charAt(0).toUpperCase() + text.slice(1);
-}
-function getHrefFromPath(path: string, subpath: string) {
-  let endIndex = path.indexOf(subpath);
-
-  return path.substring(0, endIndex) + subpath;
-}
-function iconFromString(text: string) {
-  if (text.toLowerCase() == "cart") {
-    return <ShoppingOutlined />;
-  } else if (text.toLowerCase() == "shop") {
-    return <ShoppingCartOutlined />;
-  } else if (text.toLowerCase() == "checkout") {
-    return <BankOutlined />;
-  } else {
-    return null;
-  }
 }

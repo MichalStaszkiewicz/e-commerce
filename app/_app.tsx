@@ -7,6 +7,7 @@ import theme from "@/theme/theme_config";
 library.add(faMagnifyingGlass);
 
 export default function App({ Component, pageProps }: AppProps) {
+ 
   return (
     <ConfigProvider theme={theme}>
       {" "}

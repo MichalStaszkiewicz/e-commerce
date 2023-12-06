@@ -19,21 +19,33 @@
     height: auto;
     width: 63.1%;
     @include flexbox(row);
-    
-      @include flexbox(column);
-      justify-content: space-evenly;
-      flex: 1;
-      align-items: start;
-      justify-content: start;
-      .buttons-segment {
-        @include flexbox(row);
-        & > :first-child {
-          margin-right: 20px;
-        }
-      }
-      .coupon-segment {
-        height: 75%;
 
+    @include flexbox(column);
+    justify-content: space-evenly;
+    flex: 1;
+    align-items: start;
+    justify-content: start;
+    .coupon-segment-cart-total-wrapper {
+      width: 100%;
+      align-items: center;
+      @include flexbox(row);
+      justify-content: space-between;
+      .coupon-segment {
+        align-self: start;
+        height: 75%;
+        & > :first-child {
+          margin-bottom: 30px;
+        }
+        .buttons-segment {
+          @include flexbox(row);
+          & > :first-child {
+            margin-right: 20px;
+          }
+          .cart-update-button {
+            height: 45px;
+            width: 250px;
+          }
+        }
         .coupon-content-wrapper {
           height: 200px;
 
@@ -43,7 +55,7 @@
           align-content: start;
           .header {
             display: flex;
-            max-height: min-content;
+
             height: auto;
 
             font-size: x-large;
@@ -68,11 +80,7 @@
                 color: #8c92a0;
                 font-weight: 500;
               }
-              &:focus {
-                padding: 10px;
-                border: 1px solid var(--primary-color);
-                outline: none;
-              }
+              @include form-box-effects();
             }
             & > :first-child {
               margin-right: 20px;
@@ -80,69 +88,69 @@
           }
         }
       }
-    
-    
-      display: flex;
-      flex: 1;
-      height: auto;
-      justify-content: end;
+    }
 
-      .cart-total-wrapper {
+    display: flex;
+    flex: 1;
+    height: auto;
+    justify-content: end;
+
+    .cart-total-wrapper {
+      max-width: 25%;
+      & > * {
+        margin-bottom: 30px;
+      }
+      & > :last-child {
+        margin-bottom: 0px;
+      }
+
+      @include flexbox(column);
+      justify-content: space-between;
+      & > * {
+        margin-bottom: 10px;
+      }
+      & > :first-child {
+        margin-bottom: 22px;
+      }
+      .header-wrapper {
+        @include flexbox(column);
+        height: auto;
+
+        .header {
+          width: 100%;
+          height: auto;
+          justify-content: end;
+          align-items: end;
+          font-size: x-large;
+          padding-bottom: 5px;
+        }
+        .divider {
+          height: 1px;
+
+          background-color: #dee2e6;
+          width: 100%;
+        }
+      }
+
+      .entry-list {
         & > * {
-          margin-bottom: 30px;
+          margin-bottom: 10px;
         }
         & > :last-child {
           margin-bottom: 0px;
         }
 
         @include flexbox(column);
-        justify-content: space-between;
-        & > * {
-          margin-bottom: 10px;
+        justify-content: space-evenly;
+        .cart-total-entry {
+          @include flexbox(row);
+          justify-content: space-between;
+          width: 100%;
         }
-        & > :first-child {
-          margin-bottom: 22px;
-        }
-        .header-wrapper {
-          @include flexbox(column);
-          height: auto;
-
-          .header {
-            width: 100%;
-            height: auto;
-            justify-content: end;
-            align-items: end;
-            font-size: x-large;
-            padding-bottom: 5px;
-          }
-          .divider {
-            height: 1px;
-
-            background-color: #dee2e6;
-            width: 100%;
-          }
-        }
-
-        .entry-list {
-          & > * {
-            margin-bottom: 10px;
-          }
-          & > :last-child {
-            margin-bottom: 0px;
-          }
-
-          @include flexbox(column);
-          justify-content: space-evenly;
-          .cart-total-entry {
-            @include flexbox(row);
-            justify-content: space-between;
-            width: 100%;
-          }
-        }
-
-        width: 50%;
       }
-    
+
+      width: 50%;
+    }
   }
   & > :first-child {
     margin-bottom: 50px;
