@@ -22,40 +22,29 @@ type SliderRangeValue = {
 };
 
 export function ShopLeftColumn() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const sliderRef = React.createRef<any>();
-  let min: number = !Number.isNaN(parseInt(searchParams.get("min")!))
-    ? parseInt(searchParams.get("min")!)
-    : 100;
-  let max: number = !Number.isNaN(parseInt(searchParams.get("max")!))
-    ? parseInt(searchParams.get("max")!)
-    : 1000;
+  const sliderMinPrice = 100;
+  const sliderMaxPrice = 1000;
+  const shop = useShop();
 
-  const minPrice = 100;
-  const maxPrice = 1000;
+  const sliderRef = React.createRef<any>();
+
   const [price, setPrice] = useState<SliderRangeValue>({
-    min: min,
-    max: max,
+    min: sliderMinPrice,
+    max: sliderMaxPrice,
   });
 
-  const { shopState, setState } = useShop();
+  const { shopState, setState, setRouterPath } = useShop();
 
   const onChange = (value: number[]) => {
-    if (value[0] != min) {
-      setPrice({ min: value[0], max: max });
+    if (value[0] != price.min) {
+      setPrice({ min: value[0], max: price.max });
     } else {
-      setPrice({ min: min, max: value[1] });
+      setPrice({ min: price.min, max: value[1] });
     }
-    const filteredProducts = shopState.originalProducts.filter(
-      (item) => item.price >= min && item.price <= max
-    );
-    setState({
-      ...shopState,
-      products: filteredProducts,
-    });
   };
-
+  useEffect(() => {
+    setPrice({ min: shop.shopState.minPrice, max: shop.shopState.maxPrice });
+  }, []);
   return (
     <div className="left_column">
       <ConfigProvider theme={theme}>
@@ -72,26 +61,16 @@ export function ShopLeftColumn() {
             tooltip={{ open: false }}
             range
             step={1}
-            min={minPrice}
-            max={maxPrice}
-            defaultValue={[price.min, price.max]}
+            min={sliderMinPrice}
+            max={sliderMaxPrice}
+            defaultValue={[shop.shopState.minPrice, shop.shopState.maxPrice]}
             onChange={onChange}
             onAfterChange={(value) => {
-              if (value[0] != min) {
-                router.push(`?min=${value[0]}&max=${value[1]}`, {
-                  scroll: false,
-                });
-              } else {
-                router.push(`?min=${value[0]}&max=${value[1]}`, {
-                  scroll: false,
-                });
-              }
-              const filteredProducts = shopState.originalProducts.filter(
-                (item) => item.price >= min && item.price <= max
-              );
               setState({
                 ...shopState,
-                products: filteredProducts,
+
+                minPrice: value[0],
+                maxPrice: value[1],
               });
             }}
             style={{ width: "90%" }}

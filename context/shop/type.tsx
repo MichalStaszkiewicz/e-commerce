@@ -9,9 +9,12 @@ export type ShopState = {
   products: Product[];
   paginationPage: number;
   productsPerPage: number;
+  minPrice: number;
+  maxPrice: number;
 };
 export type TShopContext = {
   shopState: ShopState;
 
   setState: React.Dispatch<React.SetStateAction<ShopState>>;
+  setRouterPath: Function;
 };

@@ -1,5 +1,6 @@
 import React, { createRef, useEffect } from "react";
 import "@/components/shop-content/style.scss";
+
 interface SortMenuProps {
   labels: string[];
   onRefReady: (ref: React.RefObject<HTMLDivElement>) => void;
@@ -8,7 +9,7 @@ interface SortMenuProps {
 export function SortMenu(props: SortMenuProps) {
   const ref = createRef<HTMLDivElement>();
   useEffect(() => {
-    console.log("REFERENCE " + ref);
+  
     props.onRefReady(ref);
   }, []);
   return (

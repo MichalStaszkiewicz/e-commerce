@@ -3,6 +3,7 @@ import { useShop } from "@/hooks/use-shop";
 import { Product } from "@/model/product";
 import { filterBySize, formatNumberWithCommas } from "@/utils/utility-function";
 import { Checkbox } from "antd";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 export function CategoriesColorIndicator({
   color,
@@ -30,7 +31,7 @@ interface CategorySizeProps {
 
 export function CategoriesSize({ label, quantity }: CategorySizeProps) {
   const [checked, setChecked] = useState(false);
-  const { shopState, setState } = useShop();
+  const { shopState, setState, setRouterPath } = useShop();
 
   const handleToggle = () => {
     const selectedSizes = [...shopState.selectedSizes];

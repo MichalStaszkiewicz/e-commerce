@@ -16,55 +16,6 @@ import SortButton from "./sort-button";
 export function ShopRightColumn() {
   const { shopState, setState } = useShop();
 
-  useEffect(() => {
-    const pagesNumber = () => {
-      return Math.ceil(shopState.products.length / shopState.productsPerPage);
-    };
-
-    console.log("products " + shopState.products);
-    let products = [
-      {
-        name: "Tank Top",
-        description: "basfbasasdfdfds",
-        image: "/images/cloth_1.jpg",
-        price: 920,
-        categories: ["men"],
-        availableSize: ["medium", "large"],
-      },
-
-      {
-        name: "Tank Top",
-        description: "basfbmfgnfasdfds",
-        image: "/images/cloth_3.jpg",
-        price: 620,
-        categories: ["men"],
-        availableSize: ["medium", "large"],
-      },
-
-      {
-        name: "Tank Top",
-        description: "basfbassdfgdfds",
-        image: "/images/cloth_1.jpg",
-        price: 220,
-        categories: ["woman"],
-        availableSize: ["medium", "large"],
-      },
-      {
-        name: "Tank Top",
-        description: "bdfbsdfbs",
-        image: "/images/cloth_2.jpg",
-        price: 120,
-        categories: ["chilren"],
-        availableSize: ["small"],
-      },
-    ];
-    setState({
-      ...shopState,
-      products: products,
-      originalProducts: products,
-    });
-  }, []);
-
   const calculateStartIndex = function () {
     return shopState.paginationPage * shopState.productsPerPage;
   };
