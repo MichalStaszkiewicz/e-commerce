@@ -25,6 +25,8 @@ export function ShopProvider({ children }: any) {
     maxPrice: 1000,
   });
   useEffect(() => {
+    setReady(true);
+    setUp();
     readDataFromRoute();
   }, []);
   useEffect(() => {
@@ -109,6 +111,8 @@ export function ShopProvider({ children }: any) {
         : 1000;
     let selectedSizes =
       searchParams.get("size") != null ? searchParams.get("size") : [];
+
+    
     setState({
       ...shopState,
       loading: false,
@@ -116,8 +120,6 @@ export function ShopProvider({ children }: any) {
       maxPrice: maxPrice,
       selectedSizes: selectedSizes as string[],
     });
-    setReady(true);
-    setUp();
   }
   return (
     <ShopContext.Provider value={{ shopState, setState, setRouterPath }}>
