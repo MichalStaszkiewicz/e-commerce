@@ -28,7 +28,6 @@ export function ShopProvider({ children }: any) {
     setReady(true);
     setUp();
     console.log(shopState.originalProducts);
-    
   }, []);
   useEffect(() => {
     if (isReady) {
@@ -55,6 +54,7 @@ export function ShopProvider({ children }: any) {
     );
   }
   function setUp() {
+    let urlData = readDataFromRoute();
     let products = [
       {
         name: "Tank Top",
@@ -92,7 +92,14 @@ export function ShopProvider({ children }: any) {
       },
     ];
 
-    setState({ ...shopState, products: products, originalProducts: products });
+    setState({
+      ...shopState,
+      products: products,
+      originalProducts: products,
+      minPrice: urlData["min"],
+      maxPrice: urlData["max"],
+      selectedSizes: urlData["size"] as [],
+    });
   }
   function filterProducts() {
     console.log(shopState.originalProducts);
@@ -114,13 +121,7 @@ export function ShopProvider({ children }: any) {
     let selectedSizes =
       searchParams.get("size") != null ? searchParams.get("size") : [];
 
-    setState({
-      ...shopState,
-      loading: false,
-      minPrice: minPrice,
-      maxPrice: maxPrice,
-      selectedSizes: selectedSizes as string[],
-    });
+    return { min: minPrice, max: maxPrice, size: selectedSizes };
   }
   return (
     <ShopContext.Provider value={{ shopState, setState, setRouterPath }}>
