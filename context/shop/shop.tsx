@@ -5,6 +5,7 @@ import React from "react";
 import { ShopState, TShopContext } from "./type";
 import { useRouter, useSearchParams } from "next/navigation";
 import { parse } from "path";
+import { filterBySize } from "@/utils/utility-function";
 
 export const ShopContext = React.createContext<TShopContext | null>(null);
 
@@ -79,7 +80,7 @@ export function ShopProvider({ children }: any) {
         description: "basfbassdfgdfds",
         image: "/images/cloth_1.jpg",
         price: 220,
-        categories: ["woman"],
+        categories: ["women"],
         availableSize: ["medium", "large"],
       },
       {
@@ -103,11 +104,13 @@ export function ShopProvider({ children }: any) {
   }
   function filterProducts() {
     console.log(shopState.originalProducts);
-    const filteredProducts = shopState.originalProducts.filter(
+    const filteredProductsByPrice = shopState.originalProducts.filter(
       (item) =>
         item.price >= shopState.minPrice && item.price <= shopState.maxPrice
     );
-    return filteredProducts;
+    const result = filterBySize(filteredProductsByPrice, shopState.selectedSizes);
+
+    return result;
   }
   function readDataFromRoute() {
     let minPrice =
@@ -118,8 +121,27 @@ export function ShopProvider({ children }: any) {
       searchParams.get("max") != null
         ? parseInt(searchParams.get("max")!)
         : 1000;
-    let selectedSizes =
-      searchParams.get("size") != null ? searchParams.get("size") : [];
+    let selectedSizes: string[] = [];
+    let selectedSizesFromRoute =
+      searchParams.get("size") != null ? searchParams.get("size") : "";
+
+    if (selectedSizesFromRoute != null) {
+      let size = "";
+      for (let i = 0; i < selectedSizesFromRoute.length; i++) {
+        let letter = selectedSizesFromRoute.charAt(i);
+
+        if (letter != ",") {
+          size += letter;
+        }
+        if (letter == ",") {
+          selectedSizes.push(size);
+          size = "";
+        }
+      }
+      selectedSizes.push(size);
+
+      console.log(selectedSizes);
+    }
 
     return { min: minPrice, max: maxPrice, size: selectedSizes };
   }
