@@ -27,7 +27,8 @@ export function ShopProvider({ children }: any) {
   useEffect(() => {
     setReady(true);
     setUp();
-    readDataFromRoute();
+    console.log(shopState.originalProducts);
+    
   }, []);
   useEffect(() => {
     if (isReady) {
@@ -90,6 +91,7 @@ export function ShopProvider({ children }: any) {
         availableSize: ["small"],
       },
     ];
+
     setState({ ...shopState, products: products, originalProducts: products });
   }
   function filterProducts() {
@@ -112,7 +114,6 @@ export function ShopProvider({ children }: any) {
     let selectedSizes =
       searchParams.get("size") != null ? searchParams.get("size") : [];
 
-    
     setState({
       ...shopState,
       loading: false,
