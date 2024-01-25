@@ -11,7 +11,8 @@ import { ShopState } from "@/context/shop/type";
 import { useShop } from "@/hooks/use-shop";
 
 import Pagination from "@/components/pagination/component";
-import SortButton from "./sort-button";
+import { SortBy } from "./const";
+import SortListButton from "./sort-list-button";
 
 export function ShopRightColumn() {
   const { shopState, setState } = useShop();
@@ -33,18 +34,46 @@ export function ShopRightColumn() {
       <div className="header">
         <p className="shop-all">Shop All</p>
         <div className="sort_container">
-          <SortButton
+          <SortListButton
             label={"LATEST"}
-            menuData={["Man", "Woman", "Children"]}
+            sortMethod={[
+              {
+                name: "Men",
+                sortBy: SortBy.men,
+              },
+              {
+                name: "Women",
+                sortBy: SortBy.women,
+              },
+              {
+                name: "Children",
+                sortBy: SortBy.children,
+              },
+            ]}
           />
-          <SortButton
+          <SortListButton
             label={"REFERENCE"}
-            menuData={[
-              "Relevance",
-              "Name, A To Z",
-              "Name, Z to A",
-              "Price, low to high",
-              "Price, high to low",
+            sortMethod={[
+              {
+                name: "Relevance",
+                sortBy: SortBy.relevance,
+              },
+              {
+                name: "Name,A To Z",
+                sortBy: SortBy.nameAToZ,
+              },
+              {
+                name: "Name,Z To A",
+                sortBy: SortBy.nameZToA,
+              },
+              {
+                name: "Price,Low To High",
+                sortBy: SortBy.priceDesc,
+              },
+              {
+                name: "Price,High To Low",
+                sortBy: SortBy.priceAsc,
+              },
             ]}
           />
         </div>
@@ -54,6 +83,7 @@ export function ShopRightColumn() {
           .slice(calculateStartIndex() as number, calculateEndIndex())
           .map((item, index) => (
             <FadeOnVisible
+              key={index}
               children={
                 <ProductCard
                   width={"250px"}

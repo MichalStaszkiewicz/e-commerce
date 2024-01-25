@@ -68,33 +68,33 @@ export default function Home() {
                   products: [
                     {
                       image: "/images/cloth_1.jpg",
-                      label: "Tank top",
+                      label: "Aank top",
                       price: 50,
                       description: "Finding perfect product",
                     },
                     {
                       image: "/images/cloth_1.jpg",
-                      label: "Tank top",
-                      price: 50,
-                      description: "Finding perfect product",
-                    },
-
-                    {
-                      image: "/images/cloth_1.jpg",
-                      label: "Tank top",
-                      price: 50,
-                      description: "Finding perfect product",
-                    },
-                    {
-                      image: "/images/cloth_1.jpg",
-                      label: "Tank top",
+                      label: "Zank top",
                       price: 50,
                       description: "Finding perfect product",
                     },
 
                     {
                       image: "/images/cloth_1.jpg",
-                      label: "Tank top",
+                      label: "Hank top",
+                      price: 50,
+                      description: "Finding perfect product",
+                    },
+                    {
+                      image: "/images/cloth_1.jpg",
+                      label: "Gank top",
+                      price: 50,
+                      description: "Finding perfect product",
+                    },
+
+                    {
+                      image: "/images/cloth_1.jpg",
+                      label: "Lank top",
                       price: 50,
                       description: "Finding perfect product",
                     },

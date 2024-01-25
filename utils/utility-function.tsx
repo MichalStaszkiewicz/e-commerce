@@ -1,3 +1,6 @@
+
+import { SortBy } from "@/components/shop-content/shop-right-column/const";
+import { useShop } from "@/hooks/use-shop";
 import { Product } from "@/model/product";
 import {
   HomeOutlined,
@@ -5,6 +8,19 @@ import {
   ShoppingOutlined,
   BankOutlined,
 } from "@ant-design/icons";
+
+export function sortProducts(sortBy: SortBy, products: Product[]) {
+  if (sortBy === SortBy.nameAToZ) {
+    products.sort((a, b) => a.name.toLowerCase().localeCompare(b.name));
+  } else if (sortBy === SortBy.nameZToA) {
+    products.sort((a, b) => b.name.toLowerCase().localeCompare(a.name));
+  } else if (sortBy === SortBy.priceAsc) {
+    products.sort((a, b) => a.price - b.price);
+  } else if (sortBy === SortBy.priceDesc) {
+    products.sort((a, b) => b.price - a.price);
+  }
+  return products;
+}
 /**
  * Capitalizes the first letter of a string.
  *

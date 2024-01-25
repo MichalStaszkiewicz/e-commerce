@@ -58,7 +58,7 @@ export function ShopProvider({ children }: any) {
     let urlData = readDataFromRoute();
     let products = [
       {
-        name: "Tank Top",
+        name: "Aank Top",
         description: "basfbasasdfdfds",
         image: "/images/cloth_1.jpg",
         price: 920,
@@ -67,7 +67,7 @@ export function ShopProvider({ children }: any) {
       },
 
       {
-        name: "Tank Top",
+        name: "Zank Top",
         description: "basfbmfgnfasdfds",
         image: "/images/cloth_3.jpg",
         price: 620,
@@ -76,7 +76,7 @@ export function ShopProvider({ children }: any) {
       },
 
       {
-        name: "Tank Top",
+        name: "Bank Top",
         description: "basfbassdfgdfds",
         image: "/images/cloth_1.jpg",
         price: 220,
@@ -84,7 +84,7 @@ export function ShopProvider({ children }: any) {
         availableSize: ["medium", "large"],
       },
       {
-        name: "Tank Top",
+        name: "Lank Top",
         description: "bdfbsdfbs",
         image: "/images/cloth_2.jpg",
         price: 120,
