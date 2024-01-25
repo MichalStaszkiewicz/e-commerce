@@ -11,7 +11,7 @@ import { ShopState } from "@/context/shop/type";
 import { useShop } from "@/hooks/use-shop";
 
 import Pagination from "@/components/pagination/component";
-import { SortBy } from "./const";
+import { FilterBy, SortBy } from "./const";
 import SortListButton from "./sort-list-button";
 
 export function ShopRightColumn() {
@@ -36,43 +36,67 @@ export function ShopRightColumn() {
         <div className="sort_container">
           <SortListButton
             label={"LATEST"}
-            sortMethod={[
+            method={[
               {
-                name: "Men",
-                sortBy: SortBy.men,
+                label: "Men",
+                sortBy: SortBy.none,
+                sort: false,
+                filter: true,
+                filterBy: FilterBy.men,
               },
               {
-                name: "Women",
-                sortBy: SortBy.women,
+                label: "Women",
+                sortBy: SortBy.none,
+                sort: false,
+                filter: true,
+                filterBy: FilterBy.women,
               },
               {
-                name: "Children",
-                sortBy: SortBy.children,
+                label: "Children",
+                sortBy: SortBy.none,
+                sort: false,
+                filter: true,
+                filterBy: FilterBy.children,
               },
             ]}
           />
           <SortListButton
             label={"REFERENCE"}
-            sortMethod={[
+            method={[
               {
-                name: "Relevance",
+                label: "Relevance",
                 sortBy: SortBy.relevance,
+                sort: true,
+                filter: false,
+                filterBy: FilterBy.none,
               },
               {
-                name: "Name,A To Z",
+                label: "Name,A To Z",
                 sortBy: SortBy.nameAToZ,
+                sort: true,
+                filter: false,
+                filterBy: FilterBy.none,
               },
               {
-                name: "Name,Z To A",
+                label: "Name,Z To A",
                 sortBy: SortBy.nameZToA,
+                sort: true,
+                filter: false,
+                filterBy: FilterBy.none,
               },
               {
-                name: "Price,Low To High",
+                label: "Price,Low To High",
                 sortBy: SortBy.priceDesc,
+                sort: true,
+                filter: false,
+                filterBy: FilterBy.none,
               },
               {
-                name: "Price,High To Low",
+                label: "Price,High To Low",
                 sortBy: SortBy.priceAsc,
+                sort: true,
+                filter: false,
+                filterBy: FilterBy.none,
               },
             ]}
           />

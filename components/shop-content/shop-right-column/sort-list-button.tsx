@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { SortList } from "./sort-list";
 import "@/components/shop-content/style.scss";
-import { SortButtonProps } from "./const";
+import { SortFilterButtonProps } from "./const";
 
 
-export default function SortListButton(props: SortButtonProps) {
+export default function SortListButton(props: SortFilterButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = React.createRef<HTMLDivElement>();
 
@@ -33,7 +33,7 @@ export default function SortListButton(props: SortButtonProps) {
       </div>
       {isOpen ? (
         <SortList
-          labels={props.sortMethod}
+          labels={props.method}
           onRefReady={function (
             sortMenu: React.RefObject<HTMLDivElement>
           ): void {

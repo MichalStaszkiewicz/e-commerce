@@ -51,20 +51,13 @@ export function CategoriesSize({ label, quantity }: CategorySizeProps) {
       selectedSizes.splice(selectedSizes.indexOf(label.toLowerCase()), 1);
     } else {
       selectedSizes.push(label.toLowerCase());
-      console.log(selectedSizes);
     }
 
-    const filteredProducts = filterBySize(
-      shopState.originalProducts,
-      selectedSizes
-    );
-    console.log("filteredProducts " + filteredProducts);
+  
+
     const updatedState = {
       ...shopState,
-      products:
-        selectedSizes.length > 0
-          ? filteredProducts
-          : shopState.originalProducts,
+
       selectedSizes,
     };
     setRouterPath();

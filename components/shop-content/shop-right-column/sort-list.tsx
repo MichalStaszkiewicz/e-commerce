@@ -3,9 +3,9 @@ import "@/components/shop-content/style.scss";
 import { useShop } from "@/hooks/use-shop";
 
 import { sortProducts } from "@/utils/utility-function";
-import { SortMethod, SortBy } from "./const";
+import { ActionType, FilterBy, SortBy } from "./const";
 interface SortMenuProps {
-  labels: SortMethod[];
+  labels: ActionType[];
   onRefReady: (ref: React.RefObject<HTMLDivElement>) => void;
 }
 
@@ -13,15 +13,27 @@ export function SortList(props: SortMenuProps) {
   const ref = createRef<HTMLDivElement>();
   const shop = useShop();
 
-  function onClick(sortBy: SortBy): void {
-    const products = sortProducts(sortBy, shop.shopState.products);
-    const originalProducts = sortProducts(
-      sortBy,
-      shop.shopState.originalProducts
-    );
+  function onClick(sortBy: SortBy, filterBy: FilterBy, label: string): void {
+    let products;
+    if (
+      filterBy === FilterBy.children ||
+      filterBy === FilterBy.women ||
+      filterBy === FilterBy.men
+    ) {
+      let selectedCategories = shop.shopState.selectedCategories;
+      selectedCategories.push(label.toLowerCase());
+      shop.setState({
+        ...shop.shopState,
+        selectedCategories: selectedCategories,
+      });
+      return;
+    } else {
+      products = sortProducts(sortBy, shop.shopState.products);
+    }
+
     shop.setState({
       ...shop.shopState,
-      originalProducts: originalProducts,
+
       products: products,
     });
   }
@@ -35,10 +47,10 @@ export function SortList(props: SortMenuProps) {
           <li key={index}>
             <p
               onClick={() => {
-                onClick(item.sortBy);
+                onClick(item.sortBy, item.filterBy, item.label);
               }}
             >
-              {item.name}
+              {item.label}
             </p>
           </li>
         ))}

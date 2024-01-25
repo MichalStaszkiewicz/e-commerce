@@ -1,20 +1,28 @@
 export enum SortBy {
+  none,
   relevance,
   priceDesc,
   priceAsc,
   nameAToZ,
   nameZToA,
+}
+export enum FilterBy {
+  none,
   men,
   women,
   children,
 }
-export interface SortButtonProps {
+export interface SortFilterButtonProps {
   label: string;
-  sortMethod: SortMethod[];
+  method: ActionType[];
 }
-export interface SortMethod {
-  name: string;
+export interface ActionType {
+  label: string;
+
+  filterBy: FilterBy;
+  filter: boolean;
   sortBy: SortBy;
+  sort: boolean;
 }
 export interface SortButtonState {
   isOpen: boolean;

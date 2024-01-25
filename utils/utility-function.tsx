@@ -1,5 +1,7 @@
-
-import { SortBy } from "@/components/shop-content/shop-right-column/const";
+import {
+  FilterBy,
+  SortBy,
+} from "@/components/shop-content/shop-right-column/const";
 import { useShop } from "@/hooks/use-shop";
 import { Product } from "@/model/product";
 import {
@@ -15,11 +17,42 @@ export function sortProducts(sortBy: SortBy, products: Product[]) {
   } else if (sortBy === SortBy.nameZToA) {
     products.sort((a, b) => b.name.toLowerCase().localeCompare(a.name));
   } else if (sortBy === SortBy.priceAsc) {
-    products.sort((a, b) => a.price - b.price);
-  } else if (sortBy === SortBy.priceDesc) {
     products.sort((a, b) => b.price - a.price);
+  } else if (sortBy === SortBy.priceDesc) {
+    products.sort((a, b) => a.price - b.price);
   }
+
   return products;
+}
+export function filterByFromCategory(category: string): FilterBy {
+  if (category.toLowerCase() == "men") {
+    return FilterBy.men;
+  } else if (category.toLowerCase() == "women") {
+    return FilterBy.women;
+  } else if (category.toLowerCase() == "children") {
+    return FilterBy.children;
+  }
+  return FilterBy.none;
+}
+export function filterByCategory(
+  filterBy: FilterBy,
+  products: Product[]
+): Product[] {
+  let tempProducts = products;
+  if (filterBy === FilterBy.men) {
+    tempProducts = products.filter((product) =>
+      product.categories.includes("men")
+    );
+  } else if (filterBy === FilterBy.women) {
+    tempProducts = products.filter((product) =>
+      product.categories.includes("women")
+    );
+  } else if (filterBy === FilterBy.children) {
+    tempProducts = products.filter((product) =>
+      product.categories.includes("children")
+    );
+  }
+  return tempProducts;
 }
 /**
  * Capitalizes the first letter of a string.
@@ -83,8 +116,42 @@ export function formatNumberWithCommas(number: number): string {
  * @returns The filtered array of products.
  */
 export function filterBySize(products: Product[], selectedSizes: string[]) {
-  const filteredProducts = products.filter((product) =>
-    product.availableSize.some((size) => selectedSizes.includes(size))
-  );
+  let filteredProducts = products;
+
+  if (selectedSizes.length > 0) {
+    filteredProducts = products.filter((product) =>
+      product.availableSize.some((size) => selectedSizes.includes(size))
+    );
+  }
+
   return filteredProducts;
+}
+
+export function filterByPrice(
+  products: Product[],
+  minPrice: number,
+  maxPrice: number
+): Product[] {
+  products = products.filter(
+    (item) => item.price >= minPrice && item.price <= maxPrice
+  );
+  return products;
+}
+export function readSizesFromString(sizes: string): string[] {
+  let selectedSizes: string[] = [];
+
+  let size = "";
+  for (let i = 0; i < sizes.length; i++) {
+    let letter = sizes.charAt(i);
+
+    if (letter != ",") {
+      size += letter;
+    }
+    if (letter == ",") {
+      selectedSizes.push(size);
+      size = "";
+    }
+  }
+  selectedSizes.push(size);
+  return selectedSizes;
 }

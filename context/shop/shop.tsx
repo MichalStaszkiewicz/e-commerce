@@ -5,7 +5,14 @@ import React from "react";
 import { ShopState, TShopContext } from "./type";
 import { useRouter, useSearchParams } from "next/navigation";
 import { parse } from "path";
-import { filterBySize } from "@/utils/utility-function";
+import {
+  filterByCategory,
+  filterByFromCategory,
+  filterByPrice,
+  filterBySize,
+  readSizesFromString,
+} from "@/utils/utility-function";
+import { FilterBy } from "@/components/shop-content/shop-right-column/const";
 
 export const ShopContext = React.createContext<TShopContext | null>(null);
 
@@ -43,10 +50,13 @@ export function ShopProvider({ children }: any) {
     isReady,
     shopState.minPrice,
     shopState.maxPrice,
-    shopState.selectedSizes,
-    shopState.selectedCategories,
+    shopState.selectedSizes.length,
+    shopState.selectedCategories.length,
   ]);
   function setRouterPath() {
+    console.log(
+      "setRouterPath selectedSizes " + shopState.selectedSizes.length
+    );
     router.push(
       `?size=${shopState.selectedSizes}&min=${shopState.minPrice}&max=${shopState.maxPrice}`,
       {
@@ -88,7 +98,7 @@ export function ShopProvider({ children }: any) {
         description: "bdfbsdfbs",
         image: "/images/cloth_2.jpg",
         price: 120,
-        categories: ["chilren"],
+        categories: ["children"],
         availableSize: ["small"],
       },
     ];
@@ -104,11 +114,26 @@ export function ShopProvider({ children }: any) {
   }
   function filterProducts() {
     console.log(shopState.originalProducts);
-    const filteredProductsByPrice = shopState.originalProducts.filter(
-      (item) =>
-        item.price >= shopState.minPrice && item.price <= shopState.maxPrice
+    let products = shopState.originalProducts;
+    console.log("shopState.selectedCategories " + shopState.selectedCategories);
+    if (shopState.selectedCategories.length > 0) {
+      let categoryFilter: FilterBy = FilterBy.none;
+      categoryFilter = filterByFromCategory(
+        shopState.selectedCategories[shopState.selectedCategories.length - 1]
+      );
+      products = filterByCategory(categoryFilter, products);
+    }
+
+    const filteredProductsByPrice = filterByPrice(
+      products,
+      shopState.minPrice,
+      shopState.maxPrice
     );
-    const result = filterBySize(filteredProductsByPrice, shopState.selectedSizes);
+
+    const result = filterBySize(
+      filteredProductsByPrice,
+      shopState.selectedSizes
+    );
 
     return result;
   }
@@ -122,23 +147,11 @@ export function ShopProvider({ children }: any) {
         ? parseInt(searchParams.get("max")!)
         : 1000;
     let selectedSizes: string[] = [];
-    let selectedSizesFromRoute =
+    let selectedSizesString =
       searchParams.get("size") != null ? searchParams.get("size") : "";
 
-    if (selectedSizesFromRoute != null) {
-      let size = "";
-      for (let i = 0; i < selectedSizesFromRoute.length; i++) {
-        let letter = selectedSizesFromRoute.charAt(i);
-
-        if (letter != ",") {
-          size += letter;
-        }
-        if (letter == ",") {
-          selectedSizes.push(size);
-          size = "";
-        }
-      }
-      selectedSizes.push(size);
+    if (selectedSizesString != null && selectedSizesString.length > 1) {
+      selectedSizes = readSizesFromString(selectedSizesString);
 
       console.log(selectedSizes);
     }
