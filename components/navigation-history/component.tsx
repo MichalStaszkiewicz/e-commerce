@@ -52,7 +52,7 @@ export default function NavigationHistory() {
       <Breadcrumb
         items={[
           {
-            href: "/shop/product_details",
+            href: "/",
             title: (
               <>
                 <HomeOutlined /> <span>Home</span>
