@@ -27,7 +27,7 @@ export default function NavigationHistory() {
             title: (
               <>
                 {icon != null ? icon : <div></div>}{" "}
-                <span>{capitalize(path)}</span>
+                <span>{capitalize(path.replace("_", " "))}</span>
               </>
             ),
           });
@@ -41,7 +41,8 @@ export default function NavigationHistory() {
     tempItems.push({
       title: (
         <>
-          {icon != null ? icon : <div></div>} <span>{capitalize(path)}</span>
+          {icon != null ? icon : <div></div>}{" "}
+          <span>{capitalize(path.replace("_", " "))}</span>
         </>
       ),
     });

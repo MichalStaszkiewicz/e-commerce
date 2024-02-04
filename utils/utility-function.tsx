@@ -71,6 +71,9 @@ export function capitalize(text: string) {
  * @param subpath The subpath to search for.
  * @returns The href.
  */
+
+
+
 export function getHrefFromPath(path: string, subpath: string) {
   let endIndex = path.indexOf(subpath);
 

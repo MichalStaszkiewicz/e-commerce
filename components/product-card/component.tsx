@@ -26,7 +26,7 @@ export default function ProductCard({
   return (
     <div
       onClick={() => {
-        router.push("/shop/product_details");
+        router.push(`/shop/${label.replace(" ","_")}`,);
       }}
       className="product_card_container"
       style={{
