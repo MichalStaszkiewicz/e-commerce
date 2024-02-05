@@ -3,9 +3,31 @@ import "@/components/product_details/style.scss";
 import { Button, ConfigProvider, Radio } from "antd";
 import SelectProductCount from "../select_product_quantity/component";
 import theme from "@/theme/theme_config";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+
 export default function ProductDetails() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const [state, setState] = useState({
+    productCount: 1,
+    size: "",
+  });
+  useEffect(() => {
+    let size: any = searchParams.get("size");
+    let productCount: any = searchParams.get("productCount");
+    if (size !== null) {
+      setState({ size: size, productCount: productCount });
+    }
+   
+  }, []);
+  function onPathUpdate() {
+    router.push(`?size=${state.size}&productCount=${state.productCount}`, {
+      scroll: false,
+    });
+  }
+
   return (
     <div className="wrapper">
       <ConfigProvider theme={theme}>
@@ -34,12 +56,46 @@ export default function ProductDetails() {
           <p className="price">$50.00</p>
           <div className="pick-size">
             {" "}
-            <Radio>Small</Radio>
-            <Radio>Medium</Radio>
-            <Radio>Large</Radio>
-            <Radio>Extra Large</Radio>
+            <Radio.Group value={state.size}>
+              <Radio
+                onClick={() => {
+                  setState({ ...state, size: "Small" });
+                  onPathUpdate();
+                }}
+                value={"Small"}
+              >
+                Small
+              </Radio>
+              <Radio
+                onClick={() => {
+                  setState({ ...state, size: "Medium" });
+                  onPathUpdate();
+                }}
+                value={"Medium"}
+              >
+                Medium
+              </Radio>
+              <Radio
+                onClick={() => {
+                  setState({ ...state, size: "Large" });
+                  onPathUpdate();
+                }}
+                value={"Large"}
+              >
+                Large
+              </Radio>
+              <Radio
+                onClick={() => {
+                  setState({ ...state, size: "Extra Large" });
+                  onPathUpdate();
+                }}
+                value={"Extra Large"}
+              >
+                Extra Large
+              </Radio>
+            </Radio.Group>
           </div>
-          <SelectProductCount />
+          <SelectProductCount size={state.size} />
           <Button
             type="primary"
             size="large"

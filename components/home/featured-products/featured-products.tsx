@@ -152,10 +152,14 @@ export function FeaturedProducts({ props }: { props: FeaturedProductProps }) {
         {props.products.map((item, index) => (
           <ProductCard
             key={index}
-            image={item.image}
-            label={item.label}
-            description={item.description}
-            price={item.price}
+            product={{
+              name: "Aank Top",
+              description: "basfbasasdfdfds",
+              image: "/images/cloth_1.jpg",
+              price: 920,
+              categories: ["men"],
+              availableSize: ["medium", "large"],
+            }}
             width={"350px"}
             height={"400px"}
           />

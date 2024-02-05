@@ -2,9 +2,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./style.scss";
 import * as icons from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-export default function SelectProductCount() {
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+export default function SelectProductCount({ size }: { size: string }) {
   const [quantity, setQuantity] = useState(1);
+  const router = useRouter();
+
+  function onPathUpdate() {
+    router.push(`?size=${size}&productCount=${quantity}`, {
+      scroll: false,
+    });
+  }
+  useEffect(() => {
+    onPathUpdate();
+  }, [quantity]);
   return (
     <div className="select-product-wrapper">
       <div

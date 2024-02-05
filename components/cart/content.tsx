@@ -7,13 +7,16 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import TableEntry from "./table_entry/component";
 import TableHeader from "./table_header/component";
+import { useSearchParams } from "react-router-dom";
 
 export default function CartContent() {
   const [ready, setReady] = useState(false);
   const router = useRouter();
+
   useLayoutEffect(() => {
     setReady(true);
   });
+
 
   return ready ? (
     <ConfigProvider theme={theme} direction="ltr">

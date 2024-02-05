@@ -15,7 +15,7 @@ export default function NavigationHistory() {
   const pathName = usePathname();
   const [items, setItems] = useState([]);
   useEffect(() => {
-    console.log(pathName);
+
     let path = "";
     let tempItems: any = [];
     for (let i = 1; i < pathName.length; i++) {

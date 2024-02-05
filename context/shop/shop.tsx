@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { createContext } from "vm";
 
 import React from "react";
 import { ShopState, TShopContext } from "./type";
@@ -13,7 +12,7 @@ import {
   readSizesFromString,
 } from "@/utils/utility-function";
 import { FilterBy } from "@/components/shop-content/shop-right-column/const";
-
+//TODO: Flickerting page when pushing router string . possible solution would be checking if components are ready
 export const ShopContext = React.createContext<TShopContext | null>(null);
 
 export function ShopProvider({ children }: any) {
@@ -35,7 +34,6 @@ export function ShopProvider({ children }: any) {
   useEffect(() => {
     setReady(true);
     setUp();
-    console.log(shopState.originalProducts);
   }, []);
   useEffect(() => {
     if (isReady) {
@@ -47,22 +45,15 @@ export function ShopProvider({ children }: any) {
       });
     }
   }, [
-    isReady,
     shopState.minPrice,
     shopState.maxPrice,
     shopState.selectedSizes.length,
     shopState.selectedCategories.length,
   ]);
   function setRouterPath() {
-    console.log(
-      "setRouterPath selectedSizes " + shopState.selectedSizes.length
-    );
     router.push(
-      `?size=${shopState.selectedSizes}&min=${shopState.minPrice}&max=${shopState.maxPrice}`,
-      {
-        scroll: false,
-      }
-    );
+      `?size=${shopState.selectedSizes}&min=${shopState.minPrice}&max=${shopState.maxPrice}`
+    )
   }
   function setUp() {
     let urlData = readDataFromRoute();
@@ -113,9 +104,8 @@ export function ShopProvider({ children }: any) {
     });
   }
   function filterProducts() {
-    console.log(shopState.originalProducts);
     let products = shopState.originalProducts;
-    console.log("shopState.selectedCategories " + shopState.selectedCategories);
+
     if (shopState.selectedCategories.length > 0) {
       let categoryFilter: FilterBy = FilterBy.none;
       categoryFilter = filterByFromCategory(
@@ -152,8 +142,6 @@ export function ShopProvider({ children }: any) {
 
     if (selectedSizesString != null && selectedSizesString.length > 1) {
       selectedSizes = readSizesFromString(selectedSizesString);
-
-      console.log(selectedSizes);
     }
 
     return { min: minPrice, max: maxPrice, size: selectedSizes };

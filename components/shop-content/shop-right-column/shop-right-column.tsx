@@ -2,7 +2,7 @@
 import FadeOnVisible from "../../effects/fade-on-visible/component";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 
 import "@/components/shop-content/style.scss";
@@ -20,6 +20,7 @@ export function ShopRightColumn() {
   const calculateStartIndex = function () {
     return shopState.paginationPage * shopState.productsPerPage;
   };
+
   const calculateEndIndex = () => {
     const startIndex = calculateStartIndex();
     const endIndex = Math.min(
@@ -112,10 +113,7 @@ export function ShopRightColumn() {
                 <ProductCard
                   width={"250px"}
                   height={"350px"}
-                  image={shopState.products[index].image}
-                  label={shopState.products[index].name}
-                  price={shopState.products[index].price}
-                  description={shopState.products[index].description}
+                  product={shopState.products[index]}
                 />
               }
             ></FadeOnVisible>

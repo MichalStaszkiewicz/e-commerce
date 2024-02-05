@@ -5,19 +5,14 @@ import * as icons from "@fortawesome/free-solid-svg-icons";
 import "@/components/product-card/style.scss";
 
 import { useRouter } from "next/navigation";
+import { Product } from "@/model/product";
 
 export default function ProductCard({
-  image,
-  label,
-  description,
-  price,
+  product,
   width,
   height,
 }: {
-  image: string;
-  label: String;
-  description: string;
-  price: number;
+  product: Product;
   width: string;
   height: string;
 }) {
@@ -26,7 +21,7 @@ export default function ProductCard({
   return (
     <div
       onClick={() => {
-        router.push(`/shop/${label.replace(" ","_")}`,);
+        router.push(`/shop/${product.name.replace(" ", "_")}`);
       }}
       className="product_card_container"
       style={{
@@ -36,14 +31,14 @@ export default function ProductCard({
     >
       <div
         style={{
-          backgroundImage: `url(${image})`,
+          backgroundImage: `url(${product.image})`,
         }}
         className="product_card_image"
       ></div>
       <div className="product_card_desc">
-        <p className="product_card_name">{label}</p>
-        <p className="product_card_description">{description} </p>
-        <p className="product_card_price">${price}</p>
+        <p className="product_card_name">{product.name}</p>
+        <p className="product_card_description">{product.description} </p>
+        <p className="product_card_price">${product.price}</p>
       </div>
     </div>
   );
