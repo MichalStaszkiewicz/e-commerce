@@ -10,15 +10,6 @@ import { Button, ConfigProvider, theme } from "antd";
 import customTheme from "@/theme/theme_config";
 import { CompoundedComponent } from "antd/es/float-button/interface";
 export default function HomePromotion() {
-  const buttonRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    if (buttonRef.current != null) {
-    
-    
-    }
-  }, [buttonRef]);
-
   return (
     <div className="home-promotion-container">
       <ConfigProvider theme={customTheme}>
@@ -34,15 +25,7 @@ export default function HomePromotion() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
               at iaculis quam. Integer accumsan tincidunt fringilla.
             </p>
-            <Button
-              ref={buttonRef}
-              style={{
-             
-              }}
-              type="primary"
-              htmlType="submit"
-              size="large"
-            >
+            <Button style={{height:"45px",paddingLeft:"30px",paddingRight:"30px",borderRadius:"3px"}} type="primary" htmlType="submit" size="middle">
               SHOP NOW
             </Button>
           </div>

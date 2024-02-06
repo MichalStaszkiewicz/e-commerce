@@ -4,7 +4,7 @@ import { Button, ConfigProvider } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import customTheme from "@/theme/theme_config";
-export default function TableEntry() {
+export default function CartTableEntry() {
   return (
     <ConfigProvider theme={customTheme}>
       <tr className="tr-entry">
@@ -19,7 +19,7 @@ export default function TableEntry() {
         </td>
         <td className="entry-quantity">
           <center>
-            <SelectProductCount />
+            <SelectProductCount size={""} />
           </center>
         </td>
         <td className="entry-total">
@@ -27,7 +27,7 @@ export default function TableEntry() {
         </td>
         <td className="entry-remove">
           <center>
-            <Button style={{ height: "50px", width: "50px" }}>
+            <Button type="primary" style={{ height: "50px", width: "50px", borderRadius:"5px"}}>
               <FontAwesomeIcon style={{color:"white"}}
                 type="primary"
                 icon={icons.faClose}

@@ -3,12 +3,9 @@ import "antd";
 const customTheme: ThemeConfig = {
   components: {
     Button: {
-      borderRadius: 4,
+      borderRadius: 10,
 
       colorPrimary: "#7670D4",
-      colorBgBlur: "red",
-
-      colorPrimaryBg: "red",
     },
     Slider: {
       colorPrimary: "#5D53E3",

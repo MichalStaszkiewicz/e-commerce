@@ -34,7 +34,16 @@ export function BigSale() {
                 Quisquam iste dolor accusantium facere corporis ipsum animi
                 deleniti fugiat. Ex, veniam?
               </p>
-              <Button type="primary" size="large">
+              <Button
+                style={{
+                  height: "45px",
+                  paddingLeft: "30px",
+                  paddingRight: "30px",
+                  borderRadius: "3px",
+                }}
+                type="primary"
+                size="large"
+              >
                 SHOP NOW
               </Button>
             </div>

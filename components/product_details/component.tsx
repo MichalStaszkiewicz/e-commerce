@@ -4,7 +4,7 @@ import { Button, ConfigProvider, Radio } from "antd";
 import SelectProductCount from "../select_product_quantity/component";
 import customTheme from "@/theme/theme_config";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProductDetails() {
   const router = useRouter();
@@ -25,7 +25,7 @@ export default function ProductDetails() {
     router.replace(`?size=${state.size}&productCount=${state.productCount}`, {
       scroll: false,
     });
-  },[state.size,state.productCount]);
+  }, [state.size, state.productCount]);
   function onPathUpdate() {}
 
   return (
@@ -99,11 +99,17 @@ export default function ProductDetails() {
           <Button
             type="primary"
             size="large"
+            style={{
+              height: "45px",
+              paddingLeft: "35px",
+              paddingRight: "35px",
+              borderRadius: "3px",
+            }}
             onClick={() => {
               router.push("/cart");
             }}
           >
-            Add to Cart
+            ADD TO CART
           </Button>
         </div>
       </ConfigProvider>

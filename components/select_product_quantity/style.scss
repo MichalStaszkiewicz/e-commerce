@@ -2,7 +2,7 @@
 
 .select-product-wrapper {
   @include flexbox(row);
-  width: 100px;
+  width: 130px;
   height: 45px;
 
   border-radius: 5px;
@@ -33,6 +33,29 @@
     border-top: 1px solid rgb(213, 213, 213);
     border-bottom: 1px solid rgb(213, 213, 213);
     flex: 5;
+    input {
+      width: 40px;
+      text-align: center;
+    
+      &:focus {
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+        -moz-appearance: textfield;
+      }
+      border: none;
+      -webkit-appearance: none;
+      appearance: none;
+      -moz-appearance: textfield;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
   }
   .increase {
     border: 1px solid var(--primary-color);

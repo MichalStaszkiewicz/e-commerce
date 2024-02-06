@@ -108,6 +108,7 @@
       }
     }
     .your-order-box {
+      
       @include form-box(90%, auto);
       @include flexbox(column);
       justify-content: space-evenly;
@@ -119,36 +120,10 @@
         margin-bottom: 0px;
       }
       .product-list-box {
-        height: 250px;
+      
+        height:auto;
         width: 100%;
-        table {
-          height: auto;
-          width: 100%;
-          thead {
-            tr {
-              height: 50px;
-              width: 100%;
-              border-bottom: 1px solid #eff1f3;
-              font-weight: bold;
-              & > * {
-                text-align: start;
-              }
-              & > :first-child {
-                padding: 5px;
-              }
-            }
-          }
-          tbody {
-            tr {
-              height: 50px;
-              width: 100%;
-              border-bottom: 1px solid #eff1f3;
-              & > :first-child {
-                padding: 5px;
-              }
-            }
-          }
-        }
+      
       }
 
       .place-order-button {
