@@ -26,8 +26,6 @@ export function ShopLeftColumn() {
   const sliderMaxPrice = 1000;
   const shop = useShop();
 
-  const sliderRef = React.createRef<any>();
-
   const [price, setPrice] = useState<SliderRangeValue>({
     min: sliderMinPrice,
     max: sliderMaxPrice,
@@ -57,7 +55,6 @@ export function ShopLeftColumn() {
           <p className="categories_header">FILTER BY PRICE</p>
 
           <Slider
-            ref={sliderRef}
             tooltip={{ open: false }}
             range
             step={1}

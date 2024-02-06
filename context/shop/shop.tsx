@@ -13,6 +13,8 @@ import {
 } from "@/utils/utility-function";
 import { FilterBy } from "@/components/shop-content/shop-right-column/const";
 //TODO: Flickerting page when pushing router string . possible solution would be checking if components are ready
+
+//setting or/and reading query search parameters are made in a wrong way
 export const ShopContext = React.createContext<TShopContext | null>(null);
 
 export function ShopProvider({ children }: any) {
@@ -52,8 +54,11 @@ export function ShopProvider({ children }: any) {
   ]);
   function setRouterPath() {
     router.push(
-      `?size=${shopState.selectedSizes}&min=${shopState.minPrice}&max=${shopState.maxPrice}`
-    )
+      `?size=${shopState.selectedSizes}&min=${shopState.minPrice}&max=${shopState.maxPrice}`,
+      {
+        scroll: false,
+      }
+    );
   }
   function setUp() {
     let urlData = readDataFromRoute();

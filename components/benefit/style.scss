@@ -1,29 +1,39 @@
+@import "../../styles/mixins.scss";
 .benefit_container {
+  @include flexbox(row);
   width: 100%;
   height: 100%;
   align-items: center;
-  flex-direction: row;
-  display: flex;
+  align-content: center;
+opacity: 0;
   justify-content: center;
-}
 
-.benefit_container_icon {
-  display: flex;
+  .benefit_container_icon {
+    display: flex;
 
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-  width: 100px;
-  color: var(--primary-color);
-}
+    justify-content: start;
+    align-items: start;
+    text-align: center;
+    height: 50%;
+    width: 100px;
+    color: var(--primary-color);
+    margin-right: 20px;
+  }
+  .benefit_container_desc {
+    flex-direction: column;
+    display: flex;
 
-.benefit_container_desc {
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  text-align: start;
-  height: 100%;
-  width: 220px;
+    justify-content: center;
+    align-items: start;
+    text-align: start;
+    height: 100%;
+    width: auto;
+    .title {
+      color: black;
+    }
+    .desc {
+      color: #8c92a0;
+      font-size: small;
+    }
+  }
 }

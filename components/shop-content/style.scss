@@ -1,18 +1,22 @@
 @import "../../styles/mixins.scss";
 
 .shop_content {
-  height: 1500px;
+  @include flexbox(row);
+  height: auto;
   background-color: white;
   width: 100%;
   justify-content: center;
   display: flex;
   .container {
-    margin-top: 80px;
+    @include flexbox(row);
+    margin-top: 5rem;
+
     height: 100%;
     width: 60%;
 
-    flex-direction: row;
     .left_column {
+     
+   
       .categories {
         @include flexbox(column);
         height: 180px;
@@ -60,7 +64,6 @@
       flex-direction: column;
       justify-content: center;
 
-      float: left;
       .filters {
         @include flexbox(column);
 
@@ -146,8 +149,7 @@
       @include flexbox(column);
       height: 100%;
 
-      float: left;
-      width: 73%;
+      width: 71%;
 
       .next_page_row {
         height: 40px;
@@ -191,24 +193,27 @@
         width: 100%;
 
         display: grid;
-        grid-template-columns: 280px 280px 280px;
-        grid-template-rows: 380px 380px 380px;
-        grid-gap: 12px;
+        grid-template-columns: 275px 275px 275px;
+        grid-template-rows: 370px 370px 370px;
+        grid-gap: 5px;
       }
-      .header {
-        height: 100px;
+      .shop-all-header {
+        height: auto;
         width: 100%;
-
+       
         flex-direction: row;
         display: block;
-        float: left;
+
         .shop-all {
+          
           width: auto;
-          font-weight: 550;
+          font-weight: 450;
           font-size: larger;
         }
       }
       .sort_container {
+    
+
         @include flexbox(row);
         height: 100%;
         width: 100%;
@@ -216,18 +221,13 @@
         justify-content: end;
         align-items: center;
         display: flex;
-        & > * {
+        & > :first-child {
           margin-right: 5px;
         }
       }
     }
-    .spacer {
-      width: 4%;
-
-      height: 100%;
-      display: block;
-      height: 100%;
-      float: left;
+    & > :first-child {
+      margin-right: 2rem;
     }
   }
 }

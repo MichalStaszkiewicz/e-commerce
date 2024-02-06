@@ -7,7 +7,7 @@ export default function HeaderSearchBox() {
       <button className="icon-search">
           <FontAwesomeIcon
             icon={icons.faMagnifyingGlass}
-            style={{ width: "45%", height: "45%" }}
+            style={{  }}
           />
         </button>
         <input type="text" placeholder="Search" />

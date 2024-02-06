@@ -10,6 +10,7 @@ import {
   ShoppingOutlined,
   BankOutlined,
 } from "@ant-design/icons";
+import React, { useEffect } from "react";
 
 export function sortProducts(sortBy: SortBy, products: Product[]) {
   if (sortBy === SortBy.nameAToZ) {
@@ -71,8 +72,6 @@ export function capitalize(text: string) {
  * @param subpath The subpath to search for.
  * @returns The href.
  */
-
-
 
 export function getHrefFromPath(path: string, subpath: string) {
   let endIndex = path.indexOf(subpath);
@@ -157,4 +156,46 @@ export function readSizesFromString(sizes: string): string[] {
   }
   selectedSizes.push(size);
   return selectedSizes;
+}
+
+export default async function AnimationOnVisible({
+  visibilityFactor,
+  elementRef,
+  keyFrames,
+  options,
+  animateProps,
+}: {
+  visibilityFactor: number;
+  elementRef: React.RefObject<HTMLElement>;
+  keyFrames: Keyframe[];
+  options: KeyframeAnimationOptions;
+  animateProps: any;
+}) {
+  let animationFinished = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        if (!animationFinished) {
+          if (elementRef.current != null) {
+            elementRef.current
+              .animate(keyFrames, options)
+              .addEventListener("finish", () => {
+                console.log("animation finished");
+                animationFinished = true;
+                for (let item in animateProps) {
+                  const propName = item;
+                  const value = animateProps[propName];
+                  elementRef.current?.style.setProperty(propName, value);
+                }
+              });
+          }
+        }
+      }
+    },
+    {
+      threshold: visibilityFactor,
+    }
+  );
+  observer.observe(elementRef.current!);
 }

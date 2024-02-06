@@ -24,43 +24,47 @@ export default function Home() {
       <main>
         <div className="content">
           <HomePromotion />
+          <div className="shopping_benefits">
+            <Benefit
+              title={"FREE SHIPPING"}
+              description={
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+              }
+              index={1}
+            />
 
-          <FadeOnVisible
-            children={
-              <div className="shopping_benefits">
-                <Benefit
-                  title={"FREE SHIPPING"}
-                  description={
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-                  }
-                />
-
-                <Benefit
-                  title={"FREE RETURNS"}
-                  description={
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-                  }
-                />
-                <Benefit
-                  title={"CUSTOMER SUPPORT"}
-                  description={
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-                  }
-                />
-              </div>
-            }
-          />
+            <Benefit
+              title={"FREE RETURNS"}
+              description={
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+              }
+              index={2}
+            />
+            <Benefit
+              title={"CUSTOMER SUPPORT"}
+              description={
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+              }
+              index={3}
+            />
+          </div>
           <Divider></Divider>
-          <FadeOnVisible
-            children={
-              <div className="collections">
-                <Collection label={"Woman"} image={"/images/women.jpg"} />
-                <Collection label={"Children"} image={"/images/children.jpg"} />
-                <Collection label={"Men"} image={"/images/men.jpg"} />
-              </div>
-            }
-          />
 
+          {
+            <div className="collections">
+              <Collection
+                label={"Woman"}
+                image={"/images/women.jpg"}
+                index={1}
+              />
+              <Collection
+                label={"Children"}
+                image={"/images/children.jpg"}
+                index={2}
+              />
+              <Collection label={"Men"} image={"/images/men.jpg"} index={3} />
+            </div>
+          }
           <FadeOnVisible
             children={
               <FeaturedProducts

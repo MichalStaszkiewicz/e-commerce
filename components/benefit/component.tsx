@@ -1,16 +1,37 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import "@/components/benefit/style.scss";
+import AnimationOnVisible from "@/utils/utility-function";
+
 export function Benefit({
   title,
   description,
+  index,
 }: {
   title: string;
   description: string;
+  index: number;
 }) {
+  const benefitContainerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (benefitContainerRef.current !== null) {
+      const duration = index * 450;
+      let animateProps = { transform: "translateY(0%)", opacity: "1" };
+      AnimationOnVisible({
+        visibilityFactor: 0.3,
+        elementRef: benefitContainerRef,
+        keyFrames: [
+          { opacity: "0", transform: "translateY(70%)" },
+          animateProps,
+        ],
+        options: { duration: duration, easing: "ease-out" },
+        animateProps: animateProps,
+      });
+    }
+  }, [benefitContainerRef]);
   return (
-    <div className="benefit_container">
+    <div className="benefit_container" ref={benefitContainerRef}>
       <div className="benefit_container_icon">
         <FontAwesomeIcon
           icon={icons.faShippingFast}
@@ -18,8 +39,11 @@ export function Benefit({
         />
       </div>
       <div className="benefit_container_desc">
-        <p style={{ fontWeight: "bold", fontSize: "20px" }}> {title}</p>
-        <p style={{ fontSize: "10px", color: "grey", marginTop: "10px" }}>
+        <p className="title" style={{ fontWeight: "400", fontSize: "20px" }}>
+          {" "}
+          {title}
+        </p>
+        <p className="desc" style={{ marginTop: "10px" }}>
           {description}{" "}
         </p>
       </div>

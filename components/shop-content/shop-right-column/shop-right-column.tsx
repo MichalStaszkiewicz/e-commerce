@@ -32,7 +32,7 @@ export function ShopRightColumn() {
 
   return (
     <div className="right_column">
-      <div className="header">
+      <div className="shop-all-header">
         <p className="shop-all">Shop All</p>
         <div className="sort_container">
           <SortListButton

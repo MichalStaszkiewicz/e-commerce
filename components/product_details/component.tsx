@@ -4,7 +4,7 @@ import { Button, ConfigProvider, Radio } from "antd";
 import SelectProductCount from "../select_product_quantity/component";
 import theme from "@/theme/theme_config";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 export default function ProductDetails() {
   const router = useRouter();
@@ -20,13 +20,13 @@ export default function ProductDetails() {
     if (size !== null) {
       setState({ size: size, productCount: productCount });
     }
-   
   }, []);
-  function onPathUpdate() {
-    router.push(`?size=${state.size}&productCount=${state.productCount}`, {
+  useEffect(() => {
+    router.replace(`?size=${state.size}&productCount=${state.productCount}`, {
       scroll: false,
     });
-  }
+  },[state.size,state.productCount]);
+  function onPathUpdate() {}
 
   return (
     <div className="wrapper">
