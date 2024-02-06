@@ -1,12 +1,14 @@
 import type { ThemeConfig } from "antd";
 import "antd";
-const theme: ThemeConfig = {
+const customTheme: ThemeConfig = {
   components: {
     Button: {
       borderRadius: 4,
 
-      colorPrimary: "#5D53E3",
-      algorithm: true,
+      colorPrimary: "#7670D4",
+      colorBgBlur: "red",
+
+      colorPrimaryBg: "red",
     },
     Slider: {
       colorPrimary: "#5D53E3",
@@ -18,4 +20,4 @@ const theme: ThemeConfig = {
   },
 };
 
-export default theme;
+export default customTheme;

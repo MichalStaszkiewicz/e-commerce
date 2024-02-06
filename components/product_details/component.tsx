@@ -2,7 +2,7 @@
 import "@/components/product_details/style.scss";
 import { Button, ConfigProvider, Radio } from "antd";
 import SelectProductCount from "../select_product_quantity/component";
-import theme from "@/theme/theme_config";
+import customTheme from "@/theme/theme_config";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 
@@ -30,7 +30,7 @@ export default function ProductDetails() {
 
   return (
     <div className="wrapper">
-      <ConfigProvider theme={theme}>
+      <ConfigProvider theme={customTheme}>
         <div className="block-1">
           <div>
             <img src="/images/cloth_1.jpg" alt="" />

@@ -2,11 +2,11 @@ import product from "../public/images/children.jpg";
 import { PrimaryButton } from "../primary-button/component";
 import "@/components/big-sale/style.scss";
 import { Button, ConfigProvider } from "antd";
-import theme from "@/theme/theme_config";
+import customTheme from "@/theme/theme_config";
 export function BigSale() {
   return (
     <div className="big-sale-wrapper">
-      <ConfigProvider theme={theme}>
+      <ConfigProvider theme={customTheme}>
         <div className="header-wrapper">
           <div className="decoration"></div>
           <p className="header">Big Sale!</p>

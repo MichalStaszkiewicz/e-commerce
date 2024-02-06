@@ -2,7 +2,7 @@
 import { Button, ConfigProvider, Divider } from "antd";
 import "../cart/style.scss";
 
-import theme from "@/theme/theme_config";
+import customTheme from "@/theme/theme_config";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import TableEntry from "./table_entry/component";
@@ -19,7 +19,7 @@ export default function CartContent() {
 
 
   return ready ? (
-    <ConfigProvider theme={theme} direction="ltr">
+    <ConfigProvider theme={customTheme} direction="ltr">
       <div className="cart-content-wrapper">
         <div className="table-wrapper">
           <table>
@@ -36,7 +36,7 @@ export default function CartContent() {
               <div className="buttons-segment">
                 <Button
                   style={{
-                    backgroundColor: theme.components?.Button?.colorPrimaryBg,
+                    backgroundColor: customTheme.components?.Button?.colorPrimaryBg,
                   }}
                   className="cart-update-button"
                   type="primary"

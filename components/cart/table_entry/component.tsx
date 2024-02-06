@@ -3,10 +3,10 @@ import "../table_entry/style.scss";
 import { Button, ConfigProvider } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
-import theme from "@/theme/theme_config";
+import customTheme from "@/theme/theme_config";
 export default function TableEntry() {
   return (
-    <ConfigProvider theme={theme}>
+    <ConfigProvider theme={customTheme}>
       <tr className="tr-entry">
         <td className="entry-image">
           <img src="/images/cloth_1.jpg" alt="" />
