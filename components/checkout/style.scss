@@ -11,7 +11,7 @@
   }
 }
 .customer-return-wrapper {
-  width: 65%;
+  width: 60%;
 
   .customer-return-login-box {
     @include form-box(95%, 70px);
@@ -37,12 +37,12 @@
   @include flexbox(row);
   justify-content: center;
   align-content: center;
+  
 
   height: 80%;
-  width: 70%;
-
+  width: 100%;
   .billing-details-box {
-    width: 40%;
+    width: 29%;
     height: 90%;
 
     .label {
@@ -68,7 +68,7 @@
     }
   }
   .order-details-box {
-    width: 50%;
+    width: 29%;
     .label {
       font-size: x-large;
       font-weight: 600;
@@ -108,7 +108,6 @@
       }
     }
     .your-order-box {
-      
       @include form-box(90%, auto);
       @include flexbox(column);
       justify-content: space-evenly;
@@ -120,10 +119,8 @@
         margin-bottom: 0px;
       }
       .product-list-box {
-      
-        height:auto;
+        height: auto;
         width: 100%;
-      
       }
 
       .place-order-button {

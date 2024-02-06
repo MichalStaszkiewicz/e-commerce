@@ -60,7 +60,7 @@ export default function SelectProductCount({ size }: { size: string }) {
         <input
           ref={inputProductRef}
           value={quantity}
-          defaultValue={1}
+      
           onChange={(event) => {
             setQuantity(event.target.valueAsNumber);
             console.log(event.target.focus);

@@ -199,3 +199,18 @@ export default async function AnimationOnVisible({
   );
   observer.observe(elementRef.current!);
 }
+
+export function clickedInsideElement({
+  event,
+  elementRect,
+}: {
+  event: MouseEvent;
+  elementRect: DOMRect;
+}) {
+  
+  const isInside =
+    event.clientX >= elementRect.left &&
+    event.clientX <= elementRect.right &&
+    event.clientY >= elementRect.top 
+  return isInside;
+}
