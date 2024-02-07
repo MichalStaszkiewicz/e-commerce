@@ -6,6 +6,7 @@ import React, { useEffect, useRef } from "react";
 import { PrimaryButton } from "../primary-button/component";
 import "@/components/home-promotion/style.scss";
 import "@/styles/globals.scss";
+
 import { Button, ConfigProvider, theme } from "antd";
 import customTheme from "@/theme/theme_config";
 import { CompoundedComponent } from "antd/es/float-button/interface";

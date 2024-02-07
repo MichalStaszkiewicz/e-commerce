@@ -11,7 +11,7 @@ import "@/styles/globals.scss";
 import "@/components/collection/style.scss";
 import HomePromotion from "@/components/home-promotion/component";
 import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
-import { Divider } from "antd";
+import { Divider, Flex, Row } from "antd";
 import { Benefit } from "@/components/benefit/component";
 
 export default function Home() {
@@ -25,28 +25,30 @@ export default function Home() {
         <div className="home-content">
           <HomePromotion />
           <div className="shopping_benefits">
-            <Benefit
-              title={"FREE SHIPPING"}
-              description={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-              }
-              index={1}
-            />
+            
+              <Benefit
+                title={"FREE SHIPPING"}
+                description={
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+                }
+                index={1}
+              />
 
-            <Benefit
-              title={"FREE RETURNS"}
-              description={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-              }
-              index={2}
-            />
-            <Benefit
-              title={"CUSTOMER SUPPORT"}
-              description={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-              }
-              index={3}
-            />
+              <Benefit
+                title={"FREE RETURNS"}
+                description={
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+                }
+                index={2}
+              />
+              <Benefit
+                title={"CUSTOMER SUPPORT"}
+                description={
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+                }
+                index={3}
+              />
+           
           </div>
           <Divider></Divider>
 

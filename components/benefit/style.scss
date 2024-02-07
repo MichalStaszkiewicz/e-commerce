@@ -1,12 +1,14 @@
 @import "../../styles/mixins.scss";
 .benefit_container {
   @include flexbox(row);
-  width: 100%;
+  width: 300px;
   height: 100%;
   align-items: center;
   align-content: center;
   opacity: 0;
   justify-content: center;
+  margin: 10px;
+ 
 
   .benefit_container_icon {
     display: flex;

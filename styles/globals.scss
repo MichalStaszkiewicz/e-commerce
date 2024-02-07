@@ -19,13 +19,17 @@
 	}
 }
 */
+@import "mixins.scss";
 * {
   margin: 0;
   padding: 0;
 }
 
 .home-content {
-  width: auto
+  @include flexbox(column);
+
+  width: auto;
+  justify-content: center;
 }
 
 body {
@@ -43,13 +47,17 @@ body {
 }
 
 .shopping_benefits {
-  height: 200px;
-  width: 50%;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
   align-items: center;
-
-  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+  gap: 20px;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  height: auto;
+  width: 60%;
  
+  margin: 0 auto;
 }
-
