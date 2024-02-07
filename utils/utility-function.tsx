@@ -171,24 +171,27 @@ export default async function AnimationOnVisible({
   options: KeyframeAnimationOptions;
   animateProps: any;
 }) {
-  let animationFinished = false;
+  let animationRunning = false;
 
   const observer = new IntersectionObserver(
     (entries) => {
       if (entries[0].isIntersecting) {
-        if (!animationFinished) {
+        if (!animationRunning) {
           if (elementRef.current != null) {
             elementRef.current
               .animate(keyFrames, options)
               .addEventListener("finish", () => {
                 console.log("animation finished");
-                animationFinished = true;
+
                 for (let item in animateProps) {
                   const propName = item;
                   const value = animateProps[propName];
-                  elementRef.current?.style.setProperty(propName, value);
+                  if (elementRef.current != null) {
+                    elementRef.current.style.setProperty(propName, value);
+                  }
                 }
               });
+            animationRunning = true;
           }
         }
       }
@@ -207,10 +210,9 @@ export function clickedInsideElement({
   event: MouseEvent;
   elementRect: DOMRect;
 }) {
-  
   const isInside =
     event.clientX >= elementRect.left &&
     event.clientX <= elementRect.right &&
-    event.clientY >= elementRect.top 
+    event.clientY >= elementRect.top;
   return isInside;
 }

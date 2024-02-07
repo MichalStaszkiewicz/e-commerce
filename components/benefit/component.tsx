@@ -16,10 +16,11 @@ export function Benefit({
   const benefitContainerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (benefitContainerRef.current !== null) {
+      
       const duration = index * 450;
       let animateProps = { transform: "translateY(0%)", opacity: "1" };
       AnimationOnVisible({
-        visibilityFactor: 0.3,
+        visibilityFactor: 0.6,
         elementRef: benefitContainerRef,
         keyFrames: [
           { opacity: "0", transform: "translateY(70%)" },

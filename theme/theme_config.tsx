@@ -11,6 +11,11 @@ const customTheme: ThemeConfig = {
       colorPrimary: "#5D53E3",
       algorithm: true,
     },
+    Menu: {
+      fontSize: 20,
+    
+      colorPrimary: "#5D53E3",
+    },
   },
   token: {
     colorPrimary: "#5D53E3",

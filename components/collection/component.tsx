@@ -7,7 +7,7 @@ import AnimationOnVisible from "@/utils/utility-function";
 export function Collection({
   label,
   image,
-  index,
+  index,  
 }: {
   label: string;
   image: string;
