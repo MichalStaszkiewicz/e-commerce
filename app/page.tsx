@@ -55,7 +55,7 @@ export default function Home() {
           {
             <div className="collections">
               <Collection
-                label={"Woman"}
+                label={"Women"}
                 image={"/images/women.jpg"}
                 index={1}
               />

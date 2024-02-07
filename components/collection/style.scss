@@ -1,7 +1,35 @@
 .collections {
   align-self: center;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  @media screen and (min-width: 400px) {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+
+    width: 90%;
+  }
+  @media screen and (min-width: 1000px) {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  
+    width: 90%;
+ 
+  }
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  
+    width: 80%;
+ 
+  }
+
+  @media screen and (min-width: 1500px) {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
+    width: 60%;
+  }
+  @media screen and (min-width: 1700px) {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+
+    width: 65%;
+  }
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   justify-items: center;
   align-items: center;
   justify-content: center;
@@ -10,13 +38,27 @@
   gap: 2rem 1.5rem;
 
   height: auto;
-  width: 50%;
+  width: 60%;
   min-width: 350px;
 }
 
 .collections .collection_item {
+  @media screen and (min-width: 400px) {
+    width: 380px;
+    height: 500px;
+  }
+  @media screen and (min-width: 1000px) {
+    width: 450px;
+    height: 650px;
+  }
+  @media screen and (min-width: 1700px) {
+   
+    height: 450px;
+    width: 350px;
+
+  }
   height: 450px;
-  width: 300px;
+  width: 350px;
   position: relative;
   overflow: hidden;
   flex-direction: column;
