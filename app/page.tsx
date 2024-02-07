@@ -22,7 +22,7 @@ export default function Home() {
   return ready ? (
     <div>
       <main>
-        <div className="content">
+        <div className="home-content">
           <HomePromotion />
           <div className="shopping_benefits">
             <Benefit

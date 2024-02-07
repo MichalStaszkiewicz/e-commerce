@@ -47,8 +47,6 @@ export default function ContactContent() {
                 style={{
                   letterSpacing: "0.2px",
                   width: "100%",
-                  height: "45px",
-                  borderRadius: "3px",
                 }}
               >
                 SEND MESSAGE

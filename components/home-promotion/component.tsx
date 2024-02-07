@@ -9,7 +9,9 @@ import "@/styles/globals.scss";
 import { Button, ConfigProvider, theme } from "antd";
 import customTheme from "@/theme/theme_config";
 import { CompoundedComponent } from "antd/es/float-button/interface";
+import useMediaQuery from "@/hooks/use-media-query";
 export default function HomePromotion() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
     <div className="home-promotion-container">
       <ConfigProvider theme={customTheme}>
@@ -25,7 +27,7 @@ export default function HomePromotion() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
               at iaculis quam. Integer accumsan tincidunt fringilla.
             </p>
-            <Button style={{height:"45px",paddingLeft:"30px",paddingRight:"30px",borderRadius:"3px"}} type="primary" htmlType="submit" size="middle">
+            <Button style={{width:"200px"}} type="primary" htmlType="submit" size="middle">
               SHOP NOW
             </Button>
           </div>

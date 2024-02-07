@@ -1,7 +1,7 @@
 import { Button } from "antd";
 import "../../checkout/style.scss";
 export default function CheckoutCouponCode() {
-  return ( 
+  return (
     <>
       <p className="label">Coupon Code</p>
       <div className="coupon-code-box">
@@ -13,6 +13,8 @@ export default function CheckoutCouponCode() {
             <input type="text" placeholder="Coupon Code" />
             <Button
               style={{
+                borderTopLeftRadius: "0px",
+                borderBottomLeftRadius: "0px",
                 borderTopRightRadius: "3px",
                 borderBottomRightRadius: "3px",
               }}

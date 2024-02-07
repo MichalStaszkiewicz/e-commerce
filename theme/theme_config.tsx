@@ -3,8 +3,10 @@ import "antd";
 const customTheme: ThemeConfig = {
   components: {
     Button: {
-      borderRadius: 10,
+      borderRadius: 3,
+      controlHeight: 45,
 
+      paddingContentHorizontal: 30,
       colorPrimary: "#7670D4",
     },
     Slider: {
@@ -13,7 +15,7 @@ const customTheme: ThemeConfig = {
     },
     Menu: {
       fontSize: 20,
-    
+
       colorPrimary: "#5D53E3",
     },
   },

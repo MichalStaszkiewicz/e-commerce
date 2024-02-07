@@ -33,23 +33,12 @@ export default function CartContent() {
           <div className="coupon-segment-cart-total-wrapper">
             <div className="coupon-segment">
               <div className="buttons-segment">
-                <Button
-                  style={{
-                    height: "45px",
-                    borderRadius: "3px",
-                  }}
-                  className="cart-update-button"
-                  type="primary"
-                >
+                <Button className="cart-update-button" type="primary">
                   <center>UPDATE CART</center>
                 </Button>
                 <Button
                   className="cart-update-button"
                   ghost={true}
-                  style={{
-                    height: "45px",
-                    borderRadius: "3px",
-                  }}
                   type="primary"
                 >
                   CONTINUE SHOPPING
@@ -181,9 +170,6 @@ export default function CartContent() {
                 style={{
                   marginTop: "30px",
                   height: "55px",
-                  borderRadius: "3px",
-                  paddingLeft: "25px",
-                  paddingRight: "25px",
                 }}
                 type="primary"
               >
