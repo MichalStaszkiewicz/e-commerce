@@ -20,10 +20,17 @@
     overflow-x: scroll;
     flex-wrap: wrap;
     direction: ltr;
+    scroll-behavior: smooth;
 
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     > * {
       margin-right: 10px;
+    }
+    & > :last-child {
+      margin-right: 0px;
     }
   }
   .arrows_container {

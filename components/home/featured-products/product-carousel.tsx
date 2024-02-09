@@ -10,7 +10,7 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
   const listRef = useRef<HTMLDivElement>(null);
   const { slidesAtOnce, products } = props;
   const productQuantity = products.length;
-
+  const productMargin = 10;
   const nextSlideArrow = useRef<any>(null);
   const prevSlideArrow = useRef<any>(null);
   const [nextArrowState, setNextArrowState] = useState<CarouselArrowState>(
@@ -21,15 +21,20 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
   );
 
   const [index, setIndex] = useState<number>(0);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   function calculateCarouselWidth() {
+    const extraSpace = productMargin * 2;
     if (products.length == 0) {
       throw new Error("Products array cant be  empty");
     }
+    if (slidesAtOnce == 1) {
+      return products[0].width;
+    }
     if (products.length >= props.slidesAtOnce) {
-      return slidesAtOnce * products[0].width;
+      return slidesAtOnce * products[0].width + extraSpace;
     } else {
-      return products.length * products[0].width;
+      return products.length * products[0].width + extraSpace;
     }
   }
   function setArrowStateByEvent(
@@ -124,13 +129,14 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
   }
 
   const carouselWidth = calculateCarouselWidth();
+
   function smoothScrollBy(
     element: HTMLElement,
     target: number,
     duration: number
   ): void {
     let start = element.scrollLeft;
-    let change = target - start;
+    let change = Math.round(target - start);
     let startTime = performance.now();
 
     function animateScroll(currentTime: number): void {
@@ -138,6 +144,9 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
       element.scrollLeft = easeInOutQuad(elapsed, start, change, duration);
       if (elapsed < duration) {
         requestAnimationFrame(animateScroll);
+      } else {
+        element.scrollLeft = target;
+        setIsAnimating(false);
       }
     }
 
@@ -152,17 +161,22 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
       setArrowStateByIndex(index);
     }
   }, [index]);
+
   const handleArrowClick = (arrowDirection: ArrowDirection) => {
-    const scrollDiff = products[0].width;
+    const scrollDiff = products[0].width + productMargin;
+
+    console.log("Current ANimation state " + isAnimating);
 
     const currentScroll = listRef.current!.scrollLeft;
 
     if (arrowDirection == ArrowDirection.previous) {
       if (index > 0) {
         const targetScroll = currentScroll - scrollDiff;
-
-        smoothScrollBy(listRef.current!, targetScroll, 250);
-        setIndex(index - 1);
+        if (!isAnimating) {
+          setIsAnimating(true);
+          smoothScrollBy(listRef.current!, targetScroll, 250);
+          setIndex(index - 1);
+        }
       }
     } else {
       if (
@@ -170,10 +184,12 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
         index + slidesAtOnce < props.products.length
       ) {
         const targetScroll = currentScroll + scrollDiff;
+        if (!isAnimating) {
+          setIsAnimating(true);
+          smoothScrollBy(listRef.current!, targetScroll, 250);
 
-        smoothScrollBy(listRef.current!, targetScroll, 250);
-
-        setIndex(index + 1);
+          setIndex(index + 1);
+        }
       }
     }
   };
@@ -181,7 +197,7 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
   return (
     <div>
       <div
-        style={{ width: `${carouselWidth}px`, scrollBehavior: "smooth" }}
+        style={{ width: `${carouselWidth}px` }}
         className="product_list"
         ref={listRef}
       >

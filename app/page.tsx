@@ -80,6 +80,33 @@ export default function Home() {
                       width: 350,
                     },
                     {
+                      image: "/images/cloth_3.jpg",
+                      label: "Aank top",
+                      price: 50,
+                      description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
+                    },
+                    {
+                      image: "/images/cloth_2.jpg",
+                      label: "Aank top",
+                      price: 50,
+                      description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
+                    },
+                    {
+                      image: "/images/cloth_2.jpg",
+                      label: "Aank top",
+                      price: 50,
+                      description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
+                    },
+                    {
                       image: "/images/cloth_2.jpg",
                       label: "Zank top",
                       price: 50,
