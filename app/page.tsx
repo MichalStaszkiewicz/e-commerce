@@ -25,30 +25,28 @@ export default function Home() {
         <div className="home-content">
           <HomePromotion />
           <div className="shopping_benefits">
-            
-              <Benefit
-                title={"FREE SHIPPING"}
-                description={
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-                }
-                index={1}
-              />
+            <Benefit
+              title={"FREE SHIPPING"}
+              description={
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+              }
+              index={1}
+            />
 
-              <Benefit
-                title={"FREE RETURNS"}
-                description={
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-                }
-                index={2}
-              />
-              <Benefit
-                title={"CUSTOMER SUPPORT"}
-                description={
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-                }
-                index={3}
-              />
-           
+            <Benefit
+              title={"FREE RETURNS"}
+              description={
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+              }
+              index={2}
+            />
+            <Benefit
+              title={"CUSTOMER SUPPORT"}
+              description={
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+              }
+              index={3}
+            />
           </div>
           <Divider></Divider>
 
@@ -77,32 +75,47 @@ export default function Home() {
                       label: "Aank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
                     {
-                      image: "/images/cloth_1.jpg",
+                      image: "/images/cloth_2.jpg",
                       label: "Zank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
 
                     {
-                      image: "/images/cloth_1.jpg",
+                      image: "/images/cloth_3.jpg",
                       label: "Hank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
                     {
                       image: "/images/cloth_1.jpg",
                       label: "Gank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
 
                     {
-                      image: "/images/cloth_1.jpg",
+                      image: "/images/cloth_2.jpg",
                       label: "Lank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
                   ],
                 }}

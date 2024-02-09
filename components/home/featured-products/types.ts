@@ -3,14 +3,19 @@ type FeaturedProductModel = {
   label: string;
   description: string;
   price: number;
+  width: number;
+  height: number;
 };
 
 type FeaturedProductProps = {
   products: FeaturedProductModel[];
 };
 type FeaturedProductsState = {
-  leftArrow: string;
-  rightArrow: string;
   index: number;
   isScrolling: boolean;
+};
+
+type CarouselProps = {
+  products: FeaturedProductModel[];
+  slidesAtOnce: number;
 };

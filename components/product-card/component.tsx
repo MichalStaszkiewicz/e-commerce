@@ -19,7 +19,7 @@ export default function ProductCard({
   const router = useRouter();
 
   return (
-    <div
+    <div 
       onClick={() => {
         router.push(`/shop/${product.name.replace(" ", "_")}`);
       }}
@@ -27,6 +27,7 @@ export default function ProductCard({
       style={{
         width: width,
         height: height,
+    
       }}
     >
       <div
