@@ -3,12 +3,14 @@ import { PrimaryButton } from "../primary-button/component";
 import "@/components/big-sale/style.scss";
 import { Button, ConfigProvider } from "antd";
 import customTheme from "@/theme/theme_config";
+import useMediaQuery from "@/hooks/use-media-query";
 export function BigSale() {
   return (
     <div className="big-sale-wrapper">
       <ConfigProvider theme={customTheme}>
         <div className="header-wrapper">
           <div className="decoration"></div>
+
           <p className="header">Big Sale!</p>
         </div>
 
