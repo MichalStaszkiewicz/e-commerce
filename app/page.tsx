@@ -14,6 +14,7 @@ import { FeaturedProducts } from "@/components/home/featured-products/featured-p
 import { Divider, Flex, Row } from "antd";
 import { Benefit } from "@/components/benefit/component";
 import CollectionSection from "@/components/collection/section";
+import BenefitSection from "@/components/benefit/section";
 
 export default function Home() {
   const [ready, setReady] = useState(false);
@@ -25,30 +26,7 @@ export default function Home() {
       <main>
         <div className="home-content">
           <HomePromotion />
-          <div className="shopping_benefits">
-            <Benefit
-              title={"FREE SHIPPING"}
-              description={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-              }
-              index={1}
-            />
-
-            <Benefit
-              title={"FREE RETURNS"}
-              description={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-              }
-              index={2}
-            />
-            <Benefit
-              title={"CUSTOMER SUPPORT"}
-              description={
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-              }
-              index={3}
-            />
-          </div>
+          <BenefitSection />
           <Divider></Divider>
 
           <CollectionSection />
