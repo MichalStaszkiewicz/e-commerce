@@ -1,48 +1,85 @@
 @import ".././../styles/mixins.scss";
+@import "../../styles/globals.scss";
 .footer {
   @include flexbox(column);
   width: 100%;
-  height: 400px;
+  height: auto;
 
   align-items: center;
-
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-bottom: 5vh;
 
   .wrapper {
-   
+    position: relative;
+    height: fit-content;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    justify-items: center;
+    flex-wrap: wrap;
     @include flexbox(row);
-    height: 80%;
-    width: 100%;
-
-    justify-content: center;
-    align-items: center;
-    & > * {
-      margin-right: 3%;
+    display: flex;
+    @media screen and (min-width: $breakpoint-xs) {
+      width: 100%;
     }
+    @media screen and (min-width: $breakpoint-sm) {
+      width: 576px;
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      width: 750px;
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: 980px;
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      & > * {
+        margin-right: 10px;
+      }
+      width: 1200px;
+    }
+
     & > :last-child {
       margin-right: 0;
     }
   }
 }
-
-.navigation-container {
+.flex-column {
   @include flexbox(column);
+  @media screen and (min-width: $breakpoint-xs) {
+    padding-left: 20px;
 
-  width: auto;
+    width: 100%;
+  }
+  @media screen and (min-width: $breakpoint-sm) {
+    padding-left: 20px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    width: 770px;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    width: 480px;
+  }
+
+  @media screen and (min-width: $breakpoint-xl) {
+    width: 570px;
+  }
+}
+.navigation-container {
+  @include flexbox(row);
+
+  width: fit-content;
   justify-content: start;
   align-items: start;
-  height: 100%;
+  @media screen and (min-width: $breakpoint-sm) {
+    width: 550px;
+  }
 
-
+  flex-wrap: wrap;
+  position: relative;
   & > * {
     margin-bottom: 20px;
-  }
-  .contact-info-label {
-    width: 100%;
-    height: 13%;
-
-    @include flexbox(row);
-    align-items: center;
-    justify-content: center;
+    margin-right: 3vw;
   }
 }
 
@@ -50,8 +87,217 @@
   color: #8c92a0;
   margin-bottom: 15px;
 }
+.navigation-list {
+  position: relative;
+  width: fit-content;
 
+  @media screen and (min-width: $breakpoint-md) {
+    width: 360px;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    width: fit-content;
+  }
+
+  @media screen and (min-width: $breakpoint-xl) {
+    width: fit-content;
+  }
+}
+.menu-label {
+  width: fit-content;
+
+  height: fit-content;
+}
 .menu-label:hover {
   color: var(--primary-color);
   cursor: pointer;
+}
+.footer-contact-wrapper {
+  @include flexbox(column);
+
+  & > * {
+    margin-bottom: 1vh;
+  }
+  @media screen and (min-width: $breakpoint-xs) {
+    padding: 10px;
+    width: 100%;
+  }
+  @media screen and (min-width: $breakpoint-sm) {
+    padding: 10px;
+    width: 550px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    width: 377.5px;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    width: 240px;
+  }
+  @media screen and (min-width: $breakpoint-xl) {
+    width: 285px;
+  }
+  .contact-list {
+    & > * {
+      margin-bottom: 1.5vh;
+    }
+    height: 13vh;
+    width: 20vw;
+    @media screen and (min-width: $breakpoint-xs) {
+    
+      width: 100%;
+    }
+    .address {
+      @include flexbox(row);
+      justify-content: start;
+      align-items: start;
+
+      height: 5vh;
+
+      font-size: medium;
+      @media screen and (min-width: $breakpoint-xs) {
+        width: 100%;
+      }
+      @media screen and (min-width: $breakpoint-sm) {
+        width: 377.5px;
+      }
+      @media screen and (min-width: $breakpoint-lg) {
+        width: 240px;
+      }
+      @media screen and (min-width: $breakpoint-xl) {
+        width: 285px;
+      }
+    }
+    .phone {
+      @include flexbox(row);
+      justify-content: start;
+      align-items: start;
+      @media screen and (min-width: $breakpoint-xs) {
+        width: 100%;
+      }
+      @media screen and (min-width: $breakpoint-sm) {
+        width: 377.5px;
+      }
+      @media screen and (min-width: $breakpoint-lg) {
+        width: 240px;
+      }
+      @media screen and (min-width: $breakpoint-xl) {
+        width: 285px;
+      }
+    }
+    .email {
+      @include flexbox(row);
+      justify-content: start;
+      align-items: start;
+      @media screen and (min-width: $breakpoint-xs) {
+        width: 100%;
+      }
+      @media screen and (min-width: $breakpoint-sm) {
+        width: 377.5px;
+      }
+      @media screen and (min-width: $breakpoint-lg) {
+        width: 240px;
+      }
+      @media screen and (min-width: $breakpoint-xl) {
+        width: 285px;
+      }
+    }
+  }
+  .contact-info-label {
+    @include flexbox(row);
+    align-items: center;
+    justify-content: start;
+
+    text-align: start;
+    height: fit-content;
+
+    p {
+      font-size: small;
+    }
+  }
+  width: 20vw;
+}
+.footer-promo-wrapper {
+  height: fit-content;
+
+  .promo-image-footer {
+    @media screen and (min-width: $breakpoint-md) {
+      height: 160px;
+      width: 330px;
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      height: 13vh;
+      width: 330px;
+    }
+
+    border-radius: 3px;
+  }
+  @media screen and (min-width: $breakpoint-sm) {
+    padding: 10px;
+    width: 550px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    width: 367.5px;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    width: 240px;
+  }
+
+  @media screen and (min-width: $breakpoint-xl) {
+    width: 285px;
+  }
+  h3 {
+    margin-top: 2.5vh;
+    color: var(--primary-color);
+  }
+}
+
+.full-row {
+  grid-column: 1 / -1;
+}
+.half-row {
+  grid-column: span 1;
+}
+.full-row-list-wrapper {
+  @include flexbox(column);
+
+  align-items: start;
+  align-content: start;
+  text-align: start;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: $breakpoint-lg) {
+    width: 480px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    width: 600px;
+    height: 300px;
+  }
+
+  & > * {
+    margin-bottom: 0;
+  }
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.footer-section-header {
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 2.5vh;
+  color: #25262a;
+}
+.icon-wrapper {
+  margin-top: 0.5vh;
+
+  color: #7c74ea;
+  height: 50%;
+  align-content: end;
+  display: flex;
+  justify-content: flex-start;
+
+  margin-right: 1vw;
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
 }
