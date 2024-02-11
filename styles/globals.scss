@@ -84,21 +84,7 @@ body {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.shopping_benefits {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  justify-items: center;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  gap: 20px;
-  padding-top: 4rem;
-  padding-bottom: 2rem;
-  height: auto;
-  width: 60%;
 
-  margin: 0 auto;
-}
 .ignore-events {
   pointer-events: none;
 }

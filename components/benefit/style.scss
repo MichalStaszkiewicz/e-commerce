@@ -8,7 +8,6 @@
   opacity: 0;
   justify-content: center;
   margin: 10px;
- 
 
   .benefit_container_icon {
     display: flex;
@@ -38,4 +37,20 @@
       font-size: small;
     }
   }
+}
+.shopping_benefits {
+  @include flexbox(row);
+
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  flex-wrap: wrap;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  height: auto;
+  width: 60%;
+
+  margin: 0 auto;
 }
