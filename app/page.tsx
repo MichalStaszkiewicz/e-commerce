@@ -13,6 +13,7 @@ import HomePromotion from "@/components/home-promotion/component";
 import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
 import { Divider, Flex, Row } from "antd";
 import { Benefit } from "@/components/benefit/component";
+import CollectionSection from "@/components/collection/section";
 
 export default function Home() {
   const [ready, setReady] = useState(false);
@@ -50,21 +51,7 @@ export default function Home() {
           </div>
           <Divider></Divider>
 
-          {
-            <div className="collections">
-              <Collection
-                label={"Women"}
-                image={"/images/women.jpg"}
-                index={1}
-              />
-              <Collection
-                label={"Children"}
-                image={"/images/children.jpg"}
-                index={2}
-              />
-              <Collection label={"Men"} image={"/images/men.jpg"} index={3} />
-            </div>
-          }
+          <CollectionSection />
           <FadeOnVisible
             children={
               <FeaturedProducts

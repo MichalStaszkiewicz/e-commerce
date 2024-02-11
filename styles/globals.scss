@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "mixins.scss";
 $breakpoint-xs: 0;
 $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
@@ -100,4 +101,10 @@ body {
 }
 .ignore-events {
   pointer-events: none;
+}
+.row {
+  @include flexbox(row);
+}
+.column {
+  @include flexbox(column);
 }
