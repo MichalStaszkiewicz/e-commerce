@@ -1,8 +1,8 @@
 @import "../../styles/mixins.scss";
+@import "../../styles/globals.scss";
 .benefit_container {
   @include flexbox(row);
   width: 300px;
-  height: 100%;
   align-items: center;
   align-content: center;
   opacity: 0;
@@ -40,7 +40,18 @@
 }
 .shopping_benefits {
   @include flexbox(row);
-
+  @media screen and (min-width: $breakpoint-sm) {
+    @include flexbox(column);
+    height: auto;
+    width: 460px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    @include flexbox(row);
+    width: 970px;
+  }
+  @media screen and (min-width: $breakpoint-xl) {
+    width: 1200px;
+  }
   justify-items: center;
   align-items: center;
   justify-content: center;
@@ -50,7 +61,6 @@
   padding-top: 4rem;
   padding-bottom: 2rem;
   height: auto;
-  width: 60%;
 
   margin: 0 auto;
 }

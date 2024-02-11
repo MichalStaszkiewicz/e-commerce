@@ -63,13 +63,15 @@ export default function BenefitSection() {
           }
           index={2}
         />
-        <Benefit
-          title={"CUSTOMER SUPPORT"}
-          description={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-          }
-          index={3}
-        />
+        <div className="row" style={{width:"640px",}}>
+          <Benefit
+            title={"CUSTOMER SUPPORT"}
+            description={
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
+            }
+            index={3}
+          />
+        </div>
       </div>
     );
   }
