@@ -13,9 +13,7 @@ export function Footer() {
   const isDektop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
   const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
   const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
-  console.log("isDektop", isDektop);
-  console.log("isTablet", isTablet);
-  console.log("isMobile", isMobile);
+
   function RenderNavigationList() {
     if (isDektop) {
       return ViewDesktop();
