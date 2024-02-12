@@ -1,8 +1,8 @@
-import "../table_header/style.scss";
-export default function TableHeader() {
+import "./style.scss";
+export default function CartTableHeader() {
   return (
     <thead>
-      <tr>
+      <tr className="cart-table-tr">
         <th>Image</th>
         <th>Product</th>
 

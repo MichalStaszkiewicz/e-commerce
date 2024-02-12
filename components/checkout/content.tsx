@@ -2,7 +2,7 @@
 import { Button, ConfigProvider } from "antd";
 import "../checkout/style.scss";
 
-import theme from "@/theme/theme_config";
+import customTheme from "@/theme/theme_config";
 import ExpandableCard from "./expandable-card/component";
 import SelectCountry from "./select-country/component";
 
@@ -14,7 +14,7 @@ import FormGroup from "../form-group/component";
 export default function CheckoutContent() {
   return (
     <div className="checkout-content-wrapper">
-      <ConfigProvider theme={theme}>
+      <ConfigProvider theme={customTheme}>
         <div className="customer-return-wrapper">
           <ReturningCustomer />
         </div>

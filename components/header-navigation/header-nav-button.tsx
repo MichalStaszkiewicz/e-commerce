@@ -39,13 +39,13 @@ export function HeaderNavButton({
       {icon && (
         <FontAwesomeIcon
           icon={icons.faAngleDown}
-          style={{ width: "20%", height: "15%" }}
+          style={{ height: "10px", width: "10px" }}
         />
       )}{" "}
       {isMenuOpen && (
         <ul className="menu-option">
           {items.map((item, index) => (
-            <HeaderNavLabel props={item} />
+            <HeaderNavLabel key={index} props={item} />
           ))}
         </ul>
       )}

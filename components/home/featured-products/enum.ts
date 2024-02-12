@@ -1,10 +1,10 @@
 export enum ArrowDirection {
-  left = "leftArrow",
-  right = "rightArrow",
+  previous = "previous",
+  next = "next",
 }
-export enum ArrowColor {
-  inactive = "#cdcfd0",
-  inactiveHover = "#bdc2c4",
-  active = "#5d636f",
-  activeHover = "#4d565a",
+export enum CarouselArrowState {
+  inactive = "inactive",
+  inactiveHover = "inactiveHover",
+  active = "active",
+  activeHover = "activeHover",
 }

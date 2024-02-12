@@ -1,47 +1,56 @@
-@import ".././../styles/mixins.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/globals.scss";
+
 .header {
   @include flexbox(column);
-  height: 175px;
+  height: 12rem;
   position: relative;
   align-items: center;
-
+  @media screen and (max-width: $breakpoint-md) {
+    height: 8rem;
+  }
   .site-top-block {
     @include flexbox(row);
     width: 100%;
 
     height: 10rem;
-    align-content: space-evenly;
+
+    align-items: center;
+    align-content: center;
     justify-content: center;
     .block-1 {
       @include flexbox(row);
 
-      justify-content: end;
-      align-content: end;
+      justify-content: start;
+      align-content: start;
       align-items: center;
-
-      flex: 1;
+      margin-top: 40px;
+      width: 26%;
 
       .search-box {
         @include flexbox(row);
-
+        align-items: center;
         .icon-search {
           background-color: transparent;
-          border-radius: 20px;
-          color: rgb(80, 79, 79);
+          display: flex;
+          color: grey;
           display: flex;
           justify-content: center;
           align-content: center;
           align-items: center;
-          pointer-events: painted;
-          width: 30px;
+          width: 1.15rem;
+          height: 30px;
         }
 
         input[type="text"] {
+          @media screen and (max-width: $breakpoint-md) {
+            width: 150px;
+          }
           height: 30px;
           width: 300px;
           padding: 15px;
           border-radius: 5px;
-
+          font-weight: 400;
           transform: translateX(5px);
           transition: 250ms;
           &:focus {
@@ -52,49 +61,61 @@
       }
     }
     .block-2 {
-      @include flexbox(row);
+      @include flexbox(column);
+      height: 100%;
 
-      flex: 1;
       justify-content: center;
-      align-items: center;
-
-      .site-logo {
-        position: relative;
-        height: 40px;
-        width: 150px;
-        padding-left: 10px;
-        padding-right: 10px;
-        border: 2px solid black;
-
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .js-logo-clone {
-          letter-spacing: 5px;
-          font-size: 15.5px;
-          padding-left: 15px;
-          padding-right: 15px;
-        }
+      @media screen and (max-width: $breakpoint-md) {
+        justify-content: start;
+        margin-top: 40px;
       }
     }
+
     .block-3 {
       @include flexbox(row);
-
+      width: 26%;
+      margin-top: 40px;
       justify-content: center;
 
-      flex: 1;
       .side-nav {
         @include flexbox(row);
         width: 100%;
 
         align-items: center;
-        justify-content: center;
+        justify-content: end;
+        & > * {
+          margin-right: 20px;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
         .cart-icon {
           cursor: pointer;
           color: var(--icon-color);
-          width: 15%;
-          height: 15%;
+          width: 1.15rem;
+          height: 1.15rem;
+          transition: linear;
+          transition: 250ms;
+
+          &:hover {
+            transition: linear;
+            transition: 250ms;
+            color: black;
+          }
+        }
+        .burger-icon {
+          cursor: pointer;
+          color: var(--icon-color);
+          width: 1.15rem;
+          height: 1.15rem;
+          transition: linear;
+          transition: 250ms;
+
+          &:hover {
+            transition: linear;
+            transition: 250ms;
+            color: black;
+          }
         }
       }
     }
@@ -105,4 +126,21 @@
   transition: 0.1s all ease-in-out;
   color: var(--primary-color);
   cursor: pointer;
+}
+.js-logo-clone {
+  letter-spacing: 5px;
+  font-size: 18.5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.site-logo {
+  position: relative;
+  height: 40px;
+
+  border: 2px solid black;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

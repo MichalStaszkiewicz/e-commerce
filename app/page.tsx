@@ -11,8 +11,10 @@ import "@/styles/globals.scss";
 import "@/components/collection/style.scss";
 import HomePromotion from "@/components/home-promotion/component";
 import { FeaturedProducts } from "@/components/home/featured-products/featured-products";
-import { Divider } from "antd";
+import { Divider, Flex, Row } from "antd";
 import { Benefit } from "@/components/benefit/component";
+import CollectionSection from "@/components/collection/section";
+import BenefitSection from "@/components/benefit/section";
 
 export default function Home() {
   const [ready, setReady] = useState(false);
@@ -22,45 +24,12 @@ export default function Home() {
   return ready ? (
     <div>
       <main>
-        <div className="content">
+        <div className="home-content">
           <HomePromotion />
-
-          <FadeOnVisible
-            children={
-              <div className="shopping_benefits">
-                <Benefit
-                  title={"FREE SHIPPING"}
-                  description={
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-                  }
-                />
-
-                <Benefit
-                  title={"FREE RETURNS"}
-                  description={
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-                  }
-                />
-                <Benefit
-                  title={"CUSTOMER SUPPORT"}
-                  description={
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla."
-                  }
-                />
-              </div>
-            }
-          />
+          <BenefitSection />
           <Divider></Divider>
-          <FadeOnVisible
-            children={
-              <div className="collections">
-                <Collection label={"Woman"} image={"/images/women.jpg"} />
-                <Collection label={"Children"} image={"/images/children.jpg"} />
-                <Collection label={"Men"} image={"/images/men.jpg"} />
-              </div>
-            }
-          />
 
+          <CollectionSection />
           <FadeOnVisible
             children={
               <FeaturedProducts
@@ -68,35 +37,77 @@ export default function Home() {
                   products: [
                     {
                       image: "/images/cloth_1.jpg",
-                      label: "Tank top",
+                      label: "Aank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
                     {
-                      image: "/images/cloth_1.jpg",
-                      label: "Tank top",
+                      image: "/images/cloth_3.jpg",
+                      label: "Aank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
+                    },
+                    {
+                      image: "/images/cloth_2.jpg",
+                      label: "Aank top",
+                      price: 50,
+                      description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
+                    },
+                    {
+                      image: "/images/cloth_2.jpg",
+                      label: "Aank top",
+                      price: 50,
+                      description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
+                    },
+                    {
+                      image: "/images/cloth_2.jpg",
+                      label: "Zank top",
+                      price: 50,
+                      description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
 
                     {
-                      image: "/images/cloth_1.jpg",
-                      label: "Tank top",
+                      image: "/images/cloth_3.jpg",
+                      label: "Hank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
                     {
                       image: "/images/cloth_1.jpg",
-                      label: "Tank top",
+                      label: "Gank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
 
                     {
-                      image: "/images/cloth_1.jpg",
-                      label: "Tank top",
+                      image: "/images/cloth_2.jpg",
+                      label: "Lank top",
                       price: 50,
                       description: "Finding perfect product",
+                      height: 450,
+
+                      width: 350,
                     },
                   ],
                 }}

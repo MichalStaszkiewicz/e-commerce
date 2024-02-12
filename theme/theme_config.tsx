@@ -1,16 +1,22 @@
 import type { ThemeConfig } from "antd";
 import "antd";
-const theme: ThemeConfig = {
+const customTheme: ThemeConfig = {
   components: {
     Button: {
-      borderRadius: 4,
+      borderRadius: 3,
+      controlHeight: 45,
 
-      colorPrimary: "#5D53E3",
-      algorithm: true,
+      paddingContentHorizontal: 30,
+      colorPrimary: "#7670D4",
     },
     Slider: {
       colorPrimary: "#5D53E3",
       algorithm: true,
+    },
+    Menu: {
+      fontSize: 20,
+
+      colorPrimary: "#5D53E3",
     },
   },
   token: {
@@ -18,4 +24,4 @@ const theme: ThemeConfig = {
   },
 };
 
-export default theme;
+export default customTheme;

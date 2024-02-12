@@ -1,7 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "mixins.scss";
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
 :root {
   --primary-color: #7c74ea;
   --foreground-rgb: 0, 0, 0;
@@ -9,6 +14,36 @@
   --background-end-rgb: 255, 255, 255;
   --icon-color: #8c92a0;
   --text-primary-color: #212529;
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #7971ea;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #7971ea;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+
+  --font-family-sans-serif: "Mukta", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+html {
+  scroll-behavior: smooth;
 }
 /*
 @media (prefers-color-scheme: dark) {
@@ -19,16 +54,23 @@
 	}
 }
 */
+@import "mixins.scss";
 * {
   margin: 0;
   padding: 0;
 }
 
-.content {
-  width: 100%;
+.home-content {
+  @include flexbox(column);
+
+  width: auto;
+  justify-content: center;
 }
 
 body {
+  font-family: "Mukta", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -42,12 +84,12 @@ body {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.shopping_benefits {
-  height: 200px;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  margin: 0 auto;
+.ignore-events {
+  pointer-events: none;
+}
+.row {
+  @include flexbox(row);
+}
+.column {
+  @include flexbox(column);
 }

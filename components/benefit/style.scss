@@ -1,29 +1,66 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/globals.scss";
 .benefit_container {
-  width: 100%;
-  height: 100%;
+  @include flexbox(row);
+  width: 300px;
   align-items: center;
-  flex-direction: row;
-  display: flex;
+  align-content: center;
+  opacity: 0;
   justify-content: center;
+  margin: 10px;
+
+  .benefit_container_icon {
+    display: flex;
+
+    justify-content: start;
+    align-items: start;
+    text-align: center;
+    height: 50%;
+    width: 100px;
+    color: var(--primary-color);
+    margin-right: 20px;
+  }
+  .benefit_container_desc {
+    flex-direction: column;
+    display: flex;
+
+    justify-content: center;
+    align-items: start;
+    text-align: start;
+    height: 100%;
+    width: auto;
+    .title {
+      color: black;
+    }
+    .desc {
+      color: #8c92a0;
+      font-size: small;
+    }
+  }
 }
-
-.benefit_container_icon {
-  display: flex;
-
-  justify-content: center;
+.shopping_benefits {
+  @include flexbox(row);
+  @media screen and (min-width: $breakpoint-sm) {
+    @include flexbox(column);
+    height: auto;
+    width: 460px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    @include flexbox(row);
+    width: 970px;
+  }
+  @media screen and (min-width: $breakpoint-xl) {
+    width: 1200px;
+  }
+  justify-items: center;
   align-items: center;
-  text-align: center;
-  height: 100%;
-  width: 100px;
-  color: var(--primary-color);
-}
-
-.benefit_container_desc {
-  flex-direction: column;
-  display: flex;
   justify-content: center;
-  align-items: start;
-  text-align: start;
-  height: 100%;
-  width: 220px;
+  align-content: center;
+
+  flex-wrap: wrap;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  height: auto;
+
+  margin: 0 auto;
 }

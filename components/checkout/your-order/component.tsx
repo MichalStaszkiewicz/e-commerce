@@ -6,6 +6,7 @@ export default function CheckoutYourOrder() {
   return (
     <>
       <p className="label">Your Order</p>
+
       <div className="your-order-box">
         <div className="product-list-box">
           <CheckoutProductListTable />
@@ -36,7 +37,11 @@ export default function CheckoutYourOrder() {
             padding={"15px"}
           />
         </div>
-        <Button type="primary" className="place-order-button">
+        <Button
+          style={{ borderRadius: "3px" }}
+          type="primary"
+          className="place-order-button"
+        >
           PLACE ORDER
         </Button>
       </div>

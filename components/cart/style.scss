@@ -2,6 +2,7 @@
 
 .cart-content-wrapper {
   @include flexbox(column);
+
   margin-top: 50px;
   margin-bottom: 50px;
   width: 100%;
@@ -13,11 +14,11 @@
     display: flex;
     justify-content: center;
     height: auto;
-    width: 100%;
+    width: 60%;
   }
   .cart-options-wrapper {
     height: auto;
-    width: 63.1%;
+    width: 60%;
     @include flexbox(row);
 
     @include flexbox(column);

@@ -11,7 +11,16 @@ export default function CheckoutCouponCode() {
           </p>
           <div className="coupon-input-row">
             <input type="text" placeholder="Coupon Code" />
-            <Button type="primary" className="coupon-code-apply-button">
+            <Button
+              style={{
+                borderTopLeftRadius: "0px",
+                borderBottomLeftRadius: "0px",
+                borderTopRightRadius: "3px",
+                borderBottomRightRadius: "3px",
+              }}
+              type="primary"
+              className="coupon-code-apply-button"
+            >
               APPLY
             </Button>
           </div>

@@ -1,22 +1,61 @@
+@import "../../styles/globals.scss";
+@import "../../styles/mixins.scss";
+
 .collections {
-  height: 500px;
-  width: 100%;
-  flex-direction: row;
-  margin-top: 30px;
-  display: flex;
+  @include flexbox(row);
+  align-self: center;
+
+  flex-wrap: wrap;
+  justify-items: center;
+
+  align-items: start;
   justify-content: center;
-  align-items: center;
-  & > * {
-    margin-left: 40px;
+  justify-content: space-evenly;
+  align-content: center;
+
+  height: auto;
+
+  @media screen and (min-width: $breakpoint-xs) {
+    width: 100%;
+    > * {
+      margin-bottom: 40px;
+    }
+    :last-child {
+      margin-bottom: 0;
+    }
   }
-  & > :first-child {
-    margin-left: 50px;
+  @media screen and (min-width: $breakpoint-sm) {
+    width: 560px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    width: 760px;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    width: 980px;
+  }
+  @media screen and (min-width: $breakpoint-xl) {
+    width: 1200px;
   }
 }
 
 .collections .collection_item {
-  height: 450px;
-  width: 300px;
+  @media screen and (min-width: $breakpoint-xs) {
+    height: 500px;
+    width: 350px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    width: 300px;
+    height: 450px;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    height: 400px;
+    width: 300px;
+  }
+  @media screen and (min-width: $breakpoint-xl) {
+    height: 500px;
+    width: 350px;
+  }
+
   position: relative;
   overflow: hidden;
   flex-direction: column;
@@ -25,7 +64,7 @@
   display: flex;
   text-align: start;
   cursor: pointer;
-
+  opacity: 0;
   .collection_background {
     position: absolute;
     top: 0;
@@ -37,7 +76,6 @@
     background-size: cover;
     background-position: center;
     z-index: 1;
-    opacity: 1;
 
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     &::before {
@@ -96,7 +134,7 @@
     z-index: 3;
     font-size: small;
     font-weight: 600;
-    letter-spacing:0.3px;
+    letter-spacing: 0.3px;
     width: 100%;
     margin-left: 10px;
     color: white;
@@ -110,3 +148,4 @@
     z-index: 3;
   }
 }
+

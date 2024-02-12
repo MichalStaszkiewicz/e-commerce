@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ConfigProvider, Slider } from "antd";
 import "@/components/shop-content/style.scss";
 import React from "react";
-import theme from "@/theme/theme_config";
+import customTheme from "@/theme/theme_config";
 import {
   CategoriesSize,
   CategoriesColorIndicator,
@@ -26,8 +26,6 @@ export function ShopLeftColumn() {
   const sliderMaxPrice = 1000;
   const shop = useShop();
 
-  const sliderRef = React.createRef<any>();
-
   const [price, setPrice] = useState<SliderRangeValue>({
     min: sliderMinPrice,
     max: sliderMaxPrice,
@@ -47,7 +45,7 @@ export function ShopLeftColumn() {
   }, []);
   return (
     <div className="left_column">
-      <ConfigProvider theme={theme}>
+      <ConfigProvider theme={customTheme}>
         <div className="categories">
           <p className="categories_header">CATEGORIES</p>
           <CategoriesList />
@@ -57,7 +55,6 @@ export function ShopLeftColumn() {
           <p className="categories_header">FILTER BY PRICE</p>
 
           <Slider
-            ref={sliderRef}
             tooltip={{ open: false }}
             range
             step={1}

@@ -32,30 +32,37 @@ interface CategorySizeProps {
 export function CategoriesSize({ label, quantity }: CategorySizeProps) {
   const [checked, setChecked] = useState(false);
   const { shopState, setState, setRouterPath } = useShop();
+  useEffect(() => {
+    let selectedSizes: string[] = [];
+    if (shopState.selectedSizes.length > 0) {
+      selectedSizes = shopState.selectedSizes;
+    }
 
+    selectedSizes.map((item) => {
+      if (item.toLowerCase() == label.toLowerCase()) {
+        setChecked(true);
+      }
+    });
+  }, []);
   const handleToggle = () => {
-    const selectedSizes = [...shopState.selectedSizes];
+    let selectedSizes: string[] = shopState.selectedSizes;
+
     if (checked) {
       selectedSizes.splice(selectedSizes.indexOf(label.toLowerCase()), 1);
     } else {
       selectedSizes.push(label.toLowerCase());
     }
 
-    const filteredProducts = filterBySize(
-      shopState.originalProducts,
-      selectedSizes
-    );
+  
+
     const updatedState = {
       ...shopState,
-      products:
-        selectedSizes.length > 0
-          ? filteredProducts
-          : shopState.originalProducts,
+
       selectedSizes,
     };
-
-    setState(updatedState);
+    setRouterPath();
     setChecked(!checked);
+    setState(updatedState);
   };
 
   return (

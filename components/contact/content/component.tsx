@@ -4,12 +4,12 @@ import ExpandableCard from "@/components/checkout/expandable-card/component";
 import "@/components/contact/content/style.scss";
 import FormGroup from "@/components/form-group/component";
 import MessageArea from "@/components/form-group/message-area/component";
-import theme from "@/theme/theme_config";
+import customTheme from "@/theme/theme_config";
 import { Button, ConfigProvider } from "antd";
 export default function ContactContent() {
   return (
     <div className="center-contact-content">
-      <ConfigProvider theme={theme}>
+      <ConfigProvider theme={customTheme}>
         <div className="contact-content-wrapper">
           <div className="get-in-touch-box">
             <p className="get-in-touch-label">Get in touch</p>
@@ -47,7 +47,6 @@ export default function ContactContent() {
                 style={{
                   letterSpacing: "0.2px",
                   width: "100%",
-                  height: "45px",
                 }}
               >
                 SEND MESSAGE

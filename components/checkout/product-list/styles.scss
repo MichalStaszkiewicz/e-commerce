@@ -1,0 +1,31 @@
+.product-table {
+  height: auto;
+
+  width: 100%;
+
+  .t-head {
+    .head-tr {
+      height: 50px;
+      width: 100%;
+      border-bottom: 1px solid #eff1f3;
+      font-weight: bold;
+      & > * {
+        text-align: start;
+      }
+      & > :first-child {
+        padding: 5px;
+      }
+    }
+  }
+  .t-body {
+    .t-body-tr {
+      height: auto;
+
+      width: 100%;
+      border-bottom: 1px solid #eff1f3;
+      & > :first-child {
+        padding: 15px;
+      }
+    }
+  }
+}

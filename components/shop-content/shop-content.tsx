@@ -23,7 +23,6 @@ function ShopViewState() {
   ) : (
     <div className="container">
       <ShopLeftColumn />
-      <div className="spacer"></div>
 
       <ShopRightColumn />
     </div>

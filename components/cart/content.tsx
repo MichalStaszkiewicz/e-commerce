@@ -2,27 +2,29 @@
 import { Button, ConfigProvider, Divider } from "antd";
 import "../cart/style.scss";
 
-import theme from "@/theme/theme_config";
+import customTheme from "@/theme/theme_config";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import TableEntry from "./table_entry/component";
-import TableHeader from "./table_header/component";
+import CartTableEntry from "./table_entry/component";
+import CartTableHeader from "./cart-table-header/component";
+import { useSearchParams } from "react-router-dom";
 
 export default function CartContent() {
   const [ready, setReady] = useState(false);
   const router = useRouter();
+
   useLayoutEffect(() => {
     setReady(true);
   });
 
   return ready ? (
-    <ConfigProvider theme={theme} direction="ltr">
+    <ConfigProvider theme={customTheme} direction="ltr">
       <div className="cart-content-wrapper">
         <div className="table-wrapper">
           <table>
-            <TableHeader></TableHeader>
+            <CartTableHeader></CartTableHeader>
             <tbody>
-              <TableEntry></TableEntry>
+              <CartTableEntry></CartTableEntry>
             </tbody>
           </table>
         </div>
@@ -31,13 +33,7 @@ export default function CartContent() {
           <div className="coupon-segment-cart-total-wrapper">
             <div className="coupon-segment">
               <div className="buttons-segment">
-                <Button
-                  style={{
-                    backgroundColor: theme.components?.Button?.colorPrimaryBg,
-                  }}
-                  className="cart-update-button"
-                  type="primary"
-                >
+                <Button className="cart-update-button" type="primary">
                   <center>UPDATE CART</center>
                 </Button>
                 <Button
@@ -56,7 +52,12 @@ export default function CartContent() {
                 <div className="apply-coupon-wrapper">
                   <input placeholder="Coupon Code" type="text" />
                   <Button
-                    style={{ width: "150px", height: "45px" }}
+                    style={{
+                      height: "45px",
+                      borderRadius: "3px",
+                      paddingLeft: "25px",
+                      paddingRight: "25px",
+                    }}
                     type="primary"
                   >
                     APPLY COUPON
@@ -166,7 +167,10 @@ export default function CartContent() {
                 onClick={() => {
                   router.push("/cart/checkout");
                 }}
-                style={{ height: "60px", width: "100%" }}
+                style={{
+                  marginTop: "30px",
+                  height: "55px",
+                }}
                 type="primary"
               >
                 PROCEED TO CHECKUT

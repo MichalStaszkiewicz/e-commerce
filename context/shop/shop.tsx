@@ -1,10 +1,17 @@
 import { useContext, useEffect, useState } from "react";
-import { createContext } from "vm";
 
 import React from "react";
 import { ShopState, TShopContext } from "./type";
 import { useRouter, useSearchParams } from "next/navigation";
 import { parse } from "path";
+import {
+  filterByCategory,
+  filterByFromCategory,
+  filterByPrice,
+  filterBySize,
+  readSizesFromString,
+} from "@/utils/utility-function";
+import { FilterBy } from "@/components/shop-content/shop-right-column/const";
 
 export const ShopContext = React.createContext<TShopContext | null>(null);
 
@@ -27,7 +34,6 @@ export function ShopProvider({ children }: any) {
   useEffect(() => {
     setReady(true);
     setUp();
-    readDataFromRoute();
   }, []);
   useEffect(() => {
     if (isReady) {
@@ -39,11 +45,10 @@ export function ShopProvider({ children }: any) {
       });
     }
   }, [
-    isReady,
     shopState.minPrice,
     shopState.maxPrice,
-    shopState.selectedSizes,
-    shopState.selectedCategories,
+    shopState.selectedSizes.length,
+    shopState.selectedCategories.length,
   ]);
   function setRouterPath() {
     router.push(
@@ -54,9 +59,10 @@ export function ShopProvider({ children }: any) {
     );
   }
   function setUp() {
+    let urlData = readDataFromRoute();
     let products = [
       {
-        name: "Tank Top",
+        name: "Aank Top",
         description: "basfbasasdfdfds",
         image: "/images/cloth_1.jpg",
         price: 920,
@@ -65,7 +71,7 @@ export function ShopProvider({ children }: any) {
       },
 
       {
-        name: "Tank Top",
+        name: "Zank Top",
         description: "basfbmfgnfasdfds",
         image: "/images/cloth_3.jpg",
         price: 620,
@@ -74,31 +80,55 @@ export function ShopProvider({ children }: any) {
       },
 
       {
-        name: "Tank Top",
+        name: "Bank Top",
         description: "basfbassdfgdfds",
         image: "/images/cloth_1.jpg",
         price: 220,
-        categories: ["woman"],
+        categories: ["women"],
         availableSize: ["medium", "large"],
       },
       {
-        name: "Tank Top",
+        name: "Lank Top",
         description: "bdfbsdfbs",
         image: "/images/cloth_2.jpg",
         price: 120,
-        categories: ["chilren"],
+        categories: ["children"],
         availableSize: ["small"],
       },
     ];
-    setState({ ...shopState, products: products, originalProducts: products });
+
+    setState({
+      ...shopState,
+      products: products,
+      originalProducts: products,
+      minPrice: urlData["min"],
+      maxPrice: urlData["max"],
+      selectedSizes: urlData["size"] as [],
+    });
   }
   function filterProducts() {
-    console.log(shopState.originalProducts);
-    const filteredProducts = shopState.originalProducts.filter(
-      (item) =>
-        item.price >= shopState.minPrice && item.price <= shopState.maxPrice
+    let products = shopState.originalProducts;
+
+    if (shopState.selectedCategories.length > 0) {
+      let categoryFilter: FilterBy = FilterBy.none;
+      categoryFilter = filterByFromCategory(
+        shopState.selectedCategories[shopState.selectedCategories.length - 1]
+      );
+      products = filterByCategory(categoryFilter, products);
+    }
+
+    const filteredProductsByPrice = filterByPrice(
+      products,
+      shopState.minPrice,
+      shopState.maxPrice
     );
-    return filteredProducts;
+
+    const result = filterBySize(
+      filteredProductsByPrice,
+      shopState.selectedSizes
+    );
+
+    return result;
   }
   function readDataFromRoute() {
     let minPrice =
@@ -109,17 +139,15 @@ export function ShopProvider({ children }: any) {
       searchParams.get("max") != null
         ? parseInt(searchParams.get("max")!)
         : 1000;
-    let selectedSizes =
-      searchParams.get("size") != null ? searchParams.get("size") : [];
+    let selectedSizes: string[] = [];
+    let selectedSizesString =
+      searchParams.get("size") != null ? searchParams.get("size") : "";
 
-    
-    setState({
-      ...shopState,
-      loading: false,
-      minPrice: minPrice,
-      maxPrice: maxPrice,
-      selectedSizes: selectedSizes as string[],
-    });
+    if (selectedSizesString != null && selectedSizesString.length > 1) {
+      selectedSizes = readSizesFromString(selectedSizesString);
+    }
+
+    return { min: minPrice, max: maxPrice, size: selectedSizes };
   }
   return (
     <ShopContext.Provider value={{ shopState, setState, setRouterPath }}>

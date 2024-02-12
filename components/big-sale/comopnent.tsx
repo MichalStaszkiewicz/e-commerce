@@ -2,13 +2,15 @@ import product from "../public/images/children.jpg";
 import { PrimaryButton } from "../primary-button/component";
 import "@/components/big-sale/style.scss";
 import { Button, ConfigProvider } from "antd";
-import theme from "@/theme/theme_config";
+import customTheme from "@/theme/theme_config";
+import useMediaQuery from "@/hooks/use-media-query";
 export function BigSale() {
   return (
     <div className="big-sale-wrapper">
-      <ConfigProvider theme={theme}>
+      <ConfigProvider theme={customTheme}>
         <div className="header-wrapper">
           <div className="decoration"></div>
+
           <p className="header">Big Sale!</p>
         </div>
 
@@ -34,7 +36,16 @@ export function BigSale() {
                 Quisquam iste dolor accusantium facere corporis ipsum animi
                 deleniti fugiat. Ex, veniam?
               </p>
-              <Button type="primary" size="large">
+              <Button
+                style={{
+                  height: "45px",
+                  paddingLeft: "30px",
+                  paddingRight: "30px",
+                  borderRadius: "3px",
+                }}
+                type="primary"
+                size="large"
+              >
                 SHOP NOW
               </Button>
             </div>

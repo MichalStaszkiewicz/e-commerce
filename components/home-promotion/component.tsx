@@ -1,17 +1,24 @@
 import Image from "next/image";
 import promotedProduct from "../../public/images/shoes.png";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 import { PrimaryButton } from "../primary-button/component";
 import "@/components/home-promotion/style.scss";
 import "@/styles/globals.scss";
-import { Button, ConfigProvider } from "antd";
-import theme from "@/theme/theme_config";
+
+import { Button, ConfigProvider, theme } from "antd";
+import customTheme from "@/theme/theme_config";
+import { CompoundedComponent } from "antd/es/float-button/interface";
+import useMediaQuery from "@/hooks/use-media-query";
+import { breakpoints } from "@/utils/breakpoints";
 export default function HomePromotion() {
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
+  const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
   return (
     <div className="home-promotion-container">
-      <ConfigProvider theme={theme}>
+      <ConfigProvider theme={customTheme}>
         {" "}
         <Image className="home-promotion-image" src={promotedProduct} alt="" />
         <div className="home-promotion-desc-container">
@@ -25,10 +32,10 @@ export default function HomePromotion() {
               at iaculis quam. Integer accumsan tincidunt fringilla.
             </p>
             <Button
-              style={{ height: "45px", width: "130px",}}
+              style={{ width: "200px" }}
               type="primary"
               htmlType="submit"
-              size="large"
+              size="middle"
             >
               SHOP NOW
             </Button>

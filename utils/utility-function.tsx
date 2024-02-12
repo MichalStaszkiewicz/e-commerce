@@ -1,3 +1,8 @@
+import {
+  FilterBy,
+  SortBy,
+} from "@/components/shop-content/shop-right-column/const";
+import { useShop } from "@/hooks/use-shop";
 import { Product } from "@/model/product";
 import {
   HomeOutlined,
@@ -5,6 +10,51 @@ import {
   ShoppingOutlined,
   BankOutlined,
 } from "@ant-design/icons";
+import React, { useEffect } from "react";
+
+export function sortProducts(sortBy: SortBy, products: Product[]) {
+  if (sortBy === SortBy.nameAToZ) {
+    products.sort((a, b) => a.name.toLowerCase().localeCompare(b.name));
+  } else if (sortBy === SortBy.nameZToA) {
+    products.sort((a, b) => b.name.toLowerCase().localeCompare(a.name));
+  } else if (sortBy === SortBy.priceAsc) {
+    products.sort((a, b) => b.price - a.price);
+  } else if (sortBy === SortBy.priceDesc) {
+    products.sort((a, b) => a.price - b.price);
+  }
+
+  return products;
+}
+export function filterByFromCategory(category: string): FilterBy {
+  if (category.toLowerCase() == "men") {
+    return FilterBy.men;
+  } else if (category.toLowerCase() == "women") {
+    return FilterBy.women;
+  } else if (category.toLowerCase() == "children") {
+    return FilterBy.children;
+  }
+  return FilterBy.none;
+}
+export function filterByCategory(
+  filterBy: FilterBy,
+  products: Product[]
+): Product[] {
+  let tempProducts = products;
+  if (filterBy === FilterBy.men) {
+    tempProducts = products.filter((product) =>
+      product.categories.includes("men")
+    );
+  } else if (filterBy === FilterBy.women) {
+    tempProducts = products.filter((product) =>
+      product.categories.includes("women")
+    );
+  } else if (filterBy === FilterBy.children) {
+    tempProducts = products.filter((product) =>
+      product.categories.includes("children")
+    );
+  }
+  return tempProducts;
+}
 /**
  * Capitalizes the first letter of a string.
  *
@@ -22,6 +72,7 @@ export function capitalize(text: string) {
  * @param subpath The subpath to search for.
  * @returns The href.
  */
+
 export function getHrefFromPath(path: string, subpath: string) {
   let endIndex = path.indexOf(subpath);
 
@@ -67,8 +118,101 @@ export function formatNumberWithCommas(number: number): string {
  * @returns The filtered array of products.
  */
 export function filterBySize(products: Product[], selectedSizes: string[]) {
-  const filteredProducts = products.filter((product) =>
-    product.availableSize.some((size) => selectedSizes.includes(size))
-  );
+  let filteredProducts = products;
+
+  if (selectedSizes.length > 0) {
+    filteredProducts = products.filter((product) =>
+      product.availableSize.some((size) => selectedSizes.includes(size))
+    );
+  }
+
   return filteredProducts;
+}
+
+export function filterByPrice(
+  products: Product[],
+  minPrice: number,
+  maxPrice: number
+): Product[] {
+  products = products.filter(
+    (item) => item.price >= minPrice && item.price <= maxPrice
+  );
+  return products;
+}
+export function readSizesFromString(sizes: string): string[] {
+  let selectedSizes: string[] = [];
+
+  let size = "";
+  for (let i = 0; i < sizes.length; i++) {
+    let letter = sizes.charAt(i);
+
+    if (letter != ",") {
+      size += letter;
+    }
+    if (letter == ",") {
+      selectedSizes.push(size);
+      size = "";
+    }
+  }
+  selectedSizes.push(size);
+  return selectedSizes;
+}
+
+export default async function AnimationOnVisible({
+  visibilityFactor,
+  elementRef,
+  keyFrames,
+  options,
+  animateProps,
+}: {
+  visibilityFactor: number;
+  elementRef: React.RefObject<HTMLElement>;
+  keyFrames: Keyframe[];
+  options: KeyframeAnimationOptions;
+  animateProps: any;
+}) {
+  let animationRunning = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        if (!animationRunning) {
+          if (elementRef.current != null) {
+            elementRef.current
+              .animate(keyFrames, options)
+              .addEventListener("finish", () => {
+                console.log("animation finished");
+
+                for (let item in animateProps) {
+                  const propName = item;
+                  const value = animateProps[propName];
+                  if (elementRef.current != null) {
+                    elementRef.current.style.setProperty(propName, value);
+                  }
+                }
+              });
+            animationRunning = true;
+          }
+        }
+      }
+    },
+    {
+      threshold: visibilityFactor,
+    }
+  );
+  observer.observe(elementRef.current!);
+}
+
+export function clickedInsideElement({
+  event,
+  elementRect,
+}: {
+  event: MouseEvent;
+  elementRect: DOMRect;
+}) {
+  const isInside =
+    event.clientX >= elementRect.left &&
+    event.clientX <= elementRect.right &&
+    event.clientY >= elementRect.top;
+  return isInside;
 }

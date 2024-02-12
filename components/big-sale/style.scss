@@ -1,23 +1,23 @@
 @import "../../styles/mixins.scss";
+@import "../../styles/globals.scss";
 .big-sale-wrapper {
   @include flexbox(column);
-  height: 750px;
-  width: 100%;
 
+  width: 100%;
+  height: fit-content;
   justify-content: center;
   align-items: center;
 
   .header-wrapper {
-    margin-top: 20px;
-
-    height: 15%;
+    padding-top: 100px;
+    height: fit-content;
     width: 100%;
+
     @include flexbox(column);
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    transform: translateY(10%);
     .decoration {
-      height: 1.5px;
+      height: 2.5px;
       width: 40px;
       background-color: var(--primary-color);
     }
@@ -28,27 +28,91 @@
   }
 
   .content {
-    @include flexbox(row);
-
     position: relative;
-    height: 90%;
-    width: 100%;
+
+    @media screen and (min-width: $breakpoint-xs) {
+      @include flexbox(column);
+      height: 800px;
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      @include flexbox(column);
+      height: 800px;
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      height: 800px;
+      @include flexbox(column);
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      height: 800px;
+      @include flexbox(column);
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      width: 1200px;
+      height: 600px;
+      @include flexbox(row);
+      align-items: start;
+    }
 
     justify-content: center;
     align-items: center;
 
     .image-wrapper {
       height: 100%;
-      position: relative;
-      width: 50%;
-
       display: flex;
       justify-content: end;
       align-items: center;
+      position: relative;
+      @media screen and (min-width: $breakpoint-xs) {
+        height: 100%;
+        width: 100%;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
+      @media screen and (min-width: $breakpoint-sm) {
+        height: 100%;
+        width: 560px;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
+      @media screen and (min-width: $breakpoint-md) {
+        height: 100%;
+        width: 700px;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+      }
+      @media screen and (min-width: $breakpoint-lg) {
+        width: 900px;
+
+        justify-content: center;
+      }
+
+      @media screen and (min-width: $breakpoint-xl) {
+        width: 80%;
+        height: 100%;
+
+        justify-content: end;
+      }
 
       .image {
+        @media screen and (min-width: $breakpoint-sm) {
+          height: 70%;
+        }
+        @media screen and (min-width: $breakpoint-lg) {
+          height: 90%;
+        }
+
+        @media screen and (min-width: $breakpoint-xl) {
+          height: 423px;
+          width: 634px;
+        }
         height: 70%;
-        width: 65%;
+        width: 80%;
         position: relative;
         top: 0;
         left: 0;
@@ -60,21 +124,66 @@
         margin-bottom: 0;
         background-size: cover;
         background-position: center;
-        transform: translateY(-10%);
       }
     }
     .description-wrapper {
-      width: 50%;
       height: 100%;
       display: flex;
-      align-items: center;
 
+      @media screen and (min-width: $breakpoint-sm) {
+        width: 520px;
+        height: 70%;
+        text-align: center;
+
+        justify-content: center;
+        align-items: center;
+      }
+      @media screen and (min-width: $breakpoint-lg) {
+        height: 50%;
+        width: 550px;
+
+        text-align: center;
+        justify-content: center;
+      }
+
+      @media screen and (min-width: $breakpoint-xl) {
+        width: 750px;
+        text-align: center;
+
+        justify-content: center;
+
+        height: 100%;
+        align-content: center;
+      }
       .description {
         @include flexbox(column);
-        transform: translateY(-10%);
+        @media screen and (min-width: $breakpoint-xs) {
+          width: 100%;
+          height: 90%;
+          justify-content: center;
+          align-items: center;
+        }
+        @media screen and (min-width: $breakpoint-sm) {
+          width: 100%;
+          height: 90%;
+     
+          justify-content: center;
+          align-items: center;
+        }
+        @media screen and (min-width: $breakpoint-lg) {
+          width: 960px;
 
-        width: 45%;
-        height: 60%;
+          justify-content: center;
+          align-items: center;
+        }
+
+        @media screen and (min-width: $breakpoint-xl) {
+          width: 400px;
+          height: 50%;
+
+          justify-content: center;
+          align-items: center;
+        }
 
         justify-content: center;
         align-items: center;
@@ -98,8 +207,10 @@
         }
       }
     }
-    & > :first-child {
-      margin-right: 50px;
+    @media screen and (min-width: $breakpoint-xl) {
+      & > :first-child {
+        margin-right: 50px;
+      }
     }
   }
 }
