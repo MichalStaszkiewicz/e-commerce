@@ -20,49 +20,58 @@ export function Header() {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
   const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
   const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
+  function DesktopView() {
+    return (
+      <>
+        <div className="site-top-block">
+          <HeaderSearchBox />
+          <HeaderLogoBox />
+          <SideNavigation />
+        </div>
+        <Divider style={{ padding: "0px", margin: "0px" }}></Divider>
+        <HeaderNavigationBar />
+      </>
+    );
+  }
+  function TabletView() {
+    return (
+      <>
+        <div className="site-top-block">
+          <HeaderSearchBox />
+          <HeaderLogoBox />
+          <SideNavigation />
+        </div>
+        <Divider style={{ padding: "0px", margin: "0px" }}></Divider>
+        <HeaderNavigationBar />
+      </>
+    );
+  }
 
-  function getView() {
+  function MobileView() {
+    return (
+      <>
+        <div className="site-top-block">
+          <HeaderSearchBox />
+          <HeaderLogoBox />
+          <SideNavigation />
+        </div>
+      </>
+    );
+  }
+  function RenderView() {
     if (isDesktop) {
-      return (
-        <>
-          <div className="site-top-block">
-            <HeaderSearchBox />
-            <HeaderLogoBox />
-            <SideNavigation />
-          </div>
-          <Divider style={{ padding: "0px", margin: "0px" }}></Divider>
-          <HeaderNavigationBar />
-        </>
-      );
+      return DesktopView();
     } else if (isTablet) {
-      return (
-        <>
-          <div className="site-top-block">
-            <HeaderSearchBox />
-            <HeaderLogoBox />
-            <SideNavigation />
-          </div>
-          <Divider style={{ padding: "0px", margin: "0px" }}></Divider>
-          <HeaderNavigationBar />
-        </>
-      );
+      return TabletView();
     } else if (isMobile) {
-      return (
-        <>
-          <div className="site-top-block">
-            <HeaderSearchBox />
-            <HeaderLogoBox />
-            <SideNavigation />
-          </div>
-        </>
-      );
+      return MobileView();
     }
   }
   useEffect(() => {
     setReady(true);
   }, []);
   return ready ? (
-    <div className="header">{getView()}</div>
+    <div className="header">{RenderView()}</div>
   ) : (
     <div className="header"></div>
   );
