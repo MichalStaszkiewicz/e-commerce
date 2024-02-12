@@ -11,12 +11,13 @@ import { useState } from "react";
 import Link from "next/link";
 import customTheme from "@/theme/theme_config";
 import BurgerIcon from "./burger-icon";
+import { breakpoints } from "@/utils/breakpoints";
 
 export default function SideNavigation() {
   const router = useRouter();
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
-  const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
-  const isMobile = useMediaQuery("(max-width: 767px)");
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
+  const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
 
   return (
     <div className="block-3">
