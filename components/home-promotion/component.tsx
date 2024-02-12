@@ -13,7 +13,7 @@ import { CompoundedComponent } from "antd/es/float-button/interface";
 import useMediaQuery from "@/hooks/use-media-query";
 import { breakpoints } from "@/utils/breakpoints";
 export default function HomePromotion() {
-  const isDektop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
   const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
   const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
   return (

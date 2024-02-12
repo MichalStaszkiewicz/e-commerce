@@ -4,12 +4,12 @@ import "@/components/collection/style.scss";
 import useMediaQuery from "@/hooks/use-media-query";
 import { breakpoints } from "@/utils/breakpoints";
 export default function BenefitSection() {
-  const isDektop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
-  const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
-  const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
+    const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+    const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
+    const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
 
   function RenderView() {
-    if (isDektop) {
+    if (isDesktop) {
       return ViewDesktop();
     } else if (isTablet) {
       return ViewTablet();

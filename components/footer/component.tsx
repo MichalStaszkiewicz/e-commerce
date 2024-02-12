@@ -9,13 +9,12 @@ import { breakpoints } from "@/utils/breakpoints";
 
 export function Footer() {
   const [ready, setReady] = useState(false);
-
-  const isDektop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
   const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
   const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
 
   function RenderNavigationList() {
-    if (isDektop) {
+    if (isDesktop) {
       return ViewDesktop();
     } else if (isTablet) {
       return ViewTablet();

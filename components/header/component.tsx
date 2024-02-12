@@ -12,16 +12,16 @@ import HeaderSearchBox from "./search-box/component";
 import HeaderLogoBox from "./logo/component";
 import SideNavigation from "./cart-navigation/component";
 import useMediaQuery from "@/hooks/use-media-query";
+import { breakpoints } from "@/utils/breakpoints";
 
 export function Header() {
   const [ready, setReady] = useState(false);
 
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
-  const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
-  const isMobile = useMediaQuery("(max-width: 767px)");
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
+  const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
 
   function getView() {
-    console.log(isDesktop, isTablet, isMobile);
     if (isDesktop) {
       return (
         <>
