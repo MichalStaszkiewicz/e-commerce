@@ -61,20 +61,28 @@ export default function BurgerIcon() {
 
     getItem(<p style={{ marginLeft: "10px" }}>About</p>, "2", <HomeOutlined />),
     getItem(
-      <p style={{ marginLeft: "10px" }}>Shop</p>,
+      <p
+        onClick={() => {
+          router.push("/shop");
+          onClose();
+        }}
+        style={{ marginLeft: "10px" }}
+      >
+        Shop
+      </p>,
       "3",
-      <ShoppingCartOutlined />,
+      <ShoppingCartOutlined />
+    ),
+    getItem(
+      <p style={{ marginLeft: "10px" }}>Catalogue</p>,
+      "4",
+      <SettingOutlined />,
       [
         getItem(<p style={{ fontSize: "18px" }}>Option 1</p>, "7"),
         getItem(<p style={{ fontSize: "18px" }}>Option 2</p>, "8"),
         getItem(<p style={{ fontSize: "18px" }}>Option 3</p>, "9"),
         getItem(<p style={{ fontSize: "18px" }}>Option 4</p>, "10"),
       ]
-    ),
-    getItem(
-      <p style={{ marginLeft: "10px" }}>Catalogue</p>,
-      "4",
-      <SettingOutlined />
     ),
     getItem(
       <p style={{ marginLeft: "10px" }}>New Arrivals</p>,
