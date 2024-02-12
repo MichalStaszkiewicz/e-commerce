@@ -63,7 +63,7 @@ export default function BenefitSection() {
           }
           index={2}
         />
-        <div className="row" style={{width:"640px",}}>
+        <div className="row" style={{ width: "640px" }}>
           <Benefit
             title={"CUSTOMER SUPPORT"}
             description={

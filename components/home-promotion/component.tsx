@@ -11,8 +11,11 @@ import { Button, ConfigProvider, theme } from "antd";
 import customTheme from "@/theme/theme_config";
 import { CompoundedComponent } from "antd/es/float-button/interface";
 import useMediaQuery from "@/hooks/use-media-query";
+import { breakpoints } from "@/utils/breakpoints";
 export default function HomePromotion() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isDektop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
+  const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
   return (
     <div className="home-promotion-container">
       <ConfigProvider theme={customTheme}>
@@ -28,7 +31,12 @@ export default function HomePromotion() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
               at iaculis quam. Integer accumsan tincidunt fringilla.
             </p>
-            <Button style={{width:"200px"}} type="primary" htmlType="submit" size="middle">
+            <Button
+              style={{ width: "200px" }}
+              type="primary"
+              htmlType="submit"
+              size="middle"
+            >
               SHOP NOW
             </Button>
           </div>
