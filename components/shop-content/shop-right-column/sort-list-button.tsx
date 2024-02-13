@@ -29,11 +29,9 @@ export default function SortListButton(props: SortFilterButtonProps) {
           event: event,
           elementRect: buttonRect,
         });
-console.log("IsOpen? : " + isOpen)
+        console.log("IsOpen? : " + isOpen);
         if (isInsideMenu || isInsideButton) {
-          
           if (isInsideButton && isOpen) {
-        
             //setIsOpen(false);
           } else {
             setIsOpen(true);
@@ -48,13 +46,11 @@ console.log("IsOpen? : " + isOpen)
             event: event,
             elementRect: buttonRect,
           });
-        
+
           if (isInsideButton) {
             setIsOpen(true);
-            
           }
         }
-      
       }
     }
   });
@@ -69,9 +65,8 @@ console.log("IsOpen? : " + isOpen)
           backgroundColor: isOpen ? "#545b62" : "#e6e7e9",
         }}
         onPointerUp={() => {
-          console.log('tapped')
+          console.log("tapped");
           setIsOpen(true);
-       
         }}
       >
         <p>{props.label}</p>
@@ -81,12 +76,14 @@ console.log("IsOpen? : " + isOpen)
         />
       </div>
       {isOpen ? (
-        <div  ref={menuRef}>
+        <div ref={menuRef}>
           <SortList
             labels={props.method}
             onRefReady={function (
               sortMenu: React.RefObject<HTMLDivElement>
-            ): void { } } setMenuOpen={setIsOpen}          />
+            ): void {}}
+            setMenuOpen={setIsOpen}
+          />
         </div>
       ) : (
         <div></div>

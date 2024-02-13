@@ -8,7 +8,7 @@ import { set } from "animejs";
 interface SortMenuProps {
   labels: ActionType[];
   onRefReady: (ref: React.RefObject<HTMLDivElement>) => void;
-  setMenuOpen(isOpen: boolean): any;
+  setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export function SortList(props: SortMenuProps) {
@@ -18,6 +18,8 @@ export function SortList(props: SortMenuProps) {
   function onClick(sortBy: SortBy, filterBy: FilterBy, label: string) {
     let products;
     props.setMenuOpen(false);
+
+    console.log("set menu open function type " + props.setMenuOpen);
 
     if (
       filterBy === FilterBy.children ||
