@@ -5,6 +5,7 @@ import { SortList } from "./sort-list";
 import "@/components/shop-content/style.scss";
 import { SortFilterButtonProps } from "./const";
 import { clickedInsideElement } from "@/utils/utility-function";
+import { isCompositeComponentWithType } from "react-dom/test-utils";
 
 export default function SortListButton(props: SortFilterButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,12 +29,12 @@ export default function SortListButton(props: SortFilterButtonProps) {
           event: event,
           elementRect: buttonRect,
         });
-  
+console.log("IsOpen? : " + isOpen)
         if (isInsideMenu || isInsideButton) {
           
           if (isInsideButton && isOpen) {
         
-            setIsOpen(false);
+            //setIsOpen(false);
           } else {
             setIsOpen(true);
           }
@@ -68,7 +69,9 @@ export default function SortListButton(props: SortFilterButtonProps) {
           backgroundColor: isOpen ? "#545b62" : "#e6e7e9",
         }}
         onPointerUp={() => {
+          console.log('tapped')
           setIsOpen(true);
+       
         }}
       >
         <p>{props.label}</p>
@@ -78,13 +81,12 @@ export default function SortListButton(props: SortFilterButtonProps) {
         />
       </div>
       {isOpen ? (
-        <div ref={menuRef}>
+        <div  ref={menuRef}>
           <SortList
             labels={props.method}
             onRefReady={function (
               sortMenu: React.RefObject<HTMLDivElement>
-            ): void {}}
-          />
+            ): void { } } setMenuOpen={setIsOpen}          />
         </div>
       ) : (
         <div></div>
