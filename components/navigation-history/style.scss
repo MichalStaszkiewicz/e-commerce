@@ -1,12 +1,33 @@
+@import "../../styles/globals.scss";
+@import "../../styles/mixins.scss";
 .shop-nav-container {
-  padding-left: 20%;
+  @include flexbox(row);
   background-color: #f8f9fa;
   height: 3.5rem;
   width: 100%;
   text-align: center;
-  display: flex;
   align-items: center;
 
-  justify-content: start;
-  flex-direction: row;
+  justify-content: center;
+
+  .breadcrumb-history-wrapper {
+    @media screen and (min-width: $breakpoint-xs) {
+      padding-left: 20px;
+      width: $content-width-xs;
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      padding-left: 0px;
+      width: $content-width-sm;
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      width: $content-width-md;
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: $content-width-lg;
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      width: $content-width-xl;
+    }
+  
+  }
 }

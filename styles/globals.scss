@@ -7,6 +7,13 @@ $breakpoint-sm: 576px;
 $breakpoint-md: 768px;
 $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
+$offset: 100px;
+
+$content-width-xs: 100%;
+$content-width-sm: calc(#{$breakpoint-sm} - #{$offset});
+$content-width-md: calc(#{$breakpoint-md} - #{$offset});
+$content-width-lg: calc(#{$breakpoint-lg} - #{$offset});
+$content-width-xl: calc(#{$breakpoint-xl} - #{$offset});
 :root {
   --primary-color: #7c74ea;
   --foreground-rgb: 0, 0, 0;

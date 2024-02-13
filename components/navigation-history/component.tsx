@@ -15,7 +15,6 @@ export default function NavigationHistory() {
   const pathName = usePathname();
   const [items, setItems] = useState([]);
   useEffect(() => {
-
     let path = "";
     let tempItems: any = [];
     for (let i = 1; i < pathName.length; i++) {
@@ -50,19 +49,21 @@ export default function NavigationHistory() {
   }, []);
   return (
     <div className="shop-nav-container">
-      <Breadcrumb
-        items={[
-          {
-            href: "/",
-            title: (
-              <>
-                <HomeOutlined /> <span>Home</span>
-              </>
-            ),
-          },
-          ...items,
-        ]}
-      />
+      <div className="breadcrumb-history-wrapper">
+        <Breadcrumb
+          items={[
+            {
+              href: "/",
+              title: (
+                <>
+                  <HomeOutlined /> <span>Home</span>
+                </>
+              ),
+            },
+            ...items,
+          ]}
+        />
+      </div>
     </div>
   );
 }

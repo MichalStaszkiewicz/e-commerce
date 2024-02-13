@@ -14,6 +14,9 @@
   }
   @media screen and (min-width: $breakpoint-md) {
     @include flexbox(column);
+
+    justify-content: center;
+    align-items: center;
   }
   @media screen and (min-width: $breakpoint-lg) {
     @include flexbox(row);
@@ -24,6 +27,7 @@
   .shop-content-wrapper {
     @include flexbox(row);
     margin-top: 40px;
+  
     height: auto;
     @media screen and (min-width: $breakpoint-xs) {
       @include flexbox(column);
@@ -32,33 +36,48 @@
       align-content: center;
       width: 100%;
     }
-
+    @media screen and (min-width: $breakpoint-md) {
+      @include flexbox(row);
+      width: $content-width-md;
+      align-items: start;
+      justify-content: space-between;
+    }
     @media screen and (min-width: $breakpoint-lg) {
       @include flexbox(row);
-      width: 750px;
+      width: $content-width-lg;
+
+      justify-content: space-between;
     }
     @media screen and (min-width: $breakpoint-xl) {
       @include flexbox(row);
-      width: 1100px;
+      width: $content-width-xl;
     }
+
     .left_column {
       @media screen and (min-width: $breakpoint-xs) {
+
+        padding-left: 20px;
+        padding-right: 20px;
+       
         width: 100%;
       }
       @media screen and (min-width: $breakpoint-sm) {
+        padding-left: 0px;
+        padding-right: 0px;
         width: 500px;
       }
       @media screen and (min-width: $breakpoint-md) {
-        width: 550px;
+        width: 200px;
       }
+
       @media screen and (min-width: $breakpoint-lg) {
-        padding-right: 35px;
-        width: 260px;
+        width: 300px;
       }
       @media screen and (min-width: $breakpoint-xl) {
         padding-right: 35px;
         width: 320px;
       }
+
       height: 100%;
       .categories {
         @include flexbox(column);
@@ -192,21 +211,25 @@
       width: 80%;
     }
     .right_column {
+      
+
       @include flexbox(column);
       height: 100%;
-      @media screen and (min-width: $breakpoint-xs) {
-        width: 100%;
 
-        margin: 0;
+      @media screen and (min-width: $breakpoint-xs) {
+        padding-left: 20px;
+        padding-right: 20px;
+        width: 100%;
       }
       @media screen and (min-width: $breakpoint-sm) {
         width: 500px;
-
-        margin: 0;
+        padding-left: 0px;
+        padding-right: 0px;
+      
       }
       @media screen and (min-width: $breakpoint-md) {
-        width: 550px;
-
+        width: 450px;
+      
         margin: 0;
       }
       @media screen and (min-width: $breakpoint-lg) {
@@ -253,14 +276,17 @@
         }
       }
       .list {
-        @include flexbox(row);
         @media screen and (min-width: $breakpoint-xs) {
-          justify-content: center;
+          width: 100%;
+
+          @include flexbox(column);
+
+          //    justify-content: start;
         }
         @media screen and (min-width: $breakpoint-sm) {
+          @include flexbox(row);
           justify-content: space-between;
         }
-        width: 100%;
 
         flex-wrap: wrap;
         row-gap: 25px;
@@ -276,37 +302,41 @@
         height: auto;
         width: 100%;
 
-        display: block;
+        @media screen and (min-width: $breakpoint-xs) {
+          @include flexbox(column);
 
+          margin-top: 40px;
+        }
+        @media screen and (min-width: $breakpoint-sm) {
+          @include flexbox(column);
+
+          margin-top: 40px;
+          margin-left: 0px;
+          margin-right: 0px;
+        }
+        @media screen and (min-width: $breakpoint-md) {
+          @include flexbox(row);
+          margin-top: 0px;
+        }
         .shop-all {
-          width: auto;
+          width: 100%;
           font-weight: 450;
           font-size: larger;
-
-          @media screen and (min-width: $breakpoint-xs) {
-            margin-top: 45px;
-            margin-bottom: 25px;
-          }
-          @media screen and (min-width: $breakpoint-lg) {
-            margin: 0;
-          }
         }
       }
       .sort_container {
         @include flexbox(row);
         height: 100%;
         width: 100%;
-        @media screen and (min-width: $breakpoint-md) {
+        @media screen and (min-width: $breakpoint-sm) {
           justify-content: start;
           align-items: start;
+          margin-top: 10px;
         }
-        @media screen and (min-width: $breakpoint-lg) {
+        @media screen and (min-width: $breakpoint-md) {
           justify-content: end;
           align-items: center;
-        }
-        @media screen and (min-width: $breakpoint-xl) {
-          justify-content: end;
-          align-items: center;
+          margin-top: 0px;
         }
 
         & > :first-child {
@@ -391,15 +421,18 @@
 }
 .shop-product-card {
   @media screen and (min-width: $breakpoint-xs) {
-    width: 350px;
+    margin-right: 30px;
+    width: 100%;
     height: 339.94px;
   }
   @media screen and (min-width: $breakpoint-sm) {
+    margin-left: 0px;
+    margin-right: 0px;
     width: 244.98px;
     height: 339.94px;
   }
   @media screen and (min-width: $breakpoint-md) {
-    width: 244.98px;
+    width: 210.98px;
     height: 339.94px;
   }
   @media screen and (min-width: $breakpoint-lg) {

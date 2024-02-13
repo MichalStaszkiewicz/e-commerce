@@ -21,22 +21,22 @@
     @include flexbox(row);
     display: flex;
     @media screen and (min-width: $breakpoint-xs) {
-      width: 100%;
+      width: $content-width-xs;
     }
     @media screen and (min-width: $breakpoint-sm) {
-      width: 576px;
+      width: $content-width-sm;
     }
     @media screen and (min-width: $breakpoint-md) {
-      width: 750px;
+      width: $content-width-md;
     }
     @media screen and (min-width: $breakpoint-lg) {
-      width: 980px;
+      width: $content-width-lg;
     }
     @media screen and (min-width: $breakpoint-xl) {
       & > * {
         margin-right: 10px;
       }
-      width: 1200px;
+      width: $content-width-xl;
     }
 
     & > :last-child {
