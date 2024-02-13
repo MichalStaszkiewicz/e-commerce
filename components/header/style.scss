@@ -24,9 +24,11 @@
       justify-content: start;
       align-content: start;
       align-items: center;
-      margin-top: 40px;
-      width: 26%;
 
+      @media screen and (min-width: $breakpoint-xl) {
+        width: 500px;
+        height: 100%;
+      }
       .search-box {
         @include flexbox(row);
         align-items: center;
@@ -65,18 +67,24 @@
       height: 100%;
 
       justify-content: center;
+
       @media screen and (max-width: $breakpoint-md) {
         justify-content: start;
         margin-top: 40px;
+      }
+      @media screen and (min-width: $breakpoint-xl) {
+        width: 150px;
       }
     }
 
     .block-3 {
       @include flexbox(row);
       width: 26%;
-      margin-top: 40px;
-      justify-content: center;
 
+      justify-content: center;
+      @media screen and (min-width: $breakpoint-xl) {
+        width: 500px;
+      }
       .side-nav {
         @include flexbox(row);
         width: 100%;
