@@ -9,26 +9,21 @@ import { Product } from "@/model/product";
 
 export default function ProductCard({
   product,
-  width,
-  height,
+
+  className,
 }: {
   product: Product;
-  width: string;
-  height: string;
+
+  className: string;
 }) {
   const router = useRouter();
 
   return (
-    <div 
+    <div
       onClick={() => {
         router.push(`/shop/${product.name.replace(" ", "_")}`);
       }}
-      className="product_card_container"
-      style={{
-        width: width,
-        height: height,
-    
-      }}
+      className={`product_card_container ${className}`}
     >
       <div
         style={{

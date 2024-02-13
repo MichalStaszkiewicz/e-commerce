@@ -13,10 +13,14 @@ import { useShop } from "@/hooks/use-shop";
 import Pagination from "@/components/pagination/component";
 import { FilterBy, SortBy } from "./const";
 import SortListButton from "./sort-list-button";
+import useMediaQuery from "@/hooks/use-media-query";
+import { breakpoints } from "@/utils/breakpoints";
 
 export function ShopRightColumn() {
   const { shopState, setState } = useShop();
-
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
+  const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
   const calculateStartIndex = function () {
     return shopState.paginationPage * shopState.productsPerPage;
   };
@@ -111,9 +115,8 @@ export function ShopRightColumn() {
               key={index}
               children={
                 <ProductCard
-                  width={"250px"}
-                  height={"350px"}
                   product={shopState.products[index]}
+                  className={"shop-product-card"}
                 />
               }
             ></FadeOnVisible>

@@ -212,8 +212,7 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
               categories: ["men"],
               availableSize: ["medium", "large"],
             }}
-            width={`${item.width}px`}
-            height={`${item.height}px`}
+            className={"featured_product-card"}
           />
         ))}
       </div>

@@ -17,7 +17,7 @@ import { breakpoints } from "@/utils/breakpoints";
 export function Header() {
   const [ready, setReady] = useState(false);
 
-  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.xl})`);
   const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
   const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
   function DesktopView() {

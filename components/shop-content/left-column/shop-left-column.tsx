@@ -47,7 +47,9 @@ export function ShopLeftColumn() {
     <div className="left_column">
       <ConfigProvider theme={customTheme}>
         <div className="categories">
-          <p className="categories_header">CATEGORIES</p>
+          <p  className="categories_header">
+            CATEGORIES
+          </p>
           <CategoriesList />
         </div>
 
