@@ -6,29 +6,55 @@
   height: 12rem;
   position: relative;
   align-items: center;
+
   @media screen and (max-width: $breakpoint-md) {
     height: 8rem;
   }
   .site-top-block {
     @include flexbox(row);
-    width: 100%;
+    @media screen and (min-width: $breakpoint-xs) {
+      width: $content-width-xs;
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      width: $content-width-sm;
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      width: $content-width-md;
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: $content-width-lg;
+    }
+
+    @media screen and (min-width: $breakpoint-xl) {
+      width: $content-width-xl;
+    }
 
     height: 10rem;
 
     align-items: center;
-    align-content: center;
-    justify-content: center;
+    align-content: start;
+    justify-content: start;
     .block-1 {
+      flex: 1;
       @include flexbox(row);
+      height: 100%;
 
       justify-content: start;
       align-content: start;
       align-items: center;
-
-      @media screen and (min-width: $breakpoint-xl) {
-        width: 500px;
-        height: 100%;
+      
+      @media screen and (min-width: $breakpoint-xs) {
+        align-content: end;
+        align-items: end;
+        padding-bottom: 20px;
       }
+      @media screen and (min-width: $breakpoint-md) {
+        padding-bottom: 0px;
+        justify-content: start;
+        align-content: start;
+        align-items: center;
+      }
+
       .search-box {
         @include flexbox(row);
         align-items: center;
@@ -45,45 +71,58 @@
         }
 
         input[type="text"] {
-          @media screen and (max-width: $breakpoint-md) {
+          @media screen and (min-width: $breakpoint-xs) {
+            width: 100px;
+          }
+        
+          @media screen and (min-width: $breakpoint-md) {
             width: 150px;
           }
+          @media screen and (min-width: $breakpoint-lg) {
+            width: 250px;
+          }
           height: 30px;
-          width: 300px;
+
           padding: 15px;
           border-radius: 5px;
           font-weight: 400;
           transform: translateX(5px);
           transition: 250ms;
           &:focus {
-            transform: translateX(-2px);
+            transform: translateX(0px);
             outline: none;
           }
         }
       }
     }
     .block-2 {
+      flex: 1;
       @include flexbox(column);
       height: 100%;
-
+  
       justify-content: center;
-
-      @media screen and (max-width: $breakpoint-md) {
+      align-items: center;
+      @media screen and (min-width: $breakpoint-xs) {
+        padding-top: 20px;
         justify-content: start;
-        margin-top: 40px;
       }
-      @media screen and (min-width: $breakpoint-xl) {
-        width: 150px;
+      @media screen and (min-width: $breakpoint-md) {
+        padding-top: 0px;
+        justify-content: center;
       }
     }
 
     .block-3 {
+      flex: 1;
       @include flexbox(row);
-      width: 26%;
 
-      justify-content: center;
-      @media screen and (min-width: $breakpoint-xl) {
-        width: 500px;
+      align-items: end;
+      height: 100%;
+      @media screen and (min-width: $breakpoint-xs) {
+        align-items: end;
+      }
+      @media screen and (min-width: $breakpoint-md) {
+        align-items: center;
       }
       .side-nav {
         @include flexbox(row);
@@ -91,11 +130,17 @@
 
         align-items: center;
         justify-content: end;
-        & > * {
-          margin-right: 20px;
+        > * {
+          margin-left: 10px;
         }
         &:last-child {
-          margin-right: 0;
+          margin-right: 0px;
+        }
+        @media screen and (min-width: $breakpoint-xs) {
+          padding-bottom: 20px;
+        }
+        @media screen and (min-width: $breakpoint-md) {
+          padding-bottom: 0px;
         }
         .cart-icon {
           cursor: pointer;
@@ -108,7 +153,7 @@
           &:hover {
             transition: linear;
             transition: 250ms;
-            color: black;
+            color: var(--gray-dark);
           }
         }
         .burger-icon {
@@ -143,8 +188,8 @@
 }
 .site-logo {
   position: relative;
-  height: 40px;
-
+  height: 38px;
+  width: 155px;
   border: 2px solid black;
 
   text-align: center;

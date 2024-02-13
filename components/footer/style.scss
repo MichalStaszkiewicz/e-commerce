@@ -15,11 +15,12 @@
     position: relative;
     height: fit-content;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: start;
     justify-items: center;
     flex-wrap: wrap;
     @include flexbox(row);
     display: flex;
+  
     @media screen and (min-width: $breakpoint-xs) {
       width: $content-width-xs;
     }
@@ -46,6 +47,7 @@
 }
 .flex-column {
   @include flexbox(column);
+ 
   @media screen and (min-width: $breakpoint-xs) {
     padding-left: 20px;
 
@@ -58,11 +60,11 @@
     width: 770px;
   }
   @media screen and (min-width: $breakpoint-lg) {
-    width: 480px;
+    width: 410px;
   }
 
   @media screen and (min-width: $breakpoint-xl) {
-    width: 570px;
+    width: 500px;
   }
 }
 .navigation-container {
@@ -72,7 +74,7 @@
   justify-content: start;
   align-items: start;
   @media screen and (min-width: $breakpoint-sm) {
-    width: 550px;
+    width: 100%;
   }
 
   flex-wrap: wrap;
@@ -87,6 +89,12 @@
   position: relative;
   width: fit-content;
   > * {
+    @media screen and (min-width: $breakpoint-lg) {
+     font-size: 12px;
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      font-size: 14px;
+     }
     color: #8c92a0;
     margin-bottom: 15px;
   }
