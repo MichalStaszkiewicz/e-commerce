@@ -32,7 +32,7 @@ export default function HomePromotion() {
               at iaculis quam. Integer accumsan tincidunt fringilla.
             </p>
             <Button
-              style={{ width: "200px" }}
+              className="shop-now-button"
               type="primary"
               htmlType="submit"
               size="middle"
