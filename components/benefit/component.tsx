@@ -16,7 +16,6 @@ export function Benefit({
   const benefitContainerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (benefitContainerRef.current !== null) {
-      
       const duration = index * 450;
       let animateProps = { transform: "translateY(0%)", opacity: "1" };
       AnimationOnVisible({
@@ -34,19 +33,11 @@ export function Benefit({
   return (
     <div className="benefit_container" ref={benefitContainerRef}>
       <div className="benefit_container_icon">
-        <FontAwesomeIcon
-          icon={icons.faShippingFast}
-          style={{ height: "40px", width: "40px" }}
-        />
+        <FontAwesomeIcon icon={icons.faShippingFast} />
       </div>
       <div className="benefit_container_desc">
-        <p className="title" style={{ fontWeight: "400", fontSize: "20px" }}>
-          {" "}
-          {title}
-        </p>
-        <p className="desc" style={{ marginTop: "10px" }}>
-          {description}{" "}
-        </p>
+        <p className="title"> {title}</p>
+        <p className="desc">{description} </p>
       </div>
     </div>
   );
