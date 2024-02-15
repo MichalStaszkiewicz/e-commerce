@@ -1,0 +1,14 @@
+.menu-item {
+  margin-left: 10px;
+}
+.sub-menu-item {
+  font-size: 18px;
+}
+
+.drawer-title {
+  margin-left: 25px;
+  width: 100%;
+  > :first-child {
+    width: 150px;
+  }
+}

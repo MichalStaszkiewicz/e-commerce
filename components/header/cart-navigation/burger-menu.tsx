@@ -5,7 +5,7 @@ import { Drawer, GetProp, Menu, MenuProps } from "antd";
 import MenuItem from "antd/es/menu/MenuItem";
 import router from "next/router";
 import { useState } from "react";
-
+import "./style.scss";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import {
   AppstoreOutlined,
@@ -17,11 +17,12 @@ import {
   HomeOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
+import { breakpoints } from "@/utils/breakpoints";
 type MenuItem = GetProp<MenuProps, "items">[number];
-export default function BurgerIcon() {
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
-  const isTablet = useMediaQuery("(min-width: 768px) and (max-width: 1023px)");
-  const isMobile = useMediaQuery("(max-width: 767px)");
+export default function BurgerMenu() {
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
+  const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
   const [open, setOpen] = useState(false);
   const router = useRouter();
   function getItem(
@@ -47,7 +48,7 @@ export default function BurgerIcon() {
   const items: MenuItem[] = [
     getItem(
       <div
-        style={{ marginLeft: "10px" }}
+        className="menu-item"
         onClick={() => {
           router.push("/");
           onClose();
@@ -59,41 +60,32 @@ export default function BurgerIcon() {
       <HomeOutlined />
     ),
 
-    getItem(<p style={{ marginLeft: "10px" }}>About</p>, "2", <HomeOutlined />),
+    getItem(<p className="menu-item">About</p>, "2", <HomeOutlined />),
     getItem(
       <p
         onClick={() => {
           router.push("/shop");
           onClose();
         }}
-        style={{ marginLeft: "10px" }}
+        className="menu-item"
       >
         Shop
       </p>,
       "3",
       <ShoppingCartOutlined />
     ),
+    getItem(<p className="menu-item">Catalogue</p>, "4", <SettingOutlined />, [
+      getItem(<p className="sub-menu-item">Option 1</p>, "7"),
+      getItem(<p className="sub-menu-item">Option 2</p>, "8"),
+      getItem(<p className="sub-menu-item">Option 3</p>, "9"),
+      getItem(<p className="sub-menu-item">Option 4</p>, "10"),
+    ]),
     getItem(
-      <p style={{ marginLeft: "10px" }}>Catalogue</p>,
-      "4",
-      <SettingOutlined />,
-      [
-        getItem(<p style={{ fontSize: "18px" }}>Option 1</p>, "7"),
-        getItem(<p style={{ fontSize: "18px" }}>Option 2</p>, "8"),
-        getItem(<p style={{ fontSize: "18px" }}>Option 3</p>, "9"),
-        getItem(<p style={{ fontSize: "18px" }}>Option 4</p>, "10"),
-      ]
-    ),
-    getItem(
-      <p style={{ marginLeft: "10px" }}>New Arrivals</p>,
+      <p className="menu-item">New Arrivals</p>,
       "5",
       <SettingOutlined />
     ),
-    getItem(
-      <p style={{ marginLeft: "10px" }}>Contact</p>,
-      "6",
-      <MailOutlined />
-    ),
+    getItem(<p className="menu-item">Contact</p>, "6", <MailOutlined />),
   ];
   return (
     <div>
@@ -111,13 +103,8 @@ export default function BurgerIcon() {
           closable={false}
           size={"default"}
           title={
-            <div style={{ width: "100%", marginLeft: "25px" }}>
-              <div
-                style={{ width: "150px" }}
-                className="site-logo js-logo-clone"
-              >
-                SHOPPERS
-              </div>
+            <div className="drawer-title">
+              <div className="site-logo-wrapper site-logo">SHOPPERS</div>
             </div>
           }
           onClose={onClose}

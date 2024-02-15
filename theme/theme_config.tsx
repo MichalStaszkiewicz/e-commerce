@@ -2,6 +2,7 @@ import type { ThemeConfig } from "antd";
 import "antd";
 const customTheme: ThemeConfig = {
   components: {
+  
     Button: {
       borderRadius: 3,
       controlHeight: 45,

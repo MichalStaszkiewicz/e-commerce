@@ -28,23 +28,13 @@ export function Header() {
           <HeaderLogoBox />
           <SideNavigation />
         </div>
-        <Divider style={{ padding: "0px", margin: "0px" }}></Divider>
+        <Divider ></Divider>
         <HeaderNavigationBar />
       </>
     );
   }
   function TabletView() {
-    return (
-      <>
-        <div className="site-top-block">
-          <HeaderSearchBox />
-          <HeaderLogoBox />
-          <SideNavigation />
-        </div>
-        <Divider style={{ padding: "0px", margin: "0px" }}></Divider>
-        <HeaderNavigationBar />
-      </>
-    );
+    return DesktopView();
   }
 
   function MobileView() {

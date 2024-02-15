@@ -10,7 +10,7 @@ import { useState } from "react";
 
 import Link from "next/link";
 import customTheme from "@/theme/theme_config";
-import BurgerIcon from "./burger-icon";
+import BurgerMenu from "./burger-menu";
 import { breakpoints } from "@/utils/breakpoints";
 
 export default function SideNavigation() {
@@ -31,7 +31,7 @@ export default function SideNavigation() {
               router.push("/cart");
             }}
           />
-          {BurgerIcon()}
+          {BurgerMenu()}
         </div>
       </ConfigProvider>
     </div>

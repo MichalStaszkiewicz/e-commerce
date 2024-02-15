@@ -191,13 +191,8 @@
   color: var(--primary-color);
   cursor: pointer;
 }
-.js-logo-clone {
-  letter-spacing: 5px;
-  font-size: 18.5px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-.site-logo {
+
+.site-logo-wrapper {
   position: relative;
   height: 38px;
   width: 155px;
@@ -207,4 +202,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  .site-logo {
+    letter-spacing: 5px;
+    font-size: 18.5px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
