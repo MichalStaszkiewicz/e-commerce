@@ -174,7 +174,7 @@ export default function CartContent() {
                   }}
                   type="primary"
                 >
-                  PROCEED TO CHECKUT
+                  PROCEED TO CHECKOUT
                 </Button>
               </div>
             </div>
