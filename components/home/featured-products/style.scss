@@ -39,10 +39,22 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    :nth-child(1) {
+      cursor: pointer;
+    }
+    :nth-child(2) {
+      width: 50px;
+    }
+    :nth-child(3) {
+      cursor: pointer;
+    }
   }
 }
 
 .featured_product-card {
   width: 350px;
   height: 450px;
+}
+.arrow-icon {
+  height: 25px;
 }

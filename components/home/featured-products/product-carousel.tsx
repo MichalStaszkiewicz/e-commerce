@@ -5,7 +5,13 @@ import { useRef, useState, useEffect, PointerEventHandler } from "react";
 import { CarouselArrowState, ArrowDirection } from "./enum";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import { easeInOutQuad } from "@/animations/animations";
-
+import "../../../styles/globals.scss";
+const CarouselArrowColors = {
+  active: "#494F55",
+  activeHover: "#0b0b0b",
+  inactiveHover: "#B7B9B9",
+  inactive: "#cdcfd0",
+};
 export default function ProductCarousel({ props }: { props: CarouselProps }) {
   const listRef = useRef<HTMLDivElement>(null);
   const { slidesAtOnce, products } = props;
@@ -41,35 +47,30 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
     event: PointerEvent,
     arrowDirection: ArrowDirection
   ) {
-    console.log("EVENT TYPE  " + event.type);
-    if (event.type == "pointerover") {
-      if (arrowDirection == ArrowDirection.previous) {
-        if (prevArrowState == CarouselArrowState.active) {
-          setPrevArrowState(CarouselArrowState.activeHover);
-        } else {
-          setPrevArrowState(CarouselArrowState.inactiveHover);
-        }
-      } else {
-        if (nextArrowState == CarouselArrowState.active) {
-          setNextArrowState(CarouselArrowState.activeHover);
-        } else {
-          setNextArrowState(CarouselArrowState.inactiveHover);
-        }
-      }
+    const isHover = event.type === "pointerover";
+    const isPrevious = arrowDirection === ArrowDirection.previous;
+
+    const activeState = isHover
+      ? CarouselArrowState.activeHover
+      : CarouselArrowState.active;
+    const inactiveState = isHover
+      ? CarouselArrowState.inactiveHover
+      : CarouselArrowState.inactive;
+
+    if (isPrevious) {
+      setPrevArrowState(
+        prevArrowState === CarouselArrowState.active ||
+          prevArrowState === CarouselArrowState.activeHover
+          ? activeState
+          : inactiveState
+      );
     } else {
-      if (arrowDirection == ArrowDirection.previous) {
-        if (prevArrowState == CarouselArrowState.activeHover) {
-          setPrevArrowState(CarouselArrowState.active);
-        } else {
-          setPrevArrowState(CarouselArrowState.inactive);
-        }
-      } else {
-        if (nextArrowState == CarouselArrowState.activeHover) {
-          setNextArrowState(CarouselArrowState.active);
-        } else {
-          setNextArrowState(CarouselArrowState.inactive);
-        }
-      }
+      setNextArrowState(
+        nextArrowState === CarouselArrowState.active ||
+          nextArrowState === CarouselArrowState.activeHover
+          ? activeState
+          : inactiveState
+      );
     }
   }
   function setArrowStateByIndex(index: number) {
@@ -109,16 +110,15 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
     }
   }
   function getArrowColor(arrowState: CarouselArrowState) {
-    if (arrowState == CarouselArrowState.active) {
-      return "#494F55";
-    }
-    if (arrowState == CarouselArrowState.activeHover) {
-      return "#0b0b0b";
-    }
-    if (arrowState == CarouselArrowState.inactiveHover) {
-      return "#B7B9B9";
-    } else {
-      return "#cdcfd0";
+    switch (arrowState) {
+      case CarouselArrowState.active:
+        return CarouselArrowColors.active;
+      case CarouselArrowState.activeHover:
+        return CarouselArrowColors.activeHover;
+      case CarouselArrowState.inactiveHover:
+        return CarouselArrowColors.inactiveHover;
+      default:
+        return CarouselArrowColors.inactive;
     }
   }
   function setArrowColor() {
@@ -193,7 +193,6 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
       }
     }
   };
-
   return (
     <div>
       <div
@@ -220,7 +219,6 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
       {props.products.length > slidesAtOnce ? (
         <div className="arrows_container">
           <div
-            style={{ cursor: "pointer" }}
             onPointerOver={(event) => {
               setArrowStateByEvent(event.nativeEvent, ArrowDirection.previous);
             }}
@@ -231,16 +229,14 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
           >
             {" "}
             <FontAwesomeIcon
-              className="ignore-events"
+              className="ignore-events arrow-icon"
               ref={prevSlideArrow}
-              style={{ height: "25px" }}
               icon={icons.faArrowLeft}
             ></FontAwesomeIcon>
           </div>
 
-          <div style={{ width: "50px" }}></div>
+          <div></div>
           <div
-            style={{ cursor: "pointer" }}
             onClick={() => handleArrowClick(ArrowDirection.next)}
             onPointerOver={(event) => {
               setArrowStateByEvent(event.nativeEvent, ArrowDirection.next);
@@ -251,14 +247,13 @@ export default function ProductCarousel({ props }: { props: CarouselProps }) {
           >
             <FontAwesomeIcon
               ref={nextSlideArrow}
-              className="ignore-events"
-              style={{ height: "25px" }}
+              className="ignore-events arrow-icon"
               icon={icons.faArrowRight}
             ></FontAwesomeIcon>
           </div>
         </div>
       ) : (
-        <div className="arrows_container"> </div>
+        <div> </div>
       )}
     </div>
   );
