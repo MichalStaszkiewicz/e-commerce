@@ -1,5 +1,7 @@
 @import "../../styles/mixins.scss";
+@import "../../styles/globals.scss";
 .form-group {
+  width: 100%;
   @include flexbox(column);
   justify-content: center;
 
@@ -45,6 +47,14 @@
 }
 .form-group-row {
   @include flexbox(row);
+  justify-content: space-between;
+  align-items: start;
+  >:first-child {
+    margin-right: 10px;
+  }
+}
+.form-group-column {
+  @include flexbox(column);
   justify-content: space-between;
   align-items: start;
 }

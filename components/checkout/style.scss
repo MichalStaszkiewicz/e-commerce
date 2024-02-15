@@ -1,5 +1,5 @@
 @import "../../styles/mixins.scss";
-
+@import "../../styles/globals.scss";
 .checkout-content-wrapper {
   @include flexbox(column);
   width: 100%;
@@ -11,8 +11,25 @@
   }
 }
 .customer-return-wrapper {
-  width: 60%;
-
+  @media screen and (min-width: $breakpoint-xs) {
+    width: $content-width-xs;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  @media screen and (min-width: $breakpoint-sm) {
+    width: $content-width-sm;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    width: $content-width-md;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    width: $content-width-lg;
+  }
+  @media screen and (min-width: $breakpoint-xl) {
+    width: $content-width-xl;
+  }
   .customer-return-login-box {
     @include form-box(95%, 70px);
     @include flexbox(column);
@@ -34,15 +51,33 @@
 }
 
 .billing-details-wrapper {
-  @include flexbox(row);
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
-  
 
   height: 80%;
-  width: 100%;
+  @media screen and (min-width: $breakpoint-xs) {
+    @include flexbox(column);
+    width: $content-width-xs;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  @media screen and (min-width: $breakpoint-sm) {
+    width: $content-width-sm;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    @include flexbox(row);
+    width: $content-width-md;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    width: $content-width-lg;
+  }
+  @media screen and (min-width: $breakpoint-xl) {
+    width: $content-width-xl;
+  }
   .billing-details-box {
-    width: 29%;
+    flex: 1;
     height: 90%;
 
     .label {
@@ -68,7 +103,8 @@
     }
   }
   .order-details-box {
-    width: 29%;
+    flex: 1;
+
     .label {
       font-size: x-large;
       font-weight: 600;
