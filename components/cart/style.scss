@@ -1,159 +1,266 @@
 @import "../../styles/mixins.scss";
-
+@import "../../styles/globals.scss";
 .cart-content-wrapper {
-  @include flexbox(column);
-
-  margin-top: 50px;
-  margin-bottom: 50px;
+  @include flexbox(row);
   width: 100%;
-  height: auto;
-  position: relative;
-  justify-content: start;
-  align-items: center;
-  .table-wrapper {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 60%;
-  }
-  .cart-options-wrapper {
-    height: auto;
-    width: 60%;
-    @include flexbox(row);
 
+  justify-content: center;
+  .cart-content {
     @include flexbox(column);
-    justify-content: space-evenly;
-    flex: 1;
-    align-items: start;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    height: auto;
+    position: relative;
     justify-content: start;
-    .coupon-segment-cart-total-wrapper {
-      width: 100%;
-      align-items: center;
-      @include flexbox(row);
-      justify-content: space-between;
-      .coupon-segment {
-        align-self: start;
-        height: 75%;
-        & > :first-child {
-          margin-bottom: 30px;
-        }
-        .buttons-segment {
-          @include flexbox(row);
-          & > :first-child {
-            margin-right: 20px;
-          }
-          .cart-update-button {
-            height: 45px;
-            width: 250px;
-          }
-        }
-        .coupon-content-wrapper {
-          height: 200px;
 
-          @include flexbox(column);
-          justify-content: space-evenly;
-          align-items: start;
-          align-content: start;
-          .header {
-            display: flex;
+    align-items: center;
+    @media screen and (min-width: $breakpoint-xs) {
+      margin-left: 20px;
+      margin-right: 20px;
+      width: $content-width-xs;
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      margin-left: 0px;
+      margin-right: 0px;
+      width: $content-width-sm;
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      width: $content-width-md;
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: $content-width-lg;
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      width: $content-width-xl;
+    }
+    .table-wrapper {
+      display: flex;
+      justify-content: center;
+      height: auto;
 
-            height: auto;
-
-            font-size: x-large;
-            text-align: start;
-          }
-          .description {
-            font-size: small;
-            color: #8c92a0;
-          }
-          .apply-coupon-wrapper {
-            @include flexbox(row);
-
-            width: 100%;
-
-            input[type="text"] {
-              border: 1px solid #dee2e6;
-              border-radius: 5px;
-              width: 300px;
-              height: 45px;
-              padding: 10px;
-              &::placeholder {
-                color: #8c92a0;
-                font-weight: 500;
-              }
-              @include form-box-effects();
-            }
-            & > :first-child {
-              margin-right: 20px;
-            }
-          }
-        }
+      overflow-x: auto;
+      @media screen and (min-width: $breakpoint-xs) {
+        width: $content-width-xs;
+      }
+      @media screen and (min-width: $breakpoint-md) {
+        width: $content-width-md;
+      }
+      @media screen and (min-width: $breakpoint-lg) {
+        width: $content-width-lg;
+      }
+      @media screen and (min-width: $breakpoint-xl) {
+        width: $content-width-xl;
       }
     }
-
-    display: flex;
-    flex: 1;
-    height: auto;
-    justify-content: end;
-
-    .cart-total-wrapper {
-      max-width: 25%;
-      & > * {
-        margin-bottom: 30px;
+    .cart-options-wrapper {
+      height: auto;
+      @media screen and (min-width: $breakpoint-xs) {
+        width: $content-width-xs;
       }
-      & > :last-child {
-        margin-bottom: 0px;
+      @media screen and (min-width: $breakpoint-sm) {
+        width: $content-width-sm;
+      }
+      @media screen and (min-width: $breakpoint-md) {
+        width: $content-width-md;
+      }
+      @media screen and (min-width: $breakpoint-lg) {
+        width: $content-width-lg;
+      }
+      @media screen and (min-width: $breakpoint-xl) {
+        width: $content-width-xl;
       }
 
       @include flexbox(column);
-      justify-content: space-between;
-      & > * {
-        margin-bottom: 10px;
-      }
-      & > :first-child {
-        margin-bottom: 22px;
-      }
-      .header-wrapper {
-        @include flexbox(column);
-        height: auto;
+      justify-content: space-evenly;
+      flex: 1;
+      align-items: start;
+      justify-content: start;
+      .coupon-segment-cart-total-wrapper {
+        width: 100%;
+        align-items: center;
 
-        .header {
-          width: 100%;
-          height: auto;
-          justify-content: end;
-          align-items: end;
-          font-size: x-large;
-          padding-bottom: 5px;
+        @media screen and (min-width: $breakpoint-xs) {
+          @include flexbox(column);
         }
-        .divider {
-          height: 1px;
-
-          background-color: #dee2e6;
+        @media screen and (min-width: $breakpoint-md) {
+          @include flexbox(row);
+        }
+        justify-content: space-between;
+        .coupon-segment {
+          align-self: start;
+          height: 75%;
           width: 100%;
+          & > :first-child {
+            margin-bottom: 30px;
+          }
+          .buttons-segment {
+            @media screen and (min-width: $breakpoint-xs) {
+              @include flexbox(column);
+
+              width: 100%;
+              & > :first-child {
+                margin-bottom: 20px;
+              }
+            }
+
+            & > :first-child {
+              margin-right: 20px;
+            }
+
+            @media screen and (min-width: $breakpoint-md) {
+              @include flexbox(row);
+              & > :first-child {
+                margin-bottom: 0px;
+              }
+              width: 400px;
+            }
+            @media screen and (min-width: $breakpoint-lg) {
+              width: 400px;
+            }
+            .cart-update-button {
+              width: 100%;
+              height: 45px;
+            }
+          }
+          .coupon-content-wrapper {
+            height: 150px;
+
+            @include flexbox(column);
+            justify-content: space-evenly;
+
+            align-items: start;
+            align-content: start;
+            .header {
+              display: flex;
+
+              height: auto;
+
+              font-size: x-large;
+              text-align: start;
+            }
+            .description {
+              font-size: small;
+              color: #8c92a0;
+            }
+            .apply-coupon-wrapper {
+              @include flexbox(row);
+
+              @media screen and (min-width: $breakpoint-xs) {
+                width: 100%;
+                @include flexbox(column);
+              }
+              @media screen and (min-width: $breakpoint-md) {
+                width: 250px;
+                @include flexbox(row);
+              }
+              input[type="text"] {
+                border: 1px solid #dee2e6;
+                border-radius: 5px;
+                @media screen and (min-width: $breakpoint-xs) {
+                  width: 100%;
+                  margin-top: 10px;
+                  margin-bottom: 10px;
+                }
+
+                @media screen and (min-width: $breakpoint-md) {
+                  margin-top: 0px;
+                  margin-bottom: 0px;
+                  width: 200px;
+                }
+                @media screen and (min-width: $breakpoint-lg) {
+                  width: 250px;
+                }
+                height: 45px;
+                padding: 10px;
+                &::placeholder {
+                  color: #8c92a0;
+                  font-weight: 500;
+                }
+                @include form-box-effects();
+              }
+              & > :first-child {
+                margin-right: 20px;
+              }
+              .apply-coupon-button {
+                width: 150px;
+              }
+            }
+          }
         }
       }
 
-      .entry-list {
+      display: flex;
+      flex: 1;
+      height: auto;
+      justify-content: end;
+
+      .cart-total-wrapper {
+        @media screen and (min-width: $breakpoint-xs) {
+          max-width: 100%;
+          width: 100%;
+        }
+        @media screen and (min-width: $breakpoint-md) {
+          max-width: 25%;
+        }
         & > * {
-          margin-bottom: 10px;
+          margin-bottom: 30px;
         }
         & > :last-child {
           margin-bottom: 0px;
         }
 
         @include flexbox(column);
-        justify-content: space-evenly;
-        .cart-total-entry {
-          @include flexbox(row);
-          justify-content: space-between;
-          width: 100%;
+        justify-content: space-between;
+        & > * {
+          margin-bottom: 10px;
         }
-      }
+        & > :first-child {
+          margin-bottom: 22px;
+        }
+        .header-wrapper {
+          @include flexbox(column);
+          height: auto;
 
-      width: 50%;
+          .header {
+            width: 100%;
+            height: auto;
+            justify-content: end;
+            align-items: end;
+            font-size: x-large;
+            padding-bottom: 5px;
+          }
+          .divider {
+            height: 1px;
+
+            background-color: #dee2e6;
+            width: 100%;
+          }
+        }
+
+        .entry-list {
+          & > * {
+            margin-bottom: 10px;
+          }
+          & > :last-child {
+            margin-bottom: 0px;
+          }
+
+          @include flexbox(column);
+          justify-content: space-evenly;
+          .cart-total-entry {
+            @include flexbox(row);
+            justify-content: space-between;
+            width: 100%;
+          }
+        }
+
+        width: 50%;
+      }
     }
-  }
-  & > :first-child {
-    margin-bottom: 50px;
+    & > :first-child {
+      margin-bottom: 50px;
+    }
   }
 }

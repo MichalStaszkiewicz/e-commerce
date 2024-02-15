@@ -4,6 +4,8 @@ import { Button, ConfigProvider } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import customTheme from "@/theme/theme_config";
+
+import { CloseOutlined } from "@ant-design/icons";
 export default function CartTableEntry() {
   return (
     <ConfigProvider theme={customTheme}>
@@ -27,11 +29,17 @@ export default function CartTableEntry() {
         </td>
         <td className="entry-remove">
           <center>
-            <Button type="primary" style={{ height: "50px", width: "50px", borderRadius:"5px"}}>
-              <FontAwesomeIcon style={{color:"white"}}
-                type="primary"
-                icon={icons.faClose}
-              ></FontAwesomeIcon>
+            <Button
+              type="primary"
+              className="cart-remove-item-button"
+              style={{
+                width: "25px",
+                borderRadius: "5px",
+                justifyContent: "center",
+                display: "flex",
+              }}
+            >
+              <CloseOutlined />
             </Button>
           </center>
         </td>

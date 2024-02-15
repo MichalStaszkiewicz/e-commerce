@@ -1,3 +1,5 @@
+@import "../../../styles/globals.scss";
+@import "../../../styles/mixins.scss";
 @mixin td-entry() {
   height: 70px;
   border: 1px solid #dee2e6;
@@ -8,8 +10,10 @@
   height: 70px;
 
   .entry-image {
-    padding: 20px;
-    @include td-entry;
+    @include td-entry();
+
+    height: 70px;
+    width: 100px;
   }
   .entry-product {
     position: relative;
@@ -21,18 +25,24 @@
   }
   .entry-price {
     justify-content: center;
-    @include td-entry;
+    @include td-entry();
   }
   .entry-quantity {
     justify-content: center;
-    @include td-entry;
+    @include td-entry();
   }
   .entry-total {
     justify-content: center;
-    @include td-entry;
+    @include td-entry();
   }
   .entry-remove {
     justify-content: center;
-    @include td-entry;
+
+    @include td-entry();
   }
+}
+.cart-remove-item-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
