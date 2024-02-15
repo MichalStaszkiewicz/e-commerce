@@ -1,70 +1,113 @@
 @import "../../styles/mixins.scss";
-
-.wrapper {
-  @include flexbox(row);
-  height: auto;
-  margin-top: 5rem;
+@import "../../styles/globals.scss";
+.product-details-conetnt {
   width: 100%;
+  @include flexbox(row);
   justify-content: center;
-  .block-1 {
-    align-items: center;
-    justify-content: start;
-    width: 30%;
-    align-content: start;
-    display: flex;
-    position: relative;
-    div {
-      position: relative;
-      bottom: 10%;
+  .product-details-wrapper {
+    @include flexbox(row);
+    height: auto;
+    margin-top: 5rem;
 
-      height: 350px;
-      width: 500px;
-
-      img {
-        flex-shrink: 0;
-        min-width: 100%;
-        min-height: 100%;
-      }
-    }
-  }
-  .block-2 {
-    @include flexbox(column);
-    align-items: start;
-    align-content: start;
     justify-content: center;
-    width: 30%;
 
-    .description-wrapper {
-      width: 100%;
-
-      .description {
-        text-align: start;
-        color: grey;
-        width: 100%;
-      }
-      & > :first-child {
-        margin-bottom: 10px;
-      }
+    @media screen and (min-width: $breakpoint-xs) {
+      @include flexbox(column);
+      width: $content-width-xs;
+      margin-left: 20px;
+      margin-right: 20px;
     }
-    .name {
-      font-weight: 600;
-      width: 100%;
-      text-align: start;
-      font-size: x-large;
+    @media screen and (min-width: $breakpoint-sm) {
+      @include flexbox(column);
+      width: $content-width-sm;
+      margin-left: 0px;
+      margin-right: 0px;
     }
-    .price {
-      color: var(--primary-color);
-      font-size: x-large;
-    }
-    & > * {
-      margin-bottom: 20px;
-    }
-    .pick-size {
+    @media screen and (min-width: $breakpoint-md) {
       @include flexbox(row);
+      width: $content-width-md;
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: $content-width-lg;
+    }
 
-      align-items: center;
-      align-content: center;
+    @media screen and (min-width: $breakpoint-xl) {
+      width: $content-width-xl;
+    }
+
+    .block-1 {
+      align-items: start;
+      justify-content: start;
+
+      align-content: start;
+      display: flex;
+      position: relative;
+      flex: 1;
+      div {
+        position: relative;
+        @media screen and (min-width: $breakpoint-xs) {
+          height: 100%;
+          width: 100%;
+        }
+        @media screen and (min-width: $breakpoint-md) {
+          height: 300px;
+          width: 320px;
+        }
+        @media screen and (min-width: $breakpoint-lg) {
+          height: 350px;
+          width: 430px;
+        }
+
+        @media screen and (min-width: $breakpoint-xl) {
+          height: 350px;
+          width: 500px;
+        }
+
+        img {
+          min-width: 100%;
+          min-height: 100%;
+        }
+      }
+    }
+    .block-2 {
+      @include flexbox(column);
+      align-items: start;
+      flex: 1;
+      align-content: start;
       justify-content: center;
+
+      .description-wrapper {
+        width: 100%;
+
+        .description {
+          text-align: start;
+          color: grey;
+          width: 100%;
+        }
+        & > :first-child {
+          margin-bottom: 10px;
+        }
+      }
+      .name {
+        font-weight: 600;
+        width: 100%;
+        text-align: start;
+        font-size: x-large;
+      }
+      .price {
+        color: var(--primary-color);
+        font-size: x-large;
+      }
+      & > * {
+        margin-bottom: 20px;
+      }
+      .pick-size {
+        @include flexbox(row);
+
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+      }
     }
   }
 }
