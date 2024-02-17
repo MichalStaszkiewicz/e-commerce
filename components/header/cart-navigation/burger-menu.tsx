@@ -22,9 +22,11 @@ type MenuItem = GetProp<MenuProps, "items">[number];
 export default function BurgerMenu() {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
   const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
-  const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.sm})`);
   const [open, setOpen] = useState(false);
   const router = useRouter();
+
+  console.log("IS MOBILE: " + isMobile)
   function getItem(
     label: React.ReactNode,
     key?: React.Key | null,

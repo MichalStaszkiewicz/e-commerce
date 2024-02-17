@@ -3,14 +3,17 @@
 
 .header {
   @include flexbox(column);
-  height: 12rem;
+
   position: relative;
   align-items: center;
-
+  
   @media screen and (max-width: $breakpoint-md) {
     height: 8rem;
   }
+  height: auto;
   .site-top-block {
+
+ 
     @include flexbox(row);
     @media screen and (min-width: $breakpoint-xs) {
       width: $content-width-xs;
@@ -29,11 +32,11 @@
       width: $content-width-xl;
     }
 
-    height: 10rem;
+    height: 100px;
 
     align-items: center;
-    align-content: start;
-    justify-content: start;
+    align-content: center;
+    justify-content: center;
     .block-1 {
       flex: 1;
       @include flexbox(row);
@@ -52,6 +55,7 @@
 
       @media screen and (min-width: $breakpoint-sm) {
         padding-left: 0px;
+        padding-bottom: 0px;
       }
       @media screen and (min-width: $breakpoint-md) {
         padding-bottom: 0px;
