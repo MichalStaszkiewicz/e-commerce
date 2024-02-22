@@ -38,9 +38,11 @@ enum ModalType {
 export function LoginModal({
   isOpened,
   setIsOpen,
+  setLogged,
 }: {
   isOpened: boolean;
   setIsOpen: (value: boolean) => void;
+  setLogged: (value: boolean) => void;
 }) {
   const [modalType, setModalType] = useState(ModalType.Login);
 
@@ -72,20 +74,22 @@ export function LoginModal({
       }
     >
       {modalType === ModalType.Login &&
-        LoginModalContent({ setModalType, setIsOpen })}
+        LoginModalContent({ setModalType, setIsOpen, setLogged })}
       {modalType === ModalType.Register &&
-        RegisterModalContent({ setModalType, setIsOpen })}
+        RegisterModalContent({ setModalType, setIsOpen, setLogged })}
       {modalType === ModalType.RestorePassword &&
-        RestorePasswordModalContent({ setModalType, setIsOpen })}
+        RestorePasswordModalContent({ setModalType, setIsOpen, setLogged })}
     </Modal>
   );
 }
 function RegisterModalContent({
   setModalType,
   setIsOpen,
+  setLogged,
 }: {
   setModalType: (value: ModalType) => void;
   setIsOpen: (value: boolean) => void;
+  setLogged: (value: boolean) => void;
 }) {
   const router = useRouter();
   return (
@@ -129,9 +133,11 @@ function RegisterModalContent({
 function LoginModalContent({
   setModalType,
   setIsOpen,
+  setLogged,
 }: {
   setModalType: (value: ModalType) => void;
   setIsOpen: (value: boolean) => void;
+  setLogged: (value: boolean) => void;
 }) {
   const router = useRouter();
   return (
@@ -180,9 +186,11 @@ function LoginModalContent({
 function RestorePasswordModalContent({
   setModalType,
   setIsOpen,
+  setLogged,
 }: {
   setModalType: (value: ModalType) => void;
   setIsOpen: (value: boolean) => void;
+  setLogged: (value: boolean) => void;
 }) {
   const router = useRouter();
   return (

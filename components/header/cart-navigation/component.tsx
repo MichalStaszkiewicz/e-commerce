@@ -27,17 +27,20 @@ export default function SideNavigation() {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
   const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
   const [open, setOpen] = useState(false);
+  //temporary login state for testing ui
+  const [logged, setLogged] = useState(true);
 
-  const showModal = () => {
-    setOpen(true);
+  const userOnClick = () => {
+    if (!logged) {
+      setOpen(true);
+    } else {
+      router.push("/profile");
+    }
   };
-  const handleOk = () => {
-    setOpen(false);
+  const shopOnClick = () => {
+    router.push("/cart");
   };
 
-  const handleCancel = () => {
-    setOpen(false);
-  };
   return (
     <div className="block-3">
       {" "}
@@ -45,14 +48,12 @@ export default function SideNavigation() {
         <div className="side-nav">
           <ShoppingCartOutlined
             className="side-nav-icon"
-            onClick={() => {
-              router.push("/cart");
-            }}
+            onClick={shopOnClick}
           />
 
-          <UserOutlined onClick={showModal} className="side-nav-icon" />
+          <UserOutlined onClick={userOnClick} className="side-nav-icon" />
           {BurgerMenu()}
-          {LoginModal({ isOpened: open, setIsOpen: setOpen })}
+          {LoginModal({ isOpened: open, setIsOpen: setOpen, setLogged })}
         </div>
       </ConfigProvider>
     </div>
