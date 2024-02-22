@@ -9,6 +9,7 @@ import {
   ShoppingCartOutlined,
   ShoppingOutlined,
   BankOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import React, { useEffect } from "react";
 
@@ -92,6 +93,8 @@ export function iconFromString(text: string) {
     return <ShoppingCartOutlined />;
   } else if (text.toLowerCase() == "checkout") {
     return <BankOutlined />;
+  } else if (text.toLowerCase() == "profile") {
+    return <UserOutlined />;
   } else {
     return null;
   }
