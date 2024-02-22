@@ -20,7 +20,7 @@
     flex-wrap: wrap;
     @include flexbox(row);
     display: flex;
-  
+
     @media screen and (min-width: $breakpoint-xs) {
       width: $content-width-xs;
     }
@@ -47,7 +47,7 @@
 }
 .flex-column {
   @include flexbox(column);
- 
+
   @media screen and (min-width: $breakpoint-xs) {
     padding-left: 20px;
 
@@ -90,11 +90,11 @@
   width: fit-content;
   > * {
     @media screen and (min-width: $breakpoint-lg) {
-     font-size: 12px;
+      font-size: 12px;
     }
     @media screen and (min-width: $breakpoint-xl) {
       font-size: 14px;
-     }
+    }
     color: #8c92a0;
     margin-bottom: 15px;
   }
@@ -166,7 +166,7 @@
         width: 377.5px;
       }
       @media screen and (min-width: $breakpoint-lg) {
-        width: 240px;
+        width: 270px;
       }
       @media screen and (min-width: $breakpoint-xl) {
         width: 285px;
