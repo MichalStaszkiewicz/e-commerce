@@ -1,12 +1,14 @@
 import useMediaQuery from "@/hooks/use-media-query";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Drawer, GetProp, Menu, MenuProps } from "antd";
 
 import MenuItem from "antd/es/menu/MenuItem";
 import router from "next/router";
 import { useState } from "react";
+
 import "./style.scss";
 import * as icons from "@fortawesome/free-solid-svg-icons";
+
 import {
   AppstoreOutlined,
   CalendarOutlined,
@@ -14,6 +16,7 @@ import {
   MailOutlined,
   SettingOutlined,
   ShoppingCartOutlined,
+  MenuOutlined,
   HomeOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
@@ -22,11 +25,10 @@ type MenuItem = GetProp<MenuProps, "items">[number];
 export default function BurgerMenu() {
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
   const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
-  const isMobile = useMediaQuery(`(max-width: ${breakpoints.sm})`);
+  const isMobile = useMediaQuery(`(max-width: ${breakpoints.md})`);
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
-  console.log("IS MOBILE: " + isMobile)
   function getItem(
     label: React.ReactNode,
     key?: React.Key | null,
@@ -74,7 +76,7 @@ export default function BurgerMenu() {
         Shop
       </p>,
       "3",
-      <ShoppingCartOutlined />
+      <ShoppingCartOutlined className="burger-icon" />
     ),
     getItem(<p className="menu-item">Catalogue</p>, "4", <SettingOutlined />, [
       getItem(<p className="sub-menu-item">Option 1</p>, "7"),
@@ -89,32 +91,30 @@ export default function BurgerMenu() {
     ),
     getItem(<p className="menu-item">Contact</p>, "6", <MailOutlined />),
   ];
-  return (
-    <div>
-      {isMobile ? (
-        <FontAwesomeIcon
-          onClick={() => {
-            showDrawer();
-          }}
-          className="burger-icon"
-          icon={icons.faBars}
-        />
-      ) : null}
-      {
-        <Drawer
-          closable={false}
-          size={"default"}
-          title={
-            <div className="drawer-title">
-              <div className="site-logo-wrapper site-logo">SHOPPERS</div>
-            </div>
-          }
-          onClose={onClose}
-          open={open}
-        >
-          <Menu style={{ width: 256 }} mode="inline" items={items} />
-        </Drawer>
-      }
+  return isMobile ? (
+    <div className="burger-icon-wrapper">
+      <MenuOutlined
+        onClick={() => {
+          showDrawer();
+        }}
+        className="burger-icon"
+      />
+
+      <Drawer
+        closable={false}
+        size={"default"}
+        title={
+          <div className="drawer-title">
+            <div className="site-logo-wrapper site-logo">SHOPPERS</div>
+          </div>
+        }
+        onClose={onClose}
+        open={open}
+      >
+        <Menu style={{ width: 256 }} mode="inline" items={items} />
+      </Drawer>
     </div>
+  ) : (
+    <div />
   );
 }

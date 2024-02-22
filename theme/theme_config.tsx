@@ -2,7 +2,9 @@ import type { ThemeConfig } from "antd";
 import "antd";
 const customTheme: ThemeConfig = {
   components: {
-  
+    Input: {
+      borderRadius: 3,
+    },
     Button: {
       borderRadius: 3,
       controlHeight: 45,
@@ -18,6 +20,10 @@ const customTheme: ThemeConfig = {
       fontSize: 20,
 
       colorPrimary: "#5D53E3",
+    },
+    Modal: {
+      titleFontSize: 25,
+      padding: 20,
     },
   },
   token: {

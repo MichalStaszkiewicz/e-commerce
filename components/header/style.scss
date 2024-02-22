@@ -6,14 +6,12 @@
 
   position: relative;
   align-items: center;
-  
+
   @media screen and (max-width: $breakpoint-md) {
     height: 8rem;
   }
   height: auto;
   .site-top-block {
-
- 
     @include flexbox(row);
     @media screen and (min-width: $breakpoint-xs) {
       width: $content-width-xs;
@@ -139,53 +137,6 @@
       @media screen and (min-width: $breakpoint-md) {
         align-items: center;
       }
-      .side-nav {
-        @include flexbox(row);
-        width: 100%;
-
-        align-items: center;
-        justify-content: end;
-        > * {
-          margin-left: 10px;
-        }
-        &:last-child {
-          margin-right: 0px;
-        }
-        @media screen and (min-width: $breakpoint-xs) {
-          padding-bottom: 20px;
-        }
-        @media screen and (min-width: $breakpoint-md) {
-          padding-bottom: 0px;
-        }
-        .cart-icon {
-          cursor: pointer;
-          color: var(--icon-color);
-          width: 1.15rem;
-          height: 1.15rem;
-          transition: linear;
-          transition: 250ms;
-
-          &:hover {
-            transition: linear;
-            transition: 250ms;
-            color: var(--gray-dark);
-          }
-        }
-        .burger-icon {
-          cursor: pointer;
-          color: var(--icon-color);
-          width: 1.15rem;
-          height: 1.15rem;
-          transition: linear;
-          transition: 250ms;
-
-          &:hover {
-            transition: linear;
-            transition: 250ms;
-            color: black;
-          }
-        }
-      }
     }
   }
 }
@@ -212,4 +163,40 @@
     padding-left: 10px;
     padding-right: 10px;
   }
+}
+.side-nav {
+
+  @include flexbox(row);
+  width: 100%;
+
+  align-items: center;
+  justify-content: end;
+  > * {
+    margin-left: 10px;
+  }
+  &:last-child {
+
+    margin-right: 0px;
+  }
+  @media screen and (min-width: $breakpoint-xs) {
+    padding-bottom: 20px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    padding-bottom: 0px;
+  }
+  .side-nav-icon {
+    cursor: pointer;
+    color: var(--icon-color);
+
+    font-size: 18px;
+    transition: linear;
+    transition: 250ms;
+
+    &:hover {
+      transition: linear;
+      transition: 250ms;
+      color: var(--gray-dark);
+    }
+  }
+ 
 }
