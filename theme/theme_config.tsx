@@ -17,7 +17,7 @@ const customTheme: ThemeConfig = {
       algorithm: true,
     },
     Menu: {
-      fontSize: 20,
+      fontSize: 16,
 
       colorPrimary: "#5D53E3",
     },

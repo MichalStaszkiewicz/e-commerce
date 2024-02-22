@@ -1,0 +1,64 @@
+@import "../../styles/globals.scss";
+@import "../../styles/mixins.scss";
+
+.profile-content-wrapper {
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+  @include flexbox(row);
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  .profile-content {
+    @include flexbox(row);
+
+    height: 100%;
+    width: $content-width-xl;
+  }
+  .profile-list-wrapper {
+    width: 256px;
+    height: 100%;
+
+    margin-right: 20px;
+  }
+  .profile-selected-menu-content {
+    .account-details-wrapper {
+      .title {
+        padding-bottom: 20px;
+        font-size: x-large;
+      }
+
+      width: 845px;
+      height: 100%;
+      .logOut-button-wrapper {
+        @include flexbox(row);
+        justify-content: end;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .logOut-button {
+          height: 35px;
+          width: 100px;
+        }
+      }
+    }
+    .wallet-wrapper {
+      .title {
+        padding-bottom: 20px;
+        font-size: x-large;
+      }
+
+      width: 845px;
+      height: 100%;
+      .save-button-wrapper {
+        @include flexbox(row);
+        justify-content: start;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .logOut-button {
+          height: 35px;
+          width: 100px;
+        }
+      }
+    }
+  }
+}
