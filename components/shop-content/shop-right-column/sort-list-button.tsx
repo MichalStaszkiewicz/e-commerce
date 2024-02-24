@@ -29,15 +29,14 @@ export default function SortListButton(props: SortFilterButtonProps) {
           event: event,
           elementRect: buttonRect,
         });
-        console.log("IsOpen? : " + isOpen);
+
         if (isInsideMenu || isInsideButton) {
+       
           if (isInsideButton && isOpen) {
-            //setIsOpen(false);
+            setIsOpen(false);
           } else {
             setIsOpen(true);
           }
-        } else {
-          setIsOpen(false);
         }
       } else {
         if (button.getBoundingClientRect() != null) {
@@ -46,6 +45,7 @@ export default function SortListButton(props: SortFilterButtonProps) {
             event: event,
             elementRect: buttonRect,
           });
+          console.log("button is valid ");
 
           if (isInsideButton) {
             setIsOpen(true);
@@ -66,7 +66,7 @@ export default function SortListButton(props: SortFilterButtonProps) {
         }}
         onPointerUp={() => {
           console.log("tapped");
-          setIsOpen(true);
+          //   setIsOpen(true);
         }}
       >
         <p>{props.label}</p>

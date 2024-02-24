@@ -18,7 +18,7 @@ export function SortList(props: SortMenuProps) {
   function onClick(sortBy: SortBy, filterBy: FilterBy, label: string) {
     let products;
     props.setMenuOpen(false);
-
+    console.log("clicked on : " + label);
     console.log("set menu open function type " + props.setMenuOpen);
 
     if (
