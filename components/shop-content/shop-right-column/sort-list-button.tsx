@@ -11,12 +11,13 @@ export default function SortListButton(props: SortFilterButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const buttonRef = React.createRef<HTMLDivElement>();
-  const menuRef = React.createRef<HTMLDivElement>();
+  let menuRef = React.createRef<HTMLDivElement>();
 
   window.addEventListener("mousedown", (event: MouseEvent) => {
     const button = buttonRef.current;
+    console.log("tapped on position :  " + event.clientX + " " + event.clientY);
     if (button != null) {
-      if (isOpen && button.getBoundingClientRect() != null) {
+      if (isOpen && buttonRef != null) {
         const buttonRect = button.getBoundingClientRect();
         const menuRect = menuRef!.current!.getBoundingClientRect();
 
@@ -31,12 +32,13 @@ export default function SortListButton(props: SortFilterButtonProps) {
         });
 
         if (isInsideMenu || isInsideButton) {
-       
           if (isInsideButton && isOpen) {
             setIsOpen(false);
           } else {
             setIsOpen(true);
           }
+        } else {
+          setIsOpen(false);
         }
       } else {
         if (button.getBoundingClientRect() != null) {
@@ -76,12 +78,14 @@ export default function SortListButton(props: SortFilterButtonProps) {
         />
       </div>
       {isOpen ? (
-        <div ref={menuRef}>
+        <div>
           <SortList
             labels={props.method}
             onRefReady={function (
               sortMenu: React.RefObject<HTMLDivElement>
-            ): void {}}
+            ): void {
+              menuRef = sortMenu;
+            }}
             setMenuOpen={setIsOpen}
           />
         </div>

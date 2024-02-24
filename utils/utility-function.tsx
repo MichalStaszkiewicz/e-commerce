@@ -209,10 +209,31 @@ export default async function AnimationOnVisible({
 export function clickedInsideElement({
   event,
   elementRect,
+ 
 }: {
   event: MouseEvent;
   elementRect: DOMRect;
+
 }) {
+
+    console.log(
+      "event.clientX >= elementRect.left " + (event.clientX >= elementRect.left)
+    );
+    console.log(
+      "event.clientX <= elementRect.right " +
+        (event.clientX <= elementRect.right)
+    );
+    console.log(
+      "event.clientY >= elementRect.top " + (event.clientY >= elementRect.top)
+    );
+    console.log(
+      "event.clientY <= elementRect.bottom " +
+        (event.clientY <= elementRect.bottom)
+    );
+    console.log("Event client y " + event.clientY + ' ' + "Element rect bottom " + elementRect.bottom);
+
+
+
   const isInside =
     event.clientX >= elementRect.left &&
     event.clientX <= elementRect.right &&
