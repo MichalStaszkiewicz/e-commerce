@@ -12,6 +12,8 @@ import {
 import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 import customTheme from "@/theme/theme_config";
 import { useState } from "react";
+import useMediaQuery from "@/hooks/use-media-query";
+import { breakpoints } from "@/utils/breakpoints";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -37,6 +39,9 @@ const items: MenuProps["items"] = [
   getItem("Wallet", 1, <WalletOutlined />),
 ];
 export default function ProfileContent() {
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg})`);
+  const isTablet = useMediaQuery(`(min-width: ${breakpoints.md})`);
+  const isMobile = useMediaQuery(`(min-width: ${breakpoints.xs})`);
   const [index, setSelectedIndex] = useState(0);
   const onClick: MenuProps["onClick"] = (e) => {
     setSelectedIndex(parseInt(e.key));
@@ -49,8 +54,8 @@ export default function ProfileContent() {
       return ProfileWallet();
     }
   }
-  return (
-    <ConfigProvider theme={customTheme}>
+  function ViewDesktop() {
+    return (
       <div className="profile-content-wrapper">
         <div className="profile-content">
           <div className="profile-list-wrapper">
@@ -68,8 +73,62 @@ export default function ProfileContent() {
           </div>
         </div>
       </div>
-    </ConfigProvider>
-  );
+    );
+  }
+  function ViewTablet() {
+    return (
+      <div className="profile-content-wrapper">
+        <div className="profile-content">
+          <div className="profile-list-wrapper">
+            <Menu
+              onClick={onClick}
+              style={{ width: "100%" }}
+              defaultSelectedKeys={["0"]}
+              defaultOpenKeys={["sub1"]}
+              mode="inline"
+              items={items}
+            />
+          </div>
+          <div className="profile-selected-menu-content">
+            {getProfileContent()}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  function ViewMobile() {
+    return (
+      <div className="profile-content-wrapper">
+        <div className="profile-content">
+          <div className="profile-list-wrapper">
+            <Menu
+              onClick={onClick}
+              style={{ width: "100%" }}
+              defaultSelectedKeys={["0"]}
+              defaultOpenKeys={["sub1"]}
+              mode="inline"
+              items={items}
+            />
+          </div>
+          <div className="profile-selected-menu-content">
+            {getProfileContent()}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  function RenderView() {
+    if (isDesktop) {
+      return ViewDesktop();
+    } else if (isTablet) {
+      return ViewTablet();
+    } else {
+      return ViewMobile();
+    }
+  }
+  return <ConfigProvider theme={customTheme}>{RenderView()}</ConfigProvider>;
 }
 function ProfileAccountDetails() {
   return (

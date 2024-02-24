@@ -4,37 +4,73 @@
 .profile-content-wrapper {
   padding-bottom: 20px;
   padding-top: 20px;
-
-  @include flexbox(row);
+  position: relative;
+  display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
-  .profile-content {
-    @include flexbox(row);
+  height: auto;
 
+  .profile-content {
     height: 100%;
-    width: $content-width-xl;
+    @media screen and (min-width: $breakpoint-xs) {
+      @include flexbox(column);
+
+      width: $content-width-xs;
+    }
+    @media screen and (min-width: $breakpoint-sm) {
+      width: $content-width-sm;
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      width: $content-width-md;
+    }
+    @media screen and (min-width: $breakpoint-lg) {
+      width: $content-width-lg;
+      @include flexbox(row);
+    }
+    @media screen and (min-width: $breakpoint-xl) {
+      width: $content-width-xl;
+    }
   }
   .profile-list-wrapper {
-    width: 256px;
-    height: 100%;
+    position: relative;
 
-    margin-right: 20px;
+    height: 100%;
+    @media screen and (min-width: $breakpoint-xs) {
+      width: $content-width-xs;
+    }
+    @media screen and (min-width: $breakpoint-md) {
+      margin-right: 20px;
+      width: 100%;
+    }
   }
   .profile-selected-menu-content {
+    position: relative;
+
     .account-details-wrapper {
+      position: relative;
+      @include flexbox(column);
       .title {
         padding-bottom: 20px;
         font-size: x-large;
       }
 
-      width: 845px;
+      @media screen and (min-width: $breakpoint-lg) {
+        width: 500px;
+      }
+      @media screen and (min-width: $breakpoint-xl) {
+        width: 845px;
+      }
       height: 100%;
+      position: relative;
       .logOut-button-wrapper {
+        position: relative;
         @include flexbox(row);
+        height: 100%;
         justify-content: end;
+        align-items: end;
         padding-top: 20px;
         padding-bottom: 20px;
+
         .logOut-button {
           height: 35px;
           width: 100px;
