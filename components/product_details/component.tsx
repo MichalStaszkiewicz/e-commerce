@@ -1,6 +1,6 @@
 "use client";
 import "@/components/product_details/style.scss";
-import { Button, ConfigProvider, Radio } from "antd";
+import { Button, ConfigProvider, Radio, notification } from "antd";
 import SelectProductCount from "../select_product_quantity/component";
 import customTheme from "@/theme/theme_config";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -26,8 +26,40 @@ export default function ProductDetails() {
       scroll: false,
     });
   }, [state.size, state.productCount]);
-  function onPathUpdate() {}
+  const openNotification = (itemName: string) => {
+    notification.open({
+      message: "New product in cart!",
+      description: (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-evenly",
+          }}
+        >
+          {/* <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignContent: "center",
+              alignItems: "center",
+              height: "100%",
+            }}
+          >
+            <img
+              src={"/images/cloth_1.jpg"}
+              alt={itemName}
+              style={{ width: "50px", height: "50px" }}
+            />
+            <p style={{ color: "var(--primary-color)" ,fontSize:"20px"}}>50$</p>
+          </div> */}
 
+          <p>{itemName} has been added to cart</p>
+        </div>
+      ),
+      onClick: () => {},
+    });
+  };
   return (
     <div className="product-details-conetnt">
       <div className="product-details-wrapper">
@@ -62,7 +94,6 @@ export default function ProductDetails() {
                 <Radio
                   onClick={() => {
                     setState({ ...state, size: "Small" });
-                    onPathUpdate();
                   }}
                   value={"Small"}
                 >
@@ -71,7 +102,6 @@ export default function ProductDetails() {
                 <Radio
                   onClick={() => {
                     setState({ ...state, size: "Medium" });
-                    onPathUpdate();
                   }}
                   value={"Medium"}
                 >
@@ -80,7 +110,6 @@ export default function ProductDetails() {
                 <Radio
                   onClick={() => {
                     setState({ ...state, size: "Large" });
-                    onPathUpdate();
                   }}
                   value={"Large"}
                 >
@@ -89,7 +118,6 @@ export default function ProductDetails() {
                 <Radio
                   onClick={() => {
                     setState({ ...state, size: "Extra Large" });
-                    onPathUpdate();
                   }}
                   value={"Extra Large"}
                 >
@@ -108,7 +136,7 @@ export default function ProductDetails() {
                 borderRadius: "3px",
               }}
               onClick={() => {
-                router.push("/cart");
+                openNotification("Tank Top");
               }}
             >
               ADD TO CART
