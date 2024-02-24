@@ -26,7 +26,7 @@ export function ShopProvider({ children }: any) {
     originalProducts: [],
     paginationPage: 0,
     productsPerPage: 9,
-    selectedCategories: [],
+    selectedCategory: FilterBy.none,
     selectedSizes: [],
     minPrice: 0,
     maxPrice: 1000,
@@ -38,6 +38,8 @@ export function ShopProvider({ children }: any) {
   useEffect(() => {
     if (isReady) {
       setRouterPath();
+      console.log("ORIGINAL PRODUCTS", shopState.originalProducts);
+      console.log("PRODUCTS", shopState.products);
       setState({
         ...shopState,
         loading: false,
@@ -48,7 +50,7 @@ export function ShopProvider({ children }: any) {
     shopState.minPrice,
     shopState.maxPrice,
     shopState.selectedSizes.length,
-    shopState.selectedCategories.length,
+    shopState.selectedCategory,
   ]);
   function setRouterPath() {
     router.push(
@@ -108,13 +110,9 @@ export function ShopProvider({ children }: any) {
   }
   function filterProducts() {
     let products = shopState.originalProducts;
-
-    if (shopState.selectedCategories.length > 0) {
-      let categoryFilter: FilterBy = FilterBy.none;
-      categoryFilter = filterByFromCategory(
-        shopState.selectedCategories[shopState.selectedCategories.length - 1]
-      );
-      products = filterByCategory(categoryFilter, products);
+    let selectedCategory = shopState.selectedCategory;
+    if (selectedCategory != FilterBy.none) {
+      products = filterByCategory(selectedCategory, products);
     }
 
     const filteredProductsByPrice = filterByPrice(

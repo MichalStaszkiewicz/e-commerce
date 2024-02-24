@@ -26,11 +26,12 @@ export function SortList(props: SortMenuProps) {
       filterBy === FilterBy.women ||
       filterBy === FilterBy.men
     ) {
-      let selectedCategories = shop.shopState.selectedCategories;
-      selectedCategories.push(label.toLowerCase());
+      let selectedCategory = filterBy;
+
+      console.log("selected categories " + selectedCategory);
       shop.setState({
         ...shop.shopState,
-        selectedCategories: selectedCategories,
+        selectedCategory: selectedCategory,
       });
       return;
     } else {

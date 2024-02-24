@@ -1,3 +1,4 @@
+import { FilterBy } from "@/components/shop-content/shop-right-column/const";
 import { Product } from "@/model/product";
 
 export type ShopState = {
@@ -5,7 +6,7 @@ export type ShopState = {
   error: boolean;
   originalProducts: Product[];
   selectedSizes: string[];
-  selectedCategories: string[];
+  selectedCategory: FilterBy;
   products: Product[];
   paginationPage: number;
   productsPerPage: number;
