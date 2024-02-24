@@ -216,6 +216,7 @@ export function clickedInsideElement({
   const isInside =
     event.clientX >= elementRect.left &&
     event.clientX <= elementRect.right &&
-    event.clientY >= elementRect.top;
+    event.clientY >= elementRect.top &&
+    event.clientY <= elementRect.bottom;
   return isInside;
 }
