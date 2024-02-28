@@ -8,14 +8,33 @@ import { useRouter } from "next/navigation";
 import CartTableEntry from "./table_entry/component";
 import CartTableHeader from "./cart-table-header/component";
 import { useSearchParams } from "react-router-dom";
-
+import { Product } from "@/model/product";
+import { CartProvider } from "@/context/cart/cart";
+import { useCart } from "@/hooks/use-cart";
+import { formatPrice } from "@/utils/utility-function";
+export type CartProduct = {
+  product: Product;
+  quantity: number;
+  id: number;
+  totalPrice: number;
+};
 export default function CartContent() {
   const [ready, setReady] = useState(false);
+  const [products, setProducts] = useState<CartProduct[]>([]);
   const router = useRouter();
-
+  const cart = useCart();
+  useEffect(() => {
+    setProducts(cart.cartState.cartProducts);
+  }, [cart.cartState.cartProducts]);
   useLayoutEffect(() => {
     setReady(true);
   });
+
+  function RenderTableProductEntries(products: CartProduct[]) {
+    return products.map((entry, index) => {
+      return <CartTableEntry entry={entry}></CartTableEntry>;
+    });
+  }
 
   return ready ? (
     <ConfigProvider theme={customTheme} direction="ltr">
@@ -24,9 +43,7 @@ export default function CartContent() {
           <div className="table-wrapper">
             <table>
               <CartTableHeader></CartTableHeader>
-              <tbody>
-                <CartTableEntry></CartTableEntry>
-              </tbody>
+              <tbody>{RenderTableProductEntries(products)}</tbody>
             </table>
           </div>
 
@@ -52,9 +69,9 @@ export default function CartContent() {
                   </p>
                   <div className="apply-coupon-wrapper">
                     <input placeholder="Coupon Code" type="text" />
-                    <Button className="apply-coupon-button"
+                    <Button
+                      className="apply-coupon-button"
                       style={{
-                    
                         borderRadius: "3px",
                         paddingLeft: "25px",
                         paddingRight: "25px",
@@ -74,94 +91,19 @@ export default function CartContent() {
                 </div>
 
                 <div className="entry-list">
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>{" "}
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>
-                  <div className="cart-total-entry">
-                    <p className="label">Subtotal</p>
-                    <p className="price">$230.00</p>
-                  </div>
+                  {products.map((product, index) => {
+                    return (
+                      <div className="cart-total-entry">
+                        <p className="label">Subtotal</p>
+                        <p className="price">
+                          $
+                          {formatPrice({
+                            price: product.totalPrice,
+                          })}
+                        </p>
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <Button

@@ -125,7 +125,7 @@ export default function ProductDetails() {
                 </Radio>
               </Radio.Group>
             </div>
-            <SelectProductCount size={state.size} />
+            <SelectProductCount inCart={false} size={state.size} itemId={0} />
             <Button
               type="primary"
               size="large"

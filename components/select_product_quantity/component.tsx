@@ -4,10 +4,19 @@ import "./style.scss";
 import * as icons from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/hooks/use-cart";
 
-export default function SelectProductCount({ size }: { size: string }) {
+export default function SelectProductCount({
+  size,
+  inCart,
+  itemId,
+}: {
+  size: string;
+  inCart: boolean;
+  itemId: number;
+}) {
   const [quantity, setQuantity] = useState(1);
-
+  const cart = useCart();
   const [focused, setFocused] = useState(false);
   let inputProductRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
@@ -28,8 +37,22 @@ export default function SelectProductCount({ size }: { size: string }) {
     }
   }, [inputProductRef]);
   useEffect(() => {
-    onPathUpdate();
+    if (inCart) {
+      setCartItemQuantity();
+    } else {
+      onPathUpdate();
+    }
   }, [quantity]);
+  function setCartItemQuantity() {
+    const products = cart.cartState.cartProducts;
+    products.forEach((product) => {
+      if (product.id === itemId) {
+        product.quantity = quantity;
+     
+        cart.setState({ cartProducts: products });
+      }
+    });
+  }
   return (
     <div className="select-product-wrapper">
       <div
@@ -60,7 +83,6 @@ export default function SelectProductCount({ size }: { size: string }) {
         <input
           ref={inputProductRef}
           value={quantity}
-      
           onChange={(event) => {
             setQuantity(event.target.valueAsNumber);
             console.log(event.target.focus);
