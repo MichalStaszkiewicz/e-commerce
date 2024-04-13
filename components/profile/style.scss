@@ -1,0 +1,57 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/globals.scss";
+.profile-content-wrapper {
+  @include flexbox(row);
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 800px;
+}
+.profile-content {
+  @include flexbox(row);
+  @media screen and (min-width: $breakpoint-xs) {
+    width: 100%;
+  }
+  @media screen and (min-width: $breakpoint-sm) {
+    width: 576px;
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    width: 750px;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    width: 1300px;
+  }
+  height: 100%;
+}
+.input-container {
+  width: 350px
+
+}
+.profile-input-row {
+  @include flexbox(row);
+  align-items: start;
+  justify-content: space-between;
+  width: 80%;
+
+}
+.profile-menu {
+  @include flexbox(row);
+
+  flex: 1;
+  height: 100%;
+
+  justify-content: start;
+}
+.profile-selected-view-content {
+  @include flexbox(column);
+  height: 100%;
+  align-items: center;
+ 
+
+  flex: 4;
+  &>*{
+    margin-top: 20px;
+  }
+}

@@ -31,6 +31,13 @@ export default function SideNavigation() {
               router.push("/cart");
             }}
           />
+           <FontAwesomeIcon
+            className="cart-icon"
+            icon={icons.faUser}
+            onClick={() => {
+              router.push("/profile");
+            }}
+          />
           {BurgerIcon()}
         </div>
       </ConfigProvider>

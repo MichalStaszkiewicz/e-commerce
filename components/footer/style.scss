@@ -19,7 +19,7 @@
     justify-items: center;
     flex-wrap: wrap;
     @include flexbox(row);
-    display: flex;
+
     @media screen and (min-width: $breakpoint-xs) {
       width: 100%;
     }
